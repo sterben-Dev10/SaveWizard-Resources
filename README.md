@@ -2,7 +2,7 @@
 SaveWizard Resource's Links  
 
 [SaveWizard] Code Generators  
-https://qcgenerators.com  (USA Only, Use VPN)  
+https://qcgenerators.com
 
 **Discord Servers**  
 https://discord.gg/3N8gWYk (Save Wizard Discord)  
