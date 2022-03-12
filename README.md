@@ -1,5 +1,4 @@
-# SaveWizard-Resources
-SaveWizard Resource's Links  
+# Discord Servers & SW Resources
 
 SaveWizard Code Generators  
 https://qcgenerators.com
