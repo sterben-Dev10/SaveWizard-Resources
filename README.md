@@ -1,6 +1,6 @@
 # Discord Servers & SW Resources
 
-SaveWizard Code Generators  
+**SaveWizard Code Generators**  
 https://qcgenerators.com
 
 **Discord Servers**  
