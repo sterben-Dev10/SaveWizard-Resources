@@ -95,7 +95,7 @@ d492
 6064 Medicine Case (type2
 982b
 
-More ids: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/Noah%202%20-%20skill%20ids%20for%20equipment%20%5BSaveWizard%5D.txt
+More ids: https://raw.githubusercontent.com/sterben-Dev10/SaveWizard-Resources/main/SaveWizard-Codes/Noah%202%20-%20skill%20ids%20for%20equipment%20%5BSaveWizard%5D.txt
 
 Notes: 
 If you have questions, try changing the accessories ID or search times (8001-> 8002-> 8003)
@@ -424,7 +424,7 @@ F0DAF0DA 00000000
 Notes: Remember to sell 1 item and buy it back @ the blacksmith. Otherwise you won't see them "activate"
 - ### END ### -
 
-skill ids for equipment: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/Noah%202%20-%20skill%20ids%20for%20equipment%20%5BSaveWizard%5D.txt (.d.C.)
+skill ids for equipment: https://raw.githubusercontent.com/sterben-Dev10/SaveWizard-Resources/main/SaveWizard-Codes/Noah%202%20-%20skill%20ids%20for%20equipment%20%5BSaveWizard%5D.txt (.d.C.)
 
 # noodles, Cyane - Discord #
 
@@ -558,8 +558,8 @@ Notes: As long as you have one of the item you want already in your inventory th
 it will set ALL items in your inv to 9999
 
 #### NOTES|Other #### | Most of these are only relevant if you know to manually edit saves via Hex Editing (more mods)
-Nioh 2 Experimental Codes # 1 (Skiller): https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/Nioh%202%20Experimental%20Codes%20%23%201%20(Skiller)%20%5BSaveWizard%5D.txt (not sure what this does...)
-Other Notes Regarding IDs etc: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/Nioh%202%20Notes%20%5BSaveWizard%5D.txt [Updated 31.03.2020]
+Nioh 2 Experimental Codes # 1 (Skiller): https://raw.githubusercontent.com/sterben-Dev10/SaveWizard-Resources/main/SaveWizard-Codes/Nioh%202%20Experimental%20Codes%20%23%201%20(Skiller)%20%5BSaveWizard%5D.txt (not sure what this does...)
+Other Notes Regarding IDs etc: https://raw.githubusercontent.com/sterben-Dev10/SaveWizard-Resources/main/SaveWizard-Codes/Nioh%202%20Notes%20%5BSaveWizard%5D.txt [Updated 31.03.2020]
 Nioh 2 Eq-item editor: https://drive.google.com/drive/folders/1dRc9AA4_8p2x9cbw4BSbGnkDNsh7Vfuu (Cheat Engine To SW)
 NIOH2_21.0_by45 (Nioh 2 Save Editor PC-PS4?) [Chinese]: https://www.mediafire.com/file/6t79j9j6yefhqlc | Mirror: https://mega.nz/#!gksQ0a7B!oaxPascoln-kp_4Kl86Y7ZkcXSxdntFnhtRCzXMmlGA
 Save Editor Image: https://i.imgur.com/uskTVpT.png
