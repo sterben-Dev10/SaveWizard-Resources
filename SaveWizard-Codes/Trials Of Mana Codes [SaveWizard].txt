@@ -734,7 +734,7 @@ MP 400
 28000025 00000190
 
 # Other Notes, AM #
-Trials Of Mana Notes-ID's: https://pastebin.com/AtQ7FsXE
+Trials Of Mana Notes-ID's: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/Trials%20Of%20Mana%20Notes-ID's.txt
 http://save-editor.com/tools/wse_hex.html - a useful tool for converting Dec to Hex, & Big Endian to little Endian etc..
 starting from this post here: https://discordapp.com/channels/418445798062161940/705856489721430087/707832135200931892 Skiller & Pj1980 go into more detail on how to edit in the item's.
 be sure you have joined in https://discord.gg/savewizard to view the message's.

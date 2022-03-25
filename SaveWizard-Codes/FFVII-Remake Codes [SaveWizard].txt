@@ -10,7 +10,7 @@ Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 
 -- I will keep this updated as long as I can, as updates made to the game do sometimes break codes & they do get updated 
 
-FFVII-Remake Experimental Codes-Notes [SaveWizard]: https://pastebin.com/djGtys3a
+FFVII-Remake Experimental Codes-Notes [SaveWizard]: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/FFVII-Remake%20Experimental%20Codes-Notes%20%5BSaveWizard%5D.txt
 http://web.save-editor.com/bbs/index_saveeditor.html <-- The JP Site where other codes come from (well i think) [use chrome to auto-translate]
 
 Mods Thread Discussion: http://web.save-editor.com/bbs/patchcode/ps4/bbs.cgi?list=pickup&num=26460# (Codes Here)
@@ -23,15 +23,15 @@ Auto-generated codes by Khuong (uses Jimmy's Template, auto-fills with spreadshe
 https://khuong.ca/sges/ff7r/qcs.php (many codes here)
 
 khuong's (testbot) Generated GC's Mirror
-Part A: https://pastebin.com/fUEBCB12 (07.05.2020) <-- Last Updated [GMT+10]
-Part B: https://pastebin.com/3nZT5hea (07.05.2020) <-- Last Updated [GMT+10]
+Part A: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/FFVII%20-%20khuong%20QC%20Part%20A%20%5BSaveWizard%5D.txt (07.05.2020) <-- Last Updated [GMT+10]
+Part B: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/FFVII%20-%20khuong%20QC%20Part%20B%20%5BSaveWizard%5D.txt (07.05.2020) <-- Last Updated [GMT+10]
 Notes: while most of these codes are the same, they do get updated the offsets change i've noticed... 
 try comparing the codes with the ones on NGU or Hackinformer you will notice its not 100% a 1 FOR 1 Copy.
 
 Xeeynamo's Save Editor: https://github.com/Xeeynamo/KH3SaveEditor/releases (Technically its a KH editor but support for FFVII is being added)
 El'Capitano FFVII Save Editor: https://mega.nz/file/u1JSSQoI#Lyo5g5Cj_28_t4LPp14b4743gypHVVL30L9HQjd-YdE | Mirror: https://mega.nz/file/UkNwQQgQ#wGLLV6IOaNJuayOvplzaRCKLImHF2nElPx6d6jdogmQ
 
-FFVII Save Set Downloads (Trophies etc..) Refer To: https://pastebin.com/K2A70dDh (FFVII-Remake Notes-IDs [SaveWizard])
+FFVII Save Set Downloads (Trophies etc..) Refer To: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/FFVII-Remake%20Notes-IDs%20%5BSaveWizard%5D.txt (FFVII-Remake Notes-IDs [SaveWizard])
 
 Unlock All Weapon Abilities
 400345E6 0000000A
@@ -551,7 +551,7 @@ Notes:
 Does not add starting weapons, so if you've somehow lost those, you're on your own. 
 For best results, use at the start of the game only.
 
-10x Each Materia: https://pastebin.com/5dPchH4A
+10x Each Materia: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/FFVII-Remake%20Materia%20List.txt
 
 Add Materia
 95000000 00001840
@@ -1204,7 +1204,7 @@ Teamwork Max Stats code (NGU)
 
 
 # Other Notes, AM #
-FFVII-Remake Notes-IDs: https://pastebin.com/K2A70dDh
+FFVII-Remake Notes-IDs: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/FFVII-Remake%20Notes-IDs%20%5BSaveWizard%5D.txt
 
 https://khuong.ca/sges/ff7r/test.php - a breakdown of locations within save
 
@@ -1213,7 +1213,7 @@ Google Doc (From Demo of the game): https://docs.google.com/spreadsheets/d/1JSKb
 Unix Hex Timestamp Converter: https://www.epochconverter.com/hex | https://www.unixtimestamp.com/index.php - needed for something..
 
 # Silent Knight #
-FFVII-Remake Materia List: https://pastebin.com/5dPchH4A
+FFVII-Remake Materia List: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/FFVII-Remake%20Materia%20List.txt
 
 # Code Wizard #
 items starting point 
