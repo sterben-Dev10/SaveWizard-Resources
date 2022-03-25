@@ -345,7 +345,7 @@ NNNNXXXX XXXX0000 <-- IDs You Want
 Notes: Same as [V5] Equipment Mod, Just Use with SW Built-in Character Slots version.
 
 ## Outdated Codes ##
-https://raw.githubusercontent.com/sterben-Dev10/SaveWizard-Resources/main/SaveWizard-Codes/Elden%20Ring%20%5BSaveWizard%5D%20(Outdated).txt
+https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/Elden%20Ring%20%5BSaveWizard%5D%20(Outdated).txt
 
 ## Additional AM Notes ##
-https://raw.githubusercontent.com/sterben-Dev10/SaveWizard-Resources/main/SaveWizard-Codes/Eldern%20Ring%20AM%20%5BSaveWizard%5D.txt
+https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/Eldern%20Ring%20AM%20%5BSaveWizard%5D.txt
