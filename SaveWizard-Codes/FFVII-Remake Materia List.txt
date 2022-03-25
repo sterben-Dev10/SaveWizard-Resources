@@ -1,0 +1,50 @@
+Materia List:
+
+Healing Materia – Use Cure / Cura / Regen / Curaga
+Cleansing Materia – Use Poisona / Esuna / Resist
+Revival Materia – Use Raise / Arise
+Fire Materia – Use Fire / Fira / Firaga
+Ice Materia – Use Blizzard / Blizzara / Blizzaga
+Lightning Materia – Use Thunder / Thundara / Thundaga
+Wind Materia – Use Aero / Aerora / Aeroga
+Poison Materia – Use Bio / Biora / Bioga
+Barrier Materia – Use Barrier / Manaward / Manawall
+Binding Materia – Use Sleep / Silence / Berserk
+Subversion Materia – Use Breach / Dispel
+Time Materia – Use Haste / Slow / Stop
+Elemental Materia – Add 8% / 15% / 23% linked elemental damage dealt & halves / prevents / absorbs elemental damage taken
+Magnify Materia – Expand range of linked materia (effect reduced by 60% / 45% / 25% when expanded)
+Warding Materia – Reduce debuff duration by 25% / 50% / 100%
+Synergy Materia – Activate Synergy (allows an ally to follow the leader’s attack command with an attack from linked materia)
+HP Absorption Materia – Absorb HP (20% / 30% / 40% damage dealt)
+MP Absorption Materia – Absorb MP (0.1% of damage dealt)
+Chakra Materia – Use Chakra (Restore 20% / 25% / 30% / 35% / 40% HP of damage taken)
+Assess Materia – Use Assess on a single target / all targets
+ATB Boost Materia – Use ATB Boost (cooldown: 360s / 300s / 240s / 180s / 120s)
+Prayer Materia – Use Pray (Slight / Modest / Moderate / Great / Significant HP Restoration)
+Steal Materia – Use Steal (steal items from enemies)
+Enemy Skill Materia – Learn and use enemy skills
+HP Up Materia – Max HP boost of 10% / 20% / 30% / 40% / 50%
+MP Up Materia – Max MP boost of 10% / 20% / 30% / 40% / 50%
+Magic Up Materia – Magic boost of 5% / 10% / 15% / 20% / 25%
+Luck Up Materia – Luck boost of 10% / 20% / 30% / 40% / 50%
+Gil Up Materia – Increase gil earned by 100%
+EXP Up Materia – Increase EXP earned by 100%
+Deadly Dodge Materia – Use Deadly Dodge / Increase the potency and effect of Deadly Dodge
+Parry Materia – Use Parry / Increase damage dealth with Parry + slight ATB boost
+First Strike Materia – Small / Medium / Large ATB increase at start of battle
+Auto-Cure Materia – Auto-Cure (up to 3 or 10 times per battle)
+Item Master Materia – Increase item efficacy by 30% / 40% / 50% during battle
+ATB Stagger Materia – Small / Medium / Large ATB boost on staggering foe
+ATB Assist Materia – Small / Medium / Large ATB increase for ally when repeating command 2 times
+Provoke Materia – Draw enemy’s attention when teammates are severely injured
+Steadfast Block Materia – Take less damage & medium ATB boost when guarding
+Skill Mater Materia – Small / Medium / Large ATB increase when using 3 types of commands
+Refocus Materia – Use the Refocus limit break
+Pedometer Materia – Gives a reward when travelling a certain number of steps
+Ifrit Materia – Summon Ifrit
+Chocobo & Moogle Materia – Summon Chocobo / Moogle
+Shiva Materia – Summon Shiva
+Fat Chocobo Materia – Summon Fat Chocobo
+Leviathan Materia – Summon Leviathan
+Bahamut Materia – Summon Bahamut

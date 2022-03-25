@@ -1,0 +1,66 @@
+Credits: AndreaSilverEyes, Mhallice
+
+CONSUMABLE AND UPGRADE MATS MAX AND SWAPPING		
+
+Example set:		
+		
+ID          TYPE                    ITEM NAME		
+B027    Bolstering material    Somber SMithing Stone [1]		
+B827    Bolstering material    Somber Ancient Dragon Smithing Stone		
+		
+Searching for the item to replace:		
+-add 00 B0 to the end of item ID = B02700B0 Somber SMithing Stone [1]		
+-Now search B02700B0		
+-the 5th & 6th column next to the ID B02700B0 will be the quantity.		
+		
+If you want to make sure you found the right address line;		
+-Find out how many you have in hand ingame (e.g. I have 99)		
+-Convert 99 to hex = 0063		
+-Flip 0063 = 6300		
+-Back to Searching; Add 0063 to the end of B02700B0 = B02700B00063		
+		
+ID    In hand??    QTY.		
+B027    00B0        0063		
+		
+-now it's found it's time to swap it  to B827 Somber Ancient Dragon Smithing Stone		
+-add 00B0 to B827 (Somber Ancient Dragon Smithing Stone) = B82700B0		
+-overwrite B02700B0 (Somber SMithing Stone [1]) to B82700B0 (Somber Ancient Dragon Smithing Stone)		
+		
+-now to max it out we go for 999 (previous amount was 99[0063])		
+-Convert 999 to hex = 03E7 then flip = E703		
+-replace the qty.99[0063] to 999[E703] = B82700B0E703		
+		
+ID    in Hand??    qty.		
+B827    00B0        E703		
+		
+Result 999 Somber Ancient Dragon Smithing Stone
+
+###########
+
+MAX +WEAPON/SHIELD lvl:
+(!) Be wary that if you have not upgraded a +10/25 shield or wpn,when you
+drop the max equipment on the floor you will never see it on the ground,
+therefore, I recommend  having a maxed out +lvl through upgrading first.(!)
+
+-convert first 2 digits of the item number to DEC.
+(B0770401    Treespear+0)
+(B0=176)
+-MAx upgrade level for TreeSpear is +25
+-Add 25 to 176(B0) = 201
+-Convert 201 to HEX = C9
+-Replace first 2 digits of weapon's item ID to C9
+Result, +25 TreeSpear C9770401
+
+###########
+
+Load Screen	  Slot      Data Sections
+019019CE    - Slot 01 -     00000070
+01901C1A    - Slot 02 -     00280070
+01901E66    - Slot 03 -     00500070
+019020B2    - Slot 04 -     00780070
+019022FE    - Slot 05 -     00A00070
+0190254A    - Slot 06 -     00C80070
+01902796    - Slot 07 -     00F00070
+019029E2    - Slot 08 -     01180070
+01902C2E    - Slot 09 -     01400070
+01902E7A    - Slot 10 -     01680070

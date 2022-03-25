@@ -1,0 +1,339 @@
+(Skiller#4741) - Google Docs Mirror
+
+- ### START ### -
+Activator(Must Be On) V1.00 to 1.04
+80010006 5F502EE2
+4A200000 00000000
+93000000 0000000C
+
+Activator(Must Be On) V1.05
+80010006 5F502EE2
+4B200000 00000000
+93000000 0000000C
+- ### END ### -
+Notes: any codes that are in this format below need to use the activator code on top 1st.
+EG: to use Infinite Resolve On - 280001B4 00000002 on 1.05+
+280001B4 00000002 would become this:
+
+80010006 5F502EE2 <-- Activator
+4B200000 00000000 <-- Activator
+93000000 0000000C <-- Activator
+280001B4 00000002 <-- Code
+
+Resolve + 4
+280001AB 00000002
+280001BD 00000002
+280001C6 00000002
+280001CF 00000002
+
+Inf Resolve
+280001B4 00000002
+
+Inf Resolve Off
+280001B4 00000001
+
+Have All Banners
+4A001098 00000002
+4050000B 00000000
+
+Have All Mongol Artifacts
+4A00148F 00000002
+4032000B 00000000
+
+Have All Records
+4A0016C7 00000002
+4028000B 00000000
+
+Have All Singing Crickets
+4A0018B5 00000002
+4014000B 00000000
+
+All Fast Tavel
+4A005D03 00000002
+40870007 00000000
+
+Have 15 Horse Saddles
+4A001408 00000002
+400F0009 00000000
+
+Add Armors	
+	
+Add Fundoshi Armor	
+280001A2 00000002	
+	
+Add Ghost Armor	
+28000AB2 00000002	
+	
+Add Kensai Armor	
+28000AA9 00000002	
+	
+The Ken Invasion Armor	#AttackOFTheKens
+28007775 00000002	
+	
+Traveller's Attire	
+2800995F 00000002	
+	
+Prologue Invasion Armour (not broken)	
+28000E5A 00000002	
+	
+Band Of The Second Son	
+28009608 00000002	
+	
+	
+Add HeadGear	
+	
+Farmer's Straw Hat	
+28000AC4 00000002	
+	
+Patchwork Straw Hat	
+28000ABB 00000002	
+	
+Northern Farmer's Hat	
+28000ACD 00000002	
+	
+Deep Night Straw Hat	
+28000AD6 00000002	
+	
+Fierce Warrior's Headband	
+28000ADF 00000002	
+	
+Pure Intent Headband	
+28000AE8 00000002	
+	
+Hinode Headband	
+28000AF1 00000002	
+	
+Tora Headband	
+28000AFA 00000002	
+	
+Serpent Strike Headband	
+28000B03 00000002	
+	
+Kyoto Twilight Headband	
+28000B0C 00000002	
+	
+Night Ocean Headband	
+28000B15 00000002	
+	
+Weathered Straw Hat	
+28000304 00000002	
+	
+Ghost Headband,Ghost Mask	
+28000328 00000002	
+	
+Headband Of Refuge	
+2800917C 00000002	
+	
+Headband OF Invasion	
+28009185 00000002	
+	
+Headband Of Peace	
+2800918E 00000002	
+	
+Headband Of Fear	
+28009197 00000002	
+	
+HeadbandOf Strife	
+280091A0 00000002	
+	
+Headband Of Defeat	
+280091A9 00000002	
+	
+Headband Of Death	
+280091B2 00000002	
+	
+Headband Of Serenity	
+280091BB 00000002	
+	
+Oni's Blade Straw Helmet	
+28009539 00000002	
+	
+Azozora Headband	
+28009566 00000002	
+	
+Forgemaster's Headband	
+28009578 00000002	
+	
+Chikurin Headband	
+2800958A 00000002	
+	
+Wood Spirit Straw Hat	
+280095B7 00000002	
+	
+Gyozen's Blindfold	
+280095C9 00000002	
+	
+Plum Blossom Headband	
+280095DB 00000002	
+	
+Riverbed Straw Hat	
+280095FF 00000002	
+	
+Toyotama Straw Hat	
+2800961A 00000002	
+	
+Crooked Kama Headband	
+28009635 00000002	
+	
+Tengai-Helmet	
+28009659 00000002	
+	
+Sago Blue Headband	
+28009686 00000002	
+	
+Add Masks	
+	
+Seiryuu's Glare	
+2800968F 00000002	
+	
+Skeletal Vengeance	
+28009662 00000002	
+	
+Ivory Of Woe	
+280095C0 00000002	
+	
+Wolf Of Tsushima	
+28007901 00000002	
+	
+Sacred Mountain	
+28007908 00000002	
+	
+Add Charms	
+	
+Charms Of Inari's Might	
+280008BF 00000002	
+	
+Charms Of Inari's Might,Charm Of Silence	
+280008F5 00000002	
+	
+Add Swords	
+	
+Fuujin’s Secret-Sword Kit	
+28009554 00000002	
+	
+Yasha’s Embers-Sword Kit	
+2800955D 00000002	
+	
+Spring Bamboo-Sword Kit	
+2800956F 00000002	
+	
+Genbu’s Darkness-Sword Kit	
+28009581 00000002	
+	
+Wanderer's Straw Hat	
+28009593 00000002	
+	
+Dueling Festival-Sword Kit	
+280095A5 00000002	
+	
+Moon Bear’s Paw-Sword Kit, Yuzu Peel-Sword Kit	
+280095D2 00000002	
+	
+Hijiki in Sunlight-Sword Kit	
+280095E4 00000002	
+	
+Bishamon’s Fortune-Sword Kit	
+280095ED 00000002	
+	
+Gold Koi River-Sword Kit	
+280095F6 00000002	
+	
+Hunting Bear-Sword Kit	
+28009611 00000002	
+	
+Breath of Hachiman-Sword Kit	
+28009623 00000002	
+	
+Warrior’s Faith-Sword Kit	
+2800962C 00000002	
+	
+Island’s Keeper-Sword Kit	
+2800963E 00000002	
+	
+Tanukis-brush-Sword Kit	
+28009647 00000002	
+	
+Hidden Forest-Sword Kit	
+28009650 00000002	
+	
+Azure Dragon-Sword Kit	
+2800966B 00000002	
+	
+Midnight Hanabi-Sword Kit	
+28009674 00000002	
+	
+Sly Tanuki-Sword Kit	
+2800967D 00000002	
+	
+Shogun’s Storm-Sword Kit	
+28009698 00000002	
+	
+Warrior’s Brush-Sword Kit	
+28009530 00000002	
+
+Heavenly Falcon Sword Kit (Gives Your Some Skills)
+2800A1E8 00000002
+	
+Clean up - This is for codes we are currently cleaning up 
+	
+Ronin Attire	
+2800030D 00000002	
+	
+Ronin Attire - Upgrades 2	
+28000316 00000002	
+	
+Ronin Attire - Upgrades 3	
+2800031F 00000002	
+	
+Sakai Clan Helmet	
+280002E0 00000002	
+	
+Sakai’s Armor - Upgrades 1	
+280002E9 00000002	
+	
+Sakai’s Armor - Upgrades 2	
+280002F2 00000002	
+	
+Kensei Hat - Improved,Kensei Hat - Refined,Kensei Headband	
+280002B3 00000002	
+	
+Kensei Hat - Improved,Kensei Headband	
+280002A1 00000002	
+	
+Kensei Headband	
+28000298 00000002	
+	
+Tadayori's Hat-Improved,Tadayori's Hat-Refined	
+2800028F 00000002	
+	
+Tadayori's Hat-Improved	
+28000286 00000002	
+	
+Gosaku's Helmet-Improved,Gosaku's Headband	
+280002C5 00000002	
+	
+Gosaku's Headband	
+280002BC 00000002	
+	
+Gosaku's Helmet-Improved,Gosaku's Headband,Gosaku's Helmet-Refined,Gosaku's Visage (mask)	
+280002CE 00000002	
+	
+Samurai Clan Helmet	
+28000259 00000002	
+	
+Samurai Clan Helmet, Samurai Clan Helmet-Refined,Samurai Clan Mask	
+28000262 00000002	
+
+#Other#
+
+Resolve  + 4 and Bamboo Strikes 6/16
+280001AB 00000002
+280001BD 00000002
+280001C6 00000002
+280001CF 00000002
+28009473 00000002
+2800947C 00000002
+28009485 00000002
+2800948E 00000002
+28009497 00000002
+280094A0 00000002

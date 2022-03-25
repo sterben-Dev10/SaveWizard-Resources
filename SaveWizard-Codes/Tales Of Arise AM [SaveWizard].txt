@@ -1,0 +1,147 @@
+Tales Of Arise Advanced Mode Guide By Lotus#0676
+
+Accessory Modification (ADVANCE MODE ONLY)
+
+The item inventory starts at  B2C77888 (search this value first in AM, or just search B2C7), this IS NOT where accessory are located this is only the start position, to find your accessory you MUST search by the accessory ID, after searching B2C7,  the ID list is provided below. Yes they aren't named. Match the base skill description with ITEM ID list to figure out your accessory. Eg if you have an impact ring its description is +30% penetration, from the list you see the ID for that is  6802. Easy enough to follow. 
+
+01000AA0BB00CCCCDDDDEEEEFFFFGGGG
+
+AA- rank enhancement value- set to 4C( max rank which is 5)
+BB - acquisition order ( don't change this)
+CCCC -Accessory ID (+ Main Ability) 
+D,E,F,G accessory skills 1-4 
+
+The first accessory CCCC (6802) looks like this (impact ring with no additional skills)
+0100??010068020000000000000000
+
+?? is the accessory rank value of your item you always change whatever it is to 4C (AA)
+01 is the acquisition order (BB)
+6802 is the item ID (CCCC)
+0000(4x) is the accessory skill which are blank for this  (D-G)
+
+Here is an example of a correctly modded accessory
+
+01004C030076021900170017001100
+
+This a mystic crest accessory with 40% casting time reduction, 2x 50% chance to half AG cost and movement speed( 20% from the base accessory and 20% from the skill id)
+
+4C- rank 5
+03- acquisition order( meaning it is the 3rd accessory in my inventory, again don't touch this)
+7602- item ID for mystic crest (ALL accessories come with a base skill, this has 20% cast time reduction)
+1900- 20% casting time reduction
+1700- 50% half AG cost chance
+1100- movement speed
+
+ITEM ID for All Accessories
+
+---- ---- ------------------------- 
+5E02 Poison invalid 
+5F02  Freezing invalid 
+6002  Paralysis disabled 
+6102 Curse disabled 
+6202  Fire / water attribute damage reduced by 50% 
+6302  Wind / earth attribute damage reduced by 50% 
+6402  Light / dark attribute damage reduced by 50% 
+6502  Maximum HP + 15% 
+6602 Attack power + 15% 
+6702  Attribute attack power + 15% 
+6802  Penetration + 30% 
+6902  Endurance + 30% 
+6A02  HP 5% recovery when defeating an enemy 
+6B02  CP1 recovery when defeating an enemy 
+6C02  Parameter up when defeating an enemy 
+6D02  Item acquisition rate up 
+6E02  Movement / escape speed + 50% 
+6F02  All attribute damage reduced by 20% 
+7002  20% reduction in physical damage 
+7102    Penetration + 80% / Endurance-80% 
+7202  20% reduction in shaving time  
+7302  Skill consumption CP 20% reduction 
+7402  50% consumption AG halved 
+7502  Revived at 50% 
+7602  Casting time reduced by 20% 
+7702  Parental love
+
+SKILL IDS FOR ALL ACCESSORY  (Yes you are seeing duplicate skills from the accessory IDs list, it means that skills are stackable, for eg: mystic crest has an item id of 7602 with 20% base cast time reduction, 1900 is the skill ID for 20% cast time reduction. So if you wanted an accessory with 100% cast time reduction it would be written as 76021900190019001900 , It would be the base accessory plus the skill ID four times. Have fun with this. 
+
+---- ------------------------- 
+ 0100 Poison invalid 
+ 0200 Freezing invalid 
+ 0300 Paralysis disabled 
+ 0400 Curse disabled 
+ 0500 Fire / water attribute damage reduced by 50% 
+ 0600 Wind / earth attribute damage reduced by 50% 
+ 0700 Light / dark attribute damage reduced by 50% 
+ 0800 Maximum HP + 15% 
+ 0900 Attack power + 15% 
+ 0A00 Attribute attack power + 15% 
+ 0B00 Penetration + 30% 
+ 0C00 Endurance + 30% 
+ 0D00 HP 5% recovery when defeating an enemy 
+ 0E00 CP1 recovery when defeating an enemy 
+ 0F00 Parameter up when defeating an enemy 
+ 1000 Item acquisition rate up 
+ 1100 Movement / escape speed + 50% 
+1200 All elemental damage reduced by 20% 
+ 1300 20% reduction in physical damage 
+ 1400 Penetration + 80% / Endurance-80% 
+1500 20% reduction in shaving time for 
+ 1600 Skill consumption CP 20% reduction 
+ 1700 50% consumption AG halved 
+ 1800 Revived at 50%  
+1900 Casting time reduced by 20% 
+1A00 Parental love 
+9E01 Poison resistance + 25% 
+9F01 Freeze resistance + 25% 
+A001 Paralysis resistance + 25% 
+A101 Curse resistance + 25% 
+A201 Fire / water attribute damage reduced by 10% 
+A301 Wind / ground attribute damage reduced by 10% 
+A401 Light / Dark attribute damage reduced by 10% 
+A501 Maximum HP +200 
+A601 Maximum HP +400 
+A701 Attack power +20 
+A801 Attack power +60 
+A901 Attribute attack power +20 
+AA01 Attribute attack power +60 
+AB01 Penetration +40 
+AC01 Penetration +120 
+AD01 Endurance +40 
+AE01 Endurance +120 
+AF01 Defense +20 
+B001 Defense +60 
+B101 Attribute Defense +20 
+B201 Attribute Defense +60 
+B301 Rare acquisition rate up / small 
+B401 Rare acquisition rate up / large 
+B501 CP consumption reduced by 10% 
+B601 20% consumes half AG 
+B701 Casting time reduced by 5% 
+B801 Counterattack damage + 30% 
+B901 Down damage + 5% 
+BA01 Good at rolling 
+BB01 Down damage + 10% 
+BC01 Battle Mania 
+BD01 Increased ease of targeting / Small 
+BE01 Increased ease of targeting ・ Large 
+BF01 Ease of targeting down / small 
+C001 Ease of being targeted Down / Large 
+C101 AG Recovery speed + 4% 
+C201 AG Recovery speed + 8% 
+C301 BG increase + 4% 
+C401 BG increase + 8% 
+C501 closeout 
+C601 Todome's blow 
+C701 HP maximum damage + 15% 
+C801 Movement / escape speed + 15% 
+C901 Fire damage + 7.5% 
+CA01 Fire damage + 15% 
+CB01 Water damage + 7.5% 
+CC01 Water damage + 15% 
+CD01 Earth attribute damage + 7.5% 
+CE01 Earth attribute damage + 15% 
+CF01 Wind damage + 7.5% 
+D001 Wind damage + 15% 
+D101 Darkness damage + 7.5% 
+D201 Darkness damage + 15% 
+D301 Light damage + 7.5%

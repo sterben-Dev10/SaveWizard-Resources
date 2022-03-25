@@ -1,0 +1,848 @@
+## Outdated Elden Ring Codes ##
+[Skiller#4741]
+Item Swap Template (For Non Armor/Weapon) [V1] - OUTDATED
+-- Start --
+80010004 AAAA00B0
+18000000 0000QQQQ
+-- End --
+Notes:
+AA = Sacrifice Item ID (Key/Storage/Hand-Item_IDS) AM Column
+QQ = Desired Item ID (Key/Storage/Hand-Item_IDS) QC Column
+Edit 8001 to 8002 to target your 2nd character, 8003 3rd character etc.. 
+
+Example Usage - Beast Liver To Deathroot
+-- Start --
+80010004 2A0800B0 <-- AA [2A08] Beast Liver (Sacrifice Item)
+18000000 00003AA2 <-- QQ [3AA2] Deathroot (Desired Item)
+-- End --
+
+Character Data Selection Edit (Template) [Uses Save Slots] [V1] - OUTDATED
+-- Start --
+C4010020 NNNNNNNN
+93000000 00000094
+2800XXXX VVVVVVVV
+95000000 00000000
+-- End --
+Notes: 
+NN = Slot
+    019019CE - Slot 01
+    01901C1A - Slot 02
+    01901E66 - Slot 03
+    019020B2 - Slot 04
+    019022FE - Slot 05
+    0190254A - Slot 06
+    01902796 - Slot 07
+    019029E2 - Slot 08
+    01902C2E - Slot 09
+    01902E7A - Slot 10
+
+XXXX = Type (The thing you want to edit)
+    0008 = HP
+    000C = HP
+    0010 = HP
+    0014 = FP
+    0018 = FP
+    001C = FP
+    0024 = Stamina
+    0028 = Stamina
+    002C = Stamina
+    0034 = Vigor
+    0038 = Mind
+    003C = Endurance
+    0040 = Strength
+    0044 = Dexterity
+    0048 = Intelligence
+    004C = Faith
+    0050 = Arcane
+    0060 = Level
+    0064 = Runes
+Refer To Spreadsheet for more Id's
+
+VV = Value
+    FFFFFFFF - 4294967295
+    0098967F - 9999999
+    000F423F - 999999
+    0001869F - 99999
+    0000270F - 9999
+    00002710 - 10000
+    00001388 - 5000
+    000003E8 - 1000
+    000003E7 - 999
+Or use https://www.save-editor.com/tools/wse_hex.html for custom value (Big Endian)
+    
+Example Usage - Strength [V1]
+-- Start --
+C4010020 019019CE <-- (019019CE) Slot 1
+93000000 00000094
+28000040 00002710 <-- XXXX (0040) | VV (00002710) 10000
+95000000 00000000
+-- End --
+
+Character Data Edit Via Character Name (Template) [V2] - OUTDATED
+-- Start --
+800100YY <NAME>
+93000000 00000094
+2800XXXX VVVVVVVV
+95000000 00000000
+-- End --
+Notes: 
+YY's = Length Of Bytes for <NAME>
+    EG Name: johnwick = 10 (16 Bytes)
+XXXX = Type (The thing you want to edit)
+    Refer To Spreadsheet For X's
+VV = Value
+
+To Convert Name use https://www.rapidtables.com/convert/number/ascii-to-hex.html
+https://i.imgur.com/6fJ0zHb.jpg
+
+Example Usage - Intelligence [V2]
+-- Start --
+80010010 6A006F00 <-- YY (10) | Name: johnwick
+68006E00 77006900 <-- Name: johnwick
+63006B00 00000000 <-- Name: johnwick + Padding 0's
+93000000 00000094
+28000048 0001869F <-- XXXX (0048) | VV (00002710) 99999
+95000000 00000000
+-- End --
+
+Max Item Test (Template) - Save Slot 1 Only [V1] - OUTDATED
+-- Start --
+80010004 XXXX00B0
+28000004 0000270F
+-- End --
+Notes: Replace XXXX with Ids In X Column from Key/Storage/Hand-Item_IDS [Spreadsheet]
+
+Max Stonesword Key [V1] - OUTDATED
+-- Start --
+80010004 401F00B0
+28000004 0000270F
+-- End --
+
+Max Item (Template) - Save Slot 1 Only [V2] - OUTDATED
+-- Start --
+80010006 0000XXXX
+NNNN0000 00000000
+28000006 0000270F	
+-- End --
+Notes: 
+XX = Replace X With Ids In X Column from Key/Storage/Hand-Item_IDS [Spreadsheet]
+NN = Replace N With Ids In N Column from Key/Storage/Hand-Item_IDS [Spreadsheet]
+
+Max Stonesword Key [V2] - OUTDATED
+-- Start --
+80010006 0000401F
+00B00000 00000000
+28000006 0000270F
+-- End --
+
+Item Swap Template (For Non Armor/Weapon) [V2] - OUTDATED
+-- Start --
+80010006 0000SSSS
+NNNN0000 00000000
+A8000002 00000002
+XXXX0000 00000000
+-- End --
+Notes:
+SS = Sacrifice Item ID (Key/Storage/Hand-Item_IDS) X Column [Spreadsheet]
+XX = Desired Item ID (Key/Storage/Hand-Item_IDS) X Column [Spreadsheet]
+NN = 2nd Part ID, (Key/Storage/Hand-Item_IDS) N Column [Spreadsheet]
+Edit 8001 to 8002 to target your 2nd character, 8003 3rd character etc.. 
+
+Example Usage - Beast Liver To Deathroot [V2]
+-- Start --
+80010006 00009623 <-- SS [9623] Beast Liver (Sacrifice Item)
+00B00000 00000000 <-- NN [00B0] 2nd Part ID (Sacrifice Item)
+A8000002 00000002
+A23A0000 00000000 <-- XX [3AA2] Deathroot (Desired Item)
+-- End --
+
+[Mhallice#1926]
+Change Item Upgrade Level (Template) - OUTDATED
+-- Start --
+80010004 IIII0000
+18000004 0000XXXX
+-- End --
+Notes:
+II = Item Id
+    Refer to Spreadsheet (Key/Storage/Hand-Item_IDS) | XXXX Column
+MAX Value is + 25
+For XXXX Same as II however the bytes need to be flipped for QM (Quickmode)
+    Use https://www.save-editor.com/tools/wse_hex.html To Convert Little To Big Endian
+    Example 2C03 (Little) Becomes 032C (Big)    
+To Change Value, + SomeValue on the last two parts of the ID
+    Example: Golden Seed AM: 271A <-- level 0
+    HEX: 1A + A = 24
+    XXXX = 2724 <-- Level 10
+Or Convert 1A to Dec = 26 + 10 = 36
+Convert 36 To Hex = 24
+Use windows programming calculator to convert hex to dec with ease
+OR: https://www.save-editor.com/tools/wse_hex.html HEX to DEC, then use normal calculator to + your value
+& convert back to HEX.
+
+Example Usage - Frozen Raisin
+-- Start --
+80010004 2C030000 <-- II = 2C03 ID AM
+18000004 00000345 <-- XX = QM ID + Level 25, (HEX: 2C + 19 = 45)
+-- End --
+Notes: 
+XXXX = 032C (Lvl 0) Start + ⬇︎
+2C To Dec = 44
+DEC: 44 + 25 = 69
+69 DEC To Hex = 45
+XXXX Now = 0345 (Lvl 25)
+
+[Method#5832]
+Max Item (Template) - [V2.1] [Uses Save Slot - Search] - OUTDATED
+-- Start --
+C4010020 SSSSSSSS
+88010006 0000XXXX
+NNNN0000 00000000
+28000006 VVVVVVVV
+95000000 00000000
+80010006 0000XXXX
+NNNN0000 00000000
+28000006 VVVVVVVV
+-- End --
+Notes:
+SS = Slot
+    019019CE - Slot 01
+    01901C1A - Slot 02
+    01901E66 - Slot 03
+    019020B2 - Slot 04
+    019022FE - Slot 05
+    0190254A - Slot 06
+    01902796 - Slot 07
+    019029E2 - Slot 08
+    01902C2E - Slot 09
+    01902E7A - Slot 10
+    
+XX = Item ID (Key/Storage/Hand-Item_IDS) X Column [Spreadsheet]
+NN = 2nd Part ID, (Key/Storage/Hand-Item_IDS) N Column [Spreadsheet]
+VV = Value
+    0000270F - 9999
+    00001388 - 5000
+    000003E8 - 1000
+    000003E7 - 999
+
+Example Usage - Crimson Amber Medallion
+-- Start --
+C4010020 019019CE <-- SS = Slot
+88010006 0000E803 <-- XX [E803] Crimson Amber Medallion ID
+00A00000 00000000 <-- NN [00A0] 2nd Part ID
+28000006 0000270F <-- VV [0000270F] (9999)
+95000000 00000000
+80010006 0000E803 <-- XX [E803] Crimson Amber Medallion ID
+00A00000 00000000 <-- NN [00A0] 2nd Part ID
+28000006 0000270F <-- VV [0000270F] (9999)
+-- End --
+
+Item Swap Template (For Armor/Weapon) [V4] [Uses Save Slot - Search All] - OUTDATED
+-- Start --
+### Save Slot ###
+C4010020 NNNNNNNN
+88010006 8080SSSS
+SSSS0000 00000000
+A8000002 00000004
+XXXXXXXX 00000000
+95000000 00000000
+### Save Slot ###
+C4010020 NNNNNNNN
+88010006 8090SSSS
+SSSS0000 00000000
+A8000002 00000004
+XXXXXXXX 00000000
+95000000 00000000
+### Search 8080 ###
+80010006 8080SSSS
+SSSS0000 00000000
+A8000002 00000004
+XXXXXXXX 00000000
+95000000 00000000
+### Search 8090 ###
+80010006 8090SSSS
+SSSS0000 00000000
+A8000002 00000004
+XXXXXXXX 00000000
+95000000 00000000
+### Save Slot ###
+C4010020 NNNNNNNN
+88010005 8080SSSS
+SSS00000 00000000
+A8000002 00000004
+XXXXXXXX 00000000
+95000000 00000000
+### Save Slot ###
+C4010020 NNNNNNNN
+88010005 8090SSSS
+SSS00000 00000000
+A8000002 00000004
+XXXXXXXX 00000000
+95000000 00000000
+### Search 8080 ###
+80010005 8080SSSS
+SSS00000 00000000
+A8000002 00000004
+XXXXXXXX 00000000
+95000000 00000000
+### Search 8090 ###
+80010005 8090SSSS
+SSS00000 00000000
+A8000002 00000004
+XXXXXXXX 00000000
+95000000 00000000
+-- End --
+Notes: 
+NN = Slot
+    019019CE - Slot 01
+    01901C1A - Slot 02
+    01901E66 - Slot 03
+    019020B2 - Slot 04
+    019022FE - Slot 05
+    0190254A - Slot 06
+    01902796 - Slot 07
+    019029E2 - Slot 08
+    01902C2E - Slot 09
+    01902E7A - Slot 10
+
+SS = Sacrifice Item ID (PulledFromPCLIST) AM Column | Spreadsheet
+XX = Desired Item ID (PulledFromPCLIST) AM Column | Spreadsheet
+Keep Save Slot, Sacrifice & Desired Item Ids the same throughout the entire code
+For Search 8080, 8090, SS (ID) is 7 characters long. So An ID of 1086F901 would become 1086F90 (Drop the last digit)
+
+Example Usage - Axe of Godfrey [10B75F01] to Astrologer's Staff [1086F901] [V4]
+-- Start --
+### Save Slot ###
+C4010020 019019CE <-- NN (019019CE) Save Slot 1
+88010006 808010B7 <-- SS Sacrifice ID 1st half (10B7)
+5F010000 00000000 <-- SS Sacrifice ID 2nd half (5F01) + Padding 0's
+A8000002 00000004
+7070FA01 00000000 <-- XX Desired Item (1086F901) + Padding 0's
+95000000 00000000
+### Save Slot ###
+C4010020 019019CE <-- NN (019019CE) Save Slot 1
+88010006 809010B7 <-- SS Sacrifice ID 1st half (10B7)
+5F010000 00000000 <-- SS Sacrifice ID 2nd half (5F01) + Padding 0's
+A8000002 00000004
+7070FA01 00000000 <-- XX Desired Item (1086F901) + Padding 0's
+95000000 00000000
+### Search 8080 ###
+80010006 808010B7 <-- SS Sacrifice ID 1st half (10B7)
+5F010000 00000000 <-- SS Sacrifice ID 2nd half (5F01) + Padding 0's
+A8000002 00000004
+7070FA01 00000000 <-- XX Desired Item (1086F901) + Padding 0's
+95000000 00000000
+### Search 8090 ###
+80010006 809010B7 <-- SS Sacrifice ID 1st half (10B7)
+5F010000 00000000 <-- SS Sacrifice ID 2nd half (5F01) + Padding 0's
+A8000002 00000004
+7070FA01 00000000 <-- XX Desired Item (1086F901) + Padding 0's
+95000000 00000000
+### Save Slot ###
+C4010020 019019CE <-- NN (019019CE) Save Slot 1
+88010005 808010B7 <-- SS Sacrifice ID 1st half (10B7)
+5F000000 00000000 <-- SS Sacrifice ID 2nd half (10B) + Padding 0's
+A8000002 00000004
+7070FA01 00000000 <-- XX Desired Item (1086F901) + Padding 0's
+95000000 00000000
+### Save Slot ###
+C4010020 019019CE <-- NN (019019CE) Save Slot 1
+88010005 809010B7 <-- SS Sacrifice ID 1st half (10B7)
+5F000000 00000000 <-- SS Sacrifice ID 2nd half (10B) + Padding 0's
+A8000002 00000004
+7070FA01 00000000 <-- XX Desired Item (1086F901) + Padding 0's
+95000000 00000000
+### Search 8080 ###
+80010005 808010B7 <-- SS Sacrifice ID 1st half (10B7)
+5F000000 00000000 <-- SS Sacrifice ID 2nd half (10B) + Padding 0's
+A8000002 00000004
+7070FA01 00000000 <-- XX Desired Item (1086F901) + Padding 0's
+95000000 00000000
+### Search 8090 ###
+80010005 809010B7 <-- SS Sacrifice ID 1st half (10B7)
+5F000000 00000000 <-- SS Sacrifice ID 2nd half (10B) + Padding 0's
+A8000002 00000004
+7070FA01 00000000 <-- XX Desired Item (1086F901) + Padding 0's
+95000000 00000000
+-- End --
+
+Item Swap Template (For Armor/Weapon) [V3] [Uses Save Slot - Search] - OUTDATED
+-- Start --
+C4010020 NNNNNNNN
+88010006 8080SSSS
+SSSS0000 00000000
+A8000002 00000004
+XXXXXXXX 00000000
+95000000 00000000
+C4010020 NNNNNNNN
+88010006 8090SSSS
+SSSS0000 00000000
+A8000002 00000004
+XXXXXXXX 00000000
+95000000 00000000
+80010006 8080SSSS
+SSSS0000 00000000
+A8000002 00000004
+XXXXXXXX 00000000
+95000000 00000000
+80010006 8090SSSS
+SSSS0000 00000000
+A8000002 00000004
+XXXXXXXX 00000000
+95000000 00000000
+-- End --
+Notes:
+NN = Slot
+    019019CE - Slot 01
+    01901C1A - Slot 02
+    01901E66 - Slot 03
+    019020B2 - Slot 04
+    019022FE - Slot 05
+    0190254A - Slot 06
+    01902796 - Slot 07
+    019029E2 - Slot 08
+    01902C2E - Slot 09
+    01902E7A - Slot 10
+    
+SS = Sacrifice Item ID (PulledFromPCLIST) AM Column | Spreadsheet
+XX = Desired Item ID (PulledFromPCLIST) AM Column | Spreadsheet
+Keep Save Slot, Sacrifice & Desired Item Ids the same throughout the entire code
+
+Example Usage - Axe of Godfrey [10B75F01] to Astrologer's Staff [1086F901] [V3]
+-- Start --
+C4010020 019019CE <-- NN (019019CE) Save Slot 1
+88010006 808010B7 <-- SS Sacrifice ID 1st half (10B7)
+5F010000 00000000 <-- SS Sacrifice ID 2nd half (5F01) + Padding 0's
+A8000002 00000004
+1086F901 00000000 <-- XX Desired Item (1086F901) + Padding 0's
+95000000 00000000
+C4010020 019019CE <-- NN (019019CE) Save Slot 1
+88010006 809010B7 <-- SS Sacrifice ID 1st half (10B7)
+5F010000 00000000 <-- SS Sacrifice ID 2nd half (5F01) + Padding 0's
+A8000002 00000004
+1086F901 00000000 <-- XX Desired Item (1086F901) + Padding 0's
+95000000 00000000
+80010006 808010B7 <-- SS Sacrifice ID 1st half (10B7)
+5F010000 00000000 <-- SS Sacrifice ID 2nd half (5F01) + Padding 0's
+A8000002 00000004
+1086F901 00000000 <-- XX Desired Item (1086F901) + Padding 0's
+95000000 00000000
+80010006 809010B7 <-- SS Sacrifice ID 1st half (10B7)
+5F010000 00000000 <-- SS Sacrifice ID 2nd half (5F01) + Padding 0's
+A8000002 00000004
+1086F901 00000000 <-- XX Desired Item (1086F901) + Padding 0's
+95000000 00000000
+-- End --
+
+Item Swap Template (For Armor/Weapon) [V2] - OUTDATED
+-- Start --
+80010004 AAAAAAAA
+28000000 QQQQQQQQ
+-- End --
+AA = Sacrifice Item ID (PulledFromPCLIST) AM Column
+QQ = Desired Item ID (PulledFromPCLIST) QC Column
+Edit 8001 to 8002 to target your 2nd character, 8003 3rd character etc.. 
+
+Example Usage - Bandit Boots To Arcane Burial Axe [V2]
+-- Start --
+80010004 00A0D700 <-- AA [00A0D700] Bandit Boots (Sacrifice Item)
+28000000 000E31FC <-- QQ [000E31FC] Arcane Burial Axe (Desired Item)
+-- End --
+
+Adjust Item Amount (Template) - Experimental [Uses Name] - OUTDATED
+-- Start --
+800100YY <NAME>
+88010002 XXXX0000
+28000004 VVVVVVVV
+-- End --
+Notes:
+YY = Length Of Bytes For <NAME>
+XX = Item ID, Refer To Spreadsheet (PulledFromPCLIST) AM Column 
+VV = Value
+
+To Convert Name use https://www.rapidtables.com/convert/number/ascii-to-hex.html
+https://i.imgur.com/6fJ0zHb.jpg
+
+Example Usage - Glowstone
+-- Start --
+80010010 6A006F00 <-- YY (10) | Name: johnwick
+68006E00 77006900 <-- Name: johnwick
+63006B00 00000000 <-- Name: johnwick + Padding 0's
+88010002 EE070000 <-- XX Glowstone ID [EE07] + Padding 0's
+28000004 0000270F <-- VV = (0000270F) 9999
+-- End --
+
+Adjust Item Amount (Template) [Uses Save Slots] - OUTDATED
+-- Start --
+C4010020 NNNNNNNN
+88010002 XXXX0000
+28000004 VVVVVVVV
+95000000 00000000
+80010004 XXXX00B0
+28000004 VVVVVVVV
+-- End --
+Notes:
+NN = Slot
+    019019CE - Slot 01
+    01901C1A - Slot 02
+    01901E66 - Slot 03
+    019020B2 - Slot 04
+    019022FE - Slot 05
+    0190254A - Slot 06
+    01902796 - Slot 07
+    019029E2 - Slot 08
+    01902C2E - Slot 09
+    01902E7A - Slot 10
+
+XX = ID, Refer To Spreadsheet (PulledFromPCLIST) AM Column
+Keep Id the same for All X's
+
+VV = Value
+    0000270F - 9999
+    00001388 - 5000
+    000003E8 - 1000
+    000003E7 - 999
+Or use https://www.save-editor.com/tools/wse_hex.html for custom value (Big Endian)
+keep value the same for all V's
+
+Example Usage - Cure Poison
+-- Start --
+C4010020 019019CE <-- NN (019019CE) Save Slot 1
+88010002 28190000 <-- XX (2819) Cure Poison Item ID + Padding 0's
+28000004 0000270F <-- VV (9999) Amount
+95000000 00000000
+80010004 281900B0 <-- XX (2819) Cure Poison Item ID
+28000004 0000270F <-- VV (9999) Amount
+-- End --
+
+Item Swap (Template) (For Armor/Weapon) - Experimental [Uses Name] [V1] - OUTDATED
+-- Start --
+800100YY  <NAME>
+88010002 AAAA0000
+18000000 0000QQQQ
+-- End --
+Notes:
+YY = Length Of Bytes For <NAME>
+AA = Sacrifice Item, Refer To Spreadsheet (PulledFromPCLIST) AM Column 
+QQ = Desired Item, Refer To Spreadsheet (PulledFromPCLIST) QM Column 
+
+Example Usage - Arteria Leaf To Glowstone [V1]
+-- Start --
+8001000A 6C006100 <-- YY (0A) | Name: lance
+6E006300 65000000 <-- Name: lance + Padding 0's
+88010002 D3500000 <-- AA [D350] Arteria Leaf | Sacrifice Item + Padding 0's
+18000000 0000EE07 <-- QQ [EE07] Glowstone | Desired Item
+-- End --
+
+Stat Adjustment - Character Name (Template) | HARDER [V1] - OUTDATED
+-- Start --
+8001YYYY NNNNNNNN
+93000000 00000094
+280000SS VVVVVVVV
+95000000 00000000
+-- End --
+Notes:
+YY's = Length Of Bytes For NN
+   EG Name: Lannister = 0012 (18 Bytes)
+NN's = Character Name in Hex
+    be sure to have 00 separating each letter
+    Example Name: Lannister = 4C 00 61 00 6E 00 6E 00 69 00 73 00 74 00 65 00 72 00
+    Or use: https://www.rapidtables.com/convert/number/ascii-to-hex.html | Defined String: " 00 "
+    https://i.imgur.com/hzThdvF.jpg
+
+SS = Stat Id
+    50 - Arcane
+    44 - Dexterity
+    3C - Endurance
+    4C - Faith
+    48 - Intelligence
+    60 - Level
+    38 - Mind
+    64 - Runes
+    40 - Strength
+    34 - Vigor
+
+VV = Value
+    FFFFFFFF - 4294967295
+    0098967F - 9999999
+    000F423F - 999999
+    0001869F - 99999
+    0000270F - 9999
+    00002710 - 10000
+    00001388 - 5000
+    000003E8 - 1000
+    000003E7 - 999
+Or use https://www.save-editor.com/tools/wse_hex.html for custom value (Big Endian)
+
+Example Usage - Endurance
+-- Start --
+80010012 4C006100 <-- YY (0012) | Name: Lannister
+6E006E00 69007300 <-- YY (0012) | Name: Lannister
+74006500 72000000 <-- YY (0012) | Name: Lannister + Padding 0's
+93000000 00000094
+2800003C 000003E7 <-- SS (3C) Endurance | VV (000003E7) 999
+95000000 00000000
+-- End --
+
+FP (Template) - OUTDATED
+-- Start --
+800100YY NNNNNNNN
+93000000 00000094
+28000014 VVVVVVVV
+95000000 00000000
+800100YY NNNNNNNN
+93000000 00000094
+28000018 VVVVVVVV
+95000000 00000000
+800100YY NNNNNNNN
+93000000 00000094
+2800001C VVVVVVVV
+95000000 00000000
+-- End --
+
+HP (Template) - OUTDATED
+-- Start --
+800100YY NNNNNNNN
+93000000 00000094
+28000008 VVVVVVVV
+95000000 00000000
+800100YY NNNNNNNN
+93000000 00000094
+2800000C VVVVVVVV
+95000000 00000000
+800100YY NNNNNNNN
+93000000 00000094
+28000010 VVVVVVVV
+95000000 00000000
+-- End --
+
+Stamina (Template) - OUTDATED
+-- Start --
+800100YY NNNNNNNN
+93000000 00000094
+28000024 VVVVVVVV
+95000000 00000000
+800100YY NNNNNNNN
+93000000 00000094
+28000028 VVVVVVVV
+95000000 00000000
+800100YY NNNNNNNN
+93000000 00000094
+2800002C VVVVVVVV
+95000000 00000000
+-- End --
+Notes: 
+YY's = Length Of Bytes For NN
+   EG Name: Lannister = 0012 (18 Bytes)
+NN's = Character Name in Hex
+    be sure to have 00 separating each letter
+    Example Name: Lannister = 4C 00 61 00 6E 00 6E 00 69 00 73 00 74 00 65 00 72 00
+    Or use: https://www.rapidtables.com/convert/number/ascii-to-hex.html | Defined String: " 00 "
+    https://i.imgur.com/hzThdvF.jpg
+VV = Value
+    FFFFFFFF - 4294967295
+    0098967F - 9999999
+    000F423F - 999999
+    0001869F - 99999
+    0000270F - 9999
+    00002710 - 10000
+    00001388 - 5000
+    000003E8 - 1000
+    000003E7 - 999
+Or use https://www.save-editor.com/tools/wse_hex.html for custom value (Big Endian)
+
+Example Usage - HP
+-- Start --
+80010012 4C006100 <-- YY (0012) | Name: Lannister
+6E006E00 69007300 <-- YY (0012) | Name: Lannister
+74006500 72000000 <-- YY (0012) | Name: Lannister + Padding 0's
+93000000 00000094
+28000008 000003E7 <-- VV (000003E7) 999
+95000000 00000000
+80010012 4C006100 <-- YY (0012) | Name: Lannister
+6E006E00 69007300 <-- YY (0012) | Name: Lannister
+74006500 72000000 <-- YY (0012) | Name: Lannister + Padding 0's
+93000000 00000094
+2800000C 000003E7 <-- VV (000003E7) 999
+95000000 00000000
+80010012 4C006100 <-- YY (0012) | Name: Lannister
+6E006E00 69007300 <-- YY (0012) | Name: Lannister
+74006500 72000000 <-- YY (0012) | Name: Lannister + Padding 0's
+93000000 00000094
+28000010 000003E7 <-- VV (000003E7) 999
+95000000 00000000
+-- End --
+
+Stat Adjustment - Save Slot (Template) | EASIER [V1] - OUTDATED
+-- Start --
+C4010020 0190ZZZZ
+93000000 00000094
+280000SS VVVVVVVV
+95000000 00000000
+-- End --
+Notes:
+ZZZZ = Save Slot
+    19CE - Slot 1
+    1C1A - Slot 2
+    1E66 - Slot 3
+    20B2 - Slot 4
+    22FE - Slot 5
+    254A - Slot 6
+    2796 - Slot 7
+    29E2 - Slot 8
+    2C2E - Slot 9
+    2E7A - Slot 10
+    
+SS = Stat Id
+    50 - Arcane
+    44 - Dexterity
+    3C - Endurance
+    4C - Faith
+    48 - Intelligence
+    60 - Level
+    38 - Mind
+    64 - Runes
+    40 - Strength
+    34 - Vigor
+
+VV = Value
+    FFFFFFFF - 4294967295
+    0098967F - 9999999
+    000F423F - 999999
+    0001869F - 99999
+    0000270F - 9999
+    00002710 - 10000
+    00001388 - 5000
+    000003E8 - 1000
+    000003E7 - 999
+Or use https://www.save-editor.com/tools/wse_hex.html for custom value (Big Endian)
+
+Example Usage - Faith
+-- Start --
+C4010020 019019CE <-- ZZZZ (19CE) Slot 1
+93000000 00000094
+2800004C 000003E7 <-- SS (4C) Faith | VV (000003E7) 999
+95000000 00000000
+-- End --
+
+FP - OUTDATED
+-- Start --
+C4010020 0190ZZZZ
+93000000 00000094
+28000014 VVVVVVVV
+95000000 00000000
+C4010020 0190ZZZZ
+93000000 00000094
+28000018 VVVVVVVV
+95000000 00000000
+C4010020 0190ZZZZ
+93000000 00000094
+2800001C VVVVVVVV
+95000000 00000000
+-- End --
+
+HP - OUTDATED
+-- Start --
+C4010020 0190ZZZZ
+93000000 00000094
+28000008 VVVVVVVV
+95000000 00000000
+C4010020 0190ZZZZ
+93000000 00000094
+2800000C VVVVVVVV
+95000000 00000000
+C4010020 0190ZZZZ
+93000000 00000094
+28000010 VVVVVVVV
+95000000 00000000
+-- End --
+
+Stamina - OUTDATED
+-- Start --
+C4010020 0190ZZZZ
+93000000 00000094
+28000024 VVVVVVVV
+95000000 00000000
+C4010020 0190ZZZZ
+93000000 00000094
+28000028 VVVVVVVV
+95000000 00000000
+C4010020 0190ZZZZ
+93000000 00000094
+2800002C VVVVVVVV
+95000000 00000000
+-- End --
+
+Notes:
+ZZZZ = Save Slot
+    19CE - Slot 1
+    1C1A - Slot 2
+    1E66 - Slot 3
+    20B2 - Slot 4
+    22FE - Slot 5
+    254A - Slot 6
+    2796 - Slot 7
+    29E2 - Slot 8
+    2C2E - Slot 9
+    2E7A - Slot 10
+    
+VV = Value
+    FFFFFFFF - 4294967295
+    0098967F - 9999999
+    000F423F - 999999
+    0001869F - 99999
+    0000270F - 9999
+    00002710 - 10000
+    00001388 - 5000
+    000003E8 - 1000
+    000003E7 - 999
+Or use https://www.save-editor.com/tools/wse_hex.html for custom value (Big Endian)
+
+Example Usage - FP
+-- Start --
+C4010020 019019CE <-- ZZZZ (19CE) Slot 1
+93000000 00000094
+28000014 000003E7 <-- VV (000003E7) 999
+95000000 00000000
+C4010020 019019CE <-- ZZZZ (19CE) Slot 1
+93000000 00000094
+28000018 000003E7 <-- VV (000003E7) 999
+95000000 00000000
+C4010020 019019CE <-- ZZZZ (19CE) Slot 1
+93000000 00000094
+2800001C 000003E7 <-- VV (000003E7) 999
+95000000 00000000
+-- End --
+
+[Anonymous]
+Regular Health (300) - OUTDATED
+-- Start --
+8001001E 1C00416E
+74697A69 6E436170
+61636974 79557067
+72616465 4865616C
+74680000 00000000
+1800001E 00000491
+80010024 2200416E
+74697A69 6E436170
+61636974 79557067
+72616465 4865616C
+74685F73 6B696C6C
+18000024 00000007
+-- End --
+
+Regular Stamina (300) - OUTDATED
+-- Start --
+8001001F 1D00416E
+74697A69 6E436170
+61636974 79557067
+72616465 5374616D
+696E6100 00000000
+1800001F 00000491
+80010025 2300416E
+74697A69 6E436170
+61636974 79557067
+72616465 5374616D
+696E615F 736B696C
+6C000000 00000000
+18000025 00000007
+-- End --

@@ -1,0 +1,91 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+-- I will keep this updated as long as I can, as updates made to the game do sometimes break codes & they do get updated   
+
+[Skiller#4741]
+
+Item Amount Mod - Template
+80010010 0012000B
+XXXXXXXX XXXXXXXX
+15000000 00000000
+280001F3 VVVVVVVV
+
+Equipment Mod May Need to Add More - Template
+80010010 0012000B
+XXXXXXXX XXXXXXXX
+15000000 00000000
+A8000000 00000004
+YYYYYYYY YYYYYYYY
+
+Mastery Level 60	XXXXXXXX XXXXXXXX	
+80010010 0012000B	88D890D9  CB010000	HP
+XXXXXXXX XXXXXXXX	98D890D9  CB010000	Stamina
+15000000 00000000	9CD890D9  CB010000	Weapon
+28000064 0000003D	8CD890D9  CB010000	Skills
+Must Have 1 Level	90D890D9  CB010000	Godly
+	                94D890D9  CB010000	Potions
+	                4D2D277C CF010000	Armor
+	                
+Mastery Bar Max	    XXXXXXXX	
+8001000E 15000000	2B2E7274	Health
+CCF70EBE AB7590C6	3342DC8F	Stamina
+00000000 00000000	72D13B59	Sword
+88010011 11000000	B509A29A	Axe
+XXXXXXXX 00000000	860F4AF8	Bow
+00000700 0B000000	7905E538	Helm
+28000011 00000007	EFF5F187	Armor
+	                F5786728	Potions
+	                220D06F7	Godly Powers
+
+[Mhallice#1926]
+
+Health
+80010010 0012000B
+88D890D9 CB010000
+15000000 00000000
+28000064 0000003D
+
+Stamina
+80010010 0012000B
+98D890D9 CB010000
+15000000 00000000
+28000064 0000003D
+
+Weapon
+80010010 0012000B
+9CD890D9 CB010000
+15000000 00000000
+28000064 0000003D
+
+Armor
+80010010 0012000B
+4d2d277c cf010000
+15000000 00000000
+28000064 0000003D
+
+Skills
+80010010 0012000B
+8CD890D9 CB010000
+15000000 00000000
+28000064 0000003D
+
+
+Godly
+80010010 0012000B
+90D890D9 CB010000
+15000000 00000000
+28000064 0000003D
+
+Potions
+80010010 0012000B
+94D890D9 CB010000
+15000000 00000000
+28000064 0000003D
+
+# Resources Notes, AM, Spreadsheets etc... #
+Skiller's Spreadsheet: https://docs.google.com/spreadsheets/d/1RAQ9iL9lHNngBUZux2GY2mKQhYWgJjOrpeiqo-66fyE/edit#gid=1477376607 (Codes & IDS)

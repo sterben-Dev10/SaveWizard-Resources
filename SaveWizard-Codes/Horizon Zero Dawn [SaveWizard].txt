@@ -1,0 +1,31 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+### Spreadsheets ###
+Skiller's Spreadsheet: https://docs.google.com/spreadsheets/d/1qKWWhJlpVeqDx8FOFR1nrfoiIHyNnukn5E9zB0E2_4o/edit#gid=0
+
+[Skiller#4741]
+Item Replacement Template
+80010010 XXXXXXXX <-- X = ID of the Item you want to replace (Sacrifice)
+XXXXXXXX XXXXXXXX
+XXXXXXXX 00000000
+A8000000 00000010
+XXXXXXXX XXXXXXXX <-- X = ID of the Desired Item you want replaced with.
+XXXXXXXX XXXXXXXX
+Notes:
+XX = ID's
+Refer to spreadsheet for ID's
+
+Example Usage: Ridge-Wood To Crystal Braiding
+80010010 7AC7CBB4 <-- XX [7AC7CBB48B7D38BD97A67EBB742A3CED] Ridge Wood, Sacrifice ID
+8B7D38BD 97A67EBB <-- XX Ridge Wood
+742A3CED 00000000 <-- XX Ridge Wood + 0's Padding
+A8000000 00000010
+D7B61A1F 0A203388 <-- XX [D7B61A1F0A203388A5DF6C9065575DA5] Crystal Braiding, Desired ID
+A5DF6C90 65575DA5 <-- XX Crystal Braiding
+
+## Additional AM Notes ##

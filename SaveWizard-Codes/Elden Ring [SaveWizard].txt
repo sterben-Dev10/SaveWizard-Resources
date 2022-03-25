@@ -1,0 +1,351 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+### Spreadsheets ###
+Skiller's Spreadsheet: https://docs.google.com/spreadsheets/d/1LQXz9WHL9hE9Sgo5cTwjCsnywdChpoCt4AQU-__ROfQ/edit#gid=0
+
+For More Id's, Refer to Spreadsheet.
+Codes & Research Credits: Skiller#4741, Full Metal Panda#4868, Method#5832, Mhallice#1926
+
+-- WARNING --
+Using These ONLINE Will result in a BAN!
+
+-- FOR [Must Use with SW Built-in Character Slots] --
+these cheats can only be used if you USE THEM WITH SaveWizards Character Selection options
+Instructions: https://i.imgur.com/5bDYZTS.jpg
+
+[Mhallice#1926] [Method#5832] (Modded ver using skillers Equipment Mod Template)
+Change Item Upgrade Level (Template) [V2]
+-- Start --
+95000000 YYYYYYYY
+88010005 NNNNXXXX
+XXXX0000 00000000
+A8000002 00000001
+LL000000 00000000
+-- End --
+Notes: 
+YY = Character Slot
+    00000070 - Slot 01
+    00280070 - Slot 02
+    00500070 - Slot 03
+    00780070 - Slot 04
+    00A00070 - Slot 05
+    00C80070 - Slot 06
+    00F00070 - Slot 07
+    01180070 - Slot 08
+    01400070 - Slot 09
+    01680070 - Slot 10
+    
+XX = Item Id + Included Level
+    Refer to Spreadsheet (Prefix-Weapon/Equipment_IDS) | XXXX Column
+NN = ID Type
+    Refer to Spreadsheet (Prefix-Weapon/Equipment_IDS) | NNNN Column
+    Weapon = 8080
+    Armor = 8090
+    Ashes Of War = 80C0
+LL = Desired level, MAX Value is + 25
+Math to calc current item level, example Frozen Needle [900E4D00]
+Base level 0 - 90 0E4D00, if +10
+First two parts of the ID represent level, in this case 90 is level 0 for Frozen Needle
+to + 10 to it, do 90 (in Hex) + A = 9A
+New XXXXXXXX = 9A0E4D00 (Frozen Needle +10) - Current Level Search
+
+Use a programming calculator to do this calculation (windows, mac have this built in)
+Or convert the Hex values to Dec (Regular numbers)
+Example: 90 In Dec = 144 + 10 = 154, Convert 154 To Hex = 9A
+For LL You Start with the Original ID's Level, In this Case level 0 Frozen Needle Is 90
+Then to + some level onto it, +25 for example: 90 + 19 (25) = A9.
+Or the Dec Way, 90 In Dec = 144 + 25 = 169, Convert 169 to Hex = A9
+New Value for LL is A9
+
+Example Usage - Battle Hammer (Weapon)
+-- Start --
+95000000 00000070 <-- YY [00000070] Character Slot 1
+88010005 80802569 <-- NN = 8080 (Since it weapon) | XX = 2569B700 (Battle Hammer+5)
+B7000000 00000000 <-- XX = The Rest of the Item ID (Battle Hammer+5)
+A8000002 00000001
+39000000 00000000 <-- new level for Battle Hammer + 25
+-- End --
+Notes:
+Battle Hammer lvl 0 = 2069B700 Start + ⬇
+20 To Dec = 32
+DEC: 32 + 25 = 57
+57 DEC to Hex = 39
+LL = 39 Now (Lvl 25)
+
+[Skiller#4741]
+Character Stats (Template) [V3] [Must Use with SW Built-in Character Slots]
+-- Start --
+2800XXXX VVVVVVVV
+-- End --
+Notes: 
+XXXX =
+    0000 = ?
+    0004 = ?
+    0008 = HP
+    000C = HP
+    0010 = HP
+    0014 = FP
+    0018 = FP
+    001C = FP
+    0020 = ?
+    0024 = Stamina
+    0028 = Stamina
+    002C = Stamina
+    0030 = ?
+    0034 = Vigor
+    0038 = Mind
+    003C = Endurance
+    0040 = Strength
+    0044 = Dexterity
+    0048 = Intelligence
+    004C = Faith
+    0050 = Arcane
+    0054 = ?
+    0058 = ?
+    005C = ?
+    0060 = Level
+    0064 = Runes
+    0068 = ?
+    006C = ?
+    0070 = ?
+    0074 = ?
+    0078 = ?
+    007C = ?
+    0080 = ?
+    0084 = ?
+    0088 = ?
+    008C = ?
+    0090 = ?
+    
+VV = Value
+    FFFFFFFF - 4294967295
+    0098967F - 9999999
+    000F423F - 999999
+    0001869F - 99999
+    0000270F - 9999
+    00002710 - 10000
+    00001388 - 5000
+    000003E8 - 1000
+    000003E7 - 999
+
+Example Usage HP, FP, Stamina To 9999
+-- Start --
+28000008 0000270F <-- XX [0008] HP
+2800000C 0000270F <-- XX [000C] HP
+28000010 0000270F <-- XX [0010] HP
+28000024 0000270F <-- XX [0024] Stamina
+28000028 0000270F <-- XX [0028] Stamina
+2800002C 0000270F <-- XX [002C] Stamina
+28000014 0000270F <-- XX [0014] FP
+28000018 0000270F <-- XX [0018] FP
+2800001C 0000270F <-- XX [001C] FP
+-- End --
+
+Max All In Hand items (Template) (Key/usable) - [Character Slot]
+-- Start --
+95000000 YYYYYYYY
+88010006 00007300
+00B00000 00000000
+4E000006 0000270F
+0A78000C 00000000
+28000006 00000001
+92000000 00007E04
+4E000006 0000270F
+00FF000C 00000000
+-- End --
+Notes:
+YY = Character Slot
+    00000070 - Slot 01
+    00280070 - Slot 02
+    00500070 - Slot 03
+    00780070 - Slot 04
+    00A00070 - Slot 05
+    00C80070 - Slot 06
+    00F00070 - Slot 07
+    01180070 - Slot 08
+    01400070 - Slot 09
+    01680070 - Slot 10
+
+Max All In Hand items (Key/usable) [Must Use with SW Built-in Character Slots]
+-- Start --
+88010006 00007300
+00B00000 00000000
+4E000006 0000270F
+0A78000C 00000000
+28000006 00000001
+92000000 00007E04
+4E000006 0000270F
+00FF000C 00000000
+-- End --
+
+Max Stonesword Key [V3]
+-- Start --
+95000000 YYYYYYYY
+88010006 0000401F
+00B00000 00000000
+28000006 0000270F
+-- End --
+Notes:
+YY = Character Slot
+    00000070 - Slot 01
+    00280070 - Slot 02
+    00500070 - Slot 03
+    00780070 - Slot 04
+    00A00070 - Slot 05
+    00C80070 - Slot 06
+    00F00070 - Slot 07
+    01180070 - Slot 08
+    01400070 - Slot 09
+    01680070 - Slot 10
+
+Max Stonesword Key [Must Use with SW Built-in Character Slots]
+-- Start --
+88010006 0000401F
+00B00000 00000000
+28000006 0000270F
+-- End --
+
+Adjust/Max Item Amount (Template) [V3]
+-- Start --
+95000000 YYYYYYYY
+88010006 0000XXXX
+NNNN0000 00000000
+28000006 VVVVVVVV
+95000000 00000000
+-- End --
+Notes:
+YY = Character Slot
+    00000070 - Slot 01
+    00280070 - Slot 02
+    00500070 - Slot 03
+    00780070 - Slot 04
+    00A00070 - Slot 05
+    00C80070 - Slot 06
+    00F00070 - Slot 07
+    01180070 - Slot 08
+    01400070 - Slot 09
+    01680070 - Slot 10
+XXXX = XXXX Column From "Suffix-Key/Storage/Hand-Item_IDS" tab
+NNNN = NNNN Column From "Suffix-Key/Storage/Hand-Item_IDS" tab
+VV = Value
+    0000270F - 9999
+    00001388 - 5000
+    000003E8 - 1000
+    000003E7 - 999
+Use windows programming calculator or online Dec to Hex Tool for custom value
+
+Example Usage - Max Glass Shard [V3]
+-- Start --
+95000000 00780070 <-- YY [00780070] Slot 4
+88010006 00001027 <-- XX [1027] Glass Shard
+00B00000 00000000 <-- NN [00B0] 2nd Part ID
+28000006 0000270F <-- VV [0000270F] 9999 items
+95000000 00000000
+-- End --
+
+Adjust/Max Item Amount (Template) [Must Use with SW Built-in Character Slots]
+-- Start --
+88010006 0000XXXX
+NNNN0000 00000000
+28000006 VVVVVVVV
+-- End --
+Notes: same as [V3] item template just with SW Built-in Character Slot usage.
+
+Item Swap Template (For Non Armor/Weapon) [V3]
+-- Start --
+95000000 YYYYYYYY
+88010006 0000XXXX <-- Sacrifice ID
+NNNN0000 00000000 <-- Sacrifice ID
+A8000002 00000004
+XXXXNNNN 00000000 <-- ID You Want
+-- End --
+Notes: 
+YY = Character Slot
+    00000070 - Slot 01
+    00280070 - Slot 02
+    00500070 - Slot 03
+    00780070 - Slot 04
+    00A00070 - Slot 05
+    00C80070 - Slot 06
+    00F00070 - Slot 07
+    01180070 - Slot 08
+    01400070 - Slot 09
+    01680070 - Slot 10
+XXXX = XXXX Column From "Suffix-Key/Storage/Hand-Item_IDS" tab
+NNNN = NNNN Column From "Suffix-Key/Storage/Hand-Item_IDS" tab
+First set of N & X = Item you're going to sacrifice
+Second set of N & X = Item you want
+
+Example Usage - Old Fang To Lantern
+-- Start --
+95000000 00000070 <-- YY [00000070] Slot 1
+88010006 0000C03A <-- XX [C03A] Old Fang
+00B00000 00000000 <-- NN [00B0] 2nd Part ID
+A8000002 00000004
+160800B0 00000000 <-- XX [1608] Lantern | NN [00B0] 2nd Part ID
+-- End --
+
+Item Swap Template (For Non Armor/Weapon) [Must Use with SW Built-in Character Slots]
+-- Start --
+88010006 0000XXXX <-- Sacrifice ID
+NNNN0000 00000000 <-- Sacrifice ID
+A8000002 00000004
+XXXXNNNN 00000000 <-- ID You Want
+-- End --
+Notes: Same As [V3] item Swap Template Just with with SW Built-in Character Slots version.
+
+Item Swap Template (For Armor/Weapon) [Equipment MOD] [V5]
+-- Start --
+95000000 YYYYYYYY
+88010006 NNNNXXXX <-- Sacrifice IDs
+XXXX0000 00000000 <-- Sacrifice ID
+A8000000 00000006
+NNNNXXXX XXXX0000 <-- IDs You Want
+-- End --
+Notes:
+YY = Character Slot
+    00000070 - Slot 01
+    00280070 - Slot 02
+    00500070 - Slot 03
+    00780070 - Slot 04
+    00A00070 - Slot 05
+    00C80070 - Slot 06
+    00F00070 - Slot 07
+    01180070 - Slot 08
+    01400070 - Slot 09
+    01680070 - Slot 10
+
+NNNN = NNNN Column from "Prefix-Weapon/Equipment_IDs" tab
+XXXX = XXXX Column from "Prefix-Weapon/Equipment_IDs" tab
+First set of N & X = Item you're going to sacrifice, Note If item level is not 0, refer to "Change Item Upgrade Level (Template) [V2]" instructions on how to calculate your item level in hex.
+Second set of N & X = Item you want
+
+Example Usage Black Bow To Ant's Skull Plate
+-- Start --
+95000000 00000070 <-- YY Slot 1
+88010005 8080B0AD <-- NN [8080] 1st Part Of ID | XX [B0AD] item ID Black Bow (Sacrifice)
+72020000 00000000 <-- XX [7202] 2nd Part Of ID Black Bow (Sacrifice)
+A8000000 00000006
+808060A3 EB010000 <-- NN [8080] 1st Part Of ID | 1st XX [60A3] item ID Ant's Skull Plate (Desired) | 2nd XX [EB01] Ant's Skull Plate
+-- End --
+Notes: The full ID for Ant's Skull Plate is 60A3EB01 + padding 0's at the end
+
+Item Swap Template (For Armor/Weapon) [Equipment MOD] [Must Use with SW Built-in Character Slots]
+-- Start --
+B8010006 NNNNXXXX <-- Sacrifice IDs
+XXXX0000 00000000 <-- Sacrifice ID
+A8000000 00000006
+NNNNXXXX XXXX0000 <-- IDs You Want
+-- End --
+Notes: Same as [V5] Equipment Mod, Just Use with SW Built-in Character Slots version.
+
+## Outdated Codes ##
+https://pastebin.com/YCtTsRMg
+
+## Additional AM Notes ##
+https://pastebin.com/uFUAiLjg

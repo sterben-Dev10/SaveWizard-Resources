@@ -1,0 +1,48 @@
+# Translated by .d.C. - Discord #
+Original: https://i.imgur.com/YXIuVCI.jpg (Chinese)
+
+EC9A reduce long distance damage
+F5C2 Dodge Ki consumption reduce
+2395 Dash Ki Consumption
+8E3B 
+1225 Untouched Onmyo Magic
+2082 Untouched Ninjutsu
+9F8F Tenacity (Damage Over Time)
+DAE9 Faster Winded Recovery
+E6EA Kodama Sensor
+90A5 Enemy Sensor
+14D6 Defense Bonus (Magic)
+13E6 Guard Ki Consumption
+D443 Elemental damage Taken (guarding)
+CF5D Auto-Life Recovery (Amrita Absorption)
+E035 Life Recovery (Amrita Absorption)
+DAC5 Increased Attack & Defense (Dual Sword)
+8634 Defense Bonus (Amrita Gauge)
+44CF Ki recovery Speed
+D88F Life
+9715 Ki
+EAC9 Defense
+45EF Ninjutsu Power
+F354 Omnyo Power
+A95D Fire Resistance
+92C0 Lightning resistance
+BA85 Paralysis Resistance
+C477 Poison Resistance
+8B04 Toughness
+D8BF Damage Taken (Mid-Attack)
+CAC5 Fall Damage Taken
+465E Gold Loot Bonus
+B673 Quick Attack Ki Consumption
+1DCF 
+7EC0 Grapple Damage
+D601 Imbue Corruption
+F1B0 Imbue Purity
+0188 Final blow damage
+9F74 Melee Ki Damage
+DEC0 Low attack Ki consumption
+01C8 Other Realm Resistance
+384E Shock Accumulation (Enemy)
+8C60 Soul Core Drop Rate
+D5C4 Auto-grave Recovery
+385D Extend Yokai Shift
+B79E Movement Speed (Yokai Shift)

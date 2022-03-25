@@ -1,0 +1,601 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+-- I will keep this updated as long as I can, as updates made to the game do sometimes break codes & they do get updated 
+
+- ### START ### - this is the start of the code & any relevant information associated with it..
+- ### END ### - this is the end of the code & any information with it..
+
+### WARNING ###
+Some of these codes combined may corrupt your save, so make sure you always have a backup before combing multiple codes.
+
+### 1.07 ###
+as of 1.07 Codes are either not working or your unable to load modded saves, this may get resolved or it may not, 
+say thanks to those twitch streamers streaming live with their modded gear online & ruining it for the rest of the community.
+https://twitter.com/ps4savewizard/status/1245062180740968457
+Update (03.04.2020): seems the 1.07 update has re-shuffled the offsets & locations in the save file.. 
+so manual modding still should be fine but codes will not work since locations have changed, they will all most likely will need to be re-written from scratch.
+Update 2 (03.04.2020) skiller mentioned you just need to advance the current codes by by 1 slot (item based codes?)
+all current codes are same -- i'm not sure what this means as i cannot visualise it (i seem to be missing the point) but those who understand should be able to modify the existing codes to work...
+
+### 1.07+ Update ###
+NOTE: As of Nioh 2 patch 1.07, equipment effects have been restricted to their hard-coded max limits.  
+You can still edit your effects and change them around on your equipment with the CE table and codes, 
+but you can no longer have god-like stats on them outside of what the game allows you to have.
+
+Equipped soul cores are the exception to this rule.  
+Equipped soul cores are stored in the save in a separate memory block from gear and soul core in your inventory.  
+You can have god-like stats on these, but they will reset in-game if you remove the cores from your guardian spirit(s).
+
+# WildArmed - Discord #
+
+Max Current Items V3 [1.07] - Experimental
+- ### START ### -
+42105E0C 0000270F
+43840088 00000000
+- ### END ### -
+Notes: Anything you have in your inventory.
+
+# Butter Biscuits - Discord #
+
+OP Accessories 1 By Jimmy 
+- ### START ### -
+95000000 000ED300
+80010006 XXXXXXXX
+01000000 00000000
+28000006 63006300
+28000030 00005A42
+28000034 0000270F
+2800003C 00002512
+28000040 0000270F
+28000048 00008EC0
+2800004C 0000270F
+28000054 0000C4D5
+28000058 0000270F
+28000060 0000A590
+28000064 00000000
+2800006C 0000D83E
+28000070 0000270F
+28000078 00007AF8
+2800007C 0000270F
+- ### END ### -
+
+OP Accessories 2 By Jimmy
+- ### START ### -
+95000000 000ED300
+80010006 XXXXXXXX
+01000000 00000000
+28000006 63006300
+28000030 0000DAF1
+28000034 0000270F
+2800003C 0000550B
+28000040 0000270F
+28000048 0000503A
+2800004C 0000270F
+28000054 0000DF8B
+28000058 00000000
+28000060 00008220
+28000064 0000270F
+2800006C 00008612
+28000070 0000270F
+28000078 00006A85
+2800007C 0000270F
+
+XXXX=Accessorie ID (Write 2 times)
+5672 Medicine Case (type1
+f692 Writing Set
+62f4 
+1725 
+636c 
+d492 
+6064 Medicine Case (type2
+982b
+
+More ids: https://pastebin.com/sswczd4k
+
+Notes: 
+If you have questions, try changing the accessories ID or search times (8001-> 8002-> 8003)
+
+Update:
+Ok, this is the conclusion about twilight.
+Depending on the level of twilight, the maximum limit of the effect is also different.
+Low-level twilight, cheat will be useless.
+d492 
+6064 Medicine Case
+982b
+Image0: https://i.imgur.com/mmAIzja.jpg
+Image1: https://i.imgur.com/vQOCEiI.jpg
+- ### END ### -
+
+Jimmy The Burger Wizard
+11 Weapon Proficiency 99999
+- ### START ### -
+201C4944 0001869F
+201C4950 0001869F
+201C495C 0001869F
+201C4968 0001869F
+201C4974 0001869F
+201C4980 0001869F
+201C498C 0001869F
+201C4998 0001869F
+201C49A4 0001869F
+201C4A10 0001869F
+201C4A1C 0001869F
+- ### END ### -
+
+11 Weapon Proficiency 999999
+- ### START ### -
+201C4944 000F423F
+201C4950 000F423F
+201C495C 000F423F
+201C4968 000F423F
+201C4974 000F423F
+201C4980 000F423F
+201C498C 000F423F
+201C4998 000F423F
+201C49A4 000F423F
+201C4A10 000F423F
+201C4A1C 000F423F
+- ### END ### -
+
+# Skiller - Discord #
+
+Nioh 2 - Item list: https://docs.google.com/spreadsheets/d/1FWRe5tWXELL5C5rgvbfOC3sabHFFQ7Fy_q1jic_QEX4/edit#gid=202242186
+
+Max All Equipment Special Effects Stats
+Note: This Sets Every Equipment Slot even the Blanks
+- ### START ### -
+95000000 000ED3C0
+4A000034 0000270F
+42BB0090 00000000
+4A000040 0000270F
+42BB0090 00000000
+4A00004C 0000270F
+42BB0090 00000000
+4A000058 0000270F
+42BB0090 00000000
+4A000064 0000270F
+42BB0090 00000000
+4A000070 0000270F
+42BB0090 00000000
+4A00007C 0000270F
+42BB0090 00000000
+- ### END ### -
+
+Alt version, sets value to 2147483647 in all slots - may CRASH your game
+- ### START ### 
+95000000 000ED3C0
+4A000034 7FFFFFFF
+42BB0090 00000000
+4A000040 7FFFFFFF
+42BB0090 00000000
+4A00004C 7FFFFFFF
+42BB0090 00000000
+4A000058 7FFFFFFF
+42BB0090 00000000
+4A000064 7FFFFFFF
+42BB0090 00000000
+4A000070 7FFFFFFF
+42BB0090 00000000
+4A00007C 7FFFFFFF
+42BB0090 00000000
+- ### END ### -
+
+Note: use Nioh 2 - Item list spreadsheet with these codes...
+Single Item Code Amount
+Note: This will Give 9999 to the item ID you put in
+- ### START ### -
+80010004 ZZZZXXXX
+28000004 0000270F
+80020004 ZZZZXXXX
+28000004 0000270F
+- ### END ### -
+
+Item/Gear Swap
+Note: If you have more then 1 of Z item, this will mod the first one 
+- ### START ### -
+95000000 000ED3C0
+88010004 ZZZZXXXX
+A8000000 00000004
+ZZZZXXXX 00000000
+
+88010004 ZZZZXXXX = Item/Gear to change 
+ZZZZXXXX 00000000 = Item/Gear you want
+- ### END ### -
+
+Equipment Mods V1?
+- ### START ### -
+95000000 000ED3C0
+88010004 ZZZZXXXX 
+Add lines from below here
+
+ZZZZXXXX = Equipment id/Refashioned Appearance Mod
+
+18000000 0000ZZZZ    Equipment ID Mod
+18000002 0000XXXX    Refashioned Appearance Mod - Same As ID Mod unless Refashioned
+28000006 00XX00XX    Level 
+0800000A 000000XX    Higher/+ levels    (Max 1E = 30)
+2800000C XXXXXXXX    Fam    (Max 0001863C (999))
+08000014 000000XX    Tier
+28000034 XXXXXXXX    Special Effects 1 Value
+28000040 XXXXXXXX    Special Effects 2 Value
+2800004C XXXXXXXX    Special Effects 3 Value
+28000058 XXXXXXXX    Special Effects 4 Value
+28000064 XXXXXXXX    Special Effects 5 Value
+28000070 XXXXXXXX    Special Effects 6 Value
+2800007C XXXXXXXX    Special Effects 7 Value
+28000030 XXXXXXXX    Special Effects 1 Mod
+2800003C XXXXXXXX    Special Effects 2 Mod
+28000048 XXXXXXXX    Special Effects 3 Mod
+28000054 XXXXXXXX    Special Effects 4 Mod
+28000060 XXXXXXXX    Special Effects 5 Mod
+2800006C XXXXXXXX    Special Effects 6 Mod
+28000078 XXXXXXXX    Special Effects 7 Mod
+- ### END ### -
+
+All Equipment Codes V2
+Note: This Sets Every Equipment Slot even the Blanks
+- ### START ### -
+95000000 000ED3C0
+XXXXXXXX XXXXXXXX
+42BB0090 00000000  <-- Need to Add this under every line you add
+
+
+Lines
+49000000 0000ZZZZ    Equipment ID Mod
+49000002 0000XXXX    Refashioned Appearance Mod - Same As ID Mod unless Refashioned
+4A000006 00XX00XX    Level 
+4800000A 000000XX    Higher/+ levels    (Max 1E = 30)
+4A00000C XXXXXXXX    Fam    (Max 0001863C (999))
+48000014 000000XX    Tier
+4A000034 XXXXXXXX    Special Effects 1 Value
+4A000040 XXXXXXXX    Special Effects 2 Value
+4A00004C XXXXXXXX    Special Effects 3 Value
+4A000058 XXXXXXXX    Special Effects 4 Value
+4A000064 XXXXXXXX    Special Effects 5 Value
+4A000070 XXXXXXXX    Special Effects 6 Value
+4A00007C XXXXXXXX    Special Effects 7 Value
+4A000030 XXXXXXXX    Special Effects 1 Mod
+4A00003C XXXXXXXX    Special Effects 2 Mod
+4A000048 XXXXXXXX    Special Effects 3 Mod
+4A000054 XXXXXXXX    Special Effects 4 Mod
+4A000060 XXXXXXXX    Special Effects 5 Mod
+4A00006C XXXXXXXX    Special Effects 6 Mod
+4A000078 XXXXXXXX    Special Effects 7 Mod
+
+
+Example 
+
+All Max Level, +level, Fam , tier
+95000000 000ED3C0
+4A000006 00AA00AA
+42BB0090 00000000
+4800000A 0000001E
+42BB0090 00000000
+4A00000C 0001863C
+42BB0090 00000000
+48000014 00000004
+42BB0090 00000000
+- ### END ### -
+
+Special effects counter test
+UNEQUIP BEFORE USE Everything 
+- ### START ### -
+95000000 000ED3C0
+4A000000 2B982B98
+42BB0090 00000000
+49000004 00000001
+42BB0090 00000000
+4A000006 00010001
+42BB0090 00010001
+4A000030 00000001
+42BB0090 00000007
+4A000034 00000001
+42BB0090 00000007
+4A00003C 00000002
+42BB0090 00000007
+4A000040 00000002
+42BB0090 00000007
+4A000048 00000003
+42BB0090 00000007
+4A00004C 00000003
+42BB0090 00000007
+4A000054 00000004
+42BB0090 00000007
+4A000058 00000004
+42BB0090 00000007
+4A000060 00000005
+42BB0090 00000007
+4A000064 00000005
+42BB0090 00000007
+4A00006C 00000006
+42BB0090 00000007
+4A000070 00000006
+42BB0090 00000007
+4A000078 00000007
+42BB0090 00000007
+4A00007C 00000007
+42BB0090 00000007
+- ### END ### -
+
+Max All Current Items V1 - might not work anymore
+- ### START ### -
+46105D84 0000270F
+14B30088 00000000
+- ### END ### -
+
+Max All Current Items V2 (should not effect weapons in storage)
+- ### START ### -
+42105D84 0000270F
+43840088 00000000
+- ### END ### -
+
+Max Patronage level
+- ### START ### -
+201E075C 05F5E0FF
+- ### END ### -
+
+Lvl 99 Weapon, 999 Familiarity (these will also put on Armor), and + 30 to your weapon.
+- ### START ### -
+95000000 000ED3C0
+4A000006 00630063
+42BB0090 00000000
+4800000A 000000E1
+42BB0090 00000000
+4A00000C 0001863C
+42BB0090 00000000
+- ### END ### -
+
+Partonage
+- ### START ### -
+421E075C 05F5E0FF
+40100004 00000000
+- ### END ### -
+
+# InfinityArts - Discord #
+- ### START ### -
+201C47EC    000003E7
+201C47FC    000003E7
+201C480C    000003E7
+201C481C    000003E7
+201C482C    000003E7
+201C483C    000003E7
+201C484C    000003E7
+201C485C    000003E7
+201C486C    000003E7
+201C48EC    000003E7
+201C48FC    000003E7
+201C490C    000003E7
+201C491C    000003E7
+
+Notes From Author:
+Someone smarter than me can make a counter code, but that should set the "bonus" points you get from Locks to 999.
+Should work for all the skills that don't have locks of hair as well (non Samurai/Onmyo/Ninja).
+This is only slightly better than the max all skills code in SW in that it shouldn't revert when you gain skill points normally.
+- ### END ### -
+
+sets all your divine gear to +30
+- ### START ### -
+95000000 000ED3C0
+4800000A 0000001E
+42BB0090 00000000
+- ### END ### -
+
+Makes everything Divine and +30.
+- ### START ### -
+95000000 000ED3C0
+4800000A 0000001E
+42BB0090 00000000
+48000014 00000004
+42BB0090 00000000
+- ### END ### -
+
+Sets all equipment to 170 + 10 and Divine.
+- ### START ### -
+95000000 000ED3C0
+4A000006 00AA00AA
+42BB0090 00000000
+4800000A 0000000A
+42BB0090 00000000
+48000014 00000004
+42BB0090 00000000
+- ### END ### -
+
+# WildArmed - Discord #
+
+Replace Umbracite with divine Umbracite
+- ### START ### -
+95000000 000ED3C0
+80010004 88218821
+A8000000 00000004
+65D265D2 00000000
+
+Replace Quality Umbracite with Fabled Umbracite
+95000000 000ED3C0
+80010004 EAFDEAFD
+A8000000 00000004
+F0DAF0DA 00000000
+
+
+Notes: Remember to sell 1 item and buy it back @ the blacksmith. Otherwise you won't see them "activate"
+- ### END ### -
+
+skill ids for equipment: https://pastebin.com/sswczd4k (.d.C.)
+
+# noodles, Cyane - Discord #
+
+Nioh 2 Special Effect - https://docs.google.com/spreadsheets/d/1TSx14ALhXl1QTfWuEFNjvQ0v2uopzJ2Xb2vbWCbQpC0/edit#gid=0
+
+# Syizm #
+
+Nioh 2 Hex Sheet - https://docs.google.com/spreadsheets/d/14W4oBs1oK02M-FElylGp4ym6wQbSOwY3HFQgv8UHYME
+Forum: https://www.nextgenupdate.com/forums/ps4-game-save-modding/1029818-nioh-2-advanced-mode.html | https://forum.hackinformer.com/viewtopic.php?f=116&t=4756
+
+Nioh 2 Experimental Codes #2 (Skiller & Wudchuk): Edit might be fake (Wudchuk who posted it as a joke)
+instant platinum instant beat the game instant newgame+ 696420 all divin +69420 gear and of course invisible breasts gender
+mod from skiller here you go guys okay listen carefully 
+- ### START ### -
+48000069
+00000000
+11111110069
+1827190148
+484848484
+01010101010
+3E76CE0054
+AE636401CE
+- ### END ### -
+
+# Jerryardo - Discord #
+
+Max all prestige bonuses - unconfirmed (might or might not work)
+- ### START ### -
+95000000 0007BBDF
+48000001 0000001E
+40100001 00000000
+- ### END ### -
+
+# Royaute - Discord #
+
+- ### START ### -
+[Maximize all special effect values (true)
+95000000 000ED3C0
+48000039 0000007F
+42BB0090 00000000
+48000045 0000007F
+42BB0090 00000000
+48000051 0000007F
+42BB0090 00000000
+4800005D 0000007F
+42BB0090 00000000
+48000069 0000007F
+42BB0090 00000000
+48000075 0000007F
+42BB0090 00000000
+48000081 0000007F
+42BB0090 00000000
+- ### END ### -
+
+- ### START ### -
+[Maximize all special effect values (legit)
+95000000 000ED3C0
+48000039 00000067
+42BB0090 00000000
+48000045 00000067
+42BB0090 00000000
+48000051 00000067
+42BB0090 00000000
+4800005D 00000067
+42BB0090 00000000
+48000069 00000067
+42BB0090 00000000
+48000075 00000067
+42BB0090 00000000
+48000081 00000067
+42BB0090 00000000
+- ### END ### -
+
+[Max Proficiencies and Soul Fragments]
+- ### START ### -
+201C4944 0007A120
+201C4950 0007A120
+201C495C 0007A120
+201C4968 0007A120
+201C4974 0007A120
+201C4980 0007A120
+201C498C 0007A120
+201C4998 0007A120
+201C49A4 0007A120
+201C4A10 002DC6C0
+201C4A1C 002DC6C0
+201C4A28 00B71B00
+- ### END ### -
+Notes From Author: Same code as Jimmy's, but added the Soul Fragments and changed values to true in-game max.
+
+[Max Proficiencies and Soul Fragments] ALT?
+### Start ### - # Thela #
+95000000 001C4944
+4A000000 0007A120
+4010000C 00000000
+280000CC 002DC6C0
+280000D0 002DC6C0
+### END ##
+
+# Jolly, & others - Discord #
+
+All Equipment to Ethereal
+- ### START ### -
+95000000 000ED3C0
+4A000014 00000005
+42BB0090 00000000
+- ### END ### -
+
+# Skiller - Discord # (modified version of skillers code)
+
+All Weapons 170 (+30)
+- ### START ### -
+95000000 000ED3C0
+4A000006 00AA00AA
+42BB0090 00000000
+4800000A 000000E1
+42BB0090 00000000
+4A00000C 0001863C
+42BB0090 00000000
+- ### END ### -
+
+# ? (unknown author) - Discord #
+
+ALL items in your inv to 9999
+- ### START ### -
+95000000 000ED3C0
+46105D84 0000270F
+14B30088 00000000
+- ### END ### -
+Notes: As long as you have one of the item you want already in your inventory than using the above code will set you right. 
+it will set ALL items in your inv to 9999
+
+#### NOTES|Other #### | Most of these are only relevant if you know to manually edit saves via Hex Editing (more mods)
+Nioh 2 Experimental Codes # 1 (Skiller): https://pastebin.com/kR3EEmfR (not sure what this does...)
+Other Notes Regarding IDs etc: https://pastebin.com/j3r8bp0W [Updated 31.03.2020]
+Nioh 2 Eq-item editor: https://drive.google.com/drive/folders/1dRc9AA4_8p2x9cbw4BSbGnkDNsh7Vfuu (Cheat Engine To SW)
+NIOH2_21.0_by45 (Nioh 2 Save Editor PC-PS4?) [Chinese]: https://www.mediafire.com/file/6t79j9j6yefhqlc | Mirror: https://mega.nz/#!gksQ0a7B!oaxPascoln-kp_4Kl86Y7ZkcXSxdntFnhtRCzXMmlGA
+Save Editor Image: https://i.imgur.com/uskTVpT.png
+Nioh 2 Save Editor by KG Modder: https://codesprince.com/2020/04/13/nh-2-save-editor/
+Advanced Mode Tip to find soul cores: https://i.imgur.com/vHjl4DG.jpg - # Royaute #
+
+### Spreadsheets ###
+SW - Nioh 2: Item list (1.12 Updated): https://docs.google.com/spreadsheets/d/1FWRe5tWXELL5C5rgvbfOC3sabHFFQ7Fy_q1jic_QEX4/edit#gid=517146508
+Nioh 2 Smithing Texts: https://docs.google.com/spreadsheets/d/1c_JM-xL6aFYa0RVyyYucbWs7auIWNhkIIHpbfrF6kQM/edit#gid=0
+Nioh 2 Special Effect - https://docs.google.com/spreadsheets/d/1TSx14ALhXl1QTfWuEFNjvQ0v2uopzJ2Xb2vbWCbQpC0/edit#gid=0
+Nioh 2 Hex Sheet - https://docs.google.com/spreadsheets/d/14W4oBs1oK02M-FElylGp4ym6wQbSOwY3HFQgv8UHYME
+Nioh2_TemperTable: https://docs.google.com/spreadsheets/d/1atyaD9--xChyxtyeNUkDsww8yILuik0sPw5yOw8HvH4/htmlview?usp=sharing#
+
+
+#### 1.07+ Notes ####
+
+it seems Royaute discovered on how to mod modded OP stats on 1.07 which they have not yet patched, here is what he had to say about it:
+        I can confirm that modding soul cores works in 1.07, but it requires a more involved method
+        A game mechanic is that you can equip a soul core onto multiple guardian spirits. The game does this by copying the values of the soul core you have in your inventory and pasting it onto one of your guardian spirit's 3 soul core slots
+        1.07 reset the values of all equipment and soul cores you have in your INVENTORY, but NOT your guardian spirit's soul core slots.
+        The soul core you have equipped is a copy and pasted version of the soul core you have in your inventory, so you can get around the 1.07 reset by modding that instead.
+Proof: https://cdn.discordapp.com/attachments/688161655611195403/695711256321196083/unknown.png
+
+Jimmy The Burger Wizard has found a workaround for 1.05 cheats by changing the version number of your save files b4 modding via QC.
+to quote him:
+There is a way to make your 1.07 equipment cheat work (but can not exceed the specified value)
+At the same time import 1.05 system save._
+Then your 1.07 cheat will work.
+
+1.07 00240320
+1.05 00110320
+
+You can change system save version value to 1.05.
+Then you can cheat 1.07 player save.
+
+Change system save version to 1.05 (SYSTEMSAVEDATA00)
+20000008 20031100 <-- QC to change version number
+
+Image: https://cdn.discordapp.com/attachments/688161655611195403/696237803977048134/unknown.png
