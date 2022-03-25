@@ -11,7 +11,7 @@ JP QC List 1: https://web.save-editor.com/bbs/patchcode/ps4/file_30262.txt
 JP QC List 2: https://web.save-editor.com/bbs/patchcode/ps4/file_30689.txt
 JP QC List 3: https://web.save-editor.com/bbs/patchcode/ps4/file_30432.txt
 JP Forum Research & QC: https://web.save-editor.com/bbs/patchcode/ps4/bbs.cgi?list=pickup&num=30071#
-More AM Edits (Guide By Lotus#0676): https://pastebin.com/pqCKPj42
+More AM Edits (Guide By Lotus#0676): https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/Tales%20Of%20Arise%20AM%20%5BSaveWizard%5D.txt
 
 [Lotus] <-- Sorted & Tested
 
