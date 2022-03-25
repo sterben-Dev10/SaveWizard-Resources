@@ -1,0 +1,68 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+ 
+-- I will keep this updated as long as I can, as updates made to the game do sometimes break codes & they do get updated 
+
+Credits: XxUnkn0wnxX
+
+They Are Billions Resource Mod
+
+Sets Resources To Max Cap - Campaign Only 
+80010017 54726169
+6E20746F 20436F6D
+6D616E64 2043656E
+74657200 00000000
+4A0001C0 0098967F
+40050004 00000000
+Notes: wait for the train to arrive at least once
+
+Sets Resources To Max Cap - Using Money Value Offset (Works Any Game Mode)
+B0010004 F00A0000 <-- looks for money with a value of 2800 (little endian)
+93000000 00000010
+4A000000 0098967F <-- Sets value to 9999999 (big endian)
+40050004 00000000
+
+Template:
+B0010004 ZZZZZZZZ
+93000000 00000010
+4A000000 XXXXXXXX
+40050004 00000000
+
+Where Z, Money value
+Where X, Value to set money & all resources
+
+Use: http://www.save-editor.com/tools/wse_hex.html
+to convert dec to hex for Z & X
+
+Sets Resources To Max Cap - Survival Only
+### Using Food ### v1.0 [don't use this if you have picked up anything else 1st]
+B001000C 5069636B 
+61626C65 466F6F64
+93000000 0000004C
+4A000000 0098967F
+40050004 00000000
+Notes: must obtain at least 1 food crate found on the map for it to work
+
+### Using Any Pickable item ### v1.1
+80010008 5069636B 
+61626C65 00000000
+93000000 0000004C
+4A000000 0098967F
+40050004 00000000
+Notes: pick up any resource on the map 1st: Gold (Money), Wood, Oil, Stone, Iron, Energy (Batteries), Food
+should be safe, just don't pick up stone 1st, any other resources should be fine.
+
+### Using "Header Info" ### v2.0 [Safest]
+C0020008 0000034A
+4A000051 0098967F
+40050004 00000000
+Usage: Should Work anytime, load into survival save & exit & mod it ;)
+
+Set Command Center Health to 9999999
+80010004 88130000
+28000000 0098967F
+Notes: Must be at full health 1st, command center will ask for repair on load, don't as it will reset it.

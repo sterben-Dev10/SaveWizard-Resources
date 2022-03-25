@@ -1,0 +1,418 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+ 
+-- I will keep this updated as long as I can, as updates made to the game do sometimes break codes & they do get updated 
+
+[Skiller#4741]
+
+Swap Silver To:
+Tungsten Ingot (Must have at least 1 Silver to Swap)
+80010024 0B0155F6
+B9FD1B00 00001600
+0000B8D1 1793B8D1
+17930000 1C000B01
+FEF663DF 7C010000
+A8000002 00000008
+B13C3670 AF010000
+
+Carbon Ingot (Must have at least 1 Silver to Swap)
+80010024 0B0155F6
+B9FD1B00 00001600
+0000B8D1 1793B8D1
+17930000 1C000B01
+FEF663DF 7C010000
+A8000002 00000008
+AF3C3670 AF010000
+
+Nickel Ingot (Must have at least 1 Silver to Swap)
+80010024 0B0155F6
+B9FD1B00 00001600
+0000B8D1 1793B8D1
+17930000 1C000B01
+FEF663DF 7C010000
+A8000002 00000008
+B03C3670 AF010000
+
+Titanium (Must have at least 1 Silver to Swap)
+80010024 0B0155F6
+B9FD1B00 00001600
+0000B8D1 1793B8D1
+17930000 1C000B01
+FEF663DF 7C010000
+A8000002 00000008
+8E9FD8BC C7010000
+
+Fabric (Must have at least 1 Silver to Swap)
+80010024 0B0155F6
+B9FD1B00 00001600
+0000B8D1 1793B8D1
+17930000 1C000B01
+FEF663DF 7C010000
+A8000002 00000008
+939FD8BC C7010000
+
+Leather (Must have at least 1 Silver to Swap)
+80010024 0B0155F6
+B9FD1B00 00001600
+0000B8D1 1793B8D1
+17930000 1C000B01
+FEF663DF 7C010000
+A8000002 00000008
+03F43170 AF010000
+
+Raw Material (Must have at least 1 Silver to Swap)
+80010024 0B0155F6
+B9FD1B00 00001600
+0000B8D1 1793B8D1
+17930000 1C000B01
+FEF663DF 7C010000
+A8000002 00000008
+A2B67C25 83010000
+
+Supplies (Must have at least 1 Silver to Swap)
+80010024 0B0155F6
+B9FD1B00 00001600
+0000B8D1 1793B8D1
+17930000 1C000B01
+FEF663DF 7C010000
+A8000002 00000008
+A1B67C25 83010000
+
+Opal (Must have at least 1 Silver to Swap) <-- Wont do anything since this syncs online! 
+80010024 0B0155F6
+B9FD1B00 00001600
+0000B8D1 1793B8D1
+17930000 1C000B01
+FEF663DF 7C010000
+A8000002 00000008
+5B0F61C6 B3010000
+
+Iron Ore (Must have at least 1 Silver to Swap)
+80010024 0B0155F6
+B9FD1B00 00001600
+0000B8D1 1793B8D1
+17930000 1C000B01
+FEF663DF 7C010000
+A8000002 00000008
+F9F33170 AF010000
+
+Rest Skill Points & Mastery Points to 0
+80010004 C80A5A6E
+2800000D 00000000
+80010004 FB3DC61B
+2800000D 00000000
+
+### Start ###
+Max XXXXX Template <-- used with the ID Other in the spreadsheet
+80010004 XXXXXXXX
+2800000D 0000270F <--Value 9999
+
+Skill Points to 9999
+80010004 C80A5A6E
+2800000D 0000270F
+
+Mastery Points to 9999
+80010004 FB3DC61B
+2800000D 0000270F
+
+EXP Level to 9999
+80010004 E84C8822
+2800000D 0000270F
+
+Power Level to 9999
+80010004 5B81E813
+2800000D 0000270F
+
+just use http://www.save-editor.com/tools/wse_hex.html to convert Dec to Hex to set your own custom value, 270F is default which is 9999 (be sure to add in front of your hex value so its 8 characters long)
+### End ###
+
+Max EXP:
+80010008 12000B4C
+9DE5CDCC 00000000
+28000059 05F5E0FF <-- XP Set to 99999999
+
+### START ### 1.0
+Max Any Item (Replace H & G With the ID): <-- Skiller has this in his google doc, this is just broken down from his example code for people who don't know how to use their brain cells..
+H is 1st 8 Digits, G is last 8 Digits
+EG Silver ID: 55F6B9FD1B000000
+
+So this:
+Basic Search ID write Value
+800X0008 HHHHHHHH
+GGGGGGGG 00000000
+88010008 52000000
+FFFD5262 00000000
+93000000 00000004
+28000000 VVVVVVVV
+
+would become
+
+80010008 55F6B9FD <-- ID Start
+1B000000 00000000 <-- ID End 1st part
+88010008 52000000
+FFFD5262 00000000
+93000000 00000004
+28000000 05F5E0FF <-- Value (05F5E0FF = 99999999 in Hex)
+
+Note the X in 800X0008
+replace with either 1, 2, 3 Or 4
+all this changes is where to look & write to, 1 = to 1st block, 2 = to 2nd block & so forth
+
+Use: http://www.save-editor.com/tools/wse_hex.html to convert Hex to Dec or vice versa
+Image: https://i.imgur.com/cWZZMOB.jpg
+
+To get Ids for use refer to google doc.
+Note: if your value does not change just change 1 in 80010008 to 2, 80020008 so it write to the 2nd block.. or your lazy you can just write to all 4 blocks like this:
+
+Template:
+80010008 HHHHHHHH <-- ID Start
+GGGGGGGG 00000000 <-- ID End 1st part
+88010008 52000000
+FFFD5262 00000000
+93000000 00000004
+28000000 VVVVVVVV <-- Value (05F5E0FF = 99999999 in Hex)
+80020008 HHHHHHHH <-- ID Start
+GGGGGGGG 00000000 <-- ID End 1st part
+88010008 52000000
+FFFD5262 00000000
+93000000 00000004
+28000000 VVVVVVVV <-- Value (05F5E0FF = 99999999 in Hex)
+80030008 HHHHHHHH <-- ID Start
+GGGGGGGG 00000000 <-- ID End 1st part
+88010008 52000000
+FFFD5262 00000000
+93000000 00000004
+28000000 VVVVVVVV <-- Value (05F5E0FF = 99999999 in Hex)
+80040008 HHHHHHHH <-- ID Start
+GGGGGGGG 00000000 <-- ID End 1st part
+88010008 52000000
+FFFD5262 00000000
+93000000 00000004
+28000000 VVVVVVVV <-- Value (05F5E0FF = 99999999 in Hex)
+### END ###
+
+### START ###
+Replace V with Current Value <-- This just looks for the value you want to change Any Item matching the value found will be changed to 99999999 by default (you can edit this)
+800X000E 0007000B
+VVVVVVVV 52000000
+FFFD0000 00000000
+28000004 05F5E0FF
+
+Use Current Value, V replace with your current Value (Hex), 
+so if you have 9999 it would be in 270F in HEX, 
+you need to use LITTLE ENDIAN in the converter so it reverse the HEX digits (only for searching your value)
+270F = 0F27 (bytes revered) then you need put 0's after it so it becomes like this: 0F270000
+
+EG:
+
+8001000E 0007000B
+0F270000 52000000 <-- 1st part (9999 is 270F in hex Big, Use converter & Tick LITTLE ENDIAN to it gives you value 0F27 instead then use 0's to fill the gap so its = to 8 characters)
+FFFD0000 00000000
+28000004 05F5E0FF <-- 99999999
+### END ###
+			
+### Start ###
+Swap Silver to ???????
+80010024 0B0155F6
+B9FD1B00 00001600
+0000B8D1 1793B8D1
+17930000 1C000B01
+FEF663DF 7C010000
+A8000002 00000008
+HHHHHHHH GGGGGGGG <-- ID goes here 1st & 2nd half
+### END ###
+
+### Start ###
+Replace (Y) to give (X)
+80010010 1C000B01
+YYYYYYYY YYYYYYYY <-- ID of item you have (will get replaced)
+16000000 00000000
+A8000004 00000008
+XXXXXXXX XXXXXXXX <-- ID of item you want
+28000078 05F5E0FF <-- 99999999
+
+Notes:
+Pick what your want to Replace (Y) check your Bag for items u don’t need Trade Items or other items. 
+then put the item you want in (X) to gain the new item . 
+note it is possibly best to change the 28000078 05F5E0FF to 28000078 00000001 for items that don’t carry a more then 1 quantity. 
+Note MAY HAVE TO USE CODE MORE THEN 1 TIME CAN STACK CODE A FEW TIMES sometimes saves have more then 1 Set of IDS
+
+EG Fabric to silver:
+80010010 1C000B01
+939FD8BC C7010000 <-- Fabric ID "939FD8BCC7010000"
+16000000 00000000
+A8000004 00000008
+55F6B9FD 1B000000 <-- Silver ID "55F6B9FD1B000000"
+28000078 05F5E0FF <-- Value 99999999
+
+### END ###		
+
+Equipment Swap V1- Testing [OLD]
+8001000C 0012000B
+XXXXXXXX XXXXXXXX
+8801000C 1C000B01
+XXXXXXXX XXXXXXXX
+A8000004 00000008
+YYYYYYYY YYYYYYYY
+
+Equipment Swap V2 - )Testing) [OLD]
+Change all X to the item you have - ID
+Change Y to the Item You want -ID
+use the google spreadsheet for this
+
+8001000C 1C000B01
+XXXXXXXX XXXXXXXX
+A8000004 00000008
+YYYYYYYY YYYYYYYY
+8001000C 1C000B01
+XXXXXXXX XXXXXXXX
+A8000004 00000008
+YYYYYYYY YYYYYYYY
+8001000C 1C000B01
+XXXXXXXX XXXXXXXX
+A8000004 00000008
+YYYYYYYY YYYYYYYY
+8001000C 1C000B01
+XXXXXXXX XXXXXXXX
+A8000004 00000008
+YYYYYYYY YYYYYYYY
+8001000C 1C000B01
+XXXXXXXX XXXXXXXX
+A8000004 00000008
+YYYYYYYY YYYYYYYY
+8001000C 1C000B01
+XXXXXXXX XXXXXXXX
+A8000004 00000008
+YYYYYYYY YYYYYYYY
+8001000C 1C000B01
+XXXXXXXX XXXXXXXX
+A8000004 00000008
+YYYYYYYY YYYYYYYY
+8001000C 1C000B01
+XXXXXXXX XXXXXXXX
+A8000004 00000008
+YYYYYYYY YYYYYYYY
+
+Replace Opals to give (X) - Opals is stored online so will replace
+Note: Works offline
+80010024 1C000B01
+5B0F61C6 B3010000
+16000000 B8D11793
+B8D11793 00001C00
+0B018063 1567B701
+A8000004 00000008
+XXXXXXXX XXXXXXXX <-- resource|item ID
+28000078 05F5E0FF
+
+### START ### - Current Ver
+Equipment Swap/Mod
+80010008 BFE232C3
+BFE232C3 00000000
+8801000C 1C000B01
+XXXXXXXX XXXXXXXX
+93000000 00000012
+28000000 000000VV
+A8000016 00000008
+YYYYYYYY YYYYYYYY
+
+Rune Modding/Adding (Must Add to above code if using)
+8801000D 17E32B5B
+00000000 00000700
+0B000000 00000000
+92000000 0000000D
+08000000 000000TT
+08000015 000000UU
+A8000016 00000008
+NNNNNNNN NNNNNNNN
+8801000D 17E32B5B
+00000000 00000700
+0B000000 00000000
+92000000 0000000D
+08000000 000000TT
+08000015 000000UU
+A8000016 00000008
+GGGGGGGG GGGGGGGG
+8801000D 17E32B5B
+00000000 00000700
+0B000000 00000000
+92000000 0000000D
+08000000 000000TT
+08000015 000000UU
+A8000016 00000008
+HHHHHHHH HHHHHHHH
+(X)Item To replace
+(Y)Item to Replace With(If not Replacing Just use same ID as u do in To Replace
+(N)Rune 1  Add/Mod
+(G)Rune 2  Add/Mod 
+(H)Diamond Rune Add/Mod 
+(T)Rune "Active" = 01 "Not Active" = 00
+(U)Rune "Active" = 01 "Not Active" = 03 (Rune Add/Mod Set to 00000000 00000000
+### END ###
+
+Max Yule Tokens
+80010010 1C000B01
+05D0FB80 C1010000
+16000000 00000000
+28000078 05F5E0FF
+88010010 1C000B01
+05D0FB80 C1010000
+16000000 00000000
+28000078 05F5E0FF
+88010010 1C000B01
+05D0FB80 C1010000
+16000000 00000000
+28000078 05F5E0FF
+88010010 1C000B01
+05D0FB80 C1010000
+16000000 00000000
+28000078 05F5E0FF
+88010010 1C000B01
+05D0FB80 C1010000
+16000000 00000000
+28000078 05F5E0FF
+
+[Pj1980#8357]
+
+Have 45 Medallions(Must Have 1 Before Use) v1.0 [outdated]
+8001000C 0B0150BE
+DBBCC701 00001600
+08000076 0000002D
+8002000C 0B0150BE
+DBBCC701 00001600
+08000076 0000002D
+
+Have 45 Medallions(Must Have 1 Before Use) v2.0
+8001000C 0B0150BE
+DBBCC701 00001600
+28000076 0000002D
+8002000C 0B0150BE
+DBBCC701 00001600
+28000076 0000002D
+
+[Zeraf3000#8256]
+swap Silver Alt template
+80010024 0B0155F6
+B9FD1B00 00001600
+0000B8D1 1793B8D1
+17930000 1C000B01
+FEF663DF 7C010000
+A8000002 00000008
+HHHHHHHH GGGGGGGG
+28000076 05F5E0FF
+Usage:
+Quick Share guys. My own version of the swap Silver to another resource. With this one you don't have to Max Silver first. 
+All you got to do is swap Silver for another resource and it will be maxed already. 
+Then you just have to get more silver in game and reapply to swap to something else. 
+THIS IS ONLY FOR RESOURCES. For item swap, use the original code, otherwise you could end up with 999999 items of that thing.
+
+
+# Resources Notes, AM, Spreadsheets etc... #
+SW - Assassin's Creed: Valhalla - IDS: https://docs.google.com/spreadsheets/d/1LmQ9ni4QuuAqlHwADqPfOEemf5QlCLRwXLqAt--fZDY - More codes here [Skiller#4741]
+Starter Saves From Discord - savewizard: http://www.mediafire.com/file/f51n8nha8k7u20k | https://mega.nz/file/Qhs2nYgZ#qWrvqU5iS12B3scTLM-9I1bohzJEHOhia7I8gj3RTRk
+Assassin's Creed Valhalla item Id List: https://docs.google.com/spreadsheets/d/1TdyJGYoXaqf0Gg_0KudUmzG83avH23wl1KlJ5g00JyM/edit#gid=676958191
+More hash Ids: https://docs.google.com/spreadsheets/d/1xvljYOJVyCXuZKNCKOxDWFxjcLEYMgr-1MjBulIkE0c/edit#gid=458733988 (some of it is in Russian)
+Code Prince Premium Save Editor: https://codesprince.com/2020/11/14/ps4-save-editor-for-valhalla/ (Not Free)

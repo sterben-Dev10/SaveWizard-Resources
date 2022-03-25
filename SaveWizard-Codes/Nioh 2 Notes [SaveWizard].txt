@@ -1,0 +1,1414 @@
+#### This Contains other notes that are not found in the spreadsheets or other documents linked in the original paste ####
+
+## Effects Ranking ##
+AAA+ is the max
+value 11 equals AAA+ 
+value 10 equals AAA
+value 0F equals AAA-
+value 0E equals AA+
+value 0D equals AA
+value 0C equals AA-
+value 0B equals A+
+value 0A equals A
+value 09 equals A-
+value 08 equals B+
+value 07 equals B
+value 06 equals B-
+value 05 equals C+
+value 04 equals C
+value 03 equals C-
+value 02 equals D+
+value 01 equals D
+value 00 equals D-
+Anything above value 11 will result in AAA+
+For some effects AAA might be the max.
+The above is related to any effects that show letters and prerequisite is knowing the ID of course.
+
+# InfinityArts - Discord #
+
+Reference Sheet to use with other codes?
+0800003A 000000XX    Special Effect 1 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+08000046 000000XX    Special Effect 2 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+08000052 000000XX    Special Effect 3 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+0800005E 000000XX    Special Effect 4 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+0800006A 000000XX    Special Effect 5 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+08000076 000000XX    Special Effect 6 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+08000082 000000XX    Special Effect 7 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+Use with Skiller's Equipment Mods code (not the ALL equipment mods code), only 1 orange lock per piece
+
+4800003A 000000XX    Special Effect 1 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+48000046 000000XX    Special Effect 2 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+48000052 000000XX    Special Effect 3 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+4800005E 000000XX    Special Effect 4 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+4800006A 000000XX    Special Effect 5 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+48000076 000000XX    Special Effect 6 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+48000082 000000XX    Special Effect 7 Inheritability (2 = normal, 3 = innate, 6 = orange lock)
+As above, but for use with the multi-write code (to change all equipment)
+
+IDs:
+0000AE9C:Bizen-den Uchigatana
+000045D9:Yamato-den Uchigatana
+0000A98C:Bizen Ichimonji
+00003276:Senjuin Uchigatana
+0000EB7C:Hosho Sadayoshi
+0000752A:Kiku-Ichimonji
+0000A956:Kobizen Tomonari
+0000C992:Doji-kiri Yasutsuna
+0000A244:O-Denta Mitsuyo
+00001C0E:Ishida Masamune
+000093A3:Bizen-den Tachi
+0000AE49:Yamato-den Tachi
+00004987:Bizen Osafune
+0000666F:Senjuin Tachi
+0000343D:Taima Kuniyuki
+00008D37:Osafune Kanemitsu
+0000AB0D:Kusanagi Tsurugi
+000086BE:Juzumaru Tsunetsugu
+0000440F:Mikazuki Munechika
+00004B54:Onimaru Kunitsuna
+0000A9DC:Bastard Sword
+00006973:Wooden Sword
+0000B5CC:Oninamida Muramasa
+0000E993:Raikiri
+00002851:Sohaya Tsurugi
+00003A28:Hikoemon Ichimonji
+0000790F:Atagi Sadamune
+00004ED2:Heshikiri Hasebe
+000045F8:Furiwakegami Hiromitsu
+00006770:Nami-oyogi Kanemitsu
+00009E30:Haccho Nenbutsu
+00001838:Hoshi-kiri Tachi
+00007F66:Sozasa Monji
+0000EADF:Taisharyu Wooden Sword
+00003A65:Tengu-kiri
+0000DA38:Unnamed Item
+00008D29:Suijingiri Kanemitsu
+0000F692:Nikkari Aoe
+000061DC:Magaragiri Kanemoto
+00009962:Kaikunigo
+00003743:Dragon Sword
+0000AEE3:Dodanuki Masakuni
+0000267E:Soshu-Den Dual Uchigatana
+0000365E:Mino-Den Dual Uchigatana
+00009039:Seki-mono Dual Uchigatana
+000015EF:Seki Kanenori Dual Uchigatana
+00003AE7:Izumi-no-kami Kanesada Dual Katana
+00005A28:Hasebe Kunishige Dual Katana
+000041A7:Soshu Masamune Dual Katana
+0000EB37:Kogarasu-maru and Nuke-maru
+00003E02:Kago-tsurube Muramasa / Inoshishi-giri
+000006EE:Shichisei-ken / Heishishorin-ken
+00005942:Minoden Dual Tachi
+00008AFA:Soshu-Den Dual Tachi
+0000EB1C:Seki-Forged Dual Tachi
+00009A55:Seki Kaneyoshi Dual Tachi
+00000DAA:Rai Kokutsugu Dual Tachi
+00006177:Soshu Sadamune Dual Katana
+0000CD0B:Magoroku Kanemoto Dual Katana
+000004BA:O-Kanehira / Uguisu-maru
+0000DE6E:Shishi-o / Hone-kui
+0000FF4E:Hige-kiri and Hiza-maru
+0000BE65:Dual Wooden Swords
+000023F7:Fudo Kuniyuki / Yagen Toshiro
+0000D6C7:Tsuruga Masamune / Hocho Toshiro
+00008403:Futatsu-mei Norimune / Hone-bami Toshiro
+0000C3B9:Unnamed Item
+00007504:Daihannya Nagamitsu / Kannagiri
+0000BB6F:Shokudaikiri Mitsutada / Shinogito Shiro
+0000937E:Ichigo Hitofuri / Namazu-o Toshiro
+00005B8E:Dual Bloodstained Hatchets
+0000E81A:Spear
+0000A98A:Footsoldier's Spear
+00008D64:Officer's Spear
+000099BA:Captain's Spear
+0000BD1A:Greatspear
+000029BC:Sasaho Spear
+00004FDC:Kamedoshi Spear
+0000C9F8:Lacquered Spear
+000005B8:Tombo-Kiri
+00000446:Hinomotogo
+0000E409:Jumonji Spear
+0000E1BF:Squire's Jumonji Spear
+00008098:Warrior's Jumonji Spear
+00008C70:Vassal's Jumonji Spear
+0000A02B:Gyukaku-Jumonji Spear
+0000EF01:Iwatsuki Jumonji Spear
+0000D40E:Crescent Jumonji Spear
+00005FFF:Ningen Mukotsu
+0000FB53:Chidori-Jumonji Spear
+00009C00:Otegine
+0000A954:Runkah
+0000ED91:Wooden Spear
+00004BBC:Akaoni-no-Sankaku Spear
+0000BF4B:Ikkoku Nagayoshi Spear
+00002AEE:Oni Sakon's Spear
+0000E5A5:Giant Frog Spear
+000044FB:Hozoin Jumonji Spear
+0000B351:Unnamed Item
+0000804A:Great Chidori-Jumonji Spear
+00006D76:Great Halberd of Hihiragi
+0000BCDB:Yamauba Spear
+0000C760:Vermillion Spear
+0000097A:Kotaimatsu
+0000D186:Black Steel Axe
+00009AA1:Bandit Axe
+0000F228:Kabuto-wari Axe
+0000032A:Masakari Axe
+0000F991:Brute's Axe
+00004A89:Armorcrusher Axe
+0000AA69:Shura's War Axe
+0000C2FB:Holy Axe
+00004039:Slayer's Axe
+000023F5:Wooden Hammer
+00005713:Oak Hammer
+000052C0:Yari-ori Hammer
+0000106F:Warrior Monk's Hammer
+0000756C:Bronze Hammer
+00005C5B:Iwa-kudaki Hammer
+0000956B:Haja the Evil-Crusher
+00009092:Pickaxe
+00005BE2:Mononobe Axe
+0000B3C8:Kaido Axe
+0000AE8D:Kishin Hammer
+000039DE:Battle Axe
+0000D082:Wooden Axe
+0000D04E:Axe of Judgment
+00005925:Gozutenno's Axe
+00003FC2:Unnamed Item
+000039D9:Tatewari Axe
+0000715A:Ame-no-mahitotsu's Axe
+0000EFC9:Genno's Hammer
+0000D1FC:Swordsmith's Hammer
+0000C17D:Ryomen Sukuna's Axe
+000001AF:Spy's Kusarigama
+000026F6:Genin's Kusarigama
+0000B741:Haguro Kusarigama
+0000F635:Custom Kusarigama
+0000D8F0:Hachiyashu Kusarigama
+000001E6:Chunin's Kusarigama
+00000469:Swordsman's Kusarigama
+0000B5A3:Yogarasu Kusarigama
+0000E70F:Jonin's Kusarigama
+0000328B:Yasha's Kusarigama
+0000A120:Sayoarashi
+000092CF:Nagi-kusarigama
+000074FA:Hakujin Kusarigama
+00005905:Mikazuki Kusarigama
+0000FD64:Hooked Kusarigama
+00004E76:Nokizaru Kusarigama
+00001080:Togakushi Kusarigama
+00005BAD:Fuma Kusarigama
+0000B646:Rasatsu Kusarigama
+00002184:Shiranui
+0000DE9C:Wooden Kusarigama
+00005B11:Onikiba Kusarigama
+0000B9E9:Shishido Kusarigama
+000040AE:Unnamed Item
+00001E1F:Narukami
+0000FC2B:Isurugi
+0000582D:Yukishiro
+0000B254:Hayabusa Style Kusarigama
+00008388:Bizenden Odachi
+00001133:Sukesada Odachi
+00006FFC:Takahira Odachi
+0000E604:Jakirimaru
+00003BFE:Kimibanzai Tomonari
+0000C1C1:Yamashiroden Odachi
+000089D5:Rai Odachi
+00005515:Rai Kuniyuki Odachi
+0000F93F:Omokage
+0000AAC3:Kamui
+0000ACE5:Monohoshizao
+00009922:Hotarumaru
+0000705E:Mijinmaru
+0000BBAC:Futsunomitama
+0000833E:Sekishu Kazusada
+00002077:Taro Tachi
+0000C07A:Jiro Tachi
+00005886:Wooden Odachi
+000056BD:Usami Nagamitsu
+0000D31A:Bloodstained Cleaver
+0000FD6A:Rosewood Tonfa
+00003E94:Ebony Tonfa
+0000CC73:Niya's Tonfa
+00000272:Pechin's Tonfa
+0000B17E:Ninja's Tonfa
+0000E1A4:Martial Artist's Tonfa
+00000869:Quaking Tonfa
+00001EED:Obliterating Tonfa
+00002BE2:Ueekata's Tonfa
+00004357:Anji's Tonfa
+0000B1C9:Twin Dragon Tonfa
+0000F777:Yin-Yang Tonfa
+000062B2:Vajra Tonfa
+00009C52:Kyakuja Tonfa
+000028B0:Wooden Tonfa
+0000EDFA:Sarutobi's Gunsticks
+00007C21:Return to the Main Menu?
+000078E4:Return to the Main Menu?
+00006DBA:Return to the Main Menu?
+00003DF0:Return to the Main Menu?
+00003BF3:Return to the Main Menu?
+00000CFF:Return to the Main Menu?
+00003116:Return to the Main Menu?
+00007E58:Return to the Main Menu?
+00002A95:Return to the Main Menu?
+00004AC1:Return to the Main Menu?
+000049DB:Return to the Main Menu?
+000043C8:Return to the Main Menu?
+00007157:Longbow
+0000DB0A:Shigedo Longbow
+0000C1A4:Tate-ugachi Bow
+00001265:Warrior of the West Bow
+0000C310:Yoichi's Bow
+00002A04:Tsunonotsuki Bow
+00009907:Raishodo
+0000B891:Tanegashima Matchlock
+0000F0A5:Kunitomo Rifle
+00006E8F:Sakai Rifle
+0000328D:Negoro Rifle
+00001E3D:Ravenwing Rifle
+0000D1E0:Touchpaper Musket
+00004047:Inadome-style Matchlock
+00001D6C:Tatsuke-style Matchlock
+0000E475:Hand Cannon
+00006576:Tokiwa Hand Cannon
+000016F2:Ginshu Hand Cannon
+000055E2:Yoryu Cannon
+0000CF01:Bellowing Tenryu
+0000FDB8:Tatsuke-style Cannon
+0000252F:Lightning Cannon
+00003133:Scout Armor (L) Mengu
+000051D7:Scout Armor (L) Do
+00000AF5:Scout Armor (L) Kote
+0000BE7A:Scout Armor (L) Hizayoroi
+00007715:Scout Armor (L) Suneate
+0000831D:Thief Armor (L) Mengu
+0000ADC6:Thief Armor (L) Do
+0000715E:Thief Armor (L) Kote
+0000CBCE:Thief Armor (L) Hizayoroi
+00007CE0:Thief Armor (L) Suneate
+00001866:Pirate Armor (L) Mengu
+00006A4E:Pirate Armor (L) Do
+0000775C:Pirate Armor (L) Kote
+0000F758:Pirate Armor (L) Hizayoroi
+0000718B:Pirate Armor (L) Suneate
+0000444D:Bandit Armor (L) Mengu
+000078BF:Bandit Armor (L) Do
+0000854F:Bandit Armor (L) Kote
+000051AD:Bandit Armor (L) Hizayoroi
+00004685:Bandit Armor (L) Suneate
+0000D4EA:Archer Garb Hat
+00000B52:Archer Garb Robe
+0000D032:Archer Garb Kote
+0000EAED:Archer Garb Hakama
+00005E79:Archer Garb Waraji
+0000F244:Bowman's Armor Kasa
+0000D281:Bowman's Armor Joi
+0000F29A:Bowman's Armor Kote
+0000568E:Bowman's Armor Hakama
+00001638:Bowman's Armor Waraji
+0000E206:Onmyo Mage's Hunting Gear Eboshi
+0000DBDB:Onmyo Mage's Hunting Gear Joi
+0000061A:Onmyo Mage's Hunting Gear Tekko
+0000B0CB:Onmyo Mage's Hunting Gear Hakama
+0000E4E4:Onmyo Mage's Hunting Gear Kutsu
+0000A4A4:Onmyo Mage's Joe Eboshi
+00003C60:Onmyo Mage's Joe Joi
+00009C36:Onmyo Mage's Joe Tekko
+0000B7C2:Onmyo Mage's Joe Hakama
+0000A362:Onmyo Mage's Joe Kutsu
+00008213:L 0008 CAP
+0000B7E3:L 0008 CHEST
+00003E09:L 0008 ARM
+0000A4E8:L 0008 LEG
+000034AC:L 0008 FOOT
+0000AD6E:Yamabushi Apparel Tokin
+000051F9:Yamabushi Apparel Joi
+0000CB5C:Yamabushi Apparel Tekko
+0000DA39:Yamabushi Apparel Hakama
+00002BFF:Yamabushi Apparel Waraji
+00000820:Gyousha's Apparel Tokin
+00008460:Gyousha's Apparel Joi
+00005D6C:Gyousha's Apparel Tekko
+0000D853:Gyousha's Apparel Hakama
+00008552:Gyousha's Apparel Waraji
+00001FE9:Iga Jonin Apparel Hachigane
+00008A06:Iga Jonin Apparel Do
+0000954B:Iga Jonin Apparel Kote
+0000C60D:Iga Jonin Apparel Hizayoroi
+0000ABE3:Iga Jonin Apparel Suneate
+000041D5:Shinobi Apparel Zukin
+000091CD:Shinobi Apparel Joi
+0000A51C:Shinobi Apparel Tekko
+0000D10E:Shinobi Apparel Hakama
+0000CB61:Shinobi Apparel Kyahan
+0000359C:Chunin Apparel Zukin
+00009B6A:Chunin Apparel Joi
+00008983:Chunin Apparel Tekko
+0000104C:Chunin Apparel Hakama
+00007920:Chunin Apparel Kyahan
+000068C4:Red Demon Armor (L) Kabuto
+0000A5D6:Red Demon Armor (L) Do
+00006E48:Red Demon Armor (L) Kote
+000085D2:Red Demon Armor (L) Hizayoroi
+00001CD5:Red Demon Armor (L) Suneate
+0000D3C0:Frontline Armor (L) Kabuto
+0000488E:Frontline Armor (L) Do
+00000AF1:Frontline Armor (L) Kote
+0000922B:Frontline Armor (L) Hizayoroi
+00000145:Frontline Armor (L) Suneate
+00008E99:Justice Ministry Armor (L) White Zukin
+0000B24C:Justice Ministry Armor (L) Do
+0000EEB8:Justice Ministry Armor (L) Kote
+0000B28E:Justice Ministry Armor (L) Hizayoroi
+0000ABA3:Justice Ministry Armor (L) Suneate
+000077EF:Strategist's Armor (L) Zukin
+00001696:Strategist's Armor (L) Do
+000011B7:Strategist's Armor (L) Kote
+00004B8A:Strategist's Armor (L) Hizayoroi
+00000C4C:Strategist's Armor (L) Suneate
+000084B7:Yatagarasu Armor (L) Hitaiate
+0000F255:Yatagarasu Armor (L) Do
+0000675C:Yatagarasu Armor (L) Kote
+0000BE84:Yatagarasu Armor (L) Hizayoroi
+0000C6C2:Yatagarasu Armor (L) Suneate
+00004CDD:Saika Clan Armor (L) Kasa
+0000AF10:Saika Clan Armor (L) Do
+0000222E:Saika Clan Armor (L) Kote
+00002BAA:Saika Clan Armor (L) Hizayoroi
+0000575A:Saika Clan Armor (L) Suneate
+0000850A:Rifle Captain's Armor (L) Kabuto
+00004B0D:Rifle Captain's Armor (L) Do
+0000B0A8:Rifle Captain's Armor (L) Kote
+0000C8D6:Rifle Captain's Armor (L) Hizayoroi
+000054CE:Rifle Captain's Armor (L) Suneate
+00006561:Legendary Strategist's Garb Zukin
+0000B605:Legendary Strategist's Garb Kinu
+00004BA1:L 0021 ARM
+00006423:Legendary Strategist's Garb Hakama
+00003F14:Legendary Strategist's Garb Kutsu
+00009582:L 0022 CAP
+0000C58B:L 0022 CHEST
+00003D0B:L 0022 ARM
+00002FF3:L 0022 LEG
+0000FBA2:L 0022 FOOT
+0000B6D8:L 0023 CAP
+0000498F:Yagyu Garb Kinu
+0000F91B:L 0023 ARM
+00002376:Yagyu Garb Hakama
+0000A927:Yagyu Garb Zori
+000016E1:L 0024 CAP
+0000C9D1:L 0024 CHEST
+000047B3:L 0024 ARM
+0000B96F:L 0024 LEG
+0000925D:L 0024 FOOT
+0000EEEE:Mariner's Shirt
+00009929:Mariner's Pants
+00002247:Mariner's Boots
+00009526:Onmyo Mage's Suikan Eboshi
+000056AF:Onmyo Mage's Suikan Joi
+0000D9B9:Onmyo Mage's Suikan Tekko
+0000699E:Onmyo Mage's Suikan Hakama
+00001EA5:Onmyo Mage's Suikan Kutsu
+0000C227:Kuro-Garasu Armor (L) Mengu
+0000BFB8:Kuro-Garasu Armor (L) Do
+00007DFA:Kuro-Garasu Armor (L) Kote
+0000CE82:Kuro-Garasu Armor (L) Hizayoroi
+00002B2A:Kuro-Garasu Armor (L) Suneate
+00005A8C:Tower of London Guard Hat
+00006CFB:Tower of London Guard Coat
+000003B1:Tower of London Guard Gloves
+0000C5AE:Tower of London Guard Trousers
+00001D58:Tower of London Guard Boots
+000020D6:Dogi Upper
+0000EFBC:Dogi Lower
+0000E19E:Kojuro's Armor (L) Hachimaki
+00007CE1:Kojuro's Armor (L) Do
+00004726:Kojuro's Armor (L) Kote
+00008193:Kojuro's Armor (L) Hizayoroi
+0000B6A7:Kojuro's Armor (L) Suneate
+000059ED:Attendant's Armor (L) Kabuto
+0000D88D:Attendant's Armor (L) Do
+0000936F:Attendant's Armor (L) Kote
+00006E27:Attendant's Armor (L) Hizayoroi
+0000AC50:Attendant's Armor (L) Suneate
+0000B6D7:Sarutobi Shinobi Apparel Hachigane
+00003E32:Sarutobi Shinobi Apparel Joi
+000002C9:Sarutobi Shinobi Apparel Kote
+0000287C:Sarutobi Shinobi Apparel Hakama
+0000D517:Sarutobi Shinobi Apparel Suneate
+0000E567:Togakushi Shinobi Apparel Hachigane
+00002147:Togakushi Shinobi Apparel Joi
+000017C7:Togakushi Shinobi Apparel Kote
+000066DC:Togakushi Shinobi Apparel Hakama
+000051A9:Togakushi Shinobi Apparel Suneate
+0000B8B8:Governor of Tosa's Armor (L) Kabuto
+0000FCE2:Governor of Tosa's Armor (L) Do
+0000F3A5:Governor of Tosa's Armor (L) Kote
+00003568:Governor of Tosa's Armor (L) Hizayoroi
+0000AE99:Governor of Tosa's Armor (L) Suneate
+0000445F:Hayabusa Shinobi Apparel Hachigane
+000050F6:Hayabusa Shinobi Apparel Joi
+00001390:Hayabusa Shinobi Apparel Kote
+000082B9:Hayabusa Shinobi Apparel Hakama
+0000C044:Hayabusa Shinobi Apparel Suneate
+00001111:IE_L_6000_CAP
+0000432A:IE_L_6000_CHEST
+0000F44D:IE_L_6000_LEG
+000079D4:IE_L_6012_CHEST
+0000CDE4:IE_L_6012_LEG
+00001437:IE_L_6015_CHEST
+0000A9D3:IE_L_6015_LEG
+00001FBF:IE_L_6019_CHEST
+0000C95B:IE_L_6019_LEG
+00009A92:IE_L_6503_CAP
+0000CA5C:Brawler's Armor (M) Kabuto
+0000C75C:Brawler's Armor (M) Do
+00002640:Brawler's Armor (M) Kote
+00003871:Brawler's Armor (M) Hizayoroi
+0000E5EA:Brawler's Armor (M) Suneate
+0000E0B3:Youngblood Armor (M) Kabuto
+0000D5E7:Youngblood Armor (M) Do
+000075B9:Youngblood Armor (M) Kote
+00008856:Youngblood Armor (M) Hizayoroi
+00002ABF:Youngblood Armor (M) Suneate
+0000A4E5:Footsoldier Armor (M) Jingasa
+0000426A:Footsoldier Armor (M) Do
+0000B5A0:Footsoldier Armor (M) Kote
+000028DF:Footsoldier Armor (M) Hizayoroi
+00005862:Footsoldier Armor (M) Suneate
+00005E9F:Ronin Armor (M) Mengu 
+0000FD3B:Ronin Armor (M) Do
+0000BCEA:Ronin Armor (M) Kote
+00009ACB:Ronin Armor (M) Hizayoroi
+0000DAC9:Ronin Armor (M) Suneate
+0000FDDA:Veteran's Armor (M) Kabuto
+00009B22:Veteran's Armor (M) Do
+00009FFF:Veteran's Armor (M) Kote
+00002BD3:Veteran's Armor (M) Hizayoroi
+00002974:Veteran's Armor (M) Suneate
+00006FBA:Warrior of the West Kabuto
+00007EFF:Warrior of the West Do
+000038CE:Warrior of the West Kote
+0000C498:Warrior of the West Hizayoroi
+0000A580:Warrior of the West Suneate
+000055A4:Platemail Armor (M) Kabuto
+00003D81:Platemail Armor (M) Do
+00005CDC:Platemail Armor (M) Kote
+000029FF:Platemail Armor (M) Hizayoroi
+000030F7:Platemail Armor (M) Suneate
+00005D1D:Western Warlord's Armor (M) Kabuto
+0000E937:Western Warlord's Armor (M) Do
+000002CA:Western Warlord's Armor (M) Kote
+00006C6F:Western Warlord's Armor (M) Hizayoroi
+00003D35:Western Warlord's Armor (M) Suneate
+0000A608:Fanatic's Armor (M) Kabuto
+00003F7B:Fanatic's Armor (M) Do
+00009D0C:Fanatic's Armor (M) Kote
+000036DB:Fanatic's Armor (M) Hizayoroi
+0000C1B2:Fanatic's Armor (M) Suneate
+0000B691:Battlewise Armor (M) Kabuto
+0000C67C:Battlewise Armor (M) Do
+0000BDA2:Battlewise Armor (M) Kote
+00001389:Battlewise Armor (M) Hizayoroi
+0000505E:Battlewise Armor (M) Suneate
+00003993:Vassal's Armor (M) Kabuto
+0000DE8C:Vassal's Armor (M) Do
+000022D3:Vassal's Armor (M) Kote
+00002C37:Vassal's Armor (M) Hizayoroi
+00003E41:Vassal's Armor (M) Suneate
+00009ADB:Kingo's Armor (M) Kabuto
+00002391:Kingo's Armor (M) Do
+0000C938:Kingo's Armor (M) Kote
+0000C8F8:Kingo's Armor (M) Hizayoroi
+0000E6BF:Kingo's Armor (M) Suneate
+00000EEC:Frontline Warrior's Armor (M) Kabuto
+0000E3EB:Frontline Warrior's Armor (M) Do
+0000E28E:Frontline Warrior's Armor (M) Kote
+00005CC5:Frontline Warrior's Armor (M) Hizayoroi
+0000BC27:Frontline Warrior's Armor (M) Suneate
+00000AC2:Ambush Unit Armor (M) Kabuto
+00001620:Ambush Unit Armor (M) Do
+00003B97:Ambush Unit Armor (M) Kote
+00006447:Ambush Unit Armor (M) Hizayoroi
+0000CE94:Ambush Unit Armor (M) Suneate
+0000AA32:Gallantry Armor Kabuto
+000027B6:Gallantry Armor Do
+0000E633:Gallantry Armor Kote
+0000B5AD:Gallantry Armor Hizayoroi
+000015B5:Gallantry Armor Suneate
+0000B0FB:Unit Leader's Armor (M) Kabuto
+00001597:Unit Leader's Armor (M) Do
+00000603:Unit Leader's Armor (M) Kote
+0000CAB4:Unit Leader's Armor (M) Hizayoroi
+0000EA27:Unit Leader's Armor (M) Suneate
+00008A4D:Samurai General's Armor (M) Kabuto
+0000D6A2:Samurai General's Armor (M) Do
+00000B69:Samurai General's Armor (M) Kote
+00004FFC:Samurai General's Armor (M) Hizayoroi
+00004A53:Samurai General's Armor (M) Suneate
+0000AE80:M 0018 CAP
+0000B39B:Demon King's Kisenaga Do
+000007BC:Demon King's Kisenaga Kote
+00005182:Demon King's Kisenaga Hizayoroi
+0000524C:Demon King's Kisenaga Suneate
+0000A449:Nanban-Gusoku Kabuto
+000088AD:Nanban-Gusoku Do
+0000F549:Nanban-Gusoku Kote
+000091F3:Nanban-Gusoku Hizayoroi
+0000844B:Nanban-Gusoku Suneate
+0000C700:Foreigner's Armor (M) Kabuto
+00008505:Foreigner's Armor (M) Do
+000002C0:Foreigner's Armor (M) Kote
+0000D2D5:Foreigner's Armor (M) Hizayoroi
+000036D2:Foreigner's Armor (M) Suneate
+00007D9D:Genius Strategist's Hachimaki
+0000817A:Genius Strategist's Garb
+00005CD3:Genius Strategist's Tekko
+0000C604:Genius Strategist's Hakama
+0000889A:Genius Strategist's Geta
+00007828:One-Eyed Dragon's Armor (M) Kabuto
+0000ABA5:One-Eyed Dragon's Armor (M) Do
+0000D0BF:One-Eyed Dragon's Armor (M) Kote
+0000D25F:One-Eyed Dragon's Armor (M) Hizayoroi
+00006A98:One-Eyed Dragon's Armor (M) Suneate
+0000FADF:Nagake Armor (M) Kabuto
+0000AF45:Nagake Armor (M) Do
+00001205:Nagake Armor (M) Kote
+00005AC8:Nagake Armor (M) Hizayoroi
+00005DFC:Nagake Armor (M) Suneate
+00002B92:Swallowtail Armor (M) Kabuto
+0000ED46:Swallowtail Armor (M) Do
+00001883:Swallowtail Armor (M) Kote
+00007576:Swallowtail Armor (M) Hizayoroi
+00003369:Swallowtail Armor (M) Suneate
+00002AEA:Scion of Virtue's Armor Kabuto
+0000A0A8:Scion of Virtue's Armor Do
+0000DC21:Scion of Virtue's Armor Kote
+00004BFF:Scion of Virtue's Armor Hizayoroi
+0000CB17:Scion of Virtue's Armor Suneate
+000041B8:General of Kigetsu's Armor Kabuto
+000031ED:General of Kigetsu's Armor Do
+0000D5AA:General of Kigetsu's Armor Kote
+00003D00:General of Kigetsu's Armor Hizayoroi
+0000FEF0:General of Kigetsu's Armor Suneate
+000055E4:Last Great General's Armor Kabuto
+0000DA3A:Last Great General's Armor Do
+0000EDA9:Last Great General's Armor Kote
+0000815F:Last Great General's Armor Hizayoroi
+00004C7F:Last Great General's Armor Suneate
+0000EC10:IE_M_6004_CAP
+0000183F:IE_M_6010_CHEST
+0000E1E9:IE_M_6010_LEG
+00008AAE:IE_M_6012_LEG
+0000AE5C:IE_M_6017_CAP
+000059BA:IE_M_6017_CHEST
+0000A43D:Sanada Crimson Kabuto
+0000CD53:Sanada Crimson Do
+000089A5:Sanada Crimson Kote
+00001E06:Sanada Crimson Hizayoroi
+0000B578:Sanada Crimson Suneate
+0000FDB0:Warlord Armor (H) Kabuto
+00000910:Warlord Armor (H) Do
+00007E63:Warlord Armor (H) Kote
+0000C8DB:Warlord Armor (H) Hizayoroi
+00009956:Warlord Armor (H) Suneate
+00000818:Unusual Armor (H) Mengu
+00004BE4:Unusual Armor (H) Do
+000040D0:Unusual Armor (H) Kote
+0000D0B7:Unusual Armor (H) Hizayoroi
+0000C494:Unusual Armor (H) Suneate
+00002DB4:Rogue Armor (H) Kabuto
+000094B0:Rogue Armor (H) Do
+0000291B:Rogue Armor (H) Kote
+0000FF75:Rogue Armor (H) Hizayoroi
+0000F16B:Rogue Armor (H) Suneate
+000004D7:Tatenashi Kabuto
+00006CE8:Tatenashi Do
+0000A7DC:Tatenashi Kote
+00000CE7:Tatenashi Hizayoroi
+00004C3C:Tatenashi Suneate
+00002104:Genji Armor (H) Kabuto
+0000F12C:Genji Armor (H) Do
+00004023:Genji Armor (H) Kote
+0000C471:Genji Armor (H) Hizayoroi
+0000D45A:Genji Armor (H) Suneate
+0000FEB0:Karakawa Armor Kabuto
+000027E5:Karakawa Armor Do
+00001C5D:Karakawa Armor Kote
+0000DFAB:Karakawa Armor Hizayoroi
+0000E30B:Karakawa Armor Suneate
+00000995:Heike Armor (H) Kabuto
+0000CB51:Heike Armor (H) Do
+00001671:Heike Armor (H) Kote
+0000B3A4:Heike Armor (H) Hizayoroi
+0000D0B1:Heike Armor (H) Suneate
+00004ACB:Kaido Armor (H) Hachimaki
+00005900:Kaido Armor (H) Do
+0000E964:Kaido Armor (H) Kote
+000076B7:Kaido Armor (H) Hizayoroi
+0000C2DE:Kaido Armor (H) Suneate
+0000F24D:Four Great Commanders (H) Kabuto
+000057DE:Four Great Commanders (H) Do
+0000BBCC:Four Great Commanders (H) Kote
+0000829C:Four Great Commanders (H) Hizayoroi
+00004618:Four Great Commanders (H) Suneate
+0000E442:Guard Armor (H) Kabuto
+0000BFB3:Guard Armor (H) Do
+0000BAED:Guard Armor (H) Kote
+000010E6:Guard Armor (H) Hizayoroi
+00006892:Guard Armor (H) Suneate
+0000C547:Obsidian Armor (H) Kabuto
+00003351:Obsidian Armor (H) Do
+00004CBA:Obsidian Armor (H) Kote
+00000698:Obsidian Armor (H) Hizayoroi
+000036C2:Obsidian Armor (H) Suneate
+00003373:Hero's Armor (H) Kabuto
+0000BDE0:Hero's Armor (H) Do
+0000CE08:Hero's Armor (H) Kote
+00003E99:Hero's Armor (H) Hizayoroi
+0000FA15:Hero's Armor (H) Suneate
+0000E0D6:Warrior Armor (H) Kabuto
+0000ADA2:Warrior Armor (H) Do
+0000E629:Warrior Armor (H) Kote
+0000CFEC:Warrior Armor (H) Hizayoroi
+00000882:Warrior Armor (H) Suneate
+00006DD3:Greater Good Kabuto
+00004159:Greater Good Do
+00002C08:Greater Good Kote
+0000EC64:Greater Good Hizayoroi
+000019AA:Greater Good Suneate
+00007681:Warrior of the East Kabuto
+000022CC:Warrior of the East Do
+0000853C:Warrior of the East Kote
+0000181C:Warrior of the East Hizayoroi
+000060BD:Warrior of the East Suneate
+0000F352:Armor of the Exceptional Kabuto
+0000A55E:Armor of the Exceptional Do
+00004173:Armor of the Exceptional Kote
+00008730:Armor of the Exceptional Hizayoroi
+0000D83E:Armor of the Exceptional Suneate
+00002DC5:The Raging Bull Kabuto
+00004340:The Raging Bull Do
+0000F14B:The Raging Bull Kote
+00008B1B:The Raging Bull Hizayoroi
+00008154:The Raging Bull Suneate
+00004440:Master Swordsman's Armor (H) Kan
+00003AF5:Master Swordsman's Armor (H) Do
+000008CC:Master Swordsman's Armor (H) Kote
+00003991:Master Swordsman's Armor (H) Hizayoroi
+0000C864:Master Swordsman's Armor (H) Suneate
+0000E7C7:Brave General (H) Kabuto
+00009548:Brave General (H) Do
+000019F5:Brave General (H) Kote
+0000D515:Brave General (H) Hizayoroi
+0000F83E:Brave General (H) Suneate
+0000ACF7:Great Helm
+0000EA93:Breastplate
+00005B85:Gauntlets
+0000BB78:Cuisses
+0000F39B:Greaves
+0000C585:Unnamed Item
+0000F194:Unnamed Item
+0000345B:Unnamed Item
+0000C77E:Unnamed Item
+0000EC1E:Unnamed Item
+0000F7B6:Gold Nioh Armor Kabuto
+000026DC:Gold Nioh Armor Do
+00008A2E:Gold Nioh Armor Kote
+00002AFD:Gold Nioh Armor Hizayoroi
+000001FD:Gold Nioh Armor Suneate
+0000018C:Unrivaled Warrior's Armor Kabuto
+0000903C:Unrivaled Warrior's Armor Do
+0000D163:Unrivaled Warrior's Armor Kote
+00003573:Unrivaled Warrior's Armor Hizayoroi
+0000C2CF:Unrivaled Warrior's Armor Suneate
+00005E78:Rikishi Unit's Armor (H) Kabuto
+00006FE2:Rikishi Unit's Armor (H) Do
+00007EE5:Rikishi Unit's Armor (H) Kote
+0000B7E9:Rikishi Unit's Armor (H) Hizayoroi
+00004A81:Rikishi Unit's Armor (H) Suneate
+000089DC:Hiraishi Armor Kabuto
+0000D6B1:Hiraishi Armor Do
+0000FEE6:Hiraishi Armor Kote
+0000C9AA:Hiraishi Armor Hizayoroi
+00004F41:Hiraishi Armor Suneate
+0000D7A0:Armor of the Rising Sun Kabuto
+00006665:Armor of the Rising Sun Do
+000040D2:Armor of the Rising Sun Kote
+00002219:Armor of the Rising Sun Hizayoroi
+00001CDE:Armor of the Rising Sun Suneate
+000080E0:Child of the Sun's Armor Kabuto
+0000C791:Child of the Sun's Armor Do
+00004AAE:Child of the Sun's Armor Kote
+0000ABCC:Child of the Sun's Armor Hizayoroi
+0000F959:Child of the Sun's Armor Suneate
+0000C470:IE_H_6001_CAP
+00002E04:IE_H_6001_LEG
+00002426:IE_H_6004_CHEST
+000019F1:IE_H_6004_LEG
+00006005:IE_H_6006_CAP
+00000745:IE_H_6008_CHEST
+0000D4E9:IE_H_6017_CHEST
+0000919B:IE_H_6017_LEG
+000099DC:IE_H_6501_ARM
+0000B65F:IE_H_6501_FOOT
+00004ED8:Horned Turban Kabuto
+00008018:Scorpionfish Kabuto
+00008045:Water Buffalo Horn Kabuto
+00003DC1:Eboshi Kabuto
+0000BB64:Wakan Kabuto
+00005032:Tower Ushirodate Kabuto
+0000D84E:Bear's Head Kabuto
+00001C99:Running Water Maedate Kabuto
+0000A9BF:Butterfly Kabuto
+000024BE:Tokan Kabuto
+0000BC0F:Khakkara Ushirodate Kabuto
+00008D5F:Elephant's Trunk Kabuto
+00004319:Gosu Kabuto 
+0000D552:Flashfire Kabuto
+00007464:Coiled Snake Kabuto
+00004598:Golden Shachi Zudate Kabuto
+0000B74C:Cloud Dragon Kabuto
+0000E217:Fan Maedate Kabuto
+00005166:Rabbit Ear Wakidachi Kabuto
+0000E49D:Rabbit Ear Kabuto
+000077D4:Old Sage Visor
+0000074A:Female Demon Visor
+0000EE61:Woman's Face Visor
+00002893:Tengu Visor
+00009B0C:Demon God Visor
+00001120:Vengeful Spirit Visor
+0000B634:Shuri-no-suke's Kabuto
+0000613B:Koreto-hyuga's Kabuto
+000080D1:Kame-wari Shibata's Kabuto
+0000F04E:Bellflower Kabuto
+0000A69E:Usurper's Kabuto
+0000251B:Warrior Monk's Hood
+0000B612:Shugo-daimyo's Eboshi
+00000E25:Nue Mask
+000054D3:Kodama Bowl
+000044AB:Ogress Mask
+0000193B:Rokuji-myogo Kabuto
+0000DF5E:Ichi-no-Tani Kabuto
+00003126:Braided Straw Kabuto
+0000FEB5:Takezo's Headband
+00003D98:null
+0000B9CB:X 0100 CAP
+00000B43:X 0110 CAP
+00007492:X 0111 CAP
+00001015:X 0112 CAP
+0000E6F3:X 0113 CAP
+0000D5EC:X 0114 CAP
+00005D56:X 0115 CAP
+0000BA8A:X 0116 CAP
+00001369:Onryoki Kabuto
+00004E86:Hino-enma Kabuto
+00003B14:Unnamed Item
+00008B75:Unnamed Item
+00004D4C:Unnamed Item
+0000CCFB:Ai-ji Maedate Kabuto
+00006316:Red Kappa Kabuto
+00009887:Suwahossho Kabuto
+0000814C:Royal Horned Helm
+0000DB77:Golden Sun Kabuto
+00007F69:Ogosho's Hood
+0000AC10:Frolicking Cats Kabuto
+0000980C:Moon Charm Kabuto
+0000F0DC:Dokisai's Kabuto
+0000B64D:Black Fox Mask
+00005F2D:White Fox Mask
+00002A79:Dharmachakra Kabuto
+0000011C:IE_X_6016_CAP
+000041B3:IE_X_6030_CAP
+00001CE3:IE_X_6039_CAP
+00002B98:Omamori Charm
+0000FD82:Fire Omamori Charm
+0000F6B8:Water Omamori Charm
+0000ED38:Wind Omamori Charm
+0000D36B:Lightning Omamori Charm
+000073E7:Earth Omamori Charm
+000089A3:Poison Omamori Charm
+00009340:Paralysis Omamori Charm
+000092D4:Prayer Beads
+000051A8:Prayer Beads
+00000CEB:Prayer Beads
+0000239F:Omamori Charm
+00006460:Medicine Case
+00007256:Medicine Case
+0000FAE8:Medicine Case
+00007967:Magatama
+00002517:Magatama
+00005D5F:Magatama
+0000F2A7:Fan
+0000A7B6:Fan
+00004285:Fan
+00008F6C:Omamori Charm
+00003045:Yasakani Magatama
+0000AAA8:Yata Mirror
+000005E7:Elixir
+0000D58D:Medicine
+0000A76B:Spectral Salve
+000087CC:Shingiku Medicine
+0000D624:Antidote
+000033C9:Anti-toxin Pill
+00000B81:Antiparalytic Needle
+00004221:Fragrant Wood
+0000B4A6:Shikin-gan Pill
+000057E6:Daion-jin's Sake
+00004505:Sacred Ash
+00000A1D:Young Samurai's Locks
+0000FBD5:Master Samurai's Locks
+0000BA9C:Famed Samurai's Locks
+00000BAD:Young Ninja's Locks
+0000264F:Master Ninja's Locks
+0000848B:Famed Ninja's Locks
+0000F006:Young Onmyo Mage's Locks
+00009F84:Master Onmyo Mage's Locks
+0000C517:Famed Onmyo Mage's Locks
+0000A4BA:Small Spirit Stone
+00001423:Spirit Stone
+0000E097:Large Spirit Stone
+00003B9A:Small Soulstone
+00003513:Soulstone
+00001BB8:Large Soulstone
+0000DE4B:Embercite Fragment
+0000F70B:Embercite Shard
+0000846C:Embercite Crystal
+0000C59C:Mysticite Fragment
+0000F665:Mysticite Shard
+00007694:Mysticite Crystal
+0000EE89:Cruxidian Fragment
+00000D84:Cruxidian Shard
+0000CC11:Cruxidian Crystal
+00002E7C:Deityte Fragment
+00005C93:Deityte Shard
+000042EC:Deityte Crystal
+00001EF1:Silabar Ingot
+0000934B:Sandalwood Splinter
+00009FBE:Ranjatai Fragment
+00007420:Tortoiseshell Hairpin
+00008F27:Whetstone
+0000956F:Nikawa Glue
+00009DB2:Shinobi Box
+0000DDBE:Sacred Brush
+0000BEA8:Saisetsu-shin's Sake
+00004132:Uchiko Powder
+0000AFD0:Sacred Water
+0000555F:Visitor Charm
+000087CD:Signpost Talisman
+00000488:Yokai Incense
+00002F34:Moment Talisman
+00007D10:Dung Ball
+00001976:Noble Dung Ball
+0000E22D:Sticky Pot
+00001E3B:Salt
+00005717:Yokai Water Pot
+0000C3D1:Hyottoko Mask
+0000C0E3:Inhabited Kodama Bowl
+0000A372:Raven Tengu Tokko
+0000B709:Burning Oil Jar
+0000ACBC:Tengu's Fan
+0000FB6F:Arrowproof Amulet
+00003FAD:Amulet of Camaraderie
+00001E69:Seimei Fire Talisman
+00000325:Seimei Water Talisman
+0000FC76:Seimei Wind Talisman
+00008954:Seimei Lightning Talisman
+00002775:Seimei Earth Talisman
+00006FBC:Unnamed Item
+00005F28:Jewel of Life
+0000A7CE:Soul Stone
+0000502F:Mud Jar
+00003909:Unnamed Item
+00009C9C:Arrow
+000045E7:Poison Arrow
+00006B52:Numbing Arrow
+00004784:Hamaya Arrow
+0000BD77:Rifle Ammunition
+00005A62:Roaring-Gun Ammunition
+00006BD5:Hand Cannon Ammunition
+000003E8:Explosive Rounds
+000011F8:Stone
+0000017B:Shuriken
+0000CAB8:Unnamed Item
+0000BFEA:Poison Shuriken
+00007E4B:Paralysis Shuriken
+0000E180:Kunai
+0000C0A9:Fire Shuriken
+00009FC0:Kayaku-dama
+0000760A:Iga Style Kayaku-dama
+0000F71A:Horoku-dama
+00009DFF:Iga Style Horoku-dama
+000025DB:Iga Style Mega Horoku-dama
+000022F6:Makibishi
+00004D1E:Makibishi Ball
+00002A40:Blister-Beetle Powder
+00008387:Medusa Powder
+0000098B:Blinding Shell
+0000D084:Smoke Ball
+00005BDD:H 0019 FOOT
+0000787B:H 0019 FOOT
+000082BE:Fire Talisman
+00008CFE:Fire Amulet
+0000F35E:Water Talisman
+00007D78:Water Amulet
+0000E2DE:Wind Talisman
+00008A5C:Wind Amulet
+00007FCE:Lightning Talisman
+0000F8B9:Lightning Amulet
+0000D705:Earth Talisman
+00005E34:Earth Amulet
+00001386:Sloth Talisman
+000077BE:Kekkai Talisman
+00009293:
+00007F3B:Unnamed Item
+00002279:Gallnut Broth
+00003797:Hemlock Broth
+0000BDAD:Improvised Projectile Scroll
+0000482C:Catwalking Scroll
+000043FD:Tiger-running Scroll
+0000EF20:Power Pill
+0000C171:Groundfire
+0000BE9F:Quick-change Scroll
+00009AF6:Shadow-hider Scroll
+0000FA5D:Suppa Scroll
+0000AEC8:Token-Throwing Scroll
+00004CFB:Kodama Transformation Scroll
+0000E2D7:Storm Kunai
+000059DD:Toxic Groundfire
+000040A8:Paralytic Groundfire
+000073E6:Noxious Groundfire
+0000CACA:Touch-me-not Scroll
+0000AE3F:Flame Dragon Scroll
+000033D3:Retaliation Scroll
+0000688C:Levitation Scroll
+0000C209:Firestop Talisman
+0000AE6F:Waterstop Talisman
+000056CD:Windstop Talisman
+00000571:Lightningstop Talisman
+000032FB:Earthstop Talisman
+00006E2D:Steel Talisman
+000020C5:Resistance Talisman
+0000CC52:Devigorate Talisman
+0000AF82:Weakness Talisman
+0000C3A8:Divination Talisman
+0000FE23:Luckbringer Talisman
+0000D9A9:Rejuvenation Talisman
+0000D604:Unnamed Item
+0000A468:Protection Talisman
+00009F0E:Oasis Talisman
+00006DF0:Unnamed Item
+0000F4E9:Unnamed Item
+0000F4F1:Guardian Spirit Talisman
+0000E556:Pleiades Talisman
+000032D3:Extraction Talisman
+00001F06:Shadowround Talisman
+00004D5B:Lifeseal Talisman
+0000997B:Carnage Talisman
+00001F58:Wealthbringer Talisman
+00007F02:Shockwave Talisman
+0000FC75:Soul Release Talisman
+00005DF9:Fistfighter Talisman
+00007A23:Fire Shot
+00000E97:Water Shot
+0000CBB3:Wind Shot
+00000F68:Lightning Shot
+00006164:Earth Shot
+00001640:Fire Talisman
+0000F381:Water Talisman
+0000A309:Wind Talisman
+00002DCF:Lightning Talisman
+00007221:Earth Talisman
+0000E789:Sloth Talisman
+0000EF79:Kekkai Talisman
+00000EB1:
+0000BC8C:Steel Talisman
+00008106:Devigorate Talisman
+0000F8BE:Weakness Talisman
+0000B219:Rejuvenation Talisman
+0000D41B:Oasis Talisman
+00007421:Lifeseal Talisman
+0000B20C:Carnage Talisman
+00008A3D:Ki Burst Talisman
+0000B3D7:Explosive Shot
+0000D61B:Geyser Shot
+00006604:Gale Shot
+00003882:Thunderstorm Shot
+0000CFEA:Groundquake Mine
+0000926C:Hermit Talisman
+0000B017:Leeching Talisman
+0000E98C:Degeneration Talisman
+0000B579:Reciprocity Talisman
+000058C2:Purging Talisman
+0000CAE8:Soul Purge Talisman
+000051B8:Sanctity Talisman
+0000A37C:Flying Sword Talisman
+00002BF8:Mind Control Talisman
+0000112E:Unnamed Item
+0000F6B9:Unnamed Item
+0000BD5A:Unnamed Item
+000072C6:Unnamed Item
+0000E70D:Unnamed Item
+0000BC98:Unnamed Item
+0000D462:Unnamed Item
+0000758D:Spirit Iron Fragment
+0000B28C:Spirit Iron Chunk
+0000E6CF:Divine Fragment
+00006A1D:Anima Stone
+00002188:Umbracite
+0000FDEA:Quality Umbracite
+0000DAF0:Fabled Umbracite
+0000D265:Divine Umbracite
+00000756:Tamahagane
+0000C407:Quality Tamahagane
+00003666:High-Quality Tamahagane
+00009572:Highest Quality Tamahagane
+0000463F:Wood
+0000F9BB:Quality Wood
+0000FD67:High-Quality Wood
+00004737:Highest Quality Wood
+00001A6B:Ingot
+00005316:Quality Ingot
+0000409A:High-Quality Ingot
+00002148:Highest Quality Ingot
+000033C5:Lacquer
+0000CEBC:Quality Lacquer
+0000B5F5:High-Quality Lacquer
+00004750:Highest Quality Lacquer
+00006EA2:Leather Cord
+000056EB:Quality Leather Cord
+0000B32B:High-Quality Leather Cord
+0000CEEC:Highest Quality Leather Cord
+0000999F:Leather Kozane
+0000CFA3:Quality Leather Kozane
+00009B62:High-Quality Leather Kozane
+00005EB1:Highest Quality Leather Kozane
+0000519B:Iron Kozane
+0000B2A0:Quality Iron Kozane
+0000121B:High Quality Iron Kozane
+0000DBFD:Highest Quality Iron Kozane
+00009BB4:Demon's Horn
+0000A8A6:Hank of Yokai Hair
+0000EC3B:Kappa Shell
+0000479C:Writhing Tongue
+0000BE3B:Bangasa Rib
+00004D06:Raven Tengu Feather
+0000E586:Nue's Claw
+0000E38D:Great Centipede's Fang
+0000367D:Spider's Leg Husk
+00003924:Umi-bozu's Eyestone
+00000872:White Tiger Fur
+00005D8A:Ogress's Claw
+000065B2:Gargantuan Tail Bone
+0000B39D:Orochi Scale
+0000A36E:Namahage Horn
+000000A6:Slender Vertebra
+00007DAC:Red Kappa Shell
+000038FB:Centipede Carapace
+00008EA0:Bloodstained Blade Scraps
+0000A266:Fox Spirit's Pelt
+00000DCB:Fox Spirit's Tail
+0000B4EC:Demon Bird's Beak
+000066EB:Spirit Stone Arm
+0000FBC3:Droplet of Decay
+00001B16:Unnamed Item
+0000D402:Dungeon Key
+0000E6AF:KEY TO RESIDENCE
+0000A406:BOSS'S ROOM KEY
+0000A6A3:EAST GATE KEY
+00008479:Central Mine Key
+00006DFD:Key to the Teahouse Garden
+00003145:Key to the Castle Gates
+000087F3:Onmyo Grotto Key
+0000DA6C:Ruins Key
+00002491:Hiragumo Fragment I
+0000D48C:Hiragumo Fragment II
+0000DBEC:Hiragumo Fragment III
+0000EEF3:Hiragumo Fragment IV
+0000EA53:Hiragumo Fragment V
+00004AD6:Hiragumo Fragment VI
+0000ED17:Hiragumo Fragment VII
+000018BE:Seiryuji Temple Key
+000027B4:Storehouse Key
+0000680C:Soul-Soothing Comb
+00001AA5:Twin Fox Orb
+000017E1:Gaoler's Keychain
+00002381:Alchemist's Laboratory Key
+000025B3:Back Room Key
+0000A953:Dragon Insignia Key
+0000A9C1:Gate Tower Key
+0000D7D2:Fortress Keychain
+0000F9FF:Mountain Fort Key
+000083F3:Audience Hall Key
+0000060C:Wood Tile "I"
+0000C96D:Wood Tile "Ro"
+00004199:Wood Tile "Ha"
+000086C1:Wood Tiles "I" - "Ro" - "Ha"
+000008A1:Old Charm
+00006C76:Joganseiyo
+0000587A:Atagi Sadamune
+0000E282:Ranjatai Fragment
+00004CF9:Sandalwood Splinter
+0000A918:Flint
+00009464:Giant Cannonball
+00006AD7:The Gilded Nioh
+00006E74:The Battle at Sanada Maru
+00005883:Demonblood Pellet
+0000F2A8:Chaki
+0000F5DF:Furiwakegami Hiromitsu
+00000755:Kagatsuchi's Magatama
+00008207:Summoner's Candle
+0000564B:Bell of Invocation
+0000D909:Book of Reincarnation
+00007E36:Koan Manual
+0000C3C2:Ochoko
+00005647:Cracked Ochoko Cup
+000074CC:White Ochoko Cup
+00001E10:Hora-gai Shell
+0000F98E:Sacred Salt
+000085A1:Harakiri Sword
+0000F774:Earthfolding Talisman
+0000CBEF:Travel Amulet
+00001817:Himorogi Fragment
+0000B70A:Himorogi Branch
+0000218D:Unnamed Item
+000089A6:Unnamed Item
+0000B8C4:Unnamed Item
+0000648D:Unnamed Item
+000065D1:Unnamed Item
+00004496:Unnamed Item
+000030B2:Unnamed Item
+00004350:Unnamed Item
+000036AD:Unnamed Item
+0000CAD1:Unnamed Item
+0000F33D:Unnamed Item
+00003AB0:Unnamed Item
+0000D289:Unnamed Item
+0000B0CF:Unnamed Item
+000053F7:Unnamed Item
+00002118:Unnamed Item
+00004680:Unnamed Item
+0000200C:Unnamed Item
+0000E5F8:Unnamed Item
+00000C29:Unnamed Item
+0000171D:The Art of Combat Flame Dragon
+00000B96:The Art of Combat Izuna Drop
+000086EF:Smithing Text Oninamida Muramasa
+00005D59:Smithing Text Raikiri
+000031D0:Smithing Text Sohaya Tsurugi
+00001DAC:Smithing Text Hikoemon Ichimonji
+0000CE83:Smithing Text Atagi Sadamune
+00004E52:Smithing Text Heshikiri Hasebe
+00004778:Smithing Text Furiwakegami Hiromitsu
+000062F0:Smithing Text Nami-oyogi Kanemitsu
+0000ABAE:Smithing Text Haccho Nenbutsu
+0000EF99:Smithing Text Hoshi-kiri Tachi
+0000F8D5:Smithing Text Sozasa Monji
+0000CDD1:Smithing Text Fudo Kuniyuki / Yagen Toshiro
+00002D02:Smithing Text Tsuruga Masamune / Hocho Toshiro
+000065B6:Smithing Text Tombo-Kiri
+0000E94B:Smithing Text Akaoni-no-Sankaku Spear
+000044D8:Smithing Text Ikkoku Nagayoshi Spear
+000033A4:Smithing Text Oni Sakon's Spear
+000069EE:Smithing Text Onikiba Kusarigama
+0000FC2E:Smithing Text Shishido Kusarigama
+0000ED5E:Smithing Text Gozutenno's Axe
+0000D154:Smithing Text Warrior of the West Bow
+0000EF07:Smithing Text Ravenwing Rifle
+0000694F:Smithing Text Taisharyu Wooden Sword
+0000F089:Smithing Text Tengu-kiri
+000028FA:Smithing Text Futatsu-mei Norimune / Hone-bami Toshiro
+0000054B:Smithing Text Hozoin Jumonji Spear
+0000A486:Smithing Text Axe of Judgment
+0000308E:Smithing Text Kaido Axe
+0000E7FF:Smithing Text Ishida Masamune
+0000BF23:Smithing Text Unnamed Item
+000096F1:Smithing Text Unnamed Item
+00002DF5:Smithing Text Unnamed Item
+00003E2F:Smithing Text Unnamed Item
+0000FE0A:Smithing Text Unnamed Item
+00001082:Smithing Text Greater Good Armor
+00007E75:Smithing Text Fanatic's Armor
+00003574:Smithing Text Kingo's Armor
+0000FD87:Smithing Text Legendary Strategist's Garb Kinu
+00000DF7:Smithing Text Warrior of the West's Armor
+00001276:Smithing Text Yatagarasu Armor
+000014B4:Smithing Text Obsidian Armor
+0000CEAB:Smithing Text Demon King's Kisenaga
+00008E1C:Smithing Text Justice Ministry Armor
+0000F701:Smithing Text Warrior of the East's Armor
+000076B6:Smithing Text Red Demon Armor
+0000B84F:Smithing Text The Raging Bull's Armor
+0000E1BE:Smithing Text Armor of the Exceptional
+00000A6A:Smithing Text Iga Jonin Apparel
+000051F3:Smithing Text Hero's Armor
+0000278C:Smithing Text Platemail Armor
+0000D1D8:Smithing Text Saika Clan Armor
+0000C159:Smithing Text Genius Strategist's Garb
+0000D6D5:Smithing Text Yagyu Garb Kinu
+0000DA66:Smithing Text Master Swordsman's Armor
+00003442:Smithing Text Gallantry Armor
+0000A240:Smithing Text Kaido Armor
+00002A3C:Smithing Text Onryoki Kabuto
+00007396:Smithing Text Hino-enma Kabuto
+0000EEF5:Smithing Text Unnamed Item
+0000E5D0:Smithing Text Unnamed Item
+000075CF:Smithing Text Unnamed Item
+00005890:Smithing Text Unnamed Item
+000028BC:Smithing Text Japan's Greatest Soldier's Armor
+00000FA4:Smithing Text Ogress Mask
+00006349:Smithing Text Kodama Bowl
+00009C95:Smithing Text Shingiku Medicine
+0000D01F:Smithing Text Sacred Ash
+0000FDC1:Smithing Text Raven Tengu Tokko
+00008BC2:Smithing Text Yokai Water Pot
+00004D36:Smithing Text Yokai Incense
+0000B730:Smithing Text Sticky Pot
+00009E34:Smithing Text Daion-jin's Sake
+0000E9D4:Smithing Text Saisetsu-shin's Sake
+0000B4DA:Smithing Text Summoner's Candle
+0000D470:Smithing Text Sacred Brush
+0000A4AB:Smithing Text Shinobi Box
+00002CBE:Smithing Text Inhabited Kodama Bowl
+00008DD0:Smithing Text White Ochoko Cup
+000050B5:Smithing Text Tengu's Fan
+00003FC0:Smithing Text Amulet of Camaraderie
+00003BD2:Smithing Text Arrowproof Amulet
+00009C0C:Smithing Text Anima Stone
+00005109:Smithing Text Mud Jar
+00000E46:Smithing Text Burning Oil Jar
+000051DC:Smithing Text Soul Stone
+00000554:Smithing Text Jewel of Life
+000023BC:Smithing Text Gold Nioh Armor
+0000F4C1:Smithing Text Doji-kiri Yasutsuna
+0000D7A5:Smithing Text O-Denta Mitsuyo
+000076AF:Smithing Text Kusanagi Tsurugi
+000032EE:Smithing Text Juzumaru Tsunetsugu
+0000E2B1:Smithing Text Mikazuki Munechika
+000015C7:Smithing Text Onimaru Kunitsuna
+0000E51B:Smithing Text Kago-tsurube Muramasa / Inoshishi-giri
+0000ADBB:Smithing Text Shichisei-ken / Heishishorin-ken
+00005F3A:Smithing Text O-Kanehira / Uguisu-maru
+00001934:Smithing Text Shishi-o / Hone-kui
+0000B068:Smithing Text Hige-kiri and Hiza-maru
+00000B51:Smithing Text Hinomotogo
+000048CF:Smithing Text Otegine
+0000963C:Smithing Text Giant Frog Spear
+0000CBA8:Smithing Text Sayoarashi
+000041CE:Smithing Text Shiranui
+00004C51:Smithing Text Pickaxe
+0000D67C:Smithing Text Mononobe Axe
+00006A6C:Smithing Text Kishin Hammer
+000086F2:Smithing Text Yoichi's Bow
+000058D6:Smithing Text Bellowing Tenryu
+00005CC9:Smithing Text Tatenashi
+00001454:Smithing Text Karakawa Armor
+00004897:Smithing Text Ai-ji Maedate Kabuto
+0000547D:Smithing Text Suijingiri Kanemitsu
+00009858:Smithing Text Swallowtail Armor
+000005EA:Smithing Text Unrivaled Warrior's Armor
+0000C1D4:Smithing Text One-Eyed Dragon's Armor
+00007060:Smithing Text Kojuro's Armor
+0000ED28:Smithing Text Narukami
+00004D9E:Smithing Text Daihannya Nagamitsu / Kannagiri
+000057B9:Smithing Text Great Halberd of Hihiragi
+00000015:Smithing Text Vermillion Spear
+0000A7A6:Smithing Text Kamui
+00009CD9:Smithing Text Usami Nagamitsu
+00007DF7:Smithing Text Shokudaikiri Mitsutada / Shinogito Shiro
+000048AD:Smithing Text Tatewari Axe
+00008EA3:Smithing Text Hotarumaru
+0000FA6F:Smithing Text Bloodstained Cleaver
+00006D5E:Smithing Text Dual Bloodstained Hatchets
+0000A183:Smithing Text Tsunonotsuki Bow
+00004ED5:Smithing Text Inadome-style Matchlock
+0000CFBA:Smithing Text Wooden Sword
+000016E4:Smithing Text Dual Wooden Swords
+0000494A:Smithing Text Wooden Spear
+00000B38:Smithing Text Wooden Axe
+000069F6:Smithing Text Wooden Kusarigama
+00005023:Smithing Text Wooden Odachi
+00005572:Smithing Text Wooden Tonfa
+0000C5F3:Smithing Text Bastard Sword
+00005B4A:Smithing Text Runkah
+000066AC:Smithing Text Battle Axe
+0000D2BE:Smithing Text Touchpaper Musket
+00001392:Smithing Text Kogarasu-maru and Nuke-maru
+00003210:Smithing Text Haja the Evil-Crusher
+0000C5BF:Smithing Text Horned Turban Kabuto
+000006C8:Smithing Text Khakkara Ushirodate Kabuto
+00001ABA:Smithing Text Gosu Kabuto 
+00002E08:Smithing Text Coiled Snake Kabuto
+00008C35:Smithing Text Fan Maedate Kabuto
+0000590A:Smithing Text Tengu Visor
+00002C34:Smithing Text Shuri-no-suke's Kabuto
+00003623:Smithing Text Koreto-hyuga's Kabuto
+0000FE20:Smithing Text Kame-wari Shibata's Kabuto
+0000A41E:Smithing Text Bellflower Kabuto
+0000A795:Smithing Text Usurper's Kabuto
+0000ED40:Smithing Text Warrior Monk's Hood
+00009BDA:Smithing Text Shugo-daimyo's Eboshi
+0000C125:Smithing Text Nue Mask
+0000AE43:Smithing Text Rokuji-myogo Kabuto
+0000FFC2:Smithing Text Ichi-no-Tani Kabuto
+000030AB:Smithing Text Takezo's Headband
+0000DDED:Smithing Text Red Kappa Kabuto
+0000E46D:Smithing Text Attendant's Armor
+00009321:Smithing Text Nagake Armor
+0000650A:Smithing Text Rikishi Unit's Armor
+000039C9:Smithing Text Anji's Tonfa
+000040F0:Smithing Text Twin Dragon Tonfa
+00009309:Smithing Text Yin-Yang Tonfa
+0000D5BD:Smithing Text Sarutobi's Gunsticks
+0000121C:Smithing Text Sekishu Kazusada
+00003FD7:Smithing Text Monohoshizao
+00003EF0:Smithing Text Isurugi
+00001896:Smithing Text Ame-no-mahitotsu's Axe
+0000B6DB:Smithing Text Magaragiri Kanemoto
+00004A24:Smithing Text Kaikunigo
+0000758E:Smithing Text Great Chidori-Jumonji Spear
+0000B3DF:Smithing Text Tatsuke-style Matchlock
+000066D9:Smithing Text Tatsuke-style Cannon
+0000841B:Smithing Text Dokisai's Kabuto
+0000F405:Smithing Text Black Fox Mask
+00008A2F:Smithing Text White Fox Mask
+0000066B:Smithing Text Suwahossho Kabuto
+00002EC3:Smithing Text Royal Horned Helm
+00006742:Smithing Text Hiraishi
+00001056:Smithing Text Scion of Virtue's Armor
+00008D57:Smithing Text General of Kigetsu's Armor
+00005DA3:Smithing Text Sarutobi Shinobi Apparel
+00002378:Smithing Text Tower of London Guard Coat
+000033EE:Smithing Text Breastplate
+0000E1D2:Smithing Text Nikkari Aoe
+0000D415:Smithing Text Dragon Sword
+0000A685:Smithing Text Dodanuki Masakuni
+0000E3BC:Smithing Text Ichigo Hitofuri / Namazu-o Toshiro
+0000FE85:Smithing Text Yamauba Spear
+00006690:Smithing Text Kotaimatsu
+0000759A:Smithing Text Genno's Hammer
+000023BD:Smithing Text Swordsmith's Hammer
+000077B6:Smithing Text Ryomen Sukuna's Axe
+000090BF:Smithing Text Yukishiro
+00007649:Smithing Text Hayabusa Style Kusarigama
+0000E3A4:Smithing Text Mijinmaru
+00003189:Smithing Text Futsunomitama
+0000B5EE:Smithing Text Taro Tachi
+00004F03:Smithing Text Jiro Tachi
+0000C09B:Smithing Text Vajra Tonfa
+0000A572:Smithing Text Kyakuja Tonfa
+0000799D:Smithing Text Raishodo
+0000E54C:Smithing Text Lightning Cannon
+00009998:Smithing Text Moon Charm Kabuto
+00008662:Smithing Text Golden Sun Kabuto
+0000D35C:Smithing Text Ogosho's Hood
+00002252:Smithing Text Frolicking Cats Kabuto
+000043F3:Smithing Text Governor of Tosa's Armor (L)
+0000A441:Smithing Text Hayabusa Shinobi Apparel
+00006353:Smithing Text Last Great General's Armor
+0000F5D1:Smithing Text Armor of the Rising Sun
+00007F26:Smithing Text Child of the Sun's Armor
+0000D328:Smithing Text Mariner's Shirt
+0000C4C3:Smithing Text Dharmachakra Kabuto

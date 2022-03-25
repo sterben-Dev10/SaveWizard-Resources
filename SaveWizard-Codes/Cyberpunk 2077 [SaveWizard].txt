@@ -1,0 +1,36 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+QC will probs won't be possible... however will post tools & resources that are relevant for save editing from the PC modding communities...
+
+# Resources Notes, AM, Spreadsheets etc... # - Mostly PC Stuff (Hash Ids etc... useful for save editing)
+PixelRick's Save Editor: https://github.com/PixelRick/CyberpunkSaveEditor - Has official ps4 save support
+WolvenKit's Save Editor: https://github.com/WolvenKit/CyberCAT | not user friendly
+WolvenKit's Save Editor (Deweh): https://github.com/Deweh/CyberCAT-SimpleGUI | easier GUI
+WolvenKit's Save Editor (seberoth): https://github.com/seberoth/CyberCAT
+Wiki: https://wiki.cybermods.net/cyber-engine-tweaks/ - more of a hub for external links & resources
+
+Google Doc SpreadSheets:
+PC/PS4 Save Related
+[Skiller#4741] AM info Spreadsheet: https://docs.google.com/spreadsheets/d/1lnb-5NAXj1ESVX00n8xesawzpeSgng1FTglF_XP9CBg
+Cyberpunk 2077 Items Copy and Paste: https://docs.google.com/spreadsheets/d/1iuq4Srh_661PdY_17bnrU15UbtCLieO_0ZhQ0uqQ0_Y
+CP2077 hash list - formatted: https://docs.google.com/spreadsheets/d/1CCOmY__uhYhpRixs3XizqwUvx1LICqa2GrmyVpA2Nlc
+CP77 Hash List & Misc: https://pastebin.com/x76YetFA
+
+DB Of most items (Descriptions & Stats etc..)
+CP77 SHEsh: https://docs.google.com/spreadsheets/d/1RGy4O_jqIPp9k9wokJP-wr8uZPTquxNDKwLs1em6EUU
+
+PC Related:
+Logging Facts: https://docs.google.com/spreadsheets/d/1aVeMGOg7mhrz-vgs5fFTrr72bh0kudK0jQmtSDYPjBQ
+Native Functions: https://docs.google.com/spreadsheets/d/15uyXi5uGjy_t-uRWuZsfTgGgfNaJyeUNsTNsrDXP46Y
+Cyber Engine Tweaks Cheatsheet: https://docs.google.com/spreadsheets/d/1t5U18lxQUUHS2c4SM5_CtLJ6ngj4VpVswJQio9yKCyY
+Console Commands List: https://docs.google.com/spreadsheets/d/13NdRp1lu2fpTqR3V5uvPNmM8S5ljH_oYAZDLCnDpH_c
+Audio File list: https://docs.google.com/spreadsheets/d/1V-wXZ4S2gmUZv2WyNniCpgoiSdewO35I--MeKYiKpOI
+
+Useful Discord Servers:
+CP77 Tools discord: https://discord.gg/Epkq79kd96 
+CDPR modding community discord: https://discord.gg/USZwxxFrKa (Dead)

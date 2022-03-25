@@ -1,0 +1,229 @@
+### FFVII Save Set ### - Credits To xXREDXIIIXx (NGU)
+CUSA07211: https://www.mediafire.com/file/02sbu3g1wx42ylc/CUSA07211.zip/file <-- Primary | Mirror: http://www.mediafire.com/file/w9x2c06hwm0j84b/CUSA07211.zip/file
+CUSA07187: https://www.mediafire.com/file/vytkj2kf553davc/FF7R_-_CUSA07187.zip/file | Mirror: http://www.mediafire.com/file/elnyet9323lizrq/CUSA07187.zip/file
+CUSA07052: https://www.mediafire.com/file/iao5q2z0yt9hm0o/FF7R_-_CUSA07052.zip/file | Mirror: http://www.mediafire.com/file/fov2p2vesjub572/CUSA07052.zip/file
+### FFVII Save Set INFO ###
+Disk Jockey
+save 01 - ch 9: minigame for last music (get 10 great)
+
+Dressed to the Nines / Ultimate Weapon
+save 02 - continue game trophy should pop after cutscene // Load Chapter 17 on HARD then go beat Pride & Joy (simulator room)
+(HARD mode is tough)
+
+Weapons Expert
+save 03 - ch 10: use Aerith last weapon - equip bladed staff (use the ability: lustrous shield) and strike an enemy
+
+Master of Mimicry / That's the Smell
+Save 03 - go into menu > system > select chapter > choose 17 play on HARD, go in to the simulator and beat 'Three-Person Team vs. Monsters of Legend' (simulator room)
+(HARD mode is tough)
+
+Devine Gratitude
+Save 04 - Pick up collectible on ground at your feet
+
+Hardened Veteran
+Save 05 - Talk to barret, board the train, skip scene trophy pops after
+
+Building Character
+save 07 - continue game (either battle arena or progress though the story should level up quickly)
+
+Intelligence Agent
+Save 09 - go into menu > system > select chapter > choose 17 play on easy beat Bahamut
+
+Best in the Business
+Save 09 - Load save then go into menu > system > select chapter > choose 9, play normally when asked options: Sam: NO DEAL, Madam M: 3000 Gil, Madam M: Does it matter what I think. and do not talk to Johnny. this will ensure you will get Madam M quest line which is the last 2 side quest missing [note: I will not be updating these saves to make this easier to obtain as these have already been re-regioned (and i am on 7.50)]
+
+Platinum Save
+Save 10 - This is my platinum save
+
+### Notes & ID's to use in AM ##
+
+# Code Wizard #
+
+all this is what i have currently for items 
+00000001    Potion      (Item)
+00000002    Hi-Potion      (Item)
+00000003    Ether      (Item)
+00000004    Turbo Either     (Item)
+00000005    Elixer      (Item)
+00000006    Phonix Down      (Item)
+00000007    Antidote      (Item)
+00000008    Echo Mist     (Item)
+00000009    Adrenaline      (Item)
+0000000A    Seditive      (Item)
+0000000B    Remedy     (Item)
+0000000C    Celeris     (Item)
+0000000D    Grenade      (Item)
+0000000E    Spiderweb     (Item)
+0000000F    Hazardous Material     (Item)
+00000010    Big Bomber     (Item)
+00000011    Molotov Cocktail     (Item)
+00000012    Orb of Gravity     (Item)
+00000013    Smelling Salts     (Item)
+00000015    Maiden's Kiss      (Item)
+00000016    Mega-Potion     (Item)
+0000001F    Ai Programing Core     (Item)
+00000020    Fuzzy Wuzzy     (Item)
+00000021    Mr. Cuddlesworth     (Item)
+0000006F    Shinra ID Card    (Key)
+00000076    Moogle Medal     (Key)
+0000007A    Combat Analyzer     (Key)
+0000007B    Security Key     (Key)
+00000090    Yellow Flower     (Key)
+000003E9    Buster Sword    (Weapon - Cloud)
+000003EA    Iron Blade    (Weapon - Cloud)
+00000BB9    Leather Gloves    (Weapon - Tifa)
+
+# llwlnk #
+29 23 00 00    Bronze
+2A 23 00 00    Iron
+2B 23 00 00    Titanium
+2C 23 00 00    Gothic
+2F 23 00 00    Leather
+30 23 00 00    Studded
+31 23 00 00    Heavy-Duty
+34 23 00 00    Mesmeric
+35 23 00 00    Mythril
+36 23 00 00    Sorcerer's
+
+29 23 00 00    Bronze Bangle
+2A 23 00 00    Iron Bangle
+2B 23 00 00    Titanium Bangle
+2C 23 00 00    Gothic Bangle
+2F 23 00 00    Leather Bracer
+30 23 00 00    Studded Bracer
+31 23 00 00    Heavy-Duty Bracer
+34 23 00 00    Mesmeric Armlet
+35 23 00 00    Mythril Armlet
+36 23 00 00    Sorcerer's Armlet
+50 23 00 00    Star Bracelet
+51 23 00 00    Caliginous Bracelet
+52 23 00 00    Magician's Bracelet
+5F 23 00 00    Midgar Bangle
+60 23 00 00    Shinra Bangle
+61 23 00 00    Corneo Armlet
+All armor
+Last 3 are DLC
+if you would like to add a note
+(Midgar Shinra Corneo)
+
+39 23 00 00    Power Wristguards
+3A 23 00 00    Bulletproof Vest
+3B 23 00 00    Earrings
+3C 23 00 00    Talisman
+3D 23 00 00    Headband
+3E 23 00 00    Star Pendant
+3F 23 00 00    Fury Ring
+40 23 00 00    Revival Earrings
+41 23 00 00    Whistlewind Scarf
+42 23 00 00    Mythical Amulet
+43 23 00 00    Healing Carcanet
+46 23 00 00    Spectral Cogwheel
+49 23 00 00    Crescent Moon Charm
+4A 23 00 00    Champion Belt
+4B 23 00 00    Protective Boots
+4E 23 00 00    Otherworldly Crystal
+4F 23 00 00    Salvation Badge
+5B 23 00 00    Supernatural Wristguards
+62 23 00 00    Superstar Belt
+63 23 00 00    Mako Crystal
+Accessories.
+Superstar Belt and Mako Crystal are DLCs
+
+64 00 00 00    Sector 5 Reactor Card
+66 00 00 00    Tournament Entry Form
+67 00 00 00    Madam M's Endorsement
+68 00 00 00    Andrea's Endorsement
+6F 00 00 00    Shinra ID Card
+73 00 00 00    Grappling Gun
+75 00 00 00    Key To The Sewers
+76 00 00 00    Moogle Medal
+77 00 00 00    Sam's Coin
+7A 00 00 00    Combat Analyzer
+7B 00 00 00    Watch Security ID
+7C 00 00 00    Handmade Necklace
+8C 00 00 00    Sam's Requests
+8D 00 00 00    The Sauce
+8E 00 00 00    Medicine Voucher
+8F 00 00 00    VIP Card
+90 00 00 00    Yellow Flower
+94 00 00 00    Graveyard Key
+95 00 00 00    Guardian Angel's Calling Cards
+96 00 00 00    Vitalabrew
+97 00 00 00    Crimson Spike
+98 00 00 00    Bottle of Antiemetic
+9B 00 00 00    Moogle Membership Card
+AA 00 00 00    Andrea's Earrings
+3C 01 00 00
+4B 01 00 00
+5A 01 00 00
+69 01 00 00
+7C 01 00 00
+I think the last 5 are Manuscripts
+
+# testbot #
+11270000 Healing Materia
+12270000 Cleansing Materia
+13270000 Revival Materia
+14270000 Fire Materia
+15270000 Ice Materia
+16270000 Lightning Materia
+18270000 Poison Materia
+1B270000 Barrier Materia
+19270000 Binding Materia
+1C270000 Subversion Materia
+C9320000 HP Up Materia
+CA320000 MP Up Materia
+D4320000 Deadly Dodge Materia
+
+# khuong #
+11270000    Healing Materia
+12270000    Cleansing Materia
+13270000    Revival Materia
+14270000    Fire Materia
+15270000    Ice Materia
+1A270000    Time Materia
+1C270000    Subversion Materia
+19270000    Binding Materia
+1B270000    Barrier Materia
+18270000    Poison Materia
+17270000    Wind Materia
+16270000    Lightning Materia
+FA2A0000    Elemental Materia
+F92A0000    Magnify Materia
+FB2A0000    Warding Materia
+E42E0000    Chakra Materia
+E22E0000    Assess Materia
+E52E0000    Prayer Materia
+C9320000    HP Up Materia
+CA320000    MP Up Materia
+CB320000    Magic Up Materia
+CC320000    Luck Up Materia
+D4320000    Deadly Dodge Materia
+D1320000    First Strike Materia
+D0320000    ATB Stagger Materia
+D2320000    Steadfast Block Materia
+FF2A0000    AP Up Materia
+E12E0000    Steal Materia
+E32E0000    Enemy Skill Materia
+CD320000    Gil Up Materia
+CE320000    EXP Up Materia
+DA320000    Refocus Materia
+D9320000    Pedometer Materia
+D3320000    Skill Master Materia
+D8320000    Provoke Materia
+D6320000    ATB Assist Materia
+CF320000    Item Master Materia
+D7320000    Auto-Cure  Materia
+D5320000    Parry Materia
+FE2A0000    Synergy Materia
+FC2A0000    HP Absorption Materia
+FD2A0000    MP Absorption Materia
+B7360000    Carbuncle Materia
+B8360000    Cactuar Materia
+B9360000    Chocobo Chick Materia
+B3360000    Ifrit Materia
+B1360000    Chocobo & Moogle Materia
+B2360000    Shiva Materia
+B6360000    Fat Chocobo Materia
+B4360000    Leviathan Materia
+B5360000    Bahamut Materia

@@ -1,0 +1,150 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+ 
+[Zeraf3000#8256]
+
+APPLY THESE TO THE PROFILE x.SAV (not the temp file)                    
+Max Thick Skin (Super Health)                    
+80010014 530C0000                    
+004D6574 61557067                    
+72616465 73540000                    
+88010012 4865616C                 
+74684D65 74615570                
+67726164 654E0000                
+A8000012 00000008                
+00000000 F8690841                
+                    
+Max Chtonic Vitality (Super Health Regen after each area)                    
+80010014 530C0000                    
+004D6574 61557067                    
+72616465 73540000                    
+88010014 446F6F72                 
+4865616C 4D657461                 
+55706772 6164654E                
+A8000014 00000008                
+00000000 F8690841                
+                    
+Max FieryPresence (Super Max damage when enemies are at max health)                    
+80010014 530C0000                    
+004D6574 61557067                    
+72616465 73540000                    
+88010017 46697273                
+74537472 696B654D                
+65746155 70677261                
+64654E00 00000000                
+A8000017 00000008                
+00000000 00408F40                
+                    
+Max Greater Reflex (Infinite dash)                    
+80010014 530C0000                    
+004D6574 61557067                    
+72616465 73540000                    
+88010013 5374616D                 
+696E614D 65746155                
+70677261 64654E00                
+A8000013 00000008                
+00000000 F8690841                
+                    
+                    
+Max Stygian Soul (Unlimited Ranged attck)                    
+80010014 530C0000                    
+004D6574 61557067                    
+72616465 73540000                    
+88010016 52656C6F                
+6164416D 6D6F4D65                
+74615570 67726164                
+654E0000 00000000                
+A8000016 00000008                
+00000000 F8690841
+
+Zeraf3000's Notes:
+These codes will make you permanently OP, which means you probably will be able to finish the game in 1 try.
+Make sure you have everything unlocked and everything done in the Temple of Styx (if you're a completionist) before using them.
+ALSO, in order to use these, the respective skill has to be already UNLOCKED in the mirror in your room and preferably maxed out. Which means you have to be in the temple when applying them
+
+[Skiller#4741]
+Mirror Upgrades (MetaUpgrades)
+80010014 530C0000
+004D6574 61557067
+72616465 73540000
+
+880100XX VVVVVVVV
+
+A80000XX 00000008
+VVVVVVVV VVVVVVVV
+
+### START ###
+SuperGiftPoints (Ambrosia)
+80010010 09000000 
+5265736F 75726365 
+73540000 00000000
+88010014 0F000000
+53757065 72476966
+74506F69 6E74734E
+A8000014 00000008
+VVVVVVVV VVVVVVVV
+
+LockKeys (Keys)
+80010010 09000000 
+5265736F 75726365 
+73540000 00000000
+8801000D 08000000
+4C6F636B 4B657973
+4E000000 00000000
+A800000D 00000008
+VVVVVVVV VVVVVVVV
+
+Breakdown notes by Skiller
+= Searching For Resource Ascii Line (Does not change)
+80010010 09000000 
+5265736F 75726365 
+73540000 00000000
+
+= LockKey Ascii section (Changes based on Item)
+8801000D 08000000
+4C6F636B 4B657973
+4E000000 00000000
+
++ Value to be added to this time (only the Offset changes 0D will match the Size used on 880100XX)
+A800000D 00000008  
+VVVVVVVV VVVVVVVV
+
+Really you only need to change the A800000D and the full (88) Ascii section search to build any resource code
+### END ###
+
+# Resources Notes, AM, Spreadsheets etc... #
+Hades Save Editor: https://github.com/zsennenga/hades_save_editor
+QC Google Doc: https://docs.google.com/spreadsheets/d/1pln64WRA8QhhrW1QBDEn97HEbp4gdvBNd3GnrC4Bg5c/edit#gid=1346651583
+
+# Misc Skillers Notes #
+0x54 = Group (Amount in Group Right After Example in pic 07)
+0x53 = Ascii Size then Name 
+0x4E = Double Float
+https://i.imgur.com/s2Lldxm.png
+
+# Misc AM Reference #
+Fiery Presence (Bonus damage when striking enemies that have full health)= FirstStrikeMetaUpgrade                                   
+CHTONIC Vitality  (Restores health after exiting a chamber)= DoorHealMetaUpgrade                                 
+Greater Reflex (Increases times you can chain dash)= StaminaMetaUpgrade                                   
+Stygian Soul (Regenerates ranged atack)= ReloadAmmoMetaUpgrade                               
+Thick Skin (Increases max health)= HealthMetaUpgrade
+
+ExtraChanceMetaUpgrade = Death Defiance
+RerollMetaUpgrade = Fated Authority
+DuoRarityBoonDropMetaUpgrade = Gods' Legacy
+RareBoonDropMetaUpgrade = Olympian Favor
+DoorHealthMetaUpgrade = Chthonic Vitality
+
+SuperGiftPoints = Ambrosia
+SuperGems = Diamonds
+MetaPoints = Darkness
+GiftPoints = Nectar
+Gems = Gemstones
+LockKeys = Keys
+SuperLockKeys = Titan Blood
+
+Game Uses 64bit Double Float for most values.

@@ -1,0 +1,79 @@
+Hash List & Misc Resources for CP77 Save editing
+
+[Pariah#7657]
+Attachment type can be any but you can only have one of each:
+AttachmentSlots.IconicWeaponModLegendary = 00000028DB56FDC8
+AttachmentSlots.IconicMeleeMod1 = 00000025FE417A5C
+AttachmentSlots.PowerWeaponModRare = 0000002243D6E2EB
+AttachmentSlots.TechWeaponModRare = 000000210DAB2C64
+AttachmentSlots.GenericWeaponMod1 = 00000021E152F63D
+AttachmentSlots.GenericWeaponMod2 = 00000021785BA787
+AttachmentSlots.GenericWeaponMod3 = 000000210F5C9711
+AttachmentSlots.GenericWeaponMod4 = 00000021913802B2
+
+You can slot a bunch of generic mods into a weapon, 
+then change the item_mod.item_id.namehash and item_mod.field_u32 values to match those of a mod that you want to add 
+(including iconic properties of other weapons). 
+Then change the uk1 hash to match one of the above four hashes (you can only have one of each). 
+This will free up all the mod slots and you can then slot in more mods and change those as well, 
+but keep the uk1 hashes.
+
+
+AttachmentSlots.Receiver = 0000001880BAAF6B
+AttachmentSlots.Barrel = 000000169BE1D184
+AttachmentSlots.MagazineEmpty = 0000001DA4E71EC0
+
+[Skiller#4741]
+EC88E1F50B000000    -    Eurodollar
+CBB1C55A15000000    -    Common Components
+CA36E60917000000    -    Uncommon Components
+5A34810113000000    -    Rare Components
+830681DF13000000    -    Epic Components
+A51EECA518000000    -    Legendary Components
+E065889813000000    -    Upgrade Rare Components
+3957884613000000    -    Upgrade Epic Components
+1F4FE53C18000000    -    Upgrade Legendary Components
+4F08D76220000000    -    QuickHacks Uncommon Components
+C84D7F6B1C000000    -    QuickHacks Rare Components
+117F7FB51C000000    -    QuickHacks Epic Components
+3458553821000000    -    QuickHacks Legendary Components
+80A992FE10000000    -    Pistol Ammo
+B07BEC5B0E000000    -    Rifle Ammo
+BC1C9D0814000000    -    Sniper Rifle Ammo
+ADE490E410000000    -    Shotgun Ammo
+
+[seba842005#9219]
+raw u64 hex codes
+this is for add mods to clothes
+
+AttachmentSlots.HeadFabricEnhancer1 = 000000234E94CCFC
+AttachmentSlots.HeadFabricEnhancer2 = 00000023D79D9D46
+AttachmentSlots.HeadFabricEnhancer3 = 00000023A09AADD0
+AttachmentSlots.FaceFabricEnhancer1 = 00000023AB150C3A
+AttachmentSlots.FaceFabricEnhancer2 = 00000023321C5D80
+AttachmentSlots.FaceFabricEnhancer3 = 00000023451B6D16
+AttachmentSlots.OuterChestFabricEnhancer1 = 00000029E7929E8D
+AttachmentSlots.OuterChestFabricEnhancer2 = 000000297E9BCF37
+AttachmentSlots.OuterChestFabricEnhancer3 = 00000029099CFFA1
+AttachmentSlots.OuterChestFabricEnhancer4 = 0000002997F86A02
+AttachmentSlots.InnerChestFabricEnhancer1 = 00000029956C0E03
+AttachmentSlots.InnerChestFabricEnhancer2 = 000000290C655FB9
+AttachmentSlots.InnerChestFabricEnhancer3 = 000000297B626F2F
+AttachmentSlots.InnerChestFabricEnhancer4 = 00000029E506FA8C
+AttachmentSlots.LegsFabricEnhancer1 = 000000231B16B0FD
+AttachmentSlots.LegsFabricEnhancer2 = 00000023821FE147
+AttachmentSlots.LegsFabricEnhancer3 = 00000023F518D1D1
+AttachmentSlots.FootFabricEnhancer1 = 000000236F6FD9ED
+AttachmentSlots.FootFabricEnhancer2 = 00000023F6668857
+AttachmentSlots.FootFabricEnhancer3 = 000000238161B8C1
+AttachmentSlots.FootFabricEnhancer4 = 000000231F052D62
+
+
+
+[Skiller#4741]
+Take Items.QuickHackUncommonMaterial1
+Send it to CRC32 
+Get hash
+Simple
+https://crc32.online
+https://crccalc.com

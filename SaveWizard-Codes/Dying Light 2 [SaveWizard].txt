@@ -1,0 +1,381 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+For Id's, Spreadsheet is linked at the bottom.
+
+Codes & Research Credits: Skiller#4741, Full Metal Panda#4868, !!!#8771, Word#8739, Vicodin10#8882, Method#5832, Zombie Chopper#9596
+
+[Method#5832]
+
+Medkit_Small x999 Stacks (not-upgraded)
+8001001A 53617665
+67616D65 3A3A506C
+73526577 6172643A
+3A537461 74650000
+B801000E 004D6564
+6B69745F 536D616C
+6C530000 00000000
+93000000 00000015
+CC010008 00000000
+28000034 000003E7
+95000000 00000000
+
+Military Medikit x999 Stacks
+8001001A 53617665
+67616D65 3A3A506C
+73526577 6172643A
+3A537461 74650000
+B801000E 004D6564
+6B69745F 4C617267
+65530000 00000000
+93000000 00000015
+CC010008 00000000
+28000034 000003E7
+95000000 00000000
+
+Adjust Player Lvl:
+80010007 6D5F4C65
+76656C00 00000000
+08000009 0000000X <-- X = 1-9
+
+[Zombie Chopper#9596]
+
+All weapons in inventory to legendary rank 24s: Template
+80010008 506C7352
+65776172 00000000
+B8XX0004 77706E5F <-- XX = Total number of weapons in inventory
+B8XX0006 01000000 <-- XX = Total number of weapons in inventory
+00000000 00000000
+93000000 00000004
+49000000 00001580
+40XX00A4 00000000 <-- XX = Total number of weapons in inventory
+Note: Does not work if you have a bow in your backpack (put it in your stash)
+Remember To convert Dec to Hex (windows programming calculator)
+or https://www.save-editor.com/tools/wse_hex.html
+
+Example: 24 Weapons In Inventory
+80010008 506C7352
+65776172 00000000
+B8180004 77706E5F 
+B8180006 01000000 
+00000000 00000000
+93000000 00000004
+49000000 00001580
+401800A4 00000000
+
+[Vicodin10#8882]
+
+Super Max Health - Slot 0
+8001001E 1C00416E
+74697A69 6E436170
+61636974 79557067
+72616465 4865616C
+74680000 00000000
+1800001E 00000491
+80010024 2200416E
+74697A69 6E436170
+61636974 79557067
+72616465 4865616C
+74685F73 6B696C6C
+18000024 00000491
+
+Super Max Stamina - Slot 0
+8001001F 1D00416E
+74697A69 6E436170
+61636974 79557067
+72616465 5374616D
+696E6100 00000000
+1800001F 00000491
+80010025 2300416E
+74697A69 6E436170
+61636974 79557067
+72616465 5374616D
+696E615F 736B696C
+6C000000 00000000
+18000025 00000491
+
+Super jump - Slot 0
+80010013 11006865
+69676874 5F6A756D
+705F736B 696C6C00
+08000013 000000FF
+
+No fall damage 1 - Slot 0
+80010013 11006163
+74697665 5F6C616E
+645F736B 696C6C00
+08000013 000000EB
+Note: If you did not upgraded the perk
+
+No fall damage 2 - Slot 0
+80010014 12006163
+74697665 5F6C616E
+64325F73 6B696C6C
+08000014 000000FF
+Note: If you upgraded the perk
+
+Vertical Wall Run - Slot 0
+80010019 17007665
+72746963 616C5F77
+616C6C5F 72756E5F
+736B696C 6C000000
+08000019 00000009
+
+Horizontal Wall Run - Slot 0
+8001001B 1900686F
+72697A6F 6E74616C
+5F77616C 6C5F7275
+6E5F736B 696C6C00
+0800001B 000000ED
+
+Super Run
+80010012 10007275
+6E5F6661 73746572
+5F736B69 6C6C0000
+08000012 00000003
+
+[Skiller#4741]
+
+Mod Skill Level: Template
+800100XX VVVVVVVV
+080000XX 000000NN
+Notes:
+XX = Value, Found in 1st column (Skill_IDS) <-- Refer to spreadsheet
+V's = The ID of the skill you wish to edit
+NN = The level of how high you want your skill level to be. Max FF (255)
+Refer to Tested NN Values, or a custom value 1-255 (In Hex)
+Use windows programming calculator 
+or https://www.save-editor.com/tools/wse_hex.html
+to convert Dec (Normal Number) to Hex.
+
+Example (Max LVL Hight Jump Skill) [11006865696768745F6A756D705F736B696C6C]
+80010013 11006865 <-- XX Value + ID
+69676874 5F6A756D
+705F736B 696C6C00
+08000013 000000FF <-- XX Value + Lvl Value
+Notes: Don't forget to add 0's at the end of the ID,
+as the code needs 8 Bytes long on each line.
+
+Max Item: Template
+8001001A 53617665
+67616D65 3A3A506C
+73526577 6172643A
+3A537461 74650000
+B80100XX VVVVVVVV <-- V = ID Goes Here, X = First Value (Refer To ID's)
+93000000 00000015
+CC010008 00000000
+NNNNNNNN NNNNNNN <-- N = Amount/Durability
+95000000 00000000
+
+     ## N ##
+## Item/Outfits Rank/Power (Max) ##
+A8000030 00000002 
+8F150000 00000000
+## Item/Outfits SEED (Effects) ## 
+A8000032 00000002 
+XXXX0000 00000000
+## Item/Outfits Amount ##
+28000034 000003E7
+## Item/Outfits Durability ##
+28000038 447A0000
+## Weapons Rank/Power (Max) ##
+A8000070 00000002 
+8F150000 00000000
+## Weapons SEED (Effects) ## [Dont Use On Items]
+A8000072 00000002 
+XXXX0000 00000000
+## Weapons Amount ## [Dont Use On Items]
+28000074 000003E7
+## Weapons Durability ## [Dont Use On Items]
+28000078 447A0000
+## Addons SEED ##
+A8000020 00000004 
+XXXXXXXX 00000000
+## Addons Amount ##
+28000024 000003E7 
+## Addons Durability ## 
+28000028 447A0000
+## Equipment Amount ?? ## [Dont Use On Items]
+28000118 000003E7
+## Equipment Durability ?? ## [Dont Use On Items]
+2800011C 447A0000
+Notes: X's Are still WIP (Don't Use)
+
+Usage Example: https://i.imgur.com/Vuqhc7X.jpg
+Chamomile
+8001001A 53617665
+67616D65 3A3A506C
+73526577 6172643A
+3A537461 74650000
+B8010011 00506C61 <-- 1st Value + ID (Plant_ChamomileS)
+6E745F43 68616D6F
+6D696C65 53000000
+93000000 00000015
+CC010008 00000000
+28000034 000003E7 <-- N (Addons Amount)
+95000000 00000000
+Notes: Refer to Linked Spreadsheet of further use case & ID's
+
+Item Upgrade Level Swap: Template
+This will allow you to change the upgrade level of any Item that has the Upgrade# ending you can also use this on any item ending with #SG
+8001001A 53617665
+67616D65 3A3A506C
+73526577 6172643A
+3A537461 74650000
+B80100ZZ VVVVVVVV <-- V = ID Goes Here, Z = First Value (Refer To ID's)
+88010003 53474400
+93000000 00000001
+08000000 0000003X <-- X = 1-9
+95000000 00000000
+Notes: Where X you can change the 1 to anything you want if you want to try and mod other things like say BleedingMod_Random_Upgrade8_SHAFTS - Just count back from the final S to the number on end up upgrade so in this case 7 would set you to the upgrade spot
+
+Item Upgrade Level Swap: Template [V2]
+This will allow you to change the upgrade level of any Item that has the Upgrade# ending you can also use this on any item ending with #SG
+8001001A 53617665
+67616D65 3A3A506C
+73526577 6172643A
+3A537461 74650000
+B80100ZZ VVVVVVVV <-- V = ID Goes Here, Z = First Value (Refer To ID's)
+88010003 53474400
+93000000 00000001
+08000000 0000003X <-- X = 1-9
+95000000 00000000
+## Craftplan_ ##
+8001001A 53617665
+67616D65 3A3A506C
+73526577 6172643A
+3A537461 74650000
+B80100QQ 00437261 <-- Craftplan_ + ID, QQ = 0B (In Hex) + ID First Value (Which is also Hex)
+6674706C 616E5FVV <-- V = ID Start, Goes Here
+VVVVVVVV VVVVVVVV <-- V = ID Goes Here
+88010003 53474400
+93000000 00000001
+08000000 0000003X <-- X = 1-9
+95000000 00000000
+Notes: Where X you can change the 1 to anything you want if you want to try and mod other things like say BleedingMod_Random_Upgrade8_SHAFTS - Just count back from the final S to the number on end up upgrade so in this case 7 would set you to the upgrade spot
+Where QQ Use a hex calculator for this, so windows/mac programming calculator. Formula: 0B + (First Value - 01)
+Online Hex Calculator: https://www.calculator.net/hex-calculator.html
+
+Example: Potion_DamageDealtIncrease_Upgrade1S [V2]
+8001001A 53617665
+67616D65 3A3A506C
+73526577 6172643A
+3A537461 74650000
+B8010025 00506F74 <-- First Value "25", ID "00506F74696F6E5F44616D6167654465616C74496E6372656173655F557067726164653153"
+696F6E5F 44616D61
+67654465 616C7449
+6E637265 6173655F
+55706772 61646531
+53000000 00000000 <-- ID End + Padding (0's)
+88010003 53474400
+93000000 00000001
+08000000 00000039 <-- 1-9
+95000000 00000000
+8001001A 53617665
+67616D65 3A3A506C
+73526577 6172643A
+3A537461 74650000
+B801002F 00437261 <-- 2F = 0B (Hex) + (25 - 1) (Hex) (First Value For ID Potion_DamageDealtIncrease_Upgrade1S) 
+6674706C 616E5F50 <-- ID Continues "506F74696F6E5F44616D6167654465616C74496E6372656173655F557067726164653153"
+6F74696F 6E5F4461 <-- ID Continues
+6D616765 4465616C <-- ID Continues
+74496E63 72656173 <-- ID Continues
+655F5570 67726164 <-- ID Continues
+65315300 00000000 <-- ID End + Padding (0's)
+88010003 53474400
+93000000 00000001
+08000000 00000039
+95000000 00000000
+Notes: Subtract 1 from 1st value, first value in this case was 25, so it becomes 0B + 24 = 2F for QQ
+
+Item Swap Template (Updated)
+8001001A 53617665
+67616D65 3A3A506C
+73526577 6172643A
+3A537461 74650000
+B80100ZZ SSSSSSSS <-- S = ID Goes Here for item you are sacrificing, Z = First Value (Refer To ID's)
+SSSSSSSS SSSSSSSS
+92000000 00000001
+A8000000 000000XX <-- X = First Value 
+VVVVVVVV VVVVVVVV <-- V = ID Goes Here for item being swapped to, Z = First Value (Refer To ID's)
+VVVVVVVV 00000000
+95000000 00000000
+
+Example
+8001001A 53617665
+67616D65 3A3A506C
+73526577 6172643A
+3A537461 74650000
+B801000C 00437261 <-- ID "0043726166745F5261677353" - Craft_RagsS (Sacrifice Item)
+66745F52 61677353
+92000000 00000001
+A8000000 0000000C <-- First Value (Special Value with ID)
+0042696E 6F63756C <-- ID "0042696E6F63756C61727353" - BinocularsS (Desired Item)
+61727353 00000000
+95000000 00000000
+
+Max Stamina Upgrades
+8001001F 1D00416E
+74697A69 6E436170
+61636974 79557067
+72616465 5374616D
+696E6100 00000000
+1800001F 00000491
+80010025 2300416E
+74697A69 6E436170
+61636974 79557067
+72616465 5374616D
+696E615F 736B696C
+6C000000 00000000
+18000025 00000491
+
+Max Health Upgrades
+8001001E 1C00416E
+74697A69 6E436170
+61636974 79557067
+72616465 4865616C
+74680000 00000000
+1800001E 00000491
+80010024 2200416E
+74697A69 6E436170
+61636974 79557067
+72616465 4865616C
+74685F73 6B696C6C
+18000024 00000491
+
+[Anonymous]
+Regular Health (300)
+8001001E 1C00416E
+74697A69 6E436170
+61636974 79557067
+72616465 4865616C
+74680000 00000000
+1800001E 00000491
+80010024 2200416E
+74697A69 6E436170
+61636974 79557067
+72616465 4865616C
+74685F73 6B696C6C
+18000024 00000007
+
+Regular Stamina (300)
+8001001F 1D00416E
+74697A69 6E436170
+61636974 79557067
+72616465 5374616D
+696E6100 00000000
+1800001F 00000491
+80010025 2300416E
+74697A69 6E436170
+61636974 79557067
+72616465 5374616D
+696E615F 736B696C
+6C000000 00000000
+18000025 00000007
+
+### Spreadsheets ###
+Skiller's Spreadsheet: https://docs.google.com/spreadsheets/d/17bJNPco5-FAgyiLGzcQne1gR7IiHHDpYsY1G97YXGHg/edit#gid=1812299916 <-- ID's Here
