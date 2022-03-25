@@ -19,7 +19,7 @@ PC/PS4 Save Related
 [Skiller#4741] AM info Spreadsheet: https://docs.google.com/spreadsheets/d/1lnb-5NAXj1ESVX00n8xesawzpeSgng1FTglF_XP9CBg
 Cyberpunk 2077 Items Copy and Paste: https://docs.google.com/spreadsheets/d/1iuq4Srh_661PdY_17bnrU15UbtCLieO_0ZhQ0uqQ0_Y
 CP2077 hash list - formatted: https://docs.google.com/spreadsheets/d/1CCOmY__uhYhpRixs3XizqwUvx1LICqa2GrmyVpA2Nlc
-CP77 Hash List & Misc: https://raw.githubusercontent.com/sterben-Dev10/SaveWizard-Resources/main/SaveWizard-Codes/CP77%20Hash%20List%20%26%20Misc.txt
+CP77 Hash List & Misc: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/SaveWizard-Codes/CP77%20Hash%20List%20%26%20Misc.txt
 
 DB Of most items (Descriptions & Stats etc..)
 CP77 SHEsh: https://docs.google.com/spreadsheets/d/1RGy4O_jqIPp9k9wokJP-wr8uZPTquxNDKwLs1em6EUU
