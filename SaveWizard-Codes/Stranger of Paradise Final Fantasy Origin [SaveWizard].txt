@@ -1,0 +1,211 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+### Spreadsheets ###
+https://docs.google.com/spreadsheets/d/1GjMSRSg4gsZYfNqqbZSseIUX4wItErNgjvKNp50D3zM/edit#gid=0
+
+[Skiller#4741]
+In Hand - Item MODS
+95000000 00130410
+88010008 XXXXXXXX <-- XX = ID 1
+XXXXXXXX 00000000 <-- XX = ID 2
+Notes: To be combined with Modifiers, item must be unequipped.
+XX = ID 1 & ID 2 from Item_IDS (Spreadsheet)
+
+❖━━❘ Modifiers ❘━━❖
+Replace Item
+A8000000 00000008
+XXXXXXXX XXXXXXXX
+Notes: XX = ID 1 & ID 2 from Item_IDS (Spreadsheet)
+
+Set Amount You Have
+18000008 0000VVVV <-- Set V to 0001 for Equipment style items
+Notes: VV = Value
+-- VVVV --
+0064 - 100
+03E8 - 1000
+1388 - 5000
+270F - 9999
+FFFF - 65535 - Max
+
+Set Level of Equipment
+1800000A 0000VVVV
+Notes: VV = Value
+-- VVVV --
+0064 - 100
+03E8 - 1000
+1388 - 5000
+270F - 9999
+FFFF - 65535 - Max
+
+Equipment Special Effect ID 1
+A8000028 00000004
+XXXXXXXX 00000000
+Notes: XX = ID from Special_Effects_IDS (Spreadsheet)
+
+Set Equipment Special Effect 1 Stat
+2800002C VVVVVVVV
+Notes: VV = Value
+-- V --
+00000063 - 99
+000003E7 - 999
+00001388 - 5000
+0000270F - 9999
+FFFFFFFF - 4294967295
+
+Equipment Special Effect ID 2
+A8000040 00000004
+XXXXXXXX 00000000
+Notes: XX = ID from Special_Effects_IDS (Spreadsheet)
+
+Set Equipment Special Effect 2 Stat
+28000044 VVVVVVVV
+Notes: VV = Value
+-- V --
+00000063 - 99
+000003E7 - 999
+00001388 - 5000
+0000270F - 9999
+FFFFFFFF - 4294967295
+
+Equipment Special Effect ID 3
+A8000058 00000004
+XXXXXXXX 00000000
+Notes: XX = ID from Special_Effects_IDS (Spreadsheet)
+
+Set Equipment Special Effect 3 Stat
+2800005C VVVVVVVV
+Notes: VV = Value
+-- V --
+00000063 - 99
+000003E7 - 999
+00001388 - 5000
+0000270F - 9999
+FFFFFFFF - 4294967295
+
+Set Job Affinity 1 ID
+28000110 000000XX
+Notes: XX = ID from Affinity_IDs (Spreadsheet)
+
+Set Job Affinity 1 Stat
+28000114 VVVVVVVV
+Notes: VV = Value
+-- V --
+00000063 - 99
+000003E7 - 999
+00001388 - 5000
+0000270F - 9999
+FFFFFFFF - 4294967295
+
+Set Job Affinity 2 ID
+2800011C 000000XX
+Notes: XX = ID from Affinity_IDs (Spreadsheet)
+
+Set Job Affinity 2 Stat
+28000120 VVVVVVVV
+Notes: VV = Value
+-- V --
+00000063 - 99
+000003E7 - 999
+00001388 - 5000
+0000270F - 9999
+FFFFFFFF - 4294967295
+
+Set ATK Value
+280000E8 VVVVVVVV
+Notes: VV = Value
+-- V --
+00000063 - 99
+000003E7 - 999
+00001388 - 5000
+0000270F - 9999
+FFFFFFFF - 4294967295
+
+Set DEF Value
+280000EC VVVVVVVV
+Notes: VV = Value
+-- V --
+00000063 - 99
+000003E7 - 999
+00001388 - 5000
+0000270F - 9999
+FFFFFFFF - 4294967295
+
+Set MAG Value
+280000F0 VVVVVVVV
+Notes: VV = Value
+-- V --
+00000063 - 99
+000003E7 - 999
+00001388 - 5000
+0000270F - 9999
+FFFFFFFF - 4294967295
+
+Set SPR Value
+280000F4 VVVVVVVV
+Notes: VV = Value
+-- V --
+00000063 - 99
+000003E7 - 999
+00001388 - 5000
+0000270F - 9999
+FFFFFFFF - 4294967295
+
+Set Rarity
+0800000C 000000XX
+XX = Rarity level, 05, 06, 07 Will also = Artifact
+-- X --
+00 - 1 Star
+01 - 2 Star
+02 - 3 Star
+03 - 4 Star
+04 - 5 Star
+08 - Artifact
+
+Example Codes:
+❖╬═｜Abyss Axe Equipment Level, ATK|DEF|MAG|SPR Values｜═╬❖
+◈━━❘In Hand - Item MODS❘━━◈
+95000000 00130410
+88010008 EAE70000 <-- XX ID 1 [EAE70000] Abyss Axe
+EAE70000 00000000 <-- XX ID 2 [EAE70000] Abyss Axe
+◈━━❘Equipment Level❘━━◈
+1800000A 0000270F <-- VVVV [0000270F] 9999
+◈━━❘ATK❘━━◈
+280000E8 3B9AC9FF <-- V [3B9AC9FF] 999999999
+◈━━❘DEF❘━━◈
+280000EC 3B9AC9FF <-- V [3B9AC9FF] 999999999
+◈━━❘MAG❘━━◈
+280000F0 3B9AC9FF <-- V [3B9AC9FF] 999999999
+◈━━❘SPR❘━━◈
+280000F4 3B9AC9FF <-- V [3B9AC9FF] 999999999
+
+❖╬═｜Change Item Amount, Adamanite Plate｜═╬❖
+◈━━❘In Hand - Item MODS❘━━◈
+95000000 00130410
+88010008 CA7A0000 <-- XX ID 1 [CA7A0000] Adamantite Plate
+CA7A0000 00000000 <-- XX ID 2 [CA7A0000] Adamantite Plate
+◈━━❘Set Amount❘━━◈
+18000008 0000FFFF <-- VVVV [FFFF] 65535
+
+❖╬═｜Item Swap, Adamanite Plate For Battle Axe｜═╬❖
+◈━━❘In Hand - Item MODS❘━━◈
+95000000 00130410
+88010008 CA7A0000 <-- XX ID 1 [CA7A0000] Adamantite Plate (Sacrifice)
+CA7A0000 00000000 <-- XX ID 2 [CA7A0000] Adamantite Plate (Sacrifice)
+◈━━❘Replace Item❘━━◈
+A8000000 00000008
+5B1A0000 5B1A0000 <-- XX ID 1, ID 2 [5B1A0000] [5B1A0000] Battle Axe
+-- If Equipment style Item --
+◈━━❘Set Amount❘━━◈
+18000008 00000001 <-- VVVV [01] Only needed if desired item is a "Equipment style" item.
+
+## Additional Notes ##
+For All Modifiers, Replace Item, Set Equipment Special Effects, Set Job Affinity etc..
+you have to use the "In Hand - Item MODS" at the start of the code.
+
+For Custom values either use windows/mac programming calculator to convert DEC To HEX
+or use https://www.save-editor.com/tools/wse_hex.html for custom values.
