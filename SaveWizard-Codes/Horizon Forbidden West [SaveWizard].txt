@@ -76,7 +76,7 @@ Example: level 59 XP: 58 X 59 = 3422,
 1711 X 1000 = 1711000 XP, Then Convert To Hex: 1711000 = 1A1B98 In Hex
 Code Becomes:
 80010004 FFE0F505
-28000000 001A1B98
+28000000 001A1B98 <-- V [001A1B98] 1711000 XP
 
 ## Additional AM Notes ##
 [Pj1980#8357] XP Calculation:
