@@ -66,6 +66,18 @@ also max with these codes is 63 (99) because anything higher and we need to add 
 if you do have more than 100 medals in game the extra byte should already be added there shouldnt be problem going higher than 63 
 but there might be a in game cap on each
 
+XP Code [Must Use SW XP Cheat 1st Then Run This Code]
+80010004 FFE0F505
+28000000 VVVVVVVV
+Notes: V = Value (XP Value)
+Math Formula: ((((Desired LvL X Desired Level) -1 LvL)/2)X1000) Then Convert to Hex
+Example: level 59 XP: 58 X 59 = 3422,
+3422 / 2 = 1711, 
+1711 X 1000 = 1711000 XP, Then Convert To Hex: 1711000 = 1A1B98 In Hex
+Code Becomes:
+80010004 FFE0F505
+28000000 001A1B98
+
 ## Additional AM Notes ##
 [Pj1980#8357] XP Calculation:
 To work out the level you want multiple that level by the next level then divide by 2
