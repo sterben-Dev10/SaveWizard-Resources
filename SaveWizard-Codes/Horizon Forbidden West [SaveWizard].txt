@@ -84,3 +84,17 @@ To work out the level you want multiple that level by the next level then divide
 then multiply by 1000 then reverse it to little endian. 
 Example level 30 is 30 X 31 = 930, 930/2=465, 465X1000 = 465000.
 SW Default Max XP: FFE0F50F (267772159)
+
+## Saves ##
+HFW Starter Save V1.00 [CUSA24705] (Vicodin10): 
+https://www.mediafire.com/file/xu8csq2myt4uplw
+Mirror: https://mega.nz/file/1wtADbrY#0zQhvKe3TSSS7R3FDsBrEwyX9lxqyGcZ42u5vTybGpU
+    Details:
+    Added all Resources, Set to 2k in both inventory and stash.
+    Added best potions and elite traps.
+    Added all ammo, Maxed at 10k.
+    Added both Medals
+    Added a few of the good coils/weaves and some hidden ones.
+    And more.
+    Early ingame, the 4th mission.
+    Note: Items like elite traps work but will not show in inventory until you unlock them. They are usable which is all that matters.
