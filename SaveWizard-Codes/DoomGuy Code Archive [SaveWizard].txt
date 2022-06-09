@@ -1,0 +1,969 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+❖╬═｜THE EVIL WITHIN｜═╬❖
+
+[Wayne-DOOM#4658]
+Refill HP
+[XXXX = Value]
+
+80010007 75706772
+61646500 00000000
+93000000 0000006A
+4A000000 XXXX0016
+40010000 00000000
+
+Example:
+
+80010007 75706772
+61646500 00000000
+93000000 0000006A
+4A000000 FFFF0016
+40010000 00000000
+
+
+Must upgrade before using upgradable stuff.
+[Use green gel to upgrade before applying any code, make sure it's max upgraded]
+
+(Max Matchsticks)
+[99 capped]
+8001000C 722F6D61
+74636873 7469636B
+A800000E 00000002
+270F0000 00000000
+A8000016 00000002
+270F0000 00000000
+ 
+(Super Max Firstaid/ Syringe)
+8001000C 69727374
+6169642F 73797269
+A8000011 00000002
+270F0000 00000000
+A8000019 00000002
+270F0000 00000000
+ 
+(Super Max Rocketlauncher)
+8001000C 77656170
+6F6E2F72 6F636B65
+A8000043 00000002
+270F0000 00000000
+A8000096 00000002
+270F0000 00000000
+A800009E 00000002
+270F0000 00000000
+ 
+(Super Max Harpoon Bolt [F])
+80010004 756E2F68
+A800000C 00000002
+270F0000 00000000
+80010004 756E2F68
+A8000014 00000002
+270F0000 00000000
+80020004 756E2F68
+A8000038 00000002
+270F0000 00000000
+80020004 756E2F68
+A800003B 00000002
+270F0000 00000000
+ 
+(Super Max Freeze Bolt & Flash Bolt)
+80010004 66726565
+A8000008 00000002
+270F0000 00000000
+A8000010 00000002
+270F0000 00000000
+A800002B 00000002
+270F0000 00000000
+A8000033 00000002
+270F0000 00000000
+ 
+(Super Max Shock Bolt)
+80010004 756E2F74
+A800000A 00000002
+270F0000 00000000
+A8000011 00000002
+270F0000 00000000
+ 
+(Super Max Rifle Ammo)
+8001000C 616D6D6F
+2F726966 6C652F73
+A8000015 00000002
+270F0000 00000000
+A800001D 00000002
+270F0000 00000000
+8002000C 616D6D6F
+2F726966 6C652F73
+A8000015 00000002
+270F0000 00000000
+A800001D 00000002
+270F0000 00000000
+ 
+(Super Max Shotgun Ammo)
+8001000C 616D6D6F
+2F73686F 7467756E
+A800001E 00000002
+270F0000 00000000
+A8000025 00000002
+270F0000 00000000
+8002000C 616D6D6F
+2F73686F 7467756E
+A800001E 00000002
+270F0000 00000000
+A8000025 00000002
+270F0000 00000000
+
+❖╬═｜Super Castlevania IV｜═╬❖
+
+(Super HP)
+2028A02C FFFFFFFF
+
+❖╬═｜Castlevania III: Dracula's Curse｜═╬❖
+
+(Super HP)
+20000269 FFFFFF7F
+
+❖╬═｜RED DEAD REDEMPTION 2｜═╬❖
+
+SUPER MAX MONEY 
+
+(Main Area)
+80010004 CE548CF5
+A800000E 00000006
+5AF3107A 3FFF0000
+ 
+(Camp)
+80010004 A69B4C37
+A804C1DC 00000004
+3B9AC9FF 00000000
+ 
+Need at least 1 dollar in each before applying.
+
+❖╬═｜MEDIEVIL｜═╬❖
+
+SUPER MAX HEALTHVIAL
+Must have at least (1) HealthVial
+ 
+Part1
+8001000B 45787472
+61486561 6C746800
+28000025 00FFFFFF
+ 
+Part2
+8001000B 4865616C
+74685669 616C7300
+28000025 000000FF
+ 
+[Apply part 1 and part 2 together] - Don't apply part 3 until you beat the first level and saved!]
+ 
+Part3
+8001000B 4865616C
+74685669 616C7300
+28000025 00FFFFFF
+ 
+Clean the data with these codes
+ 
+reset part 1
+8001000B 45787472
+61486561 6C746800
+28000025 00000000
+ 
+reset part 2
+8001000B 4865616C
+74685669 616C7300
+28000025 00000000
+
+❖╬═｜ONIMUSHA WARLORDS｜═╬❖
+
+save-slot-1
+(Super Max HP)
+1000027B 00000F27
+1000027D 00000F27
+00000282 000000FF
+00000A90 000000FF
+
+❖╬═｜RESIDENT EVIL HD REMASTER｜═╬❖
+
+save-slot-1
+(Defense Knife [255])
+0001B448 000000FF
+
+(2nd Defense Item [255])
+0001B44C 000000FF
+
+[Super Max HP]
+A000E0CC 00000002
+FFFF0000 00000000
+
+(Inventory slot 7 Infinite ammo)
+20016414 FFFFFFFF
+ 
+(Inventory slot 8 Infinite ammo)
+2001641C FFFFFFFF
+ 
+(Weapons and ammo in item box
+You'll have to visit the safe room by the stairs)
+00016470 00000009
+00016474 000000FF
+00016478 0000000A
+0001647C 000000FF
+00016480 0000000B
+00016484 000000FF
+00016488 0000000C
+0001648C 000000FF
+00016490 0000000D
+00016494 000000FF
+00016498 0000000E
+0001649C 000000FF
+000164A0 0000000F
+000164A4 000000FF
+000164A8 00000010
+000164AC 000000FF
+000164B0 00000011
+000164B4 000000FF
+000164B8 00000012
+000164BC 000000FF
+000164C0 00000013
+000164C4 000000FF
+000164C8 00000014
+000164CC 000000FF
+000164F0 00000019
+000164F4 000000FF
+
+Code Template:
+A00XXXXX 00000001 [Place address here "XXXXX"]
+XX000000 00000000 [Place ID here "XX"]
+Notes:
+
+Inventory ID Address slot 1
+163E0
+
+Inventory ID Address slot 2
+163E8
+
+Inventory ID Address slot 3
+163FO
+
+Inventory ID Address slot 4
+163F8
+
+Inventory ID Address slot 5
+16400
+
+Inventory ID Address slot 6
+16408
+
+Inventory ID Address slot 7
+16410
+
+Inventory ID Address slot 8
+16418
+
+Code Examples: 
+[Infinite Rocket Launcher]
+(Inventory slot 7) - Jill
+A0016410 00000001
+0E000000 00000000
+
+[Infinite Rocket Launcher]
+(Inventory slot 3) - Chris
+A00163F0 00000001
+0E000000 00000000
+
+([255] Items in slots)
+
+Inventory slot 1
+000163E4 000000FF
+ 
+Inventory slot 2
+000163EC 000000FF
+ 
+Inventory slot 3
+000163F4 000000FF
+ 
+Inventory slot 4
+000163FC 000000FF
+ 
+Inventory slot 5
+00016404 000000FF
+ 
+Inventory slot 6
+0001640C 000000FF
+ 
+Inventory slot 7
+00016414 000000FF
+ 
+Inventory slot 8
+0001641C 000000FF
+
+### RESIDENT EVIL HD REMASTER - Resources ###
+
+Item IDS
+0x0E = Rocket Launcher
+0x0F = Barry's 44 Magnum (doesn't reload)
+0x10 = Grenade Shells
+0x11 = Handgun Magazine
+0x12 = Shotgun Shells
+0x13 = Acid Shells
+0x14 = Incendiary Shells
+0x15 = Golden Arrow
+0x16 = Book of Curses
+0x17 = A coin with an emblem of armor
+0x18 = Collar
+0x19 = Magnum rounds
+0x1A = Broach
+0x1B = Fuel Canteen
+0x1C = Arrowhead
+0x1D = Imitation of a key
+0x1E = Residence Key
+0x1F = Fuel Supply Capsule
+0x20 = Musical Score
+0x21 = First Aid Spray
+0x22 = Green Herb
+0x23 = Red Herb
+0x24 = Blue Herb
+0x25 = Mixed Herbs (2 green)
+0x26 = Mixed Herbs (3 green)
+0x27 = Mixed Herbs (1 green 1 red)
+0x28 = Mixed Herbs (1 green 1 red 1 blue)
+0x29 = Mixed Herbs (1 green 1 blue)
+0x2A = Mixed Herbs (2 green 1 blue)
+0x2B = Lock Pick
+0x2C = Old Key
+0x2D = Mansion Key (Gold)
+0x2E = Mansion Key (Sliver)
+0x2F = Mansion Key (Copper)
+0x30 = Mansion Key (Bloody)
+0x31 = Residence Key (Sliver)
+0x32 = Residence Key (Gold)
+0x33 = Medal of Eagle
+0x34 = Medal of Wolf
+0x35 = Stone & Metal Object
+0x36 = Laboratory Key
+0x37 = Laboratory Key (looks like a car key)
+0x38 = Star Crest
+0x39 = Wind Crest
+0x3A = Sun Crest
+0x3B = Moon Crest
+0x3C = Crank (green)
+0x3D = Crank (red)
+0x3E = Closet Key
+0x3F = Emblem Key
+0x40 = Stone Ring
+0x41 = Metal Object
+0x42 = Survival Knife
+0x43 = Battery
+0x44 = Ink Ribbon
+0x45 = Emblem (brown)
+0x46 = Gold Emblem
+0x47 = Sheet Music
+0x48 = Red Gemstone
+0x49 = Blue Gemstone
+0x4A = Yellow Gemstone
+0x4B = Broken Shotgun
+0x4C = Chemical to use on plants
+0x4D = Lighter
+0x4E = Serum
+0x4F = Transceiver
+0x50 = Empty Bottle
+0x51 = Water
+0x52 = UMB No.3
+0x53 = NP-004
+0x54 = Yellow-6
+0x55 = UMB No.7
+0x56 = UMB No.10
+0x57 = VP-017
+0x58 = V-JOLT
+0x59 = "It hasn't been used"
+0x5A = Red Book
+0x5B = Last Book Vol.1
+0x5C = Last Book Vol.2
+0x5D = MO Disk
+0x5E = MO Disk
+0x5F = MO Disk
+0x60 = Dog Whistle
+0x61 = Fuse Unit
+0x62 = Capsule
+0x63 = Jewelry Box
+0x64 = Insecticide Spray
+0x65 = First Aid Box
+0x66 = Jewelry Box
+0x67 = Jewelry Box
+0x68 = First Aid Box
+0x69 = Signal Rockets
+0x6A = Broken Flamethrower
+0x6B = Wooden Mount
+0x6C = Slide Fliter
+0x6D = Control Room Key
+0x6E = Fuel Supply Capsule
+0x6F = Dagger
+0x70 = Flash Grenade
+0x71 = Stun Gun
+0x72 = Bee Specimen
+0x73 = Lure of a bee
+0x74 = Fishhook
+0x75 = Lure of a bee
+0x76 = X-Ray
+0x77 = X-Ray 
+0x78 = Battery Pack
+0x79 = Shaft
+0x7A = Cylinder
+0x7B = Cylinder Shaft
+0x7C = Death Mask
+0x7D = Death Mask
+0x7E = Death Mask
+0x7F = Death Mask
+0x80 = Musical Score
+0x81 = Map
+
+❖╬═｜Resident Evil ZERO Remastered｜═╬❖
+
+Code Template:
+A00XXXXX 00000001 [Place address here "XXXXX"]
+XX000000 00000000 [Place ID here "XX"]
+Notes:
+
+Character Slot 1: [Rebecca]
+Inventory ID Address slot 1
+390BC
+
+Inventory ID Address slot 2
+390C4
+
+Inventory ID Address slot 3
+390CC
+
+Inventory ID Address slot 4
+390D4
+
+Inventory ID Address slot 5
+390DC
+
+Inventory ID Address slot 6
+390E4
+
+Character Slot 2: [Billy]
+Inventory ID Address slot 1
+390F8
+
+Inventory ID Address slot 2
+39100
+
+Inventory ID Address slot 3
+39108
+
+Inventory ID Address slot 4
+39110
+
+Inventory ID Address slot 5
+39118
+
+Inventory ID Address slot 6
+39120
+
+Hint
+Character Slot 1: [Rebecca]
+Inventory ID Address slot 1
+0x000390BC
+
+Value - Ink Ribbon (3)
+37 00 00 00 03 
+
+37: ID Item
+03: ID Amount
+
+37 00 00 00 FF FF = Infinite Ink Ribbons
+Try not to keep Infinite values on; none amount items.
+
+Code Examples:
+save-slot-1
+(God Mode)
+ 
+[EASY]
+(Rebecca)
+2001DBAC 007FFFFF
+ 
+(Billy)
+2001DCC0 007FFFFF
+ 
+[NORMAL]
+(Rebecca)
+2001DA3C 007FFFFF
+ 
+(Billy)
+2001DB50 007FFFFF
+ 
+[HARD]
+(Rebecca)
+2001D984 007FFFFF
+ 
+(Billy)
+2001DA98 007FFFFF
+
+### Resident Evil ZERO Remastered - Resources ###
+
+Item IDS
+0x02 = Knife	
+0x03 = Handgun	 
+0x04 = Handgun	
+0x05 = Hunting gun	
+0x06 = Shotgun	
+0x07 = Grenade launcher	
+0x08 = Grenade launcher	
+0x09 = Grenade launcher	
+0x0A = Magnum	
+0x0B = Sub Machinegun	
+0x0E = Molotov Cocktail	
+0x11 = Custom handgun	
+0x13 = Custom Handgun	
+0x16 = Magnum Revolver	
+0x17 = Rocket Launcher	
+0x1A = Handgun Parts	
+0x20 = Handgun Ammo	
+0x21 = Shotgun Ammo	
+0x22 = Magnum Ammo	
+0x23 = Grenades	
+0x24 = Acid Grenades	
+0x25 = Napalm Grenades	
+0x26 = Empty Bottle	
+0x27 = Gas Tank	
+0x28 = Machinegun Ammo	
+0x2B = Green Herb	
+0x2C = Blue Herb	
+0x2D = Red Herb	
+0x2E = Herb Mix (green + green)	
+0x2F = Herbal Mix (green+ green + green)	
+0x30 = Herbal Mix (green + red)	
+0x31 = Herbal Mix (green + blue)	
+0x32 = Herbal Mix (green + green + blue)	
+0x33 = Herbal Mix (green + blue + red)	
+0x34 = Herbal Mix	
+0x35 = First Aid spray	
+0x37 = Ink Ribbon	
+0x39 = Gold Ring	
+0x3A = Silver Ring	
+0x3B = Briefcase	
+0x3C = Briefcase	
+0x3D = Briefcase	
+0x3E = Briefcase	
+0x3F = Lighter Fluid	
+0x41 = Train Key	
+0x42 = Breeding Rm. Key	
+0x43 = Elavator Key	
+0x44 = Facility Key	
+0x45 = Facility Key	
+0x46 = Facility Key	
+0x47 = Blue Leech Charm	
+0x48 = Green Leech Charm	
+0x49 = Factory Key	
+0x4A = Factory Key	
+0x4B = Blue Keycard	
+0x4C = Keycard	
+0x4D = Magnetic Card	
+0x4E = Locker Key	
+0x4F = Unity tablet	
+0x50 = Obedience Tablet	
+0x51 = Discipline Tablet	
+0x52 = Panel Opener	
+0x53 = Vice Handle	
+0x56 = Crank Handle	
+0x57 = Handle	
+0x58 = Book of Good	
+0x59 = Book of Evil	
+0x5A = Blue Leech Charm	
+0x5B = Green Leech Charm	
+0x5C = Input Reg. Coil	
+0x5D = Output Reg. Coil	
+0x5E = Battery	
+0x5F = HighPower Battery	
+0x60 = Sterilizing Agent	
+0x61 = Motherboard	
+0x63 = Microfilm A	
+0x64 = Microfilm B	
+0x66 = Shaft Key	
+0x67 = Train Key	
+0x68 = Hookshot	
+0x69 = Lighter	
+0x6A = Lighter	
+0x6B = Conductor's Key	
+0x6C = Fire Key	
+0x6E = Water Key	
+0x6F = Up Key	
+0x70 = Down Key	
+0x71 = Dining Car Key	
+0x75 = Leech Capsule	
+0x76 = Dial	
+0x77 = Duralumin Case	
+0x78 = Statue of Evil	
+0x79 = Statue of Good	
+0x7A = Jewelry Box	
+0x7B = Mixing Set	
+0x7C = MO Disk	
+0x7D = Ice Pick	
+0x7E = Iron Needle	
+0x7F = Shaft Key	
+0x80 = Industrial Water	
+0x81 = Empty Battery				
+0x82 = Angel Wings	
+0x83 = Black Wing	
+0x84 = White Statue	
+0x85 = Black Statue	
+0x86 = Red Chemical	
+0x87 = Blue Chemical	
+0x88 = Green Chemical	
+0x89 = Stripping Agent	
+0x8B = Sulfuric Acid	
+0x8C = Battery Fluid	
+0x8D = Closet Key					
+0x8F = Train Map					
+0x90 = Training Facility Map					
+0x91 = Training Facility Basement Map	
+0x92 = Lab Map	
+0x93 = Tratment Plant Map	
+0x94 = Factory Map	
+0x96 = Player's Manual 1	
+0x97 = Player's Manual 2
+0x98 = Court Order for Transportation	
+0x99 = Investigation Orders	
+0x9A = Notice to Supervisors	
+0xB4 = Suitcase
+
+❖╬═｜RESIDENT EVIL 4 HD｜═╬❖
+
+save-slot-1
+(Super Max HP)
+00001F40 000000FF
+00001F41 0000007F
+00001F42 000000FF
+00001F43 0000007F
+00001F44 000000FF
+00001F45 0000007F
+00001F46 000000FF
+00001F47 0000007F
+
+Everything you need
+in your inventory
+A0005620 00000118
+00000000 2300EFEF 
+F87C0000 02010001 
+30002652 F87C0000 
+12050001 0500F67C 
+00000000 16050001 
+1700F67C 00000000 
+070D0001 AD000100 
+02000000 00000000 
+3F000100 01000000 
+17000001 25009F9F 
+F87C0000 0B050001 
+AE000100 03000000 
+00000000 0300EFEF 
+F87C0000 10010001 
+3700EFEF F87C0000 
+03050401 94002652 
+F87C0000 07090001 
+38000100 00000000 
+18020101 AF000100 
+04000000 00000000 
+7F000100 00000000 
+00000000 0A00F67C 
+00000000 1A000001 
+2F00EFEF F87C0000 
+160D0001 0200F67C 
+00000000 18050001 
+0100F67C 00000000 
+1C050001 0E00F67C 
+00000000 1A050001 
+36002652 F87C0000 
+18090001 43000100 
+02000000 11090001 
+27003F3F F87C0000 
+08010001 0800F87C 
+00000000 1C000001
+
+Unlock Inventory to full
+A0005618 00000001
+7F000000 00000000
+
+[999] with ultra-enhancements
+Handgun [999] Enhanced (works from the first save)
+A0005626 00000004
+EFEFF87C 00000000
+
+Swap Handgun for Handcannon
+A0005624 00000006
+3700EFEF F87C0000
+
+### RESIDENT EVIL 4 HD - Resources ###
+
+Item IDS
+0x00 = Magnum ammo
+0x01 = Hand grenade
+0x02 = Incendiary grenade
+0x03 = Matilda
+0x04 = Handgun ammo
+0x05 = First aid spray
+0x06 = Green herb
+0x07 = Rifle ammo
+0x08 = Chicken egg
+0x09 = Brown chicken egg
+0x0A = Gold chicken egg
+0x0C = Plaga sample
+0x0D = Krausers knife
+0x0E = Flash grenade
+0x0F = Salazar family insignia
+0x10 = Bowgun
+0x11 = Bowgun bolts
+0x12 = Green herb x2
+0x13 = Green herb x3
+0x14 = Mixed herbs [g+r]
+0x15 = Mixed herbs [g+r+y]
+0x16 = Mixed herbs [g+y]
+0x17 = Rocket Launcher [special]
+0x18 = Shotgun shells
+0x19 = Red herb
+0x1A = Handcannon ammo
+0x1B = Hourglass with/ gold decor
+0x1C = Yellow herb
+0x1D = Stone tablet
+0x1E = Lion ornament
+0x1F = Goat ornament
+0x20 = TMP ammo
+0x21 = Punisher
+0x22 = Punisher with/ silencer
+0x23 = Handgun
+0x24 = Handgun with/ silencer
+0x25 = Red9
+0x26 = Red9 with/ stock
+0x27 = Blacktail
+0x28 = Blacktail with/ silencer
+0x29 = Broken butterfly
+0x2A = Killer7
+0x2B = Killer7 with/ silencer
+0x2C = Shotgun
+0x2D = Striker
+0x2E = Rifle
+0x2F = Rifle [semiauto]
+0x30 = TMP
+0x31 = Activation key [blue]
+0x32 = TMP with/ stock
+0x33 = Activation key [red]
+0x34 = Chicago typewriter [infinite]
+0x35 = Rocket Launcher
+0x36 = Mine thrower
+0x37 = Handcannon
+0x38 = Combat knife
+0x39 = Serpent ornament
+0x3A = Moonstone [right half]
+0x3B = Insignia key
+0x3C = Round insignia
+0x3D = False eye
+0x3E = Custom TMP
+0x3F = Silencer [handgun]
+0x40 = Punisher
+0x41 = P.R.L. 412
+0x42 = Stock [red9]
+0x43 = Stock [TMP]
+0x44 = Scope [rifle]
+0x45 = Scope [semiauto rifle]
+0x46 = Minedarts
+0x47 = Shotgun
+0x48 = Capture luis sera
+0x49 = Target practice
+0x4A = Luis memo
+0x4B = Castellan memo
+0x4C = Female intruder
+0x4D = Butlers memo
+0x4E = Sample retrieved
+0x4F = Ritual preparation
+0x50 = Luis memo 2
+0x51 = Rifle [semiauto] with/ infrared scope
+0x52 = Krausers bow
+0x53 = Chicago typewriter [regular]
+0x54 = Treasure map [castle]
+0x55 = Treasure map [island]
+0x56 = Velvet blue
+0x57 = Spinel
+0x58 = Pearl pendant
+0x59 = Brass pocket watch
+0x5A = Elegant headdress
+0x5B = Antique pipe
+0x5C = Gold bangle with/ pearls
+0x5D = Amber ring
+0x5E = Beerstein
+0x5F = Green catseye
+0x60 = Red catseye
+0x61 = Yellow catseye
+0x62 = Beerstein with/ [g]
+0x63 = Beerstein with/ [r]
+0x64 = Beerstein with/ [y]
+0x65 = Beerstein with/ [g,r]
+0x66 = Beerstein with/ [g,y]
+0x67 = Beerstein with/ [r,y]
+0x68 = Beerstein with/ [g,r,y]
+0x69 = Moonstone [left half]
+0x6A = Chicago typewriter ammo
+0x6B = Rifle + scope
+0x6C = Rifle [semiauto] with/ scope
+0x6D = Infinite launcher
+0x6E = Kings grail
+0x6F = Queens grail
+0x70 = Staff of royalty
+0x71 = Gold bars
+0x72 = Arrows
+0x73 = Bonus time
+0x74 = Emergency lock card key
+0x75 = Bonus points
+0x76 = Green catseye
+0x77 = Ruby
+0x78 = Treasure box [s]
+0x79 = Treasure box [l]
+0x7A = Blue moonstone
+0x7B = Key to the mine
+0x7C = Attache case s
+0x7D = Attache case m
+0x7E = Attache case l
+0x7F = Attache case xl
+0x80 = Golden sword
+0x81 = Iron key
+0x82 = Stone of sacrifice
+0x83 = Storage room card key
+0x84 = Freezer card key
+0x85 = Piece of the holy beast, panther
+0x86 = Piece of the holy beast, serpent
+0x87 = Piece of the holy beast, eagle
+0x88 = Jetski key
+0x89 = Dirty pearl pendant
+0x8A = Dirty brass pocket watch
+0x8B = Old key
+0x8C = Camp key
+0x8D = Dynamite
+0x8E = Lift activation key
+0x8F = Gold bangle
+0x90 = Elegant perfume bottle
+0x91 = Mirror with/ pearls & rubies
+0x92 = Waste disposal card key
+0x93 = Elegant chessboard
+0x94 = Riot gun
+0x95 = Black bass
+0x96 = Hourglass with/ gold decor
+0x97 = Black bass [l]
+0x98 = Illuminados pendant
+0x99 = Rifle with/ infrared scope
+0x9A = Crown
+0x9B = Crown jewel
+0x9C = Royal insignia
+0x9D = Crown with jewels
+0x9E = Crown with an insignia
+0x9F = Salazar family crown
+0xA0 = Rifle ammo [infrared]
+0xA1 = Emerald
+0xA2 = Bottle caps
+0xA3 = Gallery key
+0xA4 = Emblem [right half]
+0xA5 = Emblem [left half]
+0xA6 = Hexagonal emblem
+0xA7 = Castle gate key
+0xA8 = Mixed herbs [r+y]
+0xA9 = Treasure map [village]
+0xAA = Scope [minethrower]
+0xAB = Minethrower + scope
+0xAC = Playing manual 1
+0xAD = Info on ashley
+0xAE = Playing manual 2
+0xAF = Alert order
+0xB0 = About the blue medallions
+0xB1 = Chiefs note
+0xB2 = Closure of the church
+0xB3 = Anonymous letter
+0xB4 = Playing manual 3
+0xB5 = Sera and the 3rd party
+0xB6 = Two routes
+0xB7 = Villages last defense
+0xB8 = Butterfly lamp
+0xB9 = Green eye
+0xBA = Red eye
+0xBB = Blue eye
+0xBC = Butterfly lamp with/ [ g ]
+0xBD = Butterfly lamp with/ [ r ]
+0xBE = Butterfly lamp with/ [ b ]
+0xBF = Butterfly lamp with/ [ g, r ]
+0xC0 = Butterfly lamp with/ [ g, b ]
+0xC1 = Butterfly lamp with/ [ r, b ]
+0xC2 = Butterfly lamp with/ [ r, g, b ]
+0xC3 = Prison key
+0xC4 = Platinum sword
+0xC5 = Infrared scope
+0xC6 = Elegant mask
+0xC7 = Green gem
+0xC8 = Red gem
+0xC9 = Purple gem
+0xCA = Elegant mask with/ [ g ]
+0xCB = Elegant mask with/ [ r ]
+0xCC = Elegant mask with/ [ p ]
+0xCD = Elegant mask with/ [ g, r ]
+0xCE = Elegant mask with/ [ g, p ]
+0xCF = Elegant mask with/ [ r, p ]
+0xD0 = Elegant mask with/ [ r, g, p ]
+0xD1 = Golden lynx
+0xD2 = Green stone of judgement
+0xD3 = Red stone of faith
+0xD4 = Blue stone of treason
+0xD5 = Golden lynx with/ [ g ]
+0xD6 = Golden lynx with/ [ r ]
+0xD7 = Golden lynx with/ [ b ]
+0xD8 = Golden lynx with/ [ g, r ]
+0xD9 = Golden lynx with/ [ g, b ]
+0xDA = Golden lynx with/ [ r, b ]
+0xDB = Golden lynx with/ [ g, r, b ]
+0xDC = Leon with/ rocket launcher
+0xDD = Leon with/ shotgun
+0xDE = Leon with/ handgun
+0xDF = Ashley Graham
+0xE0 = Luis sera
+0xE1 = Don jose
+0xE2 = Don diego
+0xE3 = Don esteban
+0xE4 = Don manuel
+0xE5 = Dr. salvador
+0xE6 = Merchant
+0xE7 = Zealot with/ scythe
+0xE8 = Zealot with/ shield
+0xE9 = Zealot with/ bowgun
+0xEA = Leader zealot
+0xEB = Soldier with/ dynamite
+0xEC = Soldier with/ stunrod
+0xED = Soldier with/ hammer
+0xEE = Isabel
+0xEF = Maria
+0xF0 = Ada wong
+0xF1 = Bella sisters
+0xF2 = Don pedro
+0xF3 = J.J.
+0xF4 = letter from ada
+0xF5 = Luis memo 3
+0xF6 = Paper airplane
+0xF7 = Our plan
+0xF8 = Luis memo 4
+0xF9 = Krausers note
+0xFA = Luis memo 5
+0xFB = Our mission
+0xFE = Tactical vest
+0x100 = Punisher
+0x101 = Handgun
+0x102 = Shotgun
+0x103 = Mine thrower
+0x104 = Handcannon
+0x105 = Mine thrower + scope
+0x106 = Mission directives 1
+0x107 = Mission directives 2
+0x108 = Mission directives 3
+0x109 = Mission directives 4
+0x10A = Mission directives 5
+0x10B = Mission 1 treasure map
+0x10C = Mission 2 treasure map
+0x10D = Mission 3 treasure map
+0x10E = Mission 4 treasure map
+0x10F = Mission 5 treasure map
