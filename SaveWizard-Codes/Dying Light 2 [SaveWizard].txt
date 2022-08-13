@@ -9,6 +9,54 @@ For Id's, Spreadsheet is linked at the bottom.
 
 Codes & Research Credits: Skiller#4741, Full Metal Panda#4868, !!!#8771, Word#8739, Vicodin10#8882, Method#5832, Zombie Chopper#9596
 
+[༼༻_Almighty_༺༽#6868]
+
+Max Harper RP: (Level 101) | Apply 1st
+8001000D 0B004E69
+67687472 756E6E65
+72000000 00000000
+28000011 0001869F
+Notes:
+Apply this code first, only needs to be used once.
+Must Complete 1 of Harpers dayly/weekly quest after applying code.
+talk to harper to verify you have +100 harpers tokens from leveling up.
+
+Mutation Samples:(200,000)
+80010019 546F6B65
+6E5F4D75 74617469
+6F6E5361 6D706C65
+73534744 73000000
+B801001A 546F6B65
+6E5F4E69 67687472
+756E6E65 72546F6B
+656E5347 44730000
+B802000F 80BF0000
+00000000 00000053
+47447300 00000000
+93000000 00000007
+28000001 00030D40
+Notes: Need at least one.
+Do only after Max Harper RP.
+
+Harper Tokens: (9999)
+80010019 546F6B65
+6E5F4D75 74617469
+6F6E5361 6D706C65
+73534744 73000000
+B801001A 546F6B65
+6E5F4E69 67687472
+756E6E65 72546F6B
+656E5347 44730000
+B801000F 80BF0000
+00000000 00000053
+47447300 00000000
+93000000 00000007
+28000001 0000270F
+Notes:
+Need at least one.
+Do only after Max Harper RP.
+
+
 [Method#5832]
 
 Medkit_Small x999 Stacks (not-upgraded)
