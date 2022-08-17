@@ -74,7 +74,7 @@ Mod Loot Individual Items Amount
 65724C6F 6F745374
 6F726167 6542505F
 435F3000 00000000
-88010004 XXXXXXXX
+88010004 XXXXXXXX   <-- Fill with item to mod
 28000004 0000270F
 
 Mod Inventory Individual Items Amount
@@ -82,7 +82,7 @@ Mod Inventory Individual Items Amount
 65724571 7569706D
 656E7453 746F7261
 67654250 5F435F30
-88010004 XXXXXXXX
+88010004 XXXXXXXX   <-- Fill with item to mod
 28000004 0000270F
 
 Loot Item Swap
