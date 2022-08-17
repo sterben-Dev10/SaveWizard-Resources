@@ -156,8 +156,6 @@ Mod Ammo
 Notes: Refer to spreadsheet for weapon IDS
 
 
-
-
 ### OLDER CHEATS ###
 Notes: These old cheats may no longer work, these are long forgotten cheats that where used during the early days.
 
