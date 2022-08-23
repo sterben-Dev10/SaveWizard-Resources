@@ -98,3 +98,26 @@ Mirror: https://mega.nz/file/1wtADbrY#0zQhvKe3TSSS7R3FDsBrEwyX9lxqyGcZ42u5vTybGp
     And more.
     Early ingame, the 4th mission.
     Note: Items like elite traps work but will not show in inventory until you unlock them. They are usable which is all that matters.
+    
+    
+    
+HFW NG+ Completed & Starter Save V2.00 [CUSA24705] (Vicodin10): 
+https://www.mediafire.com/file/zqnhqx9nlbw127d
+Mirror: https://mega.nz/file/B01XwQTJ#QwwSfbJn2ub-3TeOJHlZk2XtHdq-Fr9H5qXz8TSyvIY
+    Details:
+    Infinite Valor Surge Master: Builds up valor faster x2
+    Infinite Overdraw Boost (Overdraw Potion Timer 999999)
+    Infinite No Player Debuffs (Cleanse Potion Timer 999999)
+    Note: Using the two potions or food items will reset the 999999 timer back to default.
+    
+    Added All Resources, Set to around 2k in both inventory and stash.
+    Added best potions and elite traps set to around 1500.
+    Added All Ammo, Maxed at 10k.
+    Added Both Medals
+    Added All Coils/Weaves and some hidden ones.
+    Modded Weaves I set to a few good weapons but plenty of extra
+    All NG+ items Added.
+    New game plus completed ready for another new game plus.
+    And more.
+
+    Note: Items like elite traps work but will not show in inventory until you unlock them. They are usable which is all that matters.
