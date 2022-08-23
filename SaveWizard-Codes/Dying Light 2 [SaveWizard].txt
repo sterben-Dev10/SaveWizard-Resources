@@ -5,9 +5,10 @@ USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes br
 The work put into the creation of these codes & resources come from some of the following Discord Servers: 
 Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 
-For Id's, Spreadsheet is linked at the bottom.
-
 Codes & Research Credits: Skiller#4741, Full Metal Panda#4868, !!!#8771, Word#8739, Vicodin10#8882, Method#5832, Zombie Chopper#9596
+
+### Spreadsheets ###
+Skiller's Spreadsheet: https://docs.google.com/spreadsheets/d/17bJNPco5-FAgyiLGzcQne1gR7IiHHDpYsY1G97YXGHg/edit#gid=1812299916 <-- ID's Here
 
 [༼༻_Almighty_༺༽#6868]
 
@@ -424,6 +425,3 @@ Regular Stamina (300)
 696E615F 736B696C
 6C000000 00000000
 18000025 00000007
-
-### Spreadsheets ###
-Skiller's Spreadsheet: https://docs.google.com/spreadsheets/d/17bJNPco5-FAgyiLGzcQne1gR7IiHHDpYsY1G97YXGHg/edit#gid=1812299916 <-- ID's Here
