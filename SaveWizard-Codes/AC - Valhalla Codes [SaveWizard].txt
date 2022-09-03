@@ -7,6 +7,28 @@ Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
  
 -- I will keep this updated as long as I can, as updates made to the game do sometimes break codes & they do get updated 
 
+[Zeraf3000#8256]
+### START ###
+Adjust Individual Item Amount [Alt Ver]
+Template: 
+80010010 1C000B01
+XXXXXXXX XXXXXXXX <-- ID 1st Part & 2nd Part (Clean IDs, Little AM)
+16000000 00000000
+8801000D 60748566
+00000000 00000700
+0B000000 00000000
+2800000D YYYYYYYY <-- Value
+
+Example 
+80010010 1C000B01
+8E9FD8BC C7010000 <-- ID Titanium "8E9FD8BCC7010000"
+16000000 00000000
+8801000D 60748566
+00000000 00000700
+0B000000 00000000
+2800000D 05F5E0FF <-- Value (05F5E0FF = 99999999 in Hex)
+### End ###
+
 [Skiller#4741]
 
 Swap Silver To:
