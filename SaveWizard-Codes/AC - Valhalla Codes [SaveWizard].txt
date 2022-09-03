@@ -9,7 +9,7 @@ Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 
 [Zeraf3000#8256]
 ### START ###
-Adjust Individual Item Amount [Alt Ver]
+Adjust Individual Item Amount [2.0]
 Template: 
 80010010 1C000B01
 XXXXXXXX XXXXXXXX <-- ID 1st Part & 2nd Part (Clean IDs, Little AM)
