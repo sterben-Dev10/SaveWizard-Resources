@@ -191,7 +191,7 @@ LVL 200
 
 [MealReadytoEat] - hackinformer (https://forum.hackinformer.com/viewtopic.php?f=115&t=2423)
 
-Exp codes/level up
+Exp codes/level up - Explained In this post: https://forum.hackinformer.com/viewtopic.php?f=115&t=2423&start=10#p13248
 80010008 72736F6E
 42617365 00000000
 88010003 4002C900
