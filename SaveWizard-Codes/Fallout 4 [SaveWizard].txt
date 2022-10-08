@@ -259,7 +259,6 @@ Alt Code Example 9999 Mini Nukes
 
 You may or may not need the "04" in-front of the ID, so try with just the ID (copy & paste) or alter it by replacing one of the 0's with 04.
 
-
 [Other/Misc Codes]
 1 - Use this first to level up to 50. (Use all the points it gives you until you have no more. Save your game and do step 2)
 
