@@ -1,0 +1,285 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+### Spreadsheets ###
+Item IDs: https://docs.google.com/spreadsheets/d/1J9quAMtGK70aptz0t5teqWHGZJ9T9uvJmzNEBJEB36Q/htmlview
+XP Table: https://docs.google.com/spreadsheets/d/14ucKNxKAXaBcZhmMSMQ8kGA78KEc8G0NfCDAXD5QgXI/edit#gid=0
+
+
+[DarkBlueHaze#0688]
+
+Bobbypins 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0040000A
+2800000a 497423F0
+
+.308 Rounds 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0041F66B
+2800000a 497423F0
+
+.38 Rounds 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0044CE87
+2800000a 497423F0
+
+.44 Round 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0049221C
+2800000a 497423F0
+
+.45 Round 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0041F66A
+2800000a 497423F0
+
+.50 Caliber Round 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0041f279
+2800000a 497423F0
+
+10mm Round 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0041F276
+2800000a 497423F0
+
+2mm Electromagnetic Cartridge 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0058ABDF
+2800000a 497423F0
+
+5.56 Round 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0041F278
+2800000a 497423F0
+
+5mm Round 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0041F66C
+2800000a 497423F0
+
+Alien Blaster Round 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 005025AA
+2800000a 497423F0
+
+Cannonball 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 004FD11C
+2800000a 497423F0
+
+Cryo Cell 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0058ABE2
+2800000a 497423F0
+
+Flamer Fuel 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 004CAC78
+2800000a 497423F0
+
+Fusion Cell 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 004C1897
+2800000a 497423F0
+
+Fusion Core 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 00475FE4
+2800000a 497423F0
+
+Gamma Round 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 004DF279
+2800000a 497423F0
+
+Mini Nuke 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 004E6B2E
+2800000a 497423F0
+
+Missile 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 004CABA3
+2800000a 497423F0
+
+Plasma Cartridge 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0005DBB7
+2800000a 497423F0
+
+Railway Spike 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 004FE269
+2800000a 497423F0
+
+Shotgun Shell 99999999 (must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0041F673
+2800000a 497423F0
+
+Rapid health regen
+80010008 72736F6E
+42617365 00000000
+88010003 4002D700
+28000003 461C4000
+
+Ap 10000
+80010008 72736F6E
+42617365 00000000
+88010003 4002D500
+28000003 461C4000
+
+Rapid reload
+80010008 72736F6E
+42617365 00000000
+88010003 4002D300
+28000003 40a00000
+
+Player speed 2x
+80010008 72736F6E
+42617365 00000000
+88010003 4002Da00
+28000003 43480000
+
+lvl 50
+80010008 72736F6E
+42617365 00000000
+88010003 4002C900
+28000003 47BF6880
+
+LVL 200
+80010008 72736F6E
+42617365 00000000
+88010003 4002C900
+28000003 49B939F8
+
+1,000,000 exp
+80010008 72736F6E
+42617365 00000000
+88010003 4002C900
+28000003 49742400
+
+4,000,000 exp
+80010008 72736F6E
+42617365 00000000
+88010003 4002C900
+28000003 4A742400
+
+2 billion Plasma Cartridge (Fixed)
+80010004 00421b3b
+88010004 0041DBB7
+2800000a 0098967F
+
+[Wasted] - hackinformer
+
+10000 Carry weight:
+80010008 72736F6E
+42617365 00000000
+88010003 4002DC00
+28000003 461C4000
+
+10000 Health:
+80010008 72736F6E
+42617365 00000000
+88010003 4002D400
+28000003 461C4000
+
+[MealReadytoEat] - hackinformer (https://forum.hackinformer.com/viewtopic.php?f=115&t=2423)
+
+Exp codes/level up
+80010008 72736F6E
+42617365 00000000
+88010003 4002C900
+28000003 XXXXXXXX
+Notes: Where X = XP Value
+1	1	200	
+2	201	275 - Reaching level 2 requires one extra experience point.
+3	476	350	
+4	826	425	
+5	1,251	500	
+6	1,751	575	
+7	2,326	650	
+8	2,976	725	
+9	3,701	800	
+10	4,501	875	
+11	5,376	950	
+12	6,326	1,025	
+13	7,351	1,100	
+You can find more from the XP Table Spreadsheet 
+
+Bobbypins(must have 1/must have pipboy)
+80010004 00421b3b
+88010004 0040000A
+2800000a YYYYYYYY
+Notes: where YY = value (in Float)
+
+Add ammo codes(must have 1/must have pipboy)
+80010004 00421b3b
+88010004 XXXXXXXX
+2800000a YYYYYYYY
+Notes: 
+XXXXXXXX = item id
+YYYYYYYY - value to add
+Game stores all values as floats, use: https://www.save-editor.com/tools/converter_ieee_754.html to convert DEC (FLOAT) to HEX
+Get Item ID's From "Item IDs" Spreadsheet
+
+Adjust Any Item Amount: 
+80010004 0042495A
+88010004 XXXXXXXX = Item ID
+88010004 04A02000
+28000007 YYYYYYYY = Item Value
+Notes: Game stores all values as floats, use: https://www.save-editor.com/tools/converter_ieee_754.html to convert DEC (FLOAT) to HEX
+Get Item ID's From "Item IDs" Spreadsheet
+
+Adjust Any Item Amount (Alt):
+80010004 00421b3b
+88010004 XXXXXXXX = Item ID
+2800000A YYYYYYYY = Item Value
+Notes: Game stores all values as floats, use: https://www.save-editor.com/tools/converter_ieee_754.html to convert DEC (FLOAT) to HEX
+Get Item ID's From "Item IDs" Spreadsheet
+
+Extra Notes: 
+For the ID's according to the hackinformer thread, you may need to put a 04 before the main ID.
+
+Example: 9999 Mini Nukes
+80010004 0042495A
+88010004 004E6B2E <-- Item ID [000E6B2E], Notice the 04 Followed by E6B2E (The Item ID)
+88010004 04A02000
+28000007 461C3C00 <-- Item Value [461C3C00], 9999 In Float
+
+Alt Code Example 9999 Mini Nukes
+80010004 00421b3b
+88010004 004E6B2E <-- Item ID [000E6B2E], Notice the 04 Followed by E6B2E (The Item ID)
+2800000A 461C3C00 <-- Item Value [461C3C00], 9999 In Float
+
+You may or may not need the "04" in-front of the ID, so try with just the ID (copy & paste) or alter it by replacing one of the 0's with 04.
+
+
+[Other/Misc Codes]
+1 - Use this first to level up to 50. (Use all the points it gives you until you have no more. Save your game and do step 2)
+
+80010008 7250726F
+6A656374 00000000
+88010003 4002C900
+28000003 47BF6880
+
+2 - Next use this second to level up to 200. (Use all the points it gives you until you have no more. Save your game and do step 3)
+
+80010008 7250726F
+6A656374 00000000
+88010003 4002C900
+28000003 49B939F8
+
+3 - Finally use this last and use all the points to get the remaining perks. And that's it you are all set!
+
+80010008 7250726F
+6A656374 00000000
+88010003 4002C900
+28000003 4A742400
+
+
