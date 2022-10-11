@@ -11,7 +11,8 @@ ID'S: https://docs.google.com/spreadsheets/d/1G712RJTBcMOfcOvt_LyOgxUTE8QGDjcbTE
 ### Utilities ###
 Pj1980's Savepatcher - ValkyrieElysuim (Gems): https://www.mediafire.com/file/w2cuxmmgfg8skug
 Author's Notes:
-i made a savepatch and bat files to change gems. The increase by 1 and decrease by 1 bat files you need to make changes in the patch file first for them to work properly. 
+i made a savepatch and bat files to change gems. 
+The increase by 1 and decrease by 1 bat files you need to make changes in the patch file first for them to work properly. 
 
 [PJ1980#8357]
 
