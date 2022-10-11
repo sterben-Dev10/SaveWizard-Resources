@@ -8,6 +8,11 @@ Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 ### Spreadsheets ###
 ID'S: https://docs.google.com/spreadsheets/d/1G712RJTBcMOfcOvt_LyOgxUTE8QGDjcbTEr_kH29o8s/edit#gid=192709347
 
+### Utilities ###
+Pj1980's Savepatcher - ValkyrieElysuim (Gems): https://www.mediafire.com/file/w2cuxmmgfg8skug
+Author's Notes:
+i made a savepatch and bat files to change gems. The increase by 1 and decrease by 1 bat files you need to make changes in the patch file first for them to work properly. 
+
 [PJ1980#8357]
 
 Max NPC Summons Template
