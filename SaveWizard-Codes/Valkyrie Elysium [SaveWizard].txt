@@ -1,0 +1,83 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+### Spreadsheets ###
+ID'S: https://docs.google.com/spreadsheets/d/1G712RJTBcMOfcOvt_LyOgxUTE8QGDjcbTEr_kH29o8s/edit#gid=192709347
+
+[PJ1980#8357]
+
+Max NPC Summons Template
+800X000C 546F7461
+6C53756D 6D6F6E4E
+08000028 000000ZZ
+Notes: 
+X = NPC Slot
+
+ZZ = 
+NPC 1(EGON) = C8
+NPC 2(CIPHER) = BE
+NPC 3(KRISTOFFER) = 96
+NPC 4(TAIKA) = 8C
+
+Max Current NPC Summons [Slots 1-4]
+8001000C 546F7461
+6C53756D 6D6F6E4E
+08000028 000000C8 <-- EGON
+8002000C 546F7461 
+6C53756D 6D6F6E4E
+08000028 000000BE <-- CIPHER
+8003000C 546F7461 
+6C53756D 6D6F6E4E
+08000028 00000096 <-- KRISTOFFER
+8004000C 546F7461 
+6C53756D 6D6F6E4E
+08000028 0000008C <-- TAIKA
+
+
+Super Max Current NPC Summons (Temporary) [Slots 1-4]
+8001000C 546F7461 
+6C53756D 6D6F6E4E
+18000029 0000FFFF
+8002000C 546F7461 
+6C53756D 6D6F6E4E
+18000029 0000FFFF
+8003000C 546F7461 
+6C53756D 6D6F6E4E
+18000029 0000FFFF
+8004000C 546F7461 
+6C53756D 6D6F6E4E
+18000029 0000FFFF
+
+[Method#5832]
+
+Item Swap Template
+800100NN ZZZZZZZZ
+A8000000 000000NN
+YYYYYYYY YYYYYYYY
+Notes:
+WARNING: Do Not Swap Items With Differing Byte Counts, Unless you want your game to crash?
+NN = Byte Count Column
+ZZZZZZZZ = Sacrifice Item from "IDs" tab 
+YYYYYYYY = Desired Item from "IDs" tab 
+
+Example Usage: 
+Desired Item - Azure Stone (ITE_BlueStone_01) [16 Bytes] Swapping Out (ITE_Relics_01_02)
+80010010 4954455F <-- NN [10] (16 Bytes) | ZZ's [4954455F426C756553746F6E655F3031] Azure Stone (ITE_BlueStone_01)
+52656C69 63735F30
+315F3032 00000000
+A8000000 00000010 <-- NN [10] (16 Bytes) | YY's [4954455F52656C6963735F30315F3032] (ITE_Relics_01_02)
+4954455F 426C7565
+53746F6E 655F3031
+
+Example Usage 2:
+Desired Item - Ambrosia (ITE_USE_HPup_01) [15 Bytes] Swapping Out Ruby Stone (ITE_RedStone_01)
+8001000F 4954455F <-- NN [0F] (15 Bytes) | ZZ's [4954455F5553455F485075705F3031] Ambrosia (ITE_USE_HPup_01)
+52656453 746F6E65
+5F303100 00000000
+A8000000 0000000F <-- NN [1F] (15 Bytes) | YY's [4954455F52656453746F6E655F3031] Ruby Stone (ITE_RedStone_01)
+4954455F 5553455F
+48507570 5F303100
