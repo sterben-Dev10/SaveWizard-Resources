@@ -52,12 +52,12 @@ Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
 92000000 00000093 - Slot 5
 
 ### Quality ### - Choose One
-270F <-- 9999
-03E7 <-- 999
-01F4 <-- 500
-00FA <-- 250
-0064 <-- 100
-0063 <-- 99
+270F - 9999
+03E7 - 999
+01F4 - 500
+00FA - 250
+0064 - 100
+0063 - 99
 For Custom Value Refer To https://www.save-editor.com/tools/wse_hex.html
 
 Example Usage: Add/Replace Item with Coffee In Slot 1
@@ -153,12 +153,12 @@ Item + Attributes
 You Get the idea as each time you add 32 bytes you go down by an additional slot.
 
 ### Quality ### - Choose One
-270F <-- 9999
-03E7 <-- 999
-01F4 <-- 500
-00FA <-- 250
-0064 <-- 100
-0063 <-- 99
+270F - 9999
+03E7 - 999
+01F4 - 500
+00FA - 250
+0064 - 100
+0063 - 99
 For Custom Value Refer To https://www.save-editor.com/tools/wse_hex.html
 
 Example Usage: Add/Replace Items with Clean Water, Forest Dew, Divine Iron Piece 
