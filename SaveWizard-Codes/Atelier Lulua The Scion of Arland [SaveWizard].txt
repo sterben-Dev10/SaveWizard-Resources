@@ -39,7 +39,6 @@ PLACE DESIRED SLOT HERE
 18000010 0000ZZZZ <-- Effect 4
 
 Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
-Traits & Effects are depended on the type of item if it should have those.
 Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
 
 ### Slots ### - Choose One
@@ -129,7 +128,6 @@ Must Contain at least 1 TRAIT & EFFECT!
 1800000E 0000ZZZZ <-- Effect 3
 18000010 0000ZZZZ <-- Effect 4
 Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
-Traits & Effects are depended on the type of item if it should have those.
 Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
 This one is scalable, after the 1st ID you just add +32 Bytes (20 in Hex)
 if you want to target multiple slots in one go..
