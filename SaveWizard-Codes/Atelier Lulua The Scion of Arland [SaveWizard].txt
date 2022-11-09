@@ -29,7 +29,7 @@ Must Contain at least 1 TRAIT & EFFECT!
 ### Must Be On Top ###
 8001000C 6D5F756E 
 69744261 736B6574
-PLACE DESIRED SLOT HERE
+92000000 0000YYYY
 ### Item + Attributes ###
 18000000 0000IIII <-- Item ID
 18000002 0000QQQQ <-- Quality
@@ -44,12 +44,17 @@ PLACE DESIRED SLOT HERE
 Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
 Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
 
-### Slots ### - Choose One
-92000000 00000013 - Slot 1
-92000000 00000033 - Slot 2
-92000000 00000053 - Slot 3
-92000000 00000073 - Slot 4
-92000000 00000093 - Slot 5
+### Slots ### - Choose One [YYYY]
+0013 - Slot 1
+0033 - Slot 2
+0053 - Slot 3
+0073 - Slot 4
+0093 - Slot 5
+00B3 - Slot 6
+00D3 - Slot 7
+00F3 - Slot 8
+0113 - Slot 9
+0133 - Slot 10
 
 ### Quality ### - Choose One
 270F - 9999
