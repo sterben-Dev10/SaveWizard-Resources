@@ -1,0 +1,188 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+Spreadsheet for ID's (Not Ready Yet WIP): https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY/edit#gid=1582167642
+
+[XxUnkn0wnxX#0001]
+Set Quality To 999 All Items [1-5000]
+8001000F 6D5F756E
+6974436F 6E746169
+6E657200 00000000
+49000018 000003E7
+49C40020 00000000
+49013898 000003E7
+49C40020 00000000
+Notes: Credits to Lotus#0676 for research.
+
+[XxUnkn0wnxX#0001]
+Item Add/Replace Template Builder (SIMPLE):
+-- This Code Adds stuff to your basket --
+
+### Must Be On Top ###
+8001000C 6D5F756E 
+69744261 736B6574
+### Place Desired Slot Below 
+REPLACE ME WITH SLOT
+### Item + Attributes ###
+18000000 0000IIII <-- Item ID
+18000002 0000QQQQ <-- Quality
+18000004 0000XXXX <-- Trait 1
+18000006 0000XXXX <-- Trait 2
+18000008 0000XXXX <-- Trait 3
+1800000A 0000ZZZZ <-- Effect 1
+1800000C 0000ZZZZ <-- Effect 2
+1800000E 0000ZZZZ <-- Effect 3
+18000010 0000ZZZZ <-- Effect 4
+
+Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
+Traits & Effects are depended on the type of item if it should have those.
+Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
+
+### Slots ### - Choose One
+92000000 00000013 - Slot 1
+92000000 00000033 - Slot 2
+92000000 00000053 - Slot 3
+92000000 00000073 - Slot 4
+92000000 00000093 - Slot 5
+
+### Quality ### - Choose One
+270F <-- 9999
+03E7 <-- 999
+01F4 <-- 500
+00FA <-- 250
+0064 <-- 100
+0063 <-- 99
+For Custom Value Refer To https://www.save-editor.com/tools/wse_hex.html
+
+Example Usage: Add/Replace Item with Coffee In Slot 1
+8001000C 6D5F756E 
+69744261 736B6574
+92000000 00000013 <-- Slot 1
+18000000 000001FB <-- IIII [01FB] Coffee ID
+18000002 000003E7 <-- QQQQ [03E7] 999 Quality
+18000004 000000D3 <-- XXXX [00D3] Inflict Poison Trait
+18000006 000000D4 <-- XXXX [00D4] Inflict Burns Trait
+18000008 000000D5 <-- XXXX [00D5] Inflict Blindness Trait
+1800000A 00000020 <-- ZZZZ [0020] Thunder God's Judgment Effect
+1800000C 00000026 <-- ZZZZ [0026] Expanding Star Effect
+1800000E 00000028 <-- ZZZZ [0028] Falling Sun Effect
+18000010 0000003B <-- ZZZZ [003B] Drops Stars Effect
+Notes: you don't have to include everything if the item does not require it.
+
+Example Usage: Add/Replace Item with Coffee In Slot 1 With No Effects
+8001000C 6D5F756E 
+69744261 736B6574
+92000000 00000013 - Slot 1
+18000000 000001FB <-- IIII [01FB] Coffee ID
+18000002 000003E7 <-- QQQQ [03E7] 999 Quality
+18000004 000000D3 <-- XXXX [00D3] Inflict Poison Trait
+18000006 000000D4 <-- XXXX [00D4] Inflict Burns Trait
+18000008 000000D5 <-- XXXX [00D5] Inflict Blindness Trait
+Notes: these attributes other then ID & Quality are Optional.
+
+[XxUnkn0wnxX#0001]
+Item Add/Replace Template Multi Builder (HARD):
+-- This Code Adds stuff to your basket --
+
+### Must Be On Top ###
+8001000C 6D5F756E 
+69744261 736B6574
+### Slot 1 ###
+92000000 00000013 - Slot 1
+### Item + Attributes ###
+18000000 0000IIII <-- Item ID
+18000002 0000QQQQ <-- Quality
+18000004 0000XXXX <-- Trait 1
+18000006 0000XXXX <-- Trait 2
+18000008 0000XXXX <-- Trait 3
+1800000A 0000ZZZZ <-- Effect 1
+1800000C 0000ZZZZ <-- Effect 2
+1800000E 0000ZZZZ <-- Effect 3
+18000010 0000ZZZZ <-- Effect 4
+### Slot 2 ###
+92000000 00000020 - Slot 2
+### Item + Attributes ###
+18000000 0000IIII <-- Item ID
+18000002 0000QQQQ <-- Quality
+18000004 0000XXXX <-- Trait 1
+18000006 0000XXXX <-- Trait 2
+18000008 0000XXXX <-- Trait 3
+1800000A 0000ZZZZ <-- Effect 1
+1800000C 0000ZZZZ <-- Effect 2
+1800000E 0000ZZZZ <-- Effect 3
+18000010 0000ZZZZ <-- Effect 4
+### Slot 3 ###
+92000000 00000020 - Slot 3
+### Item + Attributes ###
+18000000 0000IIII <-- Item ID
+18000002 0000QQQQ <-- Quality
+18000004 0000XXXX <-- Trait 1
+18000006 0000XXXX <-- Trait 2
+18000008 0000XXXX <-- Trait 3
+1800000A 0000ZZZZ <-- Effect 1
+1800000C 0000ZZZZ <-- Effect 2
+1800000E 0000ZZZZ <-- Effect 3
+18000010 0000ZZZZ <-- Effect 4
+Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
+Traits & Effects are depended on the type of item if it should have those.
+Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
+This one is scalable, after the 1st ID you just add +32 Bytes (20 in Hex)
+if you want to target multiple slots in one go..
+EG:
+92000000 00000013 - Slot 1
+Item + Attributes
+92000000 00000020 - Slot 2
+Item + Attributes
+92000000 00000020 - Slot 3
+Item + Attributes
+92000000 00000020 - Slot 4
+Item + Attributes
+92000000 00000020 - Slot 5
+Item + Attributes
+92000000 00000020 - Slot 6
+Item + Attributes
+You Get the idea as each time you add 32 bytes you go down by an additional slot.
+
+### Quality ### - Choose One
+270F <-- 9999
+03E7 <-- 999
+01F4 <-- 500
+00FA <-- 250
+0064 <-- 100
+0063 <-- 99
+For Custom Value Refer To https://www.save-editor.com/tools/wse_hex.html
+
+Example Usage: Add/Replace Items with Clean Water, Forest Dew, Divine Iron Piece 
+With Various Traits & Effects.
+
+8001000C 6D5F756E 
+69744261 736B6574
+92000000 00000013 <-- Slot 1 (Has All Id's)
+18000000 0000000B <-- IIII [000B] Clean Water ID
+18000002 000003E7 <-- QQQQ [03E7] 999 Quality
+18000004 00000024 <-- XXXXX [0024] Unique Trait
+18000006 00000022 <-- XXXXX [0022] Rare Goods Trait
+18000008 00000020 <-- XXXXX [0020] Expensive++ Trait
+1800000A 00000018 <-- ZZZZZ [0018] Freeze Damage Effect
+1800000C 0000001F <-- ZZZZZ [001F] Bolt Damage Effect
+1800000E 00000046 <-- ZZZZZ [0046] 100 Million Explosions Effect
+18000010 00000049 <-- ZZZZZ [0049] Planet-Shattering Explosion Effect
+
+92000000 00000020 <-- Slot 2 (Has Traits Only)
+18000000 00000011 <-- IIII [0011] Forest Dew ID
+18000002 000003E7 <-- QQQQ [03E7] 999 Quality
+18000004 00000024 <-- XXXXX [0024] Unique Trait
+18000006 00000048 <-- XXXXX [0048] Destruction Up++ Trait
+18000008 00000022 <-- XXXXX [0022] Rare Goods Trait
+
+92000000 00000020 <-- Slot 3 (Has Effects Only)
+18000000 0000001A <-- IIII [001A] Divine Iron Piece ID
+18000002 000003E7 <-- QQQQ [03E7] 999 Quality
+1800000A 00000018 <-- ZZZZZ [0018] Freeze Damage Effect
+1800000C 0000001F <-- ZZZZZ [001F] Bolt Damage Effect
+1800000E 00000046 <-- ZZZZZ [0046] 100 Million Explosions Effect
+18000010 00000049 <-- ZZZZZ [0049] Planet-Shattering Explosion Effect
