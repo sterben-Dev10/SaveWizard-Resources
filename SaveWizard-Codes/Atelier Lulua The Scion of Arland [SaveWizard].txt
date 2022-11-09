@@ -42,6 +42,7 @@ Item + Attributes
 18000010 0000ZZZZ <-- Effect 4
 -- Ends Here --
 
+Same code for Simple Copy & Paste
 -- Starts Here --
 8001000C 6D5F756E
 69744261 736B6574
@@ -156,6 +157,7 @@ Item + Attributes
 18000010 0000ZZZZ <-- Effect 4
 -- Ends Here --
 
+Same code for Simple Copy & Paste
 -- Starts Here --
 8001000C 6D5F756E 
 69744261 736B6574
