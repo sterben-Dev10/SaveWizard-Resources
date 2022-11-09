@@ -40,6 +40,22 @@ Item + Attributes
 1800000C 0000ZZZZ <-- Effect 2
 1800000E 0000ZZZZ <-- Effect 3
 18000010 0000ZZZZ <-- Effect 4
+-- Ends Here --
+
+-- Starts Here --
+8001000C 6D5F756E
+69744261 736B6574
+92000000 0000YYYY
+18000000 0000IIII
+18000002 0000QQQQ
+18000004 0000XXXX
+18000006 0000XXXX
+18000008 0000XXXX
+1800000A 0000ZZZZ
+1800000C 0000ZZZZ
+1800000E 0000ZZZZ
+18000010 0000ZZZZ
+-- Ends Here --
 
 Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
 Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
