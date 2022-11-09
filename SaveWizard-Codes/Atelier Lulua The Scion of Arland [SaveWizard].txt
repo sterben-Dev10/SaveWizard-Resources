@@ -26,7 +26,6 @@ Must Contain at least 1 TRAIT & EFFECT!
 ### Must Be On Top ###
 8001000C 6D5F756E 
 69744261 736B6574
-### Place Desired Slot Below 
 REPLACE ME WITH SLOT
 ### Item + Attributes ###
 18000000 0000IIII <-- Item ID
