@@ -77,7 +77,7 @@ Example Usage: Add/Replace Item with Coffee In Slot 1
 Example Usage: Add/Replace Item with Coffee In Slot 1 With Traits & 1 Effect
 8001000C 6D5F756E 
 69744261 736B6574
-92000000 00000013 - Slot 1
+92000000 00000013 <-- Slot 1
 18000000 000001FB <-- IIII [01FB] Coffee ID
 18000002 000003E7 <-- QQQQ [03E7] 999 Quality
 18000004 000000D3 <-- XXXX [00D3] Inflict Poison Trait
