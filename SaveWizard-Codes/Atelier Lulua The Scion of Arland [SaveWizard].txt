@@ -5,7 +5,7 @@ USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes br
 The work put into the creation of these codes & resources come from some of the following Discord Servers: 
 Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 
-Spreadsheet for ID's (Not Ready Yet WIP): https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY/edit#gid=1582167642
+Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY/edit#gid=1582167642
 
 [XxUnkn0wnxX#0001]
 Set Quality To 999 All Items [1-5000]
@@ -21,6 +21,7 @@ Notes: Credits to Lotus#0676 for research.
 [XxUnkn0wnxX#0001]
 Item Add/Replace Template Builder (SIMPLE):
 -- This Code Adds stuff to your basket --
+Must Contain at least 1 TRAIT & EFFECT!
 
 ### Must Be On Top ###
 8001000C 6D5F756E 
@@ -87,6 +88,7 @@ Notes: these attributes other then ID & Quality are Optional.
 [XxUnkn0wnxX#0001]
 Item Add/Replace Template Multi Builder (HARD):
 -- This Code Adds stuff to your basket --
+Must Contain at least 1 TRAIT & EFFECT!
 
 ### Must Be On Top ###
 8001000C 6D5F756E 
@@ -172,16 +174,18 @@ With Various Traits & Effects.
 1800000E 00000046 <-- ZZZZZ [0046] 100 Million Explosions Effect
 18000010 00000049 <-- ZZZZZ [0049] Planet-Shattering Explosion Effect
 
-92000000 00000020 <-- Slot 2 (Has Traits Only)
+92000000 00000020 <-- Slot 2 (Has Traits Only + 1 Effect)
 18000000 00000011 <-- IIII [0011] Forest Dew ID
 18000002 000003E7 <-- QQQQ [03E7] 999 Quality
 18000004 00000024 <-- XXXXX [0024] Unique Trait
 18000006 00000048 <-- XXXXX [0048] Destruction Up++ Trait
 18000008 00000022 <-- XXXXX [0022] Rare Goods Trait
-
-92000000 00000020 <-- Slot 3 (Has Effects Only)
+1800000A 00000018 <-- ZZZZZ [0018] Freeze Damage Effect
+	
+92000000 00000020 <-- Slot 3 (Has Effects Only + 1 Trait)
 18000000 0000001A <-- IIII [001A] Divine Iron Piece ID
 18000002 000003E7 <-- QQQQ [03E7] 999 Quality
+18000004 00000024 <-- XXXXX [0024] Unique Trait
 1800000A 00000018 <-- ZZZZZ [0018] Freeze Damage Effect
 1800000C 0000001F <-- ZZZZZ [001F] Bolt Damage Effect
 1800000E 00000046 <-- ZZZZZ [0046] 100 Million Explosions Effect
