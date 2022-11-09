@@ -30,7 +30,7 @@ Must Contain at least 1 TRAIT & EFFECT!
 8001000C 6D5F756E 
 69744261 736B6574
 92000000 0000YYYY <-- Slot
-### Item + Attributes ###
+Item + Attributes
 18000000 0000IIII <-- Item ID
 18000002 0000QQQQ <-- Quality
 18000004 0000XXXX <-- Trait 1
@@ -98,12 +98,11 @@ To use basket item editor, you MUST have items in your basket and then SAVE your
 Must Contain at least 1 TRAIT & EFFECT!
 ### README ###
 
-### Must Be On Top ###
 8001000C 6D5F756E 
 69744261 736B6574
-### Slot 1 ###
-92000000 00000013 - Slot 1
-### Item + Attributes ###
+-- Slot 1 --
+92000000 00000013 <-- Slot 1
+Item + Attributes
 18000000 0000IIII <-- Item ID
 18000002 0000QQQQ <-- Quality
 18000004 0000XXXX <-- Trait 1
@@ -113,9 +112,9 @@ Must Contain at least 1 TRAIT & EFFECT!
 1800000C 0000ZZZZ <-- Effect 2
 1800000E 0000ZZZZ <-- Effect 3
 18000010 0000ZZZZ <-- Effect 4
-### Slot 2 ###
-92000000 00000020 - Slot 2
-### Item + Attributes ###
+-- Slot 2 --
+92000000 00000020 <-- Slot 2
+Item + Attributes
 18000000 0000IIII <-- Item ID
 18000002 0000QQQQ <-- Quality
 18000004 0000XXXX <-- Trait 1
@@ -125,9 +124,9 @@ Must Contain at least 1 TRAIT & EFFECT!
 1800000C 0000ZZZZ <-- Effect 2
 1800000E 0000ZZZZ <-- Effect 3
 18000010 0000ZZZZ <-- Effect 4
-### Slot 3 ###
-92000000 00000020 - Slot 3
-### Item + Attributes ###
+-- Slot 3 --
+92000000 00000020 <-- Slot 3
+Item + Attributes
 18000000 0000IIII <-- Item ID
 18000002 0000QQQQ <-- Quality
 18000004 0000XXXX <-- Trait 1
