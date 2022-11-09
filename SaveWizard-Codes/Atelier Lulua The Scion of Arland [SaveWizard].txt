@@ -75,7 +75,7 @@ Example Usage: Add/Replace Item with Coffee In Slot 1
 18000010 0000003B <-- ZZZZ [003B] Drops Stars Effect
 Notes: you don't have to include everything if the item does not require it.
 
-Example Usage: Add/Replace Item with Coffee In Slot 1 With No Effects
+Example Usage: Add/Replace Item with Coffee In Slot 1 With 1 Effect
 8001000C 6D5F756E 
 69744261 736B6574
 92000000 00000013 - Slot 1
@@ -84,6 +84,7 @@ Example Usage: Add/Replace Item with Coffee In Slot 1 With No Effects
 18000004 000000D3 <-- XXXX [00D3] Inflict Poison Trait
 18000006 000000D4 <-- XXXX [00D4] Inflict Burns Trait
 18000008 000000D5 <-- XXXX [00D5] Inflict Blindness Trait
+18000010 0000003B <-- ZZZZ [003B] Drops Stars Effect
 Notes: these attributes other then ID & Quality are Optional.
 
 [XxUnkn0wnxX#0001]
