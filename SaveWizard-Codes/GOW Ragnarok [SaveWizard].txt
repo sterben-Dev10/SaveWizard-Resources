@@ -9,7 +9,7 @@ Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/1f5cjWcJsY3SF0lcViY
 
 
 [Pj1980#8357]
-Item Swap/Amount Adjust
+Item Swap/Amount Adjust Template
 80010008 YYYYYYYY <-- YY | search for item
 YYYYYYYY 00000000
 A8000000 00000008 
