@@ -6,8 +6,7 @@ The work put into the creation of these codes & resources come from some of the 
 Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 
 Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/1f5cjWcJsY3SF0lcViYeBwO0mr4HoZpPPxBbdABtO8hU/edit#gid=1649538
-GOW Ragnarok Starter Saves: https://github.com/sterben-Dev10/SaveWizard-Resources/tree/main/Saves/GOW%20Ragnarok
-
+GOW Ragnarok Starter Saves Mirror: https://github.com/sterben-Dev10/SaveWizard-Resources/tree/main/Saves/GOW%20Ragnarok
 
 [Pj1980#8357]
 Item Swap/Amount Adjust Template
@@ -29,3 +28,13 @@ Example: Adjust Chaos Flame to x9999
 0DA6CFDC 00000000
 28000008 0000270F <-- ZZ | [0000270F] 9999 Value in hex
 
+
+-- Saves --
+[Vicodin10#8882]
+GOW Ragnarok [All Regions] (Vicodin10) - Modded Starter v1.1: 
+https://www.mediafire.com/file/mm8ltu2hz6tub0d
+https://mega.nz/file/NgNBELJa#NqQO36jy9taWKEiuU3Dr4jrGeajf0-_wg1gI77gH3NM
+
+GOW Ragnarok [CUSA34384] (Vicodin10) - Modded Starter v1.3TEST1: 
+https://www.mediafire.com/file/htmyu7dhtnvkx6n
+https://mega.nz/file/MsMymQ7Z#4VWDoWku5mdobErA9Jg6HkWZGsAZ85xf7oVGp3c2Sho
