@@ -261,6 +261,9 @@ With Various Traits & Effects.
 18000010 00000049 <-- ZZZZZ [0049] Planet-Shattering Explosion Effect
 
 [Lotus#0676]
+Where it says 3 Alchemy Coats or X amount of items you need to have that many ITEMS IN YOUR BASKET for the following codes.
+it don't matter what items you have along you have them basket slots filled.
+
 Single item replace example - Changes 1st item in basket to alchemy coat
 8001000C 6D5F756E
 69744261 736B6574
