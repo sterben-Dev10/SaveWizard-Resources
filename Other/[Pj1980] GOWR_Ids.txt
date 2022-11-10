@@ -1,0 +1,28 @@
+9E 52 40 D2 74 06 E8 5A Hacksilver
+97 0D C3 82 A0 6A 48 A2 Beast Bone
+47 5E F7 30 B4 F1 A4 1E Beast Scraps
+36 45 A6 95 02 10 5B 4F Bonded Leather
+5E 69 1E 68 92 AF A3 F9 Dragon Tooth
+B3 CA AF 07 86 CD 12 80 Forged Iron
+B3 CA AF 07 86 CD 12 80 Rawhide
+44 DC EE 2E 9D F4 AD BC Shattered Rune
+08 B0 89 6D 50 22 C3 DB Slag Deposit
+34 1A 27 85 6D F9 7D D3 Stonewood
+6A 13 DB 1C 16 3C 95 2D Yggdrasil.s Dew Of Cooldown
+62 34 86 F3 25 B9 7A 3A Yggdrasil's Dew Of Runic Power
+88 8D E1 1A 0D A6 CF DC Chaos Flame
+ED B4 47 6E 71 73 5C C3 Frozen Flame
+15 12 8A 32 32 61 36 57 Ydalir Timber
+24 F4 22 E8 C7 76 8E 63 Idunn Apple
+33 63 EA 24 D9 7F 3F 10 Jotunheim Fruit
+DA 0A 90 0B 4A 8A 61 4B Simple Resurrection Stone
+
+
+
+80010008 YYYYYYYY search for item
+YYYYYYYY 00000000
+
+A8000000 00000008 replace with this item
+XXXXXXXX XXXXXXXX  
+
+28000008 ZZZZZZZZ change item quantity
