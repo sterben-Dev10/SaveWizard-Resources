@@ -8,4 +8,24 @@ Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/1f5cjWcJsY3SF0lcViYeBwO0mr4HoZpPPxBbdABtO8hU/edit#gid=1649538
 
 
-Codes etc WIP...
+[Pj1980#8357]
+Item Swap/Amount Adjust
+80010008 YYYYYYYY <-- YY | search for item
+YYYYYYYY 00000000
+A8000000 00000008 
+XXXXXXXX XXXXXXXX <-- XX | replace with this item
+28000008 ZZZZZZZZ <-- ZZ | change item quantity
+
+Example: Replace Hacksilver with Rawhide x999
+80010008 9E5240D2 <-- YY | [9E5240D27406E85A] Hacksilver ID
+7406E85A 00000000
+A8000000 00000008 
+7E3FBE3E B167B14F <-- XX | [7E3FBE3EB167B14F] Rawhide ID
+28000008 000003E7 <-- ZZ | [000003E7] 999 Value in hex
+
+Example: Adjust Chaos Flame to x9999
+80010008 888DE11A <-- YY | [888DE11A0DA6CFDC] Chaos Flame ID
+0DA6CFDC 00000000
+28000008 0000270F <-- ZZ | [0000270F] 9999 Value in hex
+
+ 
