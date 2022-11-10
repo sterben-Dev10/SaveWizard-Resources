@@ -6,6 +6,7 @@ The work put into the creation of these codes & resources come from some of the 
 Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 
 Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/1f5cjWcJsY3SF0lcViYeBwO0mr4HoZpPPxBbdABtO8hU/edit#gid=1649538
+GOW Ragnarok Starter Saves: https://github.com/sterben-Dev10/SaveWizard-Resources/tree/main/Saves/GOW%20Ragnarok
 
 
 [Pj1980#8357]
@@ -28,4 +29,3 @@ Example: Adjust Chaos Flame to x9999
 0DA6CFDC 00000000
 28000008 0000270F <-- ZZ | [0000270F] 9999 Value in hex
 
- 
