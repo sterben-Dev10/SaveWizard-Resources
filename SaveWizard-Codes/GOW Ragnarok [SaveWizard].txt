@@ -9,8 +9,8 @@ Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/1f5cjWcJsY3SF0lcViY
 GOW Ragnarok Starter Saves Mirror: https://github.com/sterben-Dev10/SaveWizard-Resources/tree/main/Saves/GOW%20Ragnarok
 
 [Pj1980#8357]
-Item Swap/Amount Adjust Template
-80010008 YYYYYYYY <-- YY | search for item
+Item Replace and Quantity
+80010008 YYYYYYYY <-- YY | Sacrifice Item
 YYYYYYYY 00000000
 A8000000 00000008 
 XXXXXXXX XXXXXXXX <-- XX | replace with this item
@@ -27,6 +27,87 @@ Example: Adjust Chaos Flame to x9999
 80010008 888DE11A <-- YY | [888DE11A0DA6CFDC] Chaos Flame ID
 0DA6CFDC 00000000
 28000008 0000270F <-- ZZ | [0000270F] 9999 Value in hex
+
+Item Replace Only
+80010008 YYYYYYYY <-- YY | Sacrifice Item
+YYYYYYYY 00000000
+A8000000 00000008 
+XXXXXXXX XXXXXXXX <-- XX | replace with this item
+
+Item Quantity
+80010008 YYYYYYYY <-- YY | Item ID
+YYYYYYYY 00000000
+28000008 ZZZZZZZZ <-- ZZ | change item quantity
+
+Increase Stats
+80010008 YYYYYYYY <-- YY | Stat Item ID
+YYYYYYYY 00000000
+28000008 ZZZZZZZZ <-- ZZ | Stat Amount
+Notes:
+Each DEW is 2 points (So if you want 10,000 you would set it to 5,000)
+The Effects Of Items Are Automatic You just Need One In Inventory
+Can Use Item Replace Code To Get Item If You Don't Have One
+
+Yggdrasil's Dew of Cooldown
+    6A13DB1C163C952D
+Yggdrasil's Dew of Defense
+    418F903C792C6B9C
+Yggdrasil's Dew of Luck
+    F3CBC3D285BFB35D
+Yggdrasil's Dew of Runic Power
+    623486F325B97A3A
+Yggdrasil's Dew of Strength
+    CC1B3E5C878842B3
+Yggdrasil's Dew of Vitality
+    6D92A12B3DC4A427
+
+Example Stat Codes
+Strength 1000 (Value used 500)
+80010008 9E5240D2
+7406E85A 00000000
+A8000000 00000008
+CC1B3E5C 878842B3
+28000008 000001F4
+
+Defense 1000 (Value Used 500)
+80010008 9E5240D2
+7406E85A 00000000
+A8000000 00000008
+418F903C 792C6B9C
+28000008 000001F4
+
+Runic 500 (Value Used 250)
+80010008 9E5240D2
+7406E85A 00000000
+A8000000 00000008
+623486F3 25B97A3A
+28000008 000000FA
+
+Vitality 16640 (Value used 8320)
+80010008 9E5240D2
+7406E85A 00000000
+A8000000 00000008
+6D92A12B 3DC4A427
+28000008 00002080
+Note: This sets HP exactly to 10100
+May need to collect health orbs to fill up health bar.
+
+Cooldown 500
+80010008 9E5240D2
+7406E85A 00000000
+A8000000 00000008
+6A13DB1C 163C952D
+28000008 000000FA
+
+Luck 500
+80010008 9E5240D2
+7406E85A 00000000
+A8000000 00000008
+F3CBC3D2 85BFB35D
+28000008 000000FA
+Notes:
+These example codes replace Hacksilver
+Use one code at a time and collect a hacksilver before using next code
 
 
 -- Saves --
