@@ -50,3 +50,11 @@ Balanced Max: Max Stats Set to 10k, XP & Items 2147400000+
 Normal Stats: Stats Set To Starter Levels, XP & Items 2147400000+
 Legit Mode: Stats & XP All Starter Levels, Items 2147400000+
 Raw Save (GOWRSAVE10): Use this to import into your own region.
+
+GOW Ragnarok [CUSA34386] (XxUnkn0wnxX) - Modded Starter v1.1:
+https://www.mediafire.com/file/czer4dh7r5f4h33
+https://mega.nz/file/swF2nSgQ#tAypmzoq4i8wfUz0XHEpyNE5oUPBrOaJ3kVRI1MbZ5I
+
+Same as before, i've added Regions CUSA34384, CUSA34390, CUSA34394
+as well as fixed the "Forged Iron" Issue.
+Save Starts up at Sindri's House this time.
