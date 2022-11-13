@@ -109,6 +109,31 @@ Notes:
 These example codes replace Hacksilver
 Use one code at a time and collect a hacksilver before using next code
 
+[Pj1980#8357] [Skiller#4741] ???
+Add Items To Blacksmith Chest
+80010008 B0BDD5E2 <-- [B0BDD5E2372DB672] BlackSmith Chest ID
+372DB672 00000000
+A80000#4 0000000C <-- # = Value Found In AM Mode after "B0BDD5E2372DB672"
+XXXXXXXX XXXXXXXX <-- XX = ID Of Item you wish to place
+ZZZZZZZZ 00000000 <-- ZZ = Quantity In Little endian
+Notes: 
+Check Your Save In Advanced Mode Before Building Code
+Search For This In Advanced Mode B0BDD5E2372DB672
+Straight After The 72 Is A Number Thats The Number Of Items
+You Can Add To Chest So If Its 3 You Can Add 3 Items If Its 2 You Can Only
+Add 2. If You Try To Add More Items Than Item Slots The chest As The Save
+Will Corrupt. Further In Game The Chest May Get More Slots
+
+Example: Add Gale Flame To Chest
+80010008 B0BDD5E2
+372DB672 00000000
+A8000014 0000000C <-- # | [14] I had 01 after BlackSmith Chest ID [72]
+29AD79C2 750B0E71 <-- XX | [29AD79C2750B0E71] Gale Flame ID
+04000000 00000000 <-- ZZ | [04000000] x4 Quantity
+Notes: 
+Image to help understand: https://i.imgur.com/RC3p4pq.png
+You can use SW built in hex editor or HxD free hex editor: https://mh-nexus.de/en/hxd/
+to look for "B0BDD5E2372DB672"
 
 -- Saves --
 [Vicodin10#8882]
