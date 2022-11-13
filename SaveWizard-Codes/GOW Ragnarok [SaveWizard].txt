@@ -124,6 +124,11 @@ You Can Add To Chest So If Its 3 You Can Add 3 Items If Its 2 You Can Only
 Add 2. If You Try To Add More Items Than Item Slots The chest As The Save
 Will Corrupt. Further In Game The Chest May Get More Slots
 
+To get value in Little endian, use: https://www.save-editor.com/tools/wse_hex.html
+type in the value you want, tick "LITTLE ENDIAN" check mark & Press "DEC to HEX"
+remember to add 0's for the rest of the padding.
+so 999 = E703. becomes this E7030000
+
 Example: Add Gale Flame To Chest
 80010008 B0BDD5E2
 372DB672 00000000
