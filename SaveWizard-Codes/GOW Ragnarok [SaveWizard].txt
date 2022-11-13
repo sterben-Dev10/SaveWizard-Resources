@@ -173,3 +173,10 @@ https://mega.nz/file/swF2nSgQ#tAypmzoq4i8wfUz0XHEpyNE5oUPBrOaJ3kVRI1MbZ5I
 Same as before, i've added Regions CUSA34384, CUSA34390, CUSA34394
 as well as fixed the "Forged Iron" Issue.
 Save Starts up at Sindri's House this time.
+
+V1.3 Beta - Modded Starter v1.3 BETA: 
+https://www.dropbox.com/sh/0oczzpgn7tw6l25/AAC7w09xiC7V2RCt9VvfCLUla?dl=0 
+
+Added Extra Items, view the "README.txt" for details.
+This contains only the "Raw Saves" You need to import them into your save like you are re-regioning a save.
+This is just easier for me atm, as repacking saves every time 2-3 ID's are out is to much of a hassle atm.
