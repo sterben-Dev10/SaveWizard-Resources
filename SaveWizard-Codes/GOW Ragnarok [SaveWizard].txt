@@ -22,6 +22,15 @@ Example: Replace Hacksilver with Rawhide x999
 A8000000 00000008 
 7E3FBE3E B167B14F <-- XX | [7E3FBE3EB167B14F] Rawhide ID
 28000008 000003E7 <-- ZZ | [000003E7] 999 Value in hex
+Notes:
+-- ZZ --
+00000063 = 99
+00000064 = 100
+000003E7 = 999
+000003E8 = 1000
+0001869F = 99999
+0098967F = 9999999
+7FFEB940 = 2147400000
 
 Example: Adjust Chaos Flame to x9999
 80010008 888DE11A <-- YY | [888DE11A0DA6CFDC] Chaos Flame ID
@@ -141,6 +150,15 @@ C [12]
 D [13]
 E [14]
 F [15]
+
+-- ZZ (Little Endian) --
+63000000 = 99
+64000000 = 100
+E7030000 = 999
+E8030000 = 1000
+9F860100 = 99999
+7F969800 = 9999999
+40B9FE7F = 2147400000
 
 To get value in Little endian, use: https://www.save-editor.com/tools/wse_hex.html
 type in the value you want, tick "LITTLE ENDIAN" check mark & Press "DEC to HEX"
