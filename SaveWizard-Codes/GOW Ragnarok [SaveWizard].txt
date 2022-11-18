@@ -125,6 +125,22 @@ You Can Add To Chest So If Its 3 You Can Add 3 Items If Its 2 You Can Only
 Add 2. If You Try To Add More Items Than Item Slots The chest As The Save
 Will Corrupt. Further In Game The Chest May Get More Slots
 Slot Values Go from 1 To F [15]
+# | N =
+1
+2
+3
+4
+5
+6
+7
+8
+9
+A [10]
+B [11]
+C [12]
+D [13]
+E [14]
+F [15]
 
 To get value in Little endian, use: https://www.save-editor.com/tools/wse_hex.html
 type in the value you want, tick "LITTLE ENDIAN" check mark & Press "DEC to HEX"
