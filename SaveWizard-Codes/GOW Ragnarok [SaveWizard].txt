@@ -113,6 +113,7 @@ Use one code at a time and collect a hacksilver before using next code
 Add Items To Blacksmith Chest
 80010008 B0BDD5E2 <-- [B0BDD5E2372DB672] BlackSmith Chest ID
 372DB672 00000000
+D8000008 0302000N <-- N = -1 to what you place on #
 A80000#4 0000000C <-- # = Value Found In AM Mode after "B0BDD5E2372DB672"
 XXXXXXXX XXXXXXXX <-- XX = ID Of Item you wish to place
 ZZZZZZZZ 00000000 <-- ZZ = Quantity In Little endian
@@ -123,6 +124,7 @@ Straight After The 72 Is A Number Thats The Number Of Items
 You Can Add To Chest So If Its 3 You Can Add 3 Items If Its 2 You Can Only
 Add 2. If You Try To Add More Items Than Item Slots The chest As The Save
 Will Corrupt. Further In Game The Chest May Get More Slots
+Slot Values Go from 1 To F [15]
 
 To get value in Little endian, use: https://www.save-editor.com/tools/wse_hex.html
 type in the value you want, tick "LITTLE ENDIAN" check mark & Press "DEC to HEX"
@@ -132,6 +134,7 @@ so 999 = E703. becomes this E7030000
 Example: Add Gale Flame To Chest
 80010008 B0BDD5E2
 372DB672 00000000
+D8000008 03020000 <-- N | [0] Since I had 01 -1 = 0
 A8000014 0000000C <-- # | [14] I had 01 after BlackSmith Chest ID [72]
 29AD79C2 750B0E71 <-- XX | [29AD79C2750B0E71] Gale Flame ID
 04000000 00000000 <-- ZZ | [04000000] x4 Quantity
