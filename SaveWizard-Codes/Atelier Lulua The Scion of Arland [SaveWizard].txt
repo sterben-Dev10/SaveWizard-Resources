@@ -22,7 +22,7 @@ Notes: Credits to Lotus#0676 for research.
 Item Add/Replace Template Builder (SIMPLE):
 -- This Code Adds stuff to your basket --
 ### README ###
-To use basket item editor, you MUST have items in your basket and then SAVE your game on the world map screen
+To use basket item editor, you MUST have 1-3 items in your basket and then SAVE your game on the world map screen
 Must Contain at least 1 TRAIT & EFFECT!
 ### README ###
 
