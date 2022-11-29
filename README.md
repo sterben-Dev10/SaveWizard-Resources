@@ -4,11 +4,11 @@
 https://qcgenerators.com
 
 **Discord Servers**  
-https://discord.gg/3N8gWYk (Save Wizard Discord)  
-https://discord.gg/GPpWCgw6uy (Boosting/Teaming Up)  
-https://discord.gg/P7WWvf6xPP (XDG Nation)  
-https://discord.gg/Yqfz7EBjEG (Slayer's Ice Realm)  
-https://discord.gg/kURVD5TFTc (Code Save Trophy PS4)  
+[Slayer's Ice Realm](https://discord.gg/Yqfz7EBjEG)  
+[Save Wizard Discord](https://discord.gg/3N8gWYk)  
+[Boosting/Teaming Up](https://discord.gg/GPpWCgw6uy)  
+[Code Save Trophy PS4](https://discord.gg/kURVD5TFTc)  
+[XDG Nation](https://discord.gg/P7WWvf6xPP)  
 
 **Resources**  
 Slayer's Ice Realm Code Vault: [Slayer's Code Vault](https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY)  
