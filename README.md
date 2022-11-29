@@ -15,6 +15,6 @@ Slayer's Ice Realm Code Vault: [Slayer's Code Vault](https://docs.google.com/spr
 SW Discord Code Vault: [SW Code Vault](https://docs.google.com/spreadsheets/d/1pln64WRA8QhhrW1QBDEn97HEbp4gdvBNd3GnrC4Bg5c)  
 Skiller's Old Codes Archive: [Skillers World](https://drive.google.com/drive/folders/12PiWyP3uaSvMxTxc0FmA0utoOmWtzbER)  
 Chaoszage's Cheat Repository https://chaoszage.blogspot.com  
-Apollo CLI Tool : [apollo-lib](https://github.com/bucanero/apollo-lib)  
+Apollo CLI Tool: [apollo-lib](https://github.com/bucanero/apollo-lib)  
 Save Patches: [ReadMe](Apollo-Save-Patches)
 
