@@ -211,10 +211,11 @@ Same as before, i've added Regions CUSA34384, CUSA34390, CUSA34394
 as well as fixed the "Forged Iron" Issue.
 Save Starts up at Sindri's House this time.
 
-GOW Ragnarok [All Regions] (XxUnkn0wnxX) - Modded Starter v1.3.2: (Most/All Items)
-https://www.mediafire.com/file/4al50wwarpc79ly
-https://mega.nz/file/plFgyBpY#8oLrdiClOzlNKr46safp30EglCPnKBaBSomA1lPNmBI
-Regions: CUSA34384, CUSA34390, CUSA34394, CUSA34386
+GOW Ragnarok [All Regions] (XxUnkn0wnxX) - Modded Starter v1.3.3: (Most/All Items)
+https://www.mediafire.com/file/prousttjn2mh86y
+https://mega.nz/file/Yps1AajA#s8r3ZqN3wok7RO0P6ZU_jneUN-ZwkIwxbheed96u2cY
+Contains Regions: US: CUSA34384 | EU: CUSA34386 | EU: CUSA34390 | EU: CUSA34388 | AS: CUSA34394
+Missing: JP: CUSA34392 | ES: CUSA34389
 No Key Items this time around.
 Re Did the whole save on max Difficulty, View README.TXT for details
 
