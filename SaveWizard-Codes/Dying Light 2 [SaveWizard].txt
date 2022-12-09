@@ -320,6 +320,7 @@ CC010008 00000000
 93000000 00000014
 NNNNNNNN NNNNNNN <-- N = Amount/Durability, Rank/Power, SEED
 95000000 00000000
+Notes: Refer to Linked Spreadsheet of further use case & ID's
 
      ## N ## [V2]
 ## Rank/Power (Max) ##
@@ -327,7 +328,7 @@ A8000000 00000002
 8F150000 00000000	
 ## SEED (Effects) ##
 A8000002 00000002 
-XXXX0000 00000000 <-- XXXX = Value XX (Refer To ID's)
+XXXX0000 00000000 <-- 
 ## Amount ##
 28000004 000003E7 <-- 000003E7 = 999 Value
 ## Durability ##
