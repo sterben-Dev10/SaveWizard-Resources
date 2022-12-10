@@ -16,7 +16,7 @@ D8000000 01000002
 18000002 0000XXXX
 Notes: once difficulty is changed load into the game, and click into the settings to view the changed difficulty.
 it wont update in the menu till you re-save the game after loading.
-this has been tested on sevral saves the static offset does not change (0x2F442)
+this has been tested on sevral saves the static address does not change (0x2F442)
 
 -- XX --
 01 00 = Give Me Story
