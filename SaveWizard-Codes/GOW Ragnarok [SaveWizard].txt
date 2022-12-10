@@ -16,6 +16,7 @@ D8000000 01000002
 18000002 0000XXXX
 Notes: once difficulty is changed load into the game, and click into the settings to view the changed difficulty.
 it wont update in the menu till you re-save the game after loading.
+this has been tested on sevral saves the static offset does not change (0x2F442)
 
 -- XX --
 01 00 = Give Me Story
@@ -23,6 +24,11 @@ it wont update in the menu till you re-save the game after loading.
 00 01 = Balance
 00 02 = No Mercy
 00 03 = Give Me God Of War
+
+Example Set to Give Me God Of War
+95000000 0002F440
+D8000000 01000002
+18000002 00000003 <-- XX | [0003] Give Me God Of War
 
 [Pj1980#8357]
 Item Replace and Quantity
