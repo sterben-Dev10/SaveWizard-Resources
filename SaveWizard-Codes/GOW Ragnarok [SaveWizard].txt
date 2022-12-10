@@ -9,6 +9,21 @@ Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/1f5cjWcJsY3SF0lcViY
 GOW Ragnarok Starter Saves Mirror: https://github.com/sterben-Dev10/SaveWizard-Resources/tree/main/Saves/GOW%20Ragnarok
 Code Prince GOWR Save Editor (PAID): https://codesprince.com/2022/12/06/ps4-ps5-save-editor-for-gow-ragnarok/
 
+[XxUnkn0wnxX#0001]
+Difficulty Changer
+95000000 0002F440
+D8000000 01000002
+18000002 0000XXXX
+Notes: once difficulty is changed load into the game, and click into the settings to view the changed difficulty.
+it wont update in the menu till you re-save the game after loading.
+
+-- XX --
+01 00 = Give Me Story
+00 00 = Grace
+00 01 = Balance
+00 02 = No Mercy
+00 03 = Give Me God Of War
+
 [Pj1980#8357]
 Item Replace and Quantity
 80010008 YYYYYYYY <-- YY | Sacrifice Item
