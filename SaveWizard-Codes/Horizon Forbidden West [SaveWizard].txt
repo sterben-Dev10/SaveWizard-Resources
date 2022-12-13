@@ -124,7 +124,7 @@ Mirror: https://mega.nz/file/B01XwQTJ#QwwSfbJn2ub-3TeOJHlZk2XtHdq-Fr9H5qXz8TSyvI
 HFW Starter Save V1.00 (40k|31k) [CUSA24705] (XxUnkn0wnxX):
 https://www.mediafire.com/file/juyth8c62ryupu0/
 https://mega.nz/file/ksN3DY7T#GjKY50XRENiU01cxDR7Z094i_SyNYIs2qis9-UZAYQ0
-Mirror: 
+Mirror: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/Saves/HFW/HFW%20Starter%20Save%20V1.00%20(40k%7C31k)%20%5BCUSA24705%5D%20(XxUnkn0wnxX).zip
     Details:
     This is a Lightly Modded save, no infinite anything, just resources that's all.
     weaves, coils, potions, ammo etc you have to find/craft still.
