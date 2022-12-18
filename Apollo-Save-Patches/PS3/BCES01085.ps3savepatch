@@ -62,7 +62,7 @@
 0000694E 00000000
 00006953 00000000 
 
-[Avatar ultime nvx 50, 2000 points de compétences, 9999 stats]
+[Avatar ultime nvx 50, 2000 points de competences, 9999 stats]
 80010004 0ED5C9C8
 18000006 000007D0
 18000012 000007D0
@@ -79,7 +79,7 @@
 18000030 0000270F
 18000032 0000270F
 
-[Avatar ultime nvx 80, 2000 points de compétences, 9999 stats]
+[Avatar ultime nvx 80, 2000 points de competences, 9999 stats]
 80010004 0ED5C9C8
 18000006 000007D0
 18000012 000007D0
@@ -96,11 +96,11 @@
 18000030 0000270F
 18000032 0000270F
 
-[Elemental Defence - Défense Élémentaire 99]
+[Elemental Defence - Defense Elementaire 99]
 80010004 0ED5C9C8
 280000C0 63636363 
 
-[Effect Resistance - Résistance au effets 99]
+[Effect Resistance - Resistance au effets 99]
 80010004 0ED5C9C8
 280000E4 63636363
 
@@ -275,7 +275,7 @@
 
 [INFO:Pnj section]
 
-[Leonard max stat -lvl80, 2000 points de compétences, 9999 stats]
+[Leonard max stat -lvl80, 2000 points de competences, 9999 stats]
 80010004 435D5083
 18000006 000007D0
 18000012 000007D0
@@ -360,7 +360,7 @@
 18000030 0000270F
 18000032 0000270F
 
-; --- non testé/besoin d'objet (Partial Working/need item)] ---
+; --- non teste/besoin d'objet (Partial Working/need item)] ---
 
 [Max Money (Only use if you have updated to 1.01.)]
 2000B450 05F5E0FF
