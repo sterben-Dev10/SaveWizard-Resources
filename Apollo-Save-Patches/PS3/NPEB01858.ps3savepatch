@@ -233,7 +233,7 @@
 [Gaius: Chivalry - 449/450]
 10093ABA 000001C1
 
-[Muzét: Support Warp - 449/450]
+[Muzet: Support Warp - 449/450]
 10093ABE 000001C1
 
 [GROUP:Title Codes\Character Skills (Single)]
@@ -261,48 +261,48 @@
 [Gaius: Retribution - 449/450]
 10093AAE 000001C1
 
-[Muzét: Emergency Warp - 449/450]
+[Muzet: Emergency Warp - 449/450]
 10093AB2 000001C1
 
 [GROUP:Title Codes\Characters Link Time]
-[Ludger & Jude/Milla/Alvin/Elize/Rowen/Leia/Gaius/Muzét]
+[Ludger & Jude/Milla/Alvin/Elize/Rowen/Leia/Gaius/Muzet]
 42093AF0 0001A990
 40080004 00000000
 
-[Jude & Milla/Alvin/Elize/Rowen/Leia/Gaius/Muzét]
+[Jude & Milla/Alvin/Elize/Rowen/Leia/Gaius/Muzet]
 42093A18 0001A990
 40050004 00000000
 20093B14 0001A990
 20093B2C 0001A990
 
-[Milla & Alvin/Elize/Rowen/Leia/Gaius/Muzét]
+[Milla & Alvin/Elize/Rowen/Leia/Gaius/Muzet]
 42093A2C 0001A990
 40040004 00000000
 20093B18 0001A990
 20093B30 0001A990
 
-[Alvin & Elize/Rowen/Leia/Gaius/Muzét]
+[Alvin & Elize/Rowen/Leia/Gaius/Muzet]
 42093A3C 0001A990
 40030004 00000000
 20093B1C 0001A990
 20093B34 0001A990
 
-[Elize & Rowen/Leia/Gaius/Muzét]
+[Elize & Rowen/Leia/Gaius/Muzet]
 42093A48 0001A990
 40020004 00000000
 20093B20 0001A990
 20093B38 0001A990
 
-[Rowen & Leia/Gaius/Muzét]
+[Rowen & Leia/Gaius/Muzet]
 20093A50 0001A990
 20093B24 0001A990
 20093B3C 0001A990
 
-[Leia & Gaius/Muzét]
+[Leia & Gaius/Muzet]
 20093B28 0001A990
 20093B40 0001A990
 
-[Gaius & Muzét]
+[Gaius & Muzet]
 20093B10 0001A990
 
 [GROUP:Grade Shop Codes]
@@ -316,7 +316,7 @@
 [Grade Shop: 10X EXP / HP +1000 / Double Gald]
 00000366 000000F0
 
-[Grade Shop: Double Item Drops / Unlock Skits / Double Gauge Growth / AC +3 / Arte Usage / Artes and Skills
+[Grade Shop: Double Item Drops / Unlock Skits / Double Gauge Growth / AC +3 / Arte Usage / Artes and Skills]
 00000367 000000FF
 
 [Grade Shop: Increase Power Combo Time / Increase Power Combo Damage / Chromatus LV.4 (Max)]
@@ -552,7 +552,7 @@
 1001C8CA 000003E7
 1001C8D2 000003E7
 
-[Muzét: All Stats MAX]
+[Muzet: All Stats MAX]
 4104E8D6 0000270F
 40060004 00000000
 1004E8C6 0000270F
@@ -743,7 +743,7 @@
 4203C814 0000270F
 40020004 00000000
 
-[Leia Link Artes Usage:
+[Leia Link Artes Usage: 9999]
 4203BC80 0000270F
 40030004 00000000
 2003BC94 0000270F
@@ -783,7 +783,7 @@
 420466BC 0000270F
 40160004 00000000
 
-[Muzét Artes Usage: 9999]
+[Muzet Artes Usage: 9999]
 4204FE0C 0000270F
 40030004 00000000
 4204FE1C 0000270F
@@ -796,7 +796,7 @@
 4205083C 0000270F
 40060004 00000000
 
-[Muzét Link Artes Usage: 9999]
+[Muzet Link Artes Usage: 9999]
 420506A8 0000270F
 40040004 00000000
 42050704 0000270F

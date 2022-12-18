@@ -341,7 +341,7 @@ write at 0x000D4A4F:02
 [Magenta:13 Mu-12(need dlc or unlock on story) , 14 ex ?? ,15 Valkenhayn R. Hellsing need dlc,]
 [Magenta:16 Platinum the Trinity(need dlc), 17 ragna , 18 jin ,19 noel]
 [Magenta:20 carl,21 Hakumen,22 Lambda (?-11),23 Tsubaki Yayoi, 24 Hazama / Terumi Yuuki]
-[Magenta:25 Mu / Kusanagi (µ-12) , 26 Makoto Nanaya, 27 Valkenhayn R. Hellsing(need dlc)]
+[Magenta:25 Mu / Kusanagi (Mu-12) , 26 Makoto Nanaya, 27 Valkenhayn R. Hellsing(need dlc)]
 [Magenta:28 Platinum the Trinity(need dlc)]
 
 [INFO:Change Character to  your choice , change :02 (jin is default) ]
@@ -463,8 +463,8 @@ write at 0x000D48BF:01
 write at 0x000D4873:00
 
 
-[GROUP:Ngu-tripate for ps3cheating (based on work of Keha World) (Working)\hacked défis/challenges/story]
-[Défis/challenges done 1xx% ( 100% + ?? dlc ) (Working)]
+[GROUP:Ngu-tripate for ps3cheating (based on work of Keha World) (Working)\hacked defis/challenges/story]
+[Defis/challenges done 1xx% ( 100% + ?? dlc ) (Working)]
 
 write at 0x000D45F0:01010101010101010101010101010101
 write at 0x000D4600:01010101010101010101010101010101
