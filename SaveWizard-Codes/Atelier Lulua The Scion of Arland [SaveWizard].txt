@@ -88,6 +88,13 @@ Quality - Choose One
 0063 - 99
 For Custom Value Refer To https://www.save-editor.com/tools/wse_hex.html
 
+Amount, Uses - Choose One [AA | UU]	
+01 - 1
+05 - 5
+0A - 10
+32 - 50
+63 - 99
+
 Example Usage: Add/Replace Item with Coffee In Slot 1
 8001000C 6D5F756E 
 69744261 736B6574
@@ -230,6 +237,13 @@ Quality - Choose One
 0064 - 100
 0063 - 99
 For Custom Value Refer To https://www.save-editor.com/tools/wse_hex.html
+
+Amount, Uses - Choose One [AA | UU]	
+01 - 1
+05 - 5
+0A - 10
+32 - 50
+63 - 99
 
 Example Usage: Add/Replace Items with Clean Water, Forest Dew, Divine Iron Piece 
 With Various Traits & Effects.
