@@ -21,10 +21,6 @@ Notes: Credits to Lotus#0676 for research.
 [XxUnkn0wnxX#0001]
 Item Add/Replace Template Builder (SIMPLE):
 -- This Code Adds stuff to your basket --
-### README ###
-To use basket item editor, you MUST have 1-3 items in your basket and then SAVE your game on the world map screen
-Must Contain at least 1 TRAIT & EFFECT!
-### README ###
 
 -- Starts Here --
 8001000C 6D5F756E 
@@ -40,6 +36,8 @@ Item + Attributes
 1800000C 0000ZZZZ <-- Effect 2
 1800000E 0000ZZZZ <-- Effect 3
 18000010 0000ZZZZ <-- Effect 4
+08000012 000000UU <-- UU Item Uses (for healing,debuff,attack items}
+08000015 000000AA <-- AA Item Amount
 -- Ends Here --
 
 Same code for Simple Copy & Paste
@@ -57,6 +55,8 @@ Same code for Simple Copy & Paste
 1800000C 0000ZZZZ
 1800000E 0000ZZZZ
 18000010 0000ZZZZ
+08000012 000000UU
+08000015 000000AA
 -- Ends Here --
 
 Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
@@ -101,6 +101,7 @@ Example Usage: Add/Replace Item with Coffee In Slot 1
 1800000C 00000026 <-- ZZZZ [0026] Expanding Star Effect
 1800000E 00000028 <-- ZZZZ [0028] Falling Sun Effect
 18000010 0000003B <-- ZZZZ [003B] Drops Stars Effect
+08000015 00000063 <-- AA [63] x99
 
 Example Usage: Add/Replace Item with Coffee In Slot 1 With Traits & 1 Effect
 8001000C 6D5F756E 
@@ -112,14 +113,11 @@ Example Usage: Add/Replace Item with Coffee In Slot 1 With Traits & 1 Effect
 18000006 000000D4 <-- XXXX [00D4] Inflict Burns Trait
 18000008 000000D5 <-- XXXX [00D5] Inflict Blindness Trait
 18000010 0000003B <-- ZZZZ [003B] Drops Stars Effect
+08000015 00000063 <-- AA [63] x99
 
 [XxUnkn0wnxX#0001]
 Item Add/Replace Template Multi Builder (HARD):
 -- This Code Adds stuff to your basket --
-### README ###
-To use basket item editor, you MUST have items in your basket and then SAVE your game on the world map screen
-Must Contain at least 1 TRAIT & EFFECT!
-### README ###
 
 -- Starts Here --
 8001000C 6D5F756E 
@@ -136,6 +134,7 @@ Item + Attributes
 1800000C 0000ZZZZ <-- Effect 2
 1800000E 0000ZZZZ <-- Effect 3
 18000010 0000ZZZZ <-- Effect 4
+08000015 000000AA <-- AA Item Amount
 -- Slot 2 --
 92000000 00000020
 Item + Attributes
@@ -148,6 +147,7 @@ Item + Attributes
 1800000C 0000ZZZZ <-- Effect 2
 1800000E 0000ZZZZ <-- Effect 3
 18000010 0000ZZZZ <-- Effect 4
+08000015 000000AA <-- AA Item Amount
 -- Slot 3 --
 92000000 00000020
 Item + Attributes
@@ -160,6 +160,7 @@ Item + Attributes
 1800000C 0000ZZZZ <-- Effect 2
 1800000E 0000ZZZZ <-- Effect 3
 18000010 0000ZZZZ <-- Effect 4
+08000015 000000AA <-- AA Item Amount
 -- Ends Here --
 
 Same code for Simple Copy & Paste
@@ -176,6 +177,7 @@ Same code for Simple Copy & Paste
 1800000C 0000ZZZZ
 1800000E 0000ZZZZ
 18000010 0000ZZZZ
+08000015 000000AA
 
 92000000 00000020
 18000000 0000IIII
@@ -187,6 +189,7 @@ Same code for Simple Copy & Paste
 1800000C 0000ZZZZ
 1800000E 0000ZZZZ
 18000010 0000ZZZZ
+08000015 000000AA
 
 92000000 00000020
 18000000 0000IIII
@@ -198,6 +201,7 @@ Same code for Simple Copy & Paste
 1800000C 0000ZZZZ
 1800000E 0000ZZZZ
 18000010 0000ZZZZ
+08000015 000000AA
 -- Ends Here --
 Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
 Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
@@ -242,6 +246,7 @@ With Various Traits & Effects.
 1800000C 0000001F <-- ZZZZZ [001F] Bolt Damage Effect
 1800000E 00000046 <-- ZZZZZ [0046] 100 Million Explosions Effect
 18000010 00000049 <-- ZZZZZ [0049] Planet-Shattering Explosion Effect
+08000015 00000063 <-- AA [63] x99
 
 92000000 00000020 <-- Slot 2 (Has Traits Only + 1 Effect)
 18000000 00000011 <-- IIII [0011] Forest Dew ID
@@ -250,6 +255,7 @@ With Various Traits & Effects.
 18000006 00000048 <-- XXXXX [0048] Destruction Up++ Trait
 18000008 00000022 <-- XXXXX [0022] Rare Goods Trait
 1800000A 00000018 <-- ZZZZZ [0018] Freeze Damage Effect
+08000015 00000063 <-- AA [63] x99
 	
 92000000 00000020 <-- Slot 3 (Has Effects Only + 1 Trait)
 18000000 0000001A <-- IIII [001A] Divine Iron Piece ID
@@ -259,10 +265,9 @@ With Various Traits & Effects.
 1800000C 0000001F <-- ZZZZZ [001F] Bolt Damage Effect
 1800000E 00000046 <-- ZZZZZ [0046] 100 Million Explosions Effect
 18000010 00000049 <-- ZZZZZ [0049] Planet-Shattering Explosion Effect
+08000015 00000063 <-- AA [63] x99
 
 [Lotus#0676]
-Where it says 3 Alchemy Coats or X amount of items you need to have that many ITEMS IN YOUR BASKET for the following codes.
-it don't matter what items you have along you have them basket slots filled.
 
 Single item replace example - Changes 1st item in basket to alchemy coat
 8001000C 6D5F756E
@@ -277,9 +282,10 @@ Single item replace example - Changes 1st item in basket to alchemy coat
 1800000C 000003F3
 1800000E 000003DF
 18000010 00000170
-Notes: Coloured Diagram https://i.imgur.com/EAefeFG.png
+08000015 00000007
+Notes: Coloured Diagram https://i.imgur.com/ecrvc1Q.png
 
-3 Alchemy Coats
+3 Alchemy Coats (OBSOLETE FOR DUPLICATES)
 8001000C 6D5F756E
 69744261 736B6574
 92000000 00000013
@@ -314,7 +320,7 @@ Notes: Coloured Diagram https://i.imgur.com/EAefeFG.png
 18000010 0000074F
 Notes: 2nd Coloured Diagram https://i.imgur.com/Y26PEfy.png
 
-3 Valkyrie Mail
+7 Valkyrie Mail
 8001000C 6D5F756E
 69744261 736B6574
 92000000 00000013
@@ -327,28 +333,9 @@ Notes: 2nd Coloured Diagram https://i.imgur.com/Y26PEfy.png
 1800000C 000004AD
 1800000E 0000074A
 18000010 000003DF
-92000000 00000020
-18000000 00000192
-18000002 000003E7
-18000004 0000029D
-18000006 0000016F
-18000008 00000170
-1800000A 0000038B
-1800000C 000004AD
-1800000E 0000074A
-18000010 000003DF
-92000000 00000020
-18000000 00000192
-18000002 000003E7
-18000004 0000029D
-18000006 0000029C
-18000008 000001BD
-1800000A 0000038B
-1800000C 000004AD
-1800000E 0000074A
-18000010 000003DF
+08000015 00000007
 
-3 Divine Auric Plate Armor
+7 Divine Auric Plate Armor
 8001000C 6D5F756E
 69744261 736B6574
 92000000 00000013
@@ -361,26 +348,7 @@ Notes: 2nd Coloured Diagram https://i.imgur.com/Y26PEfy.png
 1800000C 00000399
 1800000E 000003DF
 18000010 000004E6
-92000000 00000020
-18000000 00000197
-18000002 000003E7
-18000004 0000029D
-18000006 0000029C
-18000008 000001BD
-1800000A 00000396
-1800000C 00000399
-1800000E 000003DF
-18000010 000004E6
-92000000 00000020
-18000000 00000197
-18000002 000003E7
-18000004 0000029D
-18000006 0000029C
-18000008 000001BD
-1800000A 00000396
-1800000C 00000399
-1800000E 000003DF
-18000010 000004E6
+08000015 00000007
 
 Fast Movement Shoes
 8001000C 6D5F756E
@@ -444,7 +412,7 @@ Super Fast Movement Shoes
 1800000E 000003F0
 18000010 00000441
 
-3 Falling Star Symbol 2
+3 Falling Star Symbol (Alt Effects)
 8001000C 6D5F756E
 69744261 736B6574
 92000000 00000013
@@ -478,7 +446,7 @@ Super Fast Movement Shoes
 1800000E 000003F0
 18000010 00000441
 
-3 Locket Of Friendship
+7 Locket Of Friendship
 8001000C 6D5F756E
 69744261 736B6574
 92000000 00000013
@@ -491,28 +459,9 @@ Super Fast Movement Shoes
 1800000C 000003ED
 1800000E 000003F0
 18000010 00000441
-92000000 00000020
-18000000 000001AF
-18000002 000003E7
-18000004 0000029B
-18000006 0000029C
-18000008 0000029D
-1800000A 000004DD
-1800000C 000003ED
-1800000E 000003F0
-18000010 00000441
-92000000 00000020
-18000000 000001AF
-18000002 000003E7
-18000004 0000029B
-18000006 0000029C
-18000008 0000029D
-1800000A 0000043E
-1800000C 000003ED
-1800000E 000003F0
-18000010 00000441
+08000015 00000007
 
-3 Healing Bells 99 uses each
+7 Healing Bells 99 uses each
 8001000C 6D5F756E
 69744261 736B6574
 92000000 00000013
@@ -526,26 +475,4 @@ Super Fast Movement Shoes
 1800000E 000006DC
 18000010 0000FFFF
 08000012 00000063
-92000000 00000020
-18000000 000000C8
-18000002 000003E7
-18000004 00000133
-18000006 000000BD
-18000008 000000C1
-1800000A 000000BA
-1800000C 0000010F
-1800000E 000006DC
-18000010 0000FFFF
-08000012 00000063
-92000000 00000020
-18000000 000000C8
-18000002 000003E7
-18000004 00000133
-18000006 000000BD
-18000008 000000C1
-1800000A 000000BA
-1800000C 0000010F
-1800000E 000006DC
-18000010 0000FFFF
-08000012 00000063
-
+08000015 00000007
