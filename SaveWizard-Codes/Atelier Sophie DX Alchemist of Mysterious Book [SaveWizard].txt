@@ -19,6 +19,7 @@ Set Quality To S rank All Items [1-5000]
 49C40038 00000000
 
 Item Add Template Builder (SIMPLE)	
+This Code Adds stuff to your basket
 -- Starts Here --
 8001000C 6D5F756E	
 69744B61 676F0000	
@@ -121,7 +122,8 @@ Amount, Uses - Choose One [AA]
 32 - 50
 63 - 99
 
-Item Adder Template Multi Builder (Multiple)	
+Item Adder Template Multi Builder (Multiple)
+This Code Adds stuff to your basket	
 -- Starts Here --
 8001000C 6D5F756E	
 69744B61 676F0000
