@@ -210,23 +210,20 @@ ARMOR/WEAPONS/ACCESSORY Stats [required for equipment only (only add these lines
 
 Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
 Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
-This one is scalable, after the 1st ID you just add +32 Bytes (20 in Hex)
+This one is scalable, after the 1st ID you just add +56 Bytes (38 in Hex)
 if you want to target multiple slots in one go..
 EG:
 92000000 00000011 - Slot 1
 Item + Attributes
-92000000 00000020 - Slot 2
+92000000 00000038 - Slot 2
 Item + Attributes
-92000000 00000020 - Slot 3
+92000000 00000038 - Slot 3
 Item + Attributes
-92000000 00000020 - Slot 4
+92000000 00000038 - Slot 4
 Item + Attributes
-92000000 00000020 - Slot 5
+92000000 00000038 - Slot 5
 Item + Attributes
-92000000 00000020 - Slot 6
-Item + Attributes
-You Get the idea as each time you add 32 bytes you go down by an additional slot.
-
+You Get the idea as each time you add 56 bytes you go down by an additional slot.
 
 Same code for Simple Copy & Paste
 -- Starts Here --
