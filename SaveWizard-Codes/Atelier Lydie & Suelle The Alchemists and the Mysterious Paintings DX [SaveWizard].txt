@@ -5,6 +5,9 @@ USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes br
 The work put into the creation of these codes & resources come from some of the following Discord Servers: 
 Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 
+Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY/edit?pli=1#gid=1741756665
+Credits to Lotus#0676 for research.
+
 [XxUnkn0wnxX#0001]
 Set Quality To 999 All Items [1-5000]
 8001000F 6D5F756E
