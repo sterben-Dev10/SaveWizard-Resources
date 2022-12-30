@@ -337,7 +337,7 @@ Notes: Coloured Diagram https://i.imgur.com/PTHDPbT.png
 SUPPORT THROUGH DEBUFF ITEM PACK CODES  CAN BE ACTIVATED TOGETHER AT ONCE
 ### README ###
 
-Support Item Pack - [Hotspring Egg, Rainbow Transformer,Dragon Elixir&Ertona Salve]
+Support Item Pack - [Hotspring Egg, Rainbow Transformer,Dragon Elixir & Ertona Salve]
 8001000C 6D5F756E
 69744B61 676F0000
 92000000 00000011
@@ -388,7 +388,7 @@ Support Item Pack - [Hotspring Egg, Rainbow Transformer,Dragon Elixir&Ertona Sal
 Notes: Uses for Each Item Pack Here,
 https://barrelwisdom.com/firis/ultimate-setups
 
-Attack Item Pack - [Blitz Core: Void,Wandering Globe,Blitz Crystal,Lightning Crystal & Heaven's Cleanser]
+Attack Item Pack - [Blitz Core: Void, Wandering Globe, Blitz Crystal, Lightning Crystal & Heaven's Cleanser]
 8001000C 6D5F756E
 69744B61 676F0000
 92000000 000000E1
