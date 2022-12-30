@@ -18,6 +18,12 @@ Set Quality To S rank All Items [1-5000]
 4A0222F8 00C07944
 49C40038 00000000
 
+Max Tess Exchange Tickets
+8001000C 6E756D4F
+66546963 6B657473
+92000000 00000013
+18000000 00000F27
+
 Item Add Template Builder (SIMPLE)	
 This Code Adds stuff to your basket
 -- Starts Here --
