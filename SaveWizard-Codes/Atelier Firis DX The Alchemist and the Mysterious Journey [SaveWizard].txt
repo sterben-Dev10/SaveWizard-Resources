@@ -78,7 +78,7 @@ Slots - Choose One [YYYY]
 0AD	- Slot 4
 0E1	- Slot 5
 
-Quality - Choose One
+Quality - Choose One [QQQQ]
 00C07944 - 999
 0000FA43 - 500
 00007A43 - 250
