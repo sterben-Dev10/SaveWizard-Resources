@@ -211,7 +211,7 @@ Example: Advanced Cauldron, 7 Dragon Elixir, Element Guard
 18000010 0000E704 <-- EEEE [E704] Effect 3: Combined Effect
 18000012 0000EB04 <-- EEEE [EB04] Effect 4: Bonus Display Level 3
 18000020 00000092
-08000023 00000001 <-- UU [01] Item Uses: x01
+08000023 00000001 <-- UU [01] Item Uses: x01 (Equipment Needs To Be Set at x1)
 08000028 00000001 <-- AA [01] Item Amount: x01
 92000000 00000034 <-- YYY [034] Slot 2
 18000000 0000E600 <-- IIII [E600] Item ID: Dragon Elixir (Recovery Item)
@@ -237,7 +237,7 @@ Example: Advanced Cauldron, 7 Dragon Elixir, Element Guard
 18000010 0000A405 <-- EEEE [A405] Effect 1: Resonance All Heaven
 18000012 0000A505 <-- EEEE [A505] Effect 1: Resonance All Truth
 18000020 00000092
-08000023 00000001 <-- UU [01] Item Uses: x01
+08000023 00000001 <-- UU [01] Item Uses: x01 (Equipment Needs To Be Set at x1)
 08000028 00000007 <-- AA [07] Item Amount: x07
 Notes: Coloured Diagram https://i.imgur.com/PTHDPbT.png
 
