@@ -83,7 +83,7 @@ Same code for Simple Copy & Paste
 Example: Wanderer's Shirt
 8001000C 6D5F756E
 69744B61 676F0000
-92000000 00000011 <-- Slot 1
+92000000 00000011 <-- YYY [011] Slot 1
 18000000 0000BC02 <-- IIII [BC02] Item ID: Wander's Shirt
 28000002 00C07944 <-- QQQQ [00C07944] Quality x999
 18000006 0000F500 <-- TTTT [F500] Trait 1: Well Rounder Power
@@ -113,13 +113,12 @@ Slots - Choose One [YYYY]
 0F1	- Slot 5
 
 Quality - Choose One
-270F - 9999
-03E7 - 999
-01F4 - 500
-00FA - 250
-0064 - 100
-0063 - 99
-For Custom Value Refer To https://www.save-editor.com/tools/wse_hex.html
+00C07944 - 999
+0000FA43 - 500
+00007A43 - 250
+0000C842 - 100
+0000C642 - 99
+For Custom Value Refer To https://www.save-editor.com/tool/converter_ieee_754.cgi
 
 Amount, Uses - Choose One [AA]	
 01 - 1
@@ -141,7 +140,7 @@ This Code Adds stuff to your basket
 8001000C 6D5F756E	
 69744B61 676F0000
 -- Slot 1 --	
-92000000 00000011 <-- YYY = Item Slot
+92000000 00000011 <-- Slot 1
 Item + Attributes
 18000000 0000IIII <-- IIII = Item ID
 28000002 QQQQQQQQ <-- QQQQQQQQ = Quality
@@ -302,7 +301,7 @@ Same code for Simple Copy & Paste
 Example Add 3 items: Wanderer's Shirt, Fairy Guide, Breezy Aroma
 8001000C 6D5F756E
 69744B61 676F0000
-92000000 00000011 <-- Slot 1
+92000000 00000011 <-- YYY [011] Slot 1
 18000000 0000BC02 <-- IIII [BC02] Item ID: Wander's Shirt
 28000002 00C07944 <-- QQQQ [00C07944] Quality x999
 18000006 0000F500 <-- TTTT [F500] Trait 1: Well Rounder Power
@@ -313,8 +312,8 @@ Example Add 3 items: Wanderer's Shirt, Fairy Guide, Breezy Aroma
 18000010 00009105 <-- EEEE [9105] Effect 3: Ultimate Reduction
 18000012 00007905 <-- EEEE [7905] Effect 4: Ultimate Mobility
 18000015 00009202 
-08000019 00000001 <-- AA [01] x1 Item Use
-08000021 00000003 <-- AA [03] x3 Item Amount
+08000019 00000001 <-- AA [01] Item Uses x1
+08000021 00000003 <-- AA [03] Item Amount x03
 08000028 00000015 <-- HP [15] HP Stat +21
 08000029 00000015 <-- MP [15] MP Stat +21
 0800002A 00000040 <-- LP [40] LP Stat +64
@@ -322,14 +321,14 @@ Example Add 3 items: Wanderer's Shirt, Fairy Guide, Breezy Aroma
 0800002C 00000042 <-- DF [42] Defence Stat +66
 0800002D 00000033 <-- SP [33] Speed Stat + 51
 0800002E 00000010 <-- DM [10] Damage Stat +16
-92000000 00000038 <-- Slot 2
+92000000 00000038 <-- YYY [038] Slot 2
 18000000 00006601 <-- IIII [6601] Item ID: Fairy Guide (Exploration Tool)
 28000002 00C07944 <-- QQQQ [00C07944] Quality x999
 1800000C 00005F03 <-- EEEE [5F03] Effect 1: Return to Base
 18000015 00009202
 08000019 00000063 <-- AA [63] Item Uses x99
 08000021 00000001 <-- AA [01] Item Amount x1
-92000000 00000038 <-- Slot 3
+92000000 00000038 <-- YYY [038] Slot 3
 18000000 0000DA00 <-- IIII [DA00] Item ID: Breezy Aroma (Recovery Item)
 28000002 00C07944 <-- QQQQ [00C07944] Quality x999
 18000006 0000C100 <-- TTTT [C100] Trait 1: Full of Life
