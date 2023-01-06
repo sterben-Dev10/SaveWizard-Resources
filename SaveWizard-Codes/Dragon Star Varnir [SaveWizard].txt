@@ -78,8 +78,8 @@ Factor Points [x9999999]
 -- Faria --
 20001404 0098967F
 
-Factor Points [x9999999]
 -- All Characters --
 95000000 00001080
+-- Factor Points --
 4A000014 0098967F
 400600B0 00000000
