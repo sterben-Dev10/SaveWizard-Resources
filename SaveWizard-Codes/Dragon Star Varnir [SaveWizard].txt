@@ -62,3 +62,24 @@ Example: All Items & Best Quality Gear +10 [x255]
 48000014 000000FF
 4FFB0030 00000000
 
+Characters: 
+
+Factor Points [x9999999]
+-- Zephy --
+20001094 0098967F
+-- Minessa --
+20001144 0098967F
+-- Karikaro --
+200011F4 0098967F
+-- Laponette --
+200012A4 0098967F
+-- Charlotta --
+20001348 0098967F
+-- Faria --
+20001404 0098967F
+
+Factor Points [x9999999]
+-- All Characters --
+95000000 00001080
+4A000014 0098967F
+400600B0 00000000
