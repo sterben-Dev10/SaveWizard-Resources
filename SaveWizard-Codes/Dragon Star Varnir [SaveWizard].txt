@@ -1,0 +1,64 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+Dragon Star Varnir, Wont let you edit stats like HP, SP, ATK etc.. i've tried, game just resets to equipment defaults.
+
+Credits: XxUnkn0wnxX#0001
+WIP...
+
+### Dragon Star Varnir ###
+
+Money (Gold) [x999999999999]
+A0009670 00000008
+FF0FA5D4 E8000000
+
+Max All Inventory Slots [x255]
+-- INV Start --
+95000000 00009694 <-- Must Have this on top
+-- Base Quality --
+48000000 000000FF
+4FFB0030 00000000 
+-- +1 Quality --
+48000002 000000FF
+4FFB0030 00000000 
+-- +2 Quality -- 
+48000004 000000FF
+4FFB0030 00000000 
+-- +3 Quality -- 
+48000006 000000FF
+4FFB0030 00000000 
+-- +4 Quality -- 
+48000008 000000FF
+4FFB0030 00000000 
+-- +5 Quality -- 
+4800000A 000000FF
+4FFB0030 00000000 
+-- +6 Quality -- 
+4800000C 000000FF
+4FFB0030 00000000 
+-- +7 Quality -- 
+4800000E 000000FF
+4FFB0030 00000000 
+-- +8 Quality -- 
+48000010 000000FF
+4FFB0030 00000000 
+-- +9 Quality -- 
+48000012 000000FF
+4FFB0030 00000000 
+-- +10 Quality -- 
+48000014 000000FF
+4FFB0030 00000000
+
+Notes: you dont need to do all the Qualties, if you just want all Items + Best Gear.
+
+Example: All Items & Best Quality Gear +10 [x255]
+95000000 00009694
+48000000 000000FF
+4FFB0030 00000000 
+48000014 000000FF
+4FFB0030 00000000
+
