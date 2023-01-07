@@ -36,7 +36,7 @@ Item + Attributes
 1800000C 0000ZZZZ <-- Effect 2
 1800000E 0000ZZZZ <-- Effect 3
 18000010 0000ZZZZ <-- Effect 4
-08000012 000000UU <-- UU Item Uses (for healing,debuff,attack items}
+08000012 000000UU <-- UU Item Uses (for healing, debuff, attack items}
 08000015 000000AA <-- AA Item Amount
 08000017 000000HP <-- HP Item Health Points
 08000018 000000MP <-- MP Item Magic Points
