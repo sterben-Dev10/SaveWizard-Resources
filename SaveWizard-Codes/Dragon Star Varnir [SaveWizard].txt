@@ -110,7 +110,7 @@ Bond [x999]
 20009630 000003E7
 
 -- All Characters --
-95000000 00001080
+95000000 00001080 <-- Must Have this on top
 -- Factor Points --
 4A000014 0098967F
 400600B0 00000000
