@@ -77,6 +77,8 @@ XP Template
 -- Faria --
 200013F8 VVVVVVVV
 
+Notes: To apply XP win a battle.
+
 -- VVVV --
 000004F1 - 1265 [Lv11]
 000F4240 - 1000000 [Lv51]
