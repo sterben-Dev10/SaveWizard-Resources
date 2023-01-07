@@ -53,9 +53,9 @@ Max All Inventory Slots [x255]
 48000014 000000FF
 4FFB0030 00000000
 
-Notes: you dont need to do all the Qualties, if you just want all Items + Best Gear.
+Notes: you dont need to do all the Qualties, if you just want all Items + Best Gear use code below
 
-Example: All Items & Best Quality Gear +10 [x255]
+All Items & Best Quality Gear +10 [x255]
 95000000 00009694
 48000000 000000FF
 4FFB0030 00000000 
