@@ -62,8 +62,7 @@ Example: All Items & Best Quality Gear +10 [x255]
 48000014 000000FF
 4FFB0030 00000000
 
-Characters: 
-
+-- Characters --
 XP Template
 -- Zephy --
 20001088 VVVVVVVV
