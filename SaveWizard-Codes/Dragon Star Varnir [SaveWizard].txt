@@ -97,6 +97,18 @@ Factor Points [x9999999]
 -- Faria --
 20001404 0098967F
 
+Bond [x999]
+-- Minessa --
+20009620 000003E7
+-- Karikaro --
+20009624 000003E7
+-- Laponette --
+20009628 000003E7
+-- Charlotta --
+2000962C 000003E7
+-- Faria --
+20009630 000003E7
+
 -- All Characters --
 95000000 00001080
 -- Factor Points --
@@ -105,3 +117,8 @@ Factor Points [x9999999]
 -- XP Max --
 4A000008 3B9AC9FF
 400600B0 00000000
+
+-- All Characters Bond [x999] --
+42009620 000003E7
+40050004 00000000
+
