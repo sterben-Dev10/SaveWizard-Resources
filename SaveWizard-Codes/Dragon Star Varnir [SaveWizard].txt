@@ -64,6 +64,30 @@ Example: All Items & Best Quality Gear +10 [x255]
 
 Characters: 
 
+XP Template
+-- Zephy --
+20001088 VVVVVVVV
+-- Minessa --
+20001138 VVVVVVVV
+-- Karikaro --
+200011E8 VVVVVVVV
+-- Laponette --
+20001298 VVVVVVVV
+-- Charlotta --
+20001348 VVVVVVVV
+-- Faria --
+200013F8 VVVVVVVV
+
+-- VVVV --
+000004F1 - 1265 [Lv11]
+000F4240 - 1000000 [Lv51]
+3B9AC9FF - 999999999 [Max?]
+FFFFFFFF - 4294967295 [SuperMax Lv999]
+
+Notes: Seems to be a max level Cap depending how far you are in the game, 
+may need to reset/reapply XP Codes.
+you need to go into game & win a fight for either code to apply.
+
 Factor Points [x9999999]
 -- Zephy --
 20001094 0098967F
@@ -82,4 +106,13 @@ Factor Points [x9999999]
 95000000 00001080
 -- Factor Points --
 4A000014 0098967F
+400600B0 00000000
+-- XP Max --
+4A000008 3B9AC9FF
+400600B0 00000000
+-- XP SuperMax --
+4A000008 FFFFFFFF
+400600B0 00000000
+-- XP Reset --
+4A000008 000004F1
 400600B0 00000000
