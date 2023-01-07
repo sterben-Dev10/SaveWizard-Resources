@@ -6,9 +6,9 @@ The work put into the creation of these codes & resources come from some of the 
 Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 
 Dragon Star Varnir, Wont let you edit stats like HP, SP, ATK etc.. i've tried, game just resets to equipment defaults.
+Will Add a item Swapper once all ID's have been identified.. 
 
 Credits: XxUnkn0wnxX#0001
-WIP...
 
 ### Dragon Star Varnir ###
 
