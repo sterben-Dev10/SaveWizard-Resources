@@ -18,7 +18,7 @@ Set Quality To 999 All Items [1-5000]
 49C40020 00000000
 Notes: Credits to Lotus#0676 for research.
 
-[XxUnkn0wnxX#0001]
+[XxUnkn0wnxX#0001, Lotus#0676]
 Item Add/Replace Template Builder (SIMPLE):
 -- This Code Adds stuff to your basket --
 
@@ -38,6 +38,11 @@ Item + Attributes
 18000010 0000ZZZZ <-- Effect 4
 08000012 000000UU <-- UU Item Uses (for healing,debuff,attack items}
 08000015 000000AA <-- AA Item Amount
+08000017 000000HP <-- HP Item Health Points
+08000018 000000MP <-- MP Item Magic Points
+08000019 000000AT <-- AT Item Attack
+0800001A 000000DF <-- DF Item Defense
+0800001B 000000SP <-- SP Item Speed
 -- Ends Here --
 
 Same code for Simple Copy & Paste
@@ -57,6 +62,11 @@ Same code for Simple Copy & Paste
 18000010 0000ZZZZ
 08000012 000000UU
 08000015 000000AA
+08000017 000000HP
+08000018 000000MP
+08000019 000000AT
+0800001A 000000DF
+0800001B 000000SP
 -- Ends Here --
 
 Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
@@ -122,7 +132,7 @@ Example Usage: Add/Replace Item with Coffee In Slot 1 With Traits & 1 Effect
 18000010 0000003B <-- ZZZZ [003B] Drops Stars Effect
 08000015 00000063 <-- AA [63] x99
 
-[XxUnkn0wnxX#0001]
+[XxUnkn0wnxX#0001, Lotus#0676]
 Item Add/Replace Template Multi Builder (HARD):
 -- This Code Adds stuff to your basket --
 
@@ -142,6 +152,11 @@ Item + Attributes
 1800000E 0000ZZZZ <-- Effect 3
 18000010 0000ZZZZ <-- Effect 4
 08000015 000000AA <-- AA Item Amount
+08000017 000000HP <-- HP Item Health Points
+08000018 000000MP <-- MP Item Magic Points
+08000019 000000AT <-- AT Item Attack
+0800001A 000000DF <-- DF Item Defense
+0800001B 000000SP <-- SP Item Speed
 -- Slot 2 --
 92000000 00000020
 Item + Attributes
@@ -155,6 +170,11 @@ Item + Attributes
 1800000E 0000ZZZZ <-- Effect 3
 18000010 0000ZZZZ <-- Effect 4
 08000015 000000AA <-- AA Item Amount
+08000017 000000HP <-- HP Item Health Points
+08000018 000000MP <-- MP Item Magic Points
+08000019 000000AT <-- AT Item Attack
+0800001A 000000DF <-- DF Item Defense
+0800001B 000000SP <-- SP Item Speed
 -- Slot 3 --
 92000000 00000020
 Item + Attributes
@@ -168,6 +188,11 @@ Item + Attributes
 1800000E 0000ZZZZ <-- Effect 3
 18000010 0000ZZZZ <-- Effect 4
 08000015 000000AA <-- AA Item Amount
+08000017 000000HP <-- HP Item Health Points
+08000018 000000MP <-- MP Item Magic Points
+08000019 000000AT <-- AT Item Attack
+0800001A 000000DF <-- DF Item Defense
+0800001B 000000SP <-- SP Item Speed
 -- Ends Here --
 
 Same code for Simple Copy & Paste
@@ -185,6 +210,11 @@ Same code for Simple Copy & Paste
 1800000E 0000ZZZZ
 18000010 0000ZZZZ
 08000015 000000AA
+08000017 000000HP
+08000018 000000MP
+08000019 000000AT
+0800001A 000000DF
+0800001B 000000SP
 
 92000000 00000020
 18000000 0000IIII
@@ -197,6 +227,11 @@ Same code for Simple Copy & Paste
 1800000E 0000ZZZZ
 18000010 0000ZZZZ
 08000015 000000AA
+08000017 000000HP
+08000018 000000MP
+08000019 000000AT
+0800001A 000000DF
+0800001B 000000SP
 
 92000000 00000020
 18000000 0000IIII
@@ -209,6 +244,11 @@ Same code for Simple Copy & Paste
 1800000E 0000ZZZZ
 18000010 0000ZZZZ
 08000015 000000AA
+08000017 000000HP
+08000018 000000MP
+08000019 000000AT
+0800001A 000000DF
+0800001B 000000SP
 -- Ends Here --
 Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
 Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
