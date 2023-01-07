@@ -81,12 +81,9 @@ XP Template
 -- VVVV --
 000004F1 - 1265 [Lv11]
 000F4240 - 1000000 [Lv51]
-3B9AC9FF - 999999999 [Max?]
-FFFFFFFF - 4294967295 [SuperMax Lv999]
+004C4B40 - 5000000 []
+3B9AC9FF - 999999999 [Max Lv999]
 
-Notes: Seems to be a max level Cap depending how far you are in the game, 
-may need to reset/reapply XP Codes.
-you need to go into game & win a fight for either code to apply.
 
 Factor Points [x9999999]
 -- Zephy --
@@ -109,10 +106,4 @@ Factor Points [x9999999]
 400600B0 00000000
 -- XP Max --
 4A000008 3B9AC9FF
-400600B0 00000000
--- XP SuperMax --
-4A000008 FFFFFFFF
-400600B0 00000000
--- XP Reset --
-4A000008 000004F1
 400600B0 00000000
