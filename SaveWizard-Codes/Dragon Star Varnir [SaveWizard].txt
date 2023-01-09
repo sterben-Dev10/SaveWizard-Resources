@@ -159,7 +159,7 @@ Little Sisters Status Template
 01F4 - 500  | Fullness: Half
 0384 - 900  | Fullness: Almost Max
 03E8 - 1000 | Fullness: Max
-Note: will still have to feed 1 meat in-game to take effect.
+Notes: will still have to feed 1 meat in-game to take effect.
 
 -- MM --
 0000 -   0  | Happy (Green)
