@@ -174,7 +174,7 @@ Note: will still have to feed 1 meat in-game to take effect.
 0384 - 900  | Insane (Purple) - LV3
 03E8 - 1000 | Gone Mad (Runaway)
 
-All Sisters No Growth, No Fullness & Happy
+All Little Sisters No Growth, No Fullness & Happy
 41009636 00000000
 4003000C 00000000
 41009638 00000000
@@ -182,7 +182,7 @@ All Sisters No Growth, No Fullness & Happy
 4100963A 00000000
 4003000C 00000000
 
-All Sisters Max Growth, Fullness, Insane
+All Little Sisters Max Growth, Fullness, Insane
 41009636 0000270F
 4003000C 00000000
 41009638 000003E8
@@ -190,7 +190,7 @@ All Sisters Max Growth, Fullness, Insane
 4100963A 00000384
 4003000C 00000000
 
-All Sisters Runaway On Load
+All Little Sisters Runaway On Load
 41009636 00002710
 4003000C 00000000
 41009638 000003E8
