@@ -162,8 +162,8 @@ Little Sisters Status Template
 Note: will still have to feed 1 meat in-game to take effect.
 
 -- MM --
-0000 -   0  | Happy (Green) - LV1
-0064 - 100  | Sad (Blue) - LV1
+0000 -   0  | Happy (Green)
+0064 - 100  | Sad (Blue)
 00C8 - 200  | Upset (Orange) - LV1
 012C - 300  | Upset (Orange) - Lv2
 0190 - 400  | Angry (Red) - LV1
