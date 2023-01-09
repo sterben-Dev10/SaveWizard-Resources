@@ -209,4 +209,6 @@ Little Sisters Remove/Add Back
 4003000C 00000000
 4000963C 00000007
 4003000C 00000000
+Notes: Adding Back/Removing via code may or may not effect the ending you get
+this code is more of an experiment.
 
