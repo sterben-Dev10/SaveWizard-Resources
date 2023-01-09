@@ -124,3 +124,92 @@ Bond [x999]
 42009620 000003E7
 40050004 00000000
 
+Little Sisters Status Template
+-- Monet --
+10009636 0000GGGG <-- Dragon Growth
+10009638 0000LLLL <-- Food Fullness
+1000963A 0000MMMM <-- Madness
+-- Chiquita --
+10009642 0000GGGG <-- Dragon Growth
+10009644 0000LLLL <-- Food Fullness
+10009646 0000MMMM <-- Madness
+-- Pio --
+1000964E 0000GGGG <-- Dragon Growth
+10009650 0000LLLL <-- Food Fullness
+10009652 0000MMMM <-- Madness
+
+-- All Sisters --
+41009636 0000GGGG <-- Dragon Growth
+4003000C 00000000
+41009638 0000LLLL <-- Food Fullness
+4003000C 00000000
+4100963A 0000MMMM <-- Madness
+4003000C 00000000
+
+-- GG --
+0000 -     0  | No Growth
+1194 -  4500  | Half Way
+2328 -  9000  | Almost Full
+2648 -  9800  | Critical Full
+270F -  9999  | Mega Critical Full
+2710 -  10000 | They Run Away
+
+-- LL --
+0064 - 100  | Fullness: Small
+01F4 - 500  | Fullness: Half
+0384 - 900  | Fullness: Almost Max
+03E8 - 1000 | Fullness: Max
+Note: will still have to feed 1 meat in-game to take effect.
+
+-- MM --
+0000 -   0  | Happy (Green) - LV1
+0064 - 100  | Sad (Blue) - LV1
+00C8 - 200  | Upset (Orange) - LV1
+012C - 300  | Upset (Orange) - Lv2
+0190 - 400  | Angry (Red) - LV1
+01F4 - 500  | Angry (Red) - LV2
+0258 - 600  | Angry (Red) - LV3
+02BC - 700  | Insane (Purple) - LV1
+0320 - 800  | Insane (Purple) - LV2
+0384 - 900  | Insane (Purple) - LV3
+03E8 - 1000 | Gone Mad (Runaway)
+
+Little Sisters Remove/Add Back
+
+### Add Back ###
+-- Monet --
+00009634 00000000
+0000963C 00000000
+-- Chiquita --
+00009640 00000000
+00009648 00000000
+-- Pio --
+0000964C 00000000
+00009654 00000000
+
+-- All Sisters --
+40009634 00000000
+4003000C 00000000
+4000963C 00000000
+4003000C 00000000
+
+### Remove ####
+-- Monet --
+00009634 00000001
+0000963C 00000007
+-- Chiquita --
+00009640 00000001
+00009648 00000007
+-- Pio --
+0000964C 00000001
+00009654 00000007
+
+-- All Sisters --
+40009634 00000001
+4003000C 00000000
+4000963C 00000007
+4003000C 00000000
+4BYYYYYY XXXXXXXX
+4CCCDDDD ZZZZZZZZ
+
+
