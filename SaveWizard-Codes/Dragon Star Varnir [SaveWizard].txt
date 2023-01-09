@@ -251,3 +251,34 @@ Little Sisters Remove/Add Back
 Notes: Adding Back/Removing via code may or may not effect the ending you get
 this code is more of an experiment.
 
+Main Character's Madness Levels Template
+100005B8 0000ZZZZ <-- ZZ | Madness %
+
+-- ZZ --
+2710 - 10000 - 100%
+2328 - 9000 - 90%
+1F40 - 8000 - 80%
+1B58 - 7000 - 70%
+1770 - 6000 - 60%
+1388 - 5000 - 50%
+0FA0 - 4000 - 40%
+0BB8 - 3000 - 30%
+07D0 - 2000 - 20%
+03E8 - 1000 - 10%
+0000 - 0000 - 0%
+
+Main Character's Madness
+-- 0% --
+100005B8 00000000
+-- 15% --
+100005B8 000005DC
+-- 30% --
+100005B8 00000BB8
+-- 45% --
+100005B8 00001194
+-- 60% --
+100005B8 00001770
+-- 75% --
+100005B8 00001D4C
+-- 100% --
+100005B8 00002710
