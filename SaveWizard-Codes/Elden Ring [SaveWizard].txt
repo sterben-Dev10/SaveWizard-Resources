@@ -19,9 +19,10 @@ these cheats can only be used if you USE THEM WITH SaveWizards Character Selecti
 Instructions: https://i.imgur.com/5bDYZTS.jpg
 
 [Mrhoofer]
-Change Level Code
+Change Level Code (May Not Work)
 28000060 000000XX
 Notes: XX = Level
+Use with SW character slot selector
 -- XX --
 01 = Lvl 1
 05 = Lvl 5
