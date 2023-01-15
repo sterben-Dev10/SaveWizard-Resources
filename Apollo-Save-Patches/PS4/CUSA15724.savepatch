@@ -1,0 +1,291 @@
+;CUSA15724
+;PS4 Dragon Star Varnir
+;source: XxUnkn0wnxX
+
+:*
+[INFO:Dragon Star Varnir Cheats]
+[INFO:Backup your save before using]
+
+[Money (Gold) x999999999999]
+A0009670 00000008
+FF0FA5D4 E8000000
+
+[Main Character's Madness 0%]
+100005B8 00000000
+
+[Main Character's Madness 15%]
+100005B8 000005DC
+
+[Main Character's Madness 30%]
+100005B8 00000BB8
+
+[Main Character's Madness 45%]
+100005B8 00001194
+
+[Main Character's Madness 60%]
+100005B8 00001770
+
+[Main Character's Madness 75%]
+100005B8 00001D4C
+
+[Main Character's Madness 100%]
+100005B8 00002710
+
+;Uncomment & fill out template if you need a custom value
+;[Main Character's Madness Levels Template]
+;100005B8 0000ZZZZ
+
+;-- ZZ --
+;2710 - 10000 - 100%
+;2328 - 9000 - 90%
+;1F40 - 8000 - 80%
+;1B58 - 7000 - 70%
+;1770 - 6000 - 60%
+;1388 - 5000 - 50%
+;0FA0 - 4000 - 40%
+;0BB8 - 3000 - 30%
+;07D0 - 2000 - 20%
+;03E8 - 1000 - 10%
+;0000 - 0000 - 0%
+
+;Uncomment the below cheat if you need to have every possible quality of said item.
+;[Max All Inventory Slots x255]
+;-- INV Start --
+;95000000 00009694
+;-- Base Quality --
+;48000000 000000FF
+;4FFB0030 00000000 
+;-- +1 Quality --
+;48000002 000000FF
+;4FFB0030 00000000 
+;-- +2 Quality -- 
+;48000004 000000FF
+;4FFB0030 00000000 
+;-- +3 Quality -- 
+;48000006 000000FF
+;4FFB0030 00000000 
+;-- +4 Quality -- 
+;48000008 000000FF
+;4FFB0030 00000000 
+;-- +5 Quality -- 
+;4800000A 000000FF
+;4FFB0030 00000000 
+;-- +6 Quality -- 
+;4800000C 000000FF
+;4FFB0030 00000000 
+;-- +7 Quality -- 
+;4800000E 000000FF
+;4FFB0030 00000000 
+;-- +8 Quality -- 
+;48000010 000000FF
+;4FFB0030 00000000 
+;-- +9 Quality -- 
+;48000012 000000FF
+;4FFB0030 00000000 
+;-- +10 Quality -- 
+;48000014 000000FF
+;4FFB0030 00000000
+
+[Max All Items & Best Quality Gear +10 x255]
+95000000 00009694
+48000000 000000FF
+4FFB0030 00000000 
+48000014 000000FF
+4FFB0030 00000000
+
+[GROUP:Characters Cheats]
+[INFO:To apply XP win a battle]
+;Uncomment The cheat & lines for the effected characters
+;otherwise ignore this if your not sure, use the default enabled cheats.
+;-- Characters --
+;XP Template
+;-- Zephy --
+;20001088 VVVVVVVV
+;-- Minessa --
+;20001138 VVVVVVVV
+;-- Karikaro --
+;200011E8 VVVVVVVV
+;-- Laponette --
+;20001298 VVVVVVVV
+;-- Charlotta --
+;20001348 VVVVVVVV
+;-- Faria --
+;200013F8 VVVVVVVV
+
+;-- VVVV --
+;000004F1 - 1265 [Lv11]
+;000F4240 - 1000000 [Lv51]
+;01D905C0 - 31000000 [Lv99]
+;3B9AC9FF - 999999999 [Max Lv999]
+
+;Uncomment The cheat & lines for the effected characters
+;otherwise ignore this if your not sure, use the default enabled cheats.
+;[Factor Points x9999999]
+;-- Zephy --
+;20001094 0098967F
+;-- Minessa --
+;20001144 0098967F
+;-- Karikaro --
+;200011F4 0098967F
+;-- Laponette --
+;200012A4 0098967F
+;-- Charlotta --
+;20001348 0098967F
+;-- Faria --
+;20001404 0098967F
+
+;Uncomment The cheat & lines for the effected characters
+;otherwise ignore this if your not sure, use the default enabled cheats.
+;[Bond x999]
+;-- Minessa --
+;20009620 000003E7
+;-- Karikaro --
+;20009624 000003E7
+;-- Laponette --
+;20009628 000003E7
+;-- Charlotta --
+;2000962C 000003E7
+;-- Faria --
+;20009630 000003E7
+
+;ENABLED CHEATS START HERE
+[All Characters XP, Factor Points]
+95000000 00001080
+;-- Max XP --
+4A000008 3B9AC9FF
+400600B0 00000000
+;-- Factor Points --
+4A000014 0098967F
+400600B0 00000000
+
+[All Characters Bond x999]
+42009620 000003E7
+40050004 00000000
+
+[GROUP:Little Sisters Cheats]
+[INFO:will still have to feed 1 meat in-game for fullness to take effect]
+;Uncomment below lines if you know how to use the template
+;[Little Sisters Status Template]
+;-- Monet --
+;10009636 0000GGGG <-- Dragon Growth
+;10009638 0000LLLL <-- Food Fullness
+;1000963A 0000MMMM <-- Madness
+;-- Chiquita --
+;10009642 0000GGGG <-- Dragon Growth
+;10009644 0000LLLL <-- Food Fullness
+;10009646 0000MMMM <-- Madness
+;-- Pio --
+;1000964E 0000GGGG <-- Dragon Growth
+;10009650 0000LLLL <-- Food Fullness
+;10009652 0000MMMM <-- Madness
+
+;-- All Sisters --
+;41009636 0000GGGG <-- Dragon Growth
+;4003000C 00000000
+;41009638 0000LLLL <-- Food Fullness
+;4003000C 00000000
+;4100963A 0000MMMM <-- Madness
+;4003000C 00000000
+
+;-- GG --
+;0000 -     0  | No Growth
+;1194 -  4500  | Half Way
+;2328 -  9000  | Almost Full
+;2648 -  9800  | Critical Full
+;270F -  9999  | Mega Critical Full
+;2710 -  10000 | They Run Away
+
+;-- LL --
+;0064 - 100  | Fullness: Small
+;01F4 - 500  | Fullness: Half
+;0384 - 900  | Fullness: Almost Max
+;03E8 - 1000 | Fullness: Max
+
+;-- MM --
+;0000 -   0  | Happy (Green)
+;0064 - 100  | Sad (Blue)
+;00C8 - 200  | Upset (Orange) - LV1
+;012C - 300  | Upset (Orange) - Lv2
+;0190 - 400  | Angry (Red) - LV1
+;01F4 - 500  | Angry (Red) - LV2
+;0258 - 600  | Angry (Red) - LV3
+;02BC - 700  | Insane (Purple) - LV1
+;0320 - 800  | Insane (Purple) - LV2
+;0384 - 900  | Insane (Purple) - LV3
+;03E8 - 1000 | Gone Mad (Runaway)
+
+[Monet Max Growth, Fullness, Insane]
+10009636 0000270F
+10009638 000003E8
+1000963A 00000384
+
+[Chiquita Max Growth, Fullness, Insane]
+10009642 0000270F
+10009644 000003E8
+10009646 00000384
+
+[Pio Max Growth, Fullness, Insane]
+1000964E 0000270F
+10009650 000003E8
+10009652 00000384
+
+[All Little Sisters No Growth, No Fullness & Happy]
+41009636 00000000
+4003000C 00000000
+41009638 00000000
+4003000C 00000000
+4100963A 00000000
+4003000C 00000000
+
+[All Little Sisters Max Growth, Fullness, Insane]
+41009636 0000270F
+4003000C 00000000
+41009638 000003E8
+4003000C 00000000
+4100963A 00000384
+4003000C 00000000
+
+[All Little Sisters Runaway On Load]
+41009636 00002710
+4003000C 00000000
+41009638 000003E8
+4003000C 00000000
+4100963A 000003E8
+4003000C 00000000
+
+[GROUP:Little Sisters Remove/Add Back]
+[Add Back Monet]
+00009634 00000000
+0000963C 00000000
+
+[Add Back Chiquita]
+00009640 00000000
+00009648 00000000
+
+[Add Back Pio]
+0000964C 00000000
+00009654 00000000
+
+[Add Back All Sisters]
+40009634 00000000
+4003000C 00000000
+4000963C 00000000
+4003000C 00000000
+
+[Remove Monet]
+00009634 00000001
+0000963C 00000007
+
+[Remove Chiquita]
+00009640 00000001
+00009648 00000007
+
+[Remove Pio]
+0000964C 00000001
+00009654 00000007
+
+[Remove All Sisters]
+40009634 00000001
+4003000C 00000000
+4000963C 00000007
+4003000C 00000000

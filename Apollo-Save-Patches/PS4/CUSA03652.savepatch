@@ -1,0 +1,57 @@
+; Mafia III
+; CUSA03652
+; by bucanero
+; based on https://github.com/XB36Hazard/vantage-editor-mafia-iii/
+
+:*
+
+[Wallet $99999999]
+search "m_StashValue"
+write next 0x3C:0xFFE0F505
+
+[Stash $99999999]
+search "m_StashValue"
+write next 0x4C:0xFFE0F505
+
+[6 Medkits]
+search "m_MedkitCnt"
+write next 0x4E1:0x06000000
+
+[Max Weapon 1 Bullets]
+search "m_AmmoInWeap"
+write next 0xDB:0xFFE0F505
+
+[Max Weapon 1 Clips]
+search 0x066d5f416d6d6f
+write next 0x47:0xFFE0F505
+
+[Max Weapon 2 Bullets]
+search "m_AmmoInWeap"
+write next 0x1DF:0xFFE0F505
+
+[Max Weapon 2 Clips]
+search 0x066d5f416d6d6f
+write next 0x17F:0xFFE0F505
+
+[7 Frag Grenades]
+search 0x066d5f416d6d6f
+write next 0x117:0x07000000
+
+[5 Molotov Cocktails]
+search 0x066d5f416d6d6f
+write next 0xAF:0x05000000
+
+[7 Proximity Mines]
+search 0x066d5f416d6d6f
+write next 0x7B:0x07000000
+
+[7 Screaming Zemi]
+search 0x066d5f416d6d6f
+write next 0xE3:0x07000000
+
+[Update CRC32 (Required)]
+set pointer:EOF-3
+set range:0x0000,pointer
+set [hash]:CRC32
+set [hash]:endian_swap
+write next (0):[hash]

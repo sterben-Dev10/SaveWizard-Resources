@@ -1,9 +1,37 @@
-;CUSA12031
-;PS4 Kingdom Hearts III
+; Kingdom Hearts III
+; CUSA12031
+; by bucanero
+; based on https://github.com/Xeeynamo/KingdomSaveEditor/
+
+:*
+
+[Munny $9999999]
+20000028 0098967F
+
+[Total Exp 9999999]
+20000024 0098967F
+
+[Display Level 99]
+0000002C 00000063
+
+[99 Bonus HP]
+0000B414 00000063
+
+[99 Bonus MP]
+0000B418 00000063
+
+[99 Bonus Strength]
+0000B41C 00000063
+
+[99 Bonus Magic]
+0000B420 00000063
+
+[99 Bonus Defense]
+0000B424 00000063
+
 ;source: themaximum.com.b
 ;Automated & simplified file by @officialahmed0
 
-:*
 [INFO:Untested - Make sure to backup your save data first]
 
 [Sinalizadores de item. (Define como se você os tivesse antes)]
@@ -24,10 +52,15 @@
 4100102A 00000D63
 400E0002 00000000
 
-
 [Atalho 2 Editar]
 0000BEA8 00000096
 0000BEAC 00000097
 0000BEB0 00000098
 0000BEB4 0000008B
 
+; checksum by Bucanero
+[Update CRC32 (Required)]
+set range:0x0010,EOF+1
+set [hash]:CRC32
+set [hash]:endian_swap
+write at 0x0C:[hash]
