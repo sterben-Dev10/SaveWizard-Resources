@@ -1,0 +1,54 @@
+;CUSA13463
+;PS4 They Are Billions
+;source: XxUnkn0wnxX
+
+:*
+[INFO:They Are Billions Cheats]
+[INFO:Backup your save before using]
+
+[INFO:Using Money Value Offset (Works Any Game Mode)]
+[Set Resources To Max Cap]
+B0010004 F00A0000
+93000000 00000010
+4A000000 0098967F
+40050004 00000000
+
+;Template:
+;B0010004 ZZZZZZZZ
+;93000000 00000010
+;4A000000 XXXXXXXX
+;40050004 00000000
+
+;Where Z, Money value
+;Where X, Value to set money & all resources
+
+;Possible Values:
+;Hex-Dec
+;3B9AC9FF = 999999999
+;0098967F = 9999999
+;000F423F = 999999
+;00001388 = 5000
+;000003E7 = 999
+
+[INFO:Must be at full health 1st]
+[INFO:command center will ask for repair on load, don't as it will reset it.]
+[Set Command Center Health to 9999999]
+80010004 88130000
+28000000 0098967F
+
+[GROUP:-- Campaign Cheats --]
+[INFO:wait for the train to arrive at least once]
+[Set Resources To Max Cap]
+80010017 54726169
+6E20746F 20436F6D
+6D616E64 2043656E
+74657200 00000000
+4A0001C0 0098967F
+40050004 00000000
+
+[GROUP:-- Survival Only Cheats --]
+[INFO:Uses Header Info To Target]
+[Set Resources To Max Cap]
+C0020008 0000034A
+4A000051 0098967F
+40050004 00000000

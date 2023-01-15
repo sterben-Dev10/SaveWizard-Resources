@@ -1,0 +1,36 @@
+; Kingdom Hearts III
+; CUSA12025
+; by bucanero
+; based on https://github.com/Xeeynamo/KingdomSaveEditor/
+
+:*
+
+[Munny $9999999]
+20000028 0098967F
+
+[Total Exp 9999999]
+20000024 0098967F
+
+[Display Level 99]
+0000002C 00000063
+
+[99 Bonus HP]
+0000B414 00000063
+
+[99 Bonus MP]
+0000B418 00000063
+
+[99 Bonus Strength]
+0000B41C 00000063
+
+[99 Bonus Magic]
+0000B420 00000063
+
+[99 Bonus Defense]
+0000B424 00000063
+
+[Update CRC32 (Required)]
+set range:0x0010,EOF+1
+set [hash]:CRC32
+set [hash]:endian_swap
+write at 0x0C:[hash]
