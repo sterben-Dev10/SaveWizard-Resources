@@ -18,6 +18,21 @@ Using These ONLINE Will result in a BAN!
 these cheats can only be used if you USE THEM WITH SaveWizards Character Selection options
 Instructions: https://i.imgur.com/5bDYZTS.jpg
 
+[Mrhoofer]
+Change Level Code
+28000060 000000XX
+Notes: XX = Level
+-- XX --
+01 = Lvl 1
+05 = Lvl 5
+0A = Lvl 10
+0F = Lvl 15
+32 = Lvl 50
+63 = Lvl 99
+FF = Lvl 255
+
+For custom value refer to: https://www.save-editor.com/tools/wse_hex.html
+
 [Mhallice#1926] [Method#5832] (Modded ver using skillers Equipment Mod Template)
 Change Item Upgrade Level (Template) [V2]
 -- Start --
