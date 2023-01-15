@@ -9,6 +9,7 @@ https://qcgenerators.com
 [Boosting/Teaming Up](https://discord.gg/GPpWCgw6uy)  
 [Code Save Trophy PS4](https://discord.gg/kURVD5TFTc)  
 [XDG Nation](https://discord.gg/P7WWvf6xPP)  
+[GTA Dark Server](https://discord.gg/savewizard)  
 
 **Resources**  
 Slayer's Ice Realm Code Vault: [Slayer's Code Vault](https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY)  
