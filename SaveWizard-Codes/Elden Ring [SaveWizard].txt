@@ -19,18 +19,23 @@ these cheats can only be used if you USE THEM WITH SaveWizards Character Selecti
 Instructions: https://i.imgur.com/5bDYZTS.jpg
 
 [Mrhoofer]
-Change Level Code (May Not Work)
-28000060 000000XX
+Change Level Code [Must Use with SW Built-in Character Slots]
+28000060 XXXXXXXX
 Notes: XX = Level
 Use with SW character slot selector
 -- XX --
-01 = Lvl 1
-05 = Lvl 5
-0A = Lvl 10
-0F = Lvl 15
-32 = Lvl 50
-63 = Lvl 99
-FF = Lvl 255
+00000001 = Lvl 1
+00000005 = Lvl 5
+0000000A = Lvl 10
+0000000F = Lvl 15
+00000032 = Lvl 50
+00000063 = Lvl 99
+000000FF = Lvl 255
+000001F4 = Lvl 500
+000003E7 = Lvl 999
+000003E8 = Lvl 1000
+0000270F = Lvl 9999
+7FFEB940 = Lvl 2147400000 - may crash game
 
 For custom value refer to: https://www.save-editor.com/tools/wse_hex.html
 
