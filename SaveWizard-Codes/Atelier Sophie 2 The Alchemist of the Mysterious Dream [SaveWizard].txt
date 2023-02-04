@@ -100,7 +100,7 @@ Example: Eaglescope
 8001000C 6D5F756E	
 69744261 736B6574	
 92000000 00000013 <-- YYY [013] Slot 1
-08000000 00000007 <-- AA [0007] Item Amount: x7
+08000000 00000007 <-- AA [07] Item Amount: x7
 18000002 00000232 <-- IIII [0232] Item ID: Eaglescope
 18000004 000003E7 <-- QQQQ [03E7] Item Quality: x999
 18000008 00000116 <-- TTTT [0116] Trait 1: All-Stat Power
@@ -254,7 +254,7 @@ Example: Breezy Aroma, Lebestrahl and Moonless Mist
 8001000C 6D5F756E
 69744261 736B6574
 92000000 00000013 <-- YYY [013] Slot 1
-08000000 00000007 <-- AA [0007] Item Amount: x7
+08000000 00000007 <-- AA [07] Item Amount: x7
 18000002 00000147 <-- IIII [0147] Item ID: Breezy Aroma
 18000004 000003E7 <-- QQQQ [03E7] Item Quality: x999
 18000008 0000002D <-- TTTT [002D] Trait 1: Tremendous Healing
@@ -265,7 +265,7 @@ Example: Breezy Aroma, Lebestrahl and Moonless Mist
 18000012 00000449 <-- EEEE [0449] Effect 3: Activate Division
 08000022 00000032 <-- UU [32] Item Uses: x50
 92000000 0000002C <-- YYY [02C] Slot 2
-08000000 00000007 <-- AA [0007] Item Amount: x7
+08000000 00000007 <-- AA [07] Item Amount: x7
 18000002 0000014C <-- IIII [014C] Item ID: Lebestrahl
 18000004 000003E7 <-- QQQQ [03E7] Item Quality: x999
 18000008 000001EA <-- TTTT [01EA] Trait 1: Demon Heal
@@ -277,7 +277,7 @@ Example: Breezy Aroma, Lebestrahl and Moonless Mist
 18000014 0000044C <-- EEEE [044C] Effect 4: Auto Activate 50%
 08000022 00000032 <-- UU [32] Item Uses: x50
 92000000 0000002C <-- YYY [02C] Slot 3
-08000000 00000007 <-- AA [0007] Item Amount: x7
+08000000 00000007 <-- AA [07] Item Amount: x7
 18000002 00000166 <-- IIII [0166] Item ID: Moonless Mist
 18000004 000003E7 <-- QQQQ [03E7] Item Quality: x999
 18000008 00000163 <-- TTTT [0163] Trait 1: Spine-Chilling
