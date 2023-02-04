@@ -111,7 +111,7 @@ Example: Eaglescope
 18000012 00000834 <-- EEEE [0834] Effect 3: Critical Boost +30%
 18000014 0000082F <-- EEEE [082F] Effect 4: Critical Rate +15%
 
-Item Adder Template Multi Builder (Multiple) - [This Code Adds stuff to your basket	]
+Item Adder Template Multi Builder (Multiple) - [This Code Adds stuff to your basket]
 -- Starts Here --	
 8001000C 6D5F756E	
 69744261 736B6574
