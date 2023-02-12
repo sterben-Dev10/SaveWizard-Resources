@@ -27,7 +27,7 @@ Max Harper RP: (Level 101) | Apply 1st
 Notes:
 Use Max Harper RP code then complete 1 daily/weekly Harper bounty to level up. Do this 1st.
 
-Max Hunter Tokens (200,000) Pt1
+Max Hunter Tokens (200,000)
 8001001A 53617665
 67616D65 3A3A506C
 73526577 6172643A
@@ -42,7 +42,7 @@ CC010008 00000000
 28000004 00030D40
 95000000 00000000
 
-Max Harper Tokens (200,000) Pt2
+Max Harper Tokens (200,000)
 8001001A 53617665
 67616D65 3A3A506C
 73526577 6172643A
@@ -87,7 +87,7 @@ Max Event Exp
 Notes:
 Change # = Event
 1 = Halloween
-2 =
+2 = Winter
 3 =
 4 =
 5 =
@@ -96,6 +96,21 @@ Change # = Event
 8 =
 9 =
 
+Legend Level Exp Mod
+8001000E 0C004C65
+67656E64 506F696E
+74730000 00000000
+28000012 XXXXXXXX
+Notes: XX = Value
+-- XX --
+7FFEB940 = 2147400000
+3B9AC9FF = 999999999
+0098967F = 9999999
+000F423F = 999999
+0000270F = 9999
+000003E8 = 1000
+000003E7 = 999
+000001F4 = 500
 
 [Method#5832]
 
@@ -411,11 +426,11 @@ Item Swap Template (Updated)
 67616D65 3A3A506C
 73526577 6172643A
 3A537461 74650000
-B80100ZZ SSSSSSSS <-- S = ID Goes Here for item you are sacrificing, Z = First Value (Refer To ID's)
+B80100XX SSSSSSSS <-- S = ID Goes Here for item you are sacrificing, X = First Value (Refer To ID's)
 SSSSSSSS SSSSSSSS
 92000000 00000001
 A8000000 000000XX <-- X = First Value 
-VVVVVVVV VVVVVVVV <-- V = ID Goes Here for item being swapped to, Z = First Value (Refer To ID's)
+VVVVVVVV VVVVVVVV <-- V = ID Goes Here for item being swapped to, X = First Value (Refer To ID's)
 VVVVVVVV 00000000
 95000000 00000000
 
