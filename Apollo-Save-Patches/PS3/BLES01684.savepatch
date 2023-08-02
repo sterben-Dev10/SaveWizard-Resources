@@ -1,7 +1,8 @@
-[INFO: Some patches may not be supported by BSD yet]
-; Borderlands 2
 ; BLES01684
+; Borderlands 2
 ;From Game Genie For PS3
+
+[INFO: Some patches may not be supported by BSD yet]
 
 :BLES01684-SAVE-*\SAVE*
 [Level 50 (Not Working)]

@@ -1,4 +1,8 @@
+; BLES01731
+; South Parkâ„¢: The Stick of Truth
+
 :SYS-DATA
+
 [Max Experience]
 write at 0x0008B930:0x271000
 
@@ -34,9 +38,3 @@ write next (1660):0x05F5E100
 [CANADIAN MONEY]
 search 0x53CB55CF
 write next (1708):0x000F41DC
-
-
-; BLES01731
-; South Park™: The Stick of Truth
-
-

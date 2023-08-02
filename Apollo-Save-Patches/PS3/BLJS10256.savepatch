@@ -5,6 +5,15 @@
 
 :STAGE.BIN
 
+[WADD Checksum Init (Required)]
+set [value]:read(0x0, 2)
+set [value]:endian_swap
+set [csum]:0
+set [csum]:wadd_le(0x00002,0x044060)
+set [csum]:right([csum],2)
+set [hash]:0
+set [hash]:[value]-[csum]
+
 [MAX FUNDS 99,999,999]
 20000440 FFE0F505
 
@@ -78,3 +87,12 @@
 400E0001 00000000
 4000018A 000000FF
 40120001 00000000
+
+[WADD Checksum Update (Required)]
+set [csum]:0
+set [csum]:wadd_le(0x00002,0x044060)
+set [csum]:right([csum],2)
+set [hash]:[hash]+[csum]
+set [hash]:right([hash],2)
+set [hash]:endian_swap
+write at 0x00:[hash]

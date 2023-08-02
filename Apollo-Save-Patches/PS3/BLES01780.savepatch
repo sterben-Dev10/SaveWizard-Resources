@@ -1,7 +1,8 @@
-[INFO: Same patches may not be supported by BSD yet]
-; Tomb Raider
 ; BLES01780
+; Tomb Raider
 ;From Game Genie For PS3
+
+[INFO: Same patches may not be supported by BSD yet]
 
 :SYS-DATA
 [Skill Point(s) 255]

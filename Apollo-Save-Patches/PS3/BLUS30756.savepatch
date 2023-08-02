@@ -1,7 +1,8 @@
-[INFO: Some patches may not be supported by BSD yet]
-; Prototype 2
 ; BLUS30756
+; Prototype 2
 ;From Game Genie For PS3
+
+[INFO: Some patches may not be supported by BSD yet]
 
 :BLUS30756-DATA-*\CRC.BIN
 ; type: hidden

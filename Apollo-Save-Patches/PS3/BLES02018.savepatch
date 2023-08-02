@@ -1,6 +1,5 @@
-; BLES0218
+; BLES02018
 ; TRANSFORMERS: Rise of the Dark Spark
-
 
 :BLES0218-PROFILE\PAYLOAD
 
@@ -10,5 +9,3 @@ set pointer:eof+1
 set range:0x000014,pointer
 set [hash]:SHA1
 write at 0x000000:[hash]
-
-

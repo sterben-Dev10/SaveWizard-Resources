@@ -1,7 +1,8 @@
-[INFO: Same patches may not be supported by BSD yet]
-; Army of TWO: The Devil's Cartel
 ; BLUS31069
+; Army of TWO: The Devil's Cartel
 ; From KE-HA
+
+[INFO: Same patches may not be supported by BSD yet]
 
 :USR-DATA
 [Cash $999000]

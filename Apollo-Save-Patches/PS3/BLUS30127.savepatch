@@ -1,7 +1,8 @@
-[RED:INFO: Some patches may not be supported by BSD yet]
-; Grand Theft Auto IV / Grand Theft Auto: Episodes From Liberty City
 ; BLUS30127
+; Grand Theft Auto IV / Grand Theft Auto: Episodes From Liberty City
 ;From Game Genie For PS3
+
+[INFO: Some patches may not be supported by BSD yet]
 
 :BLUS30127SGTA4*\RAGE.SAV
 
