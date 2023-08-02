@@ -399,7 +399,7 @@ XXXXXXXX of all Resources all locations:
 4A00005C XXXXXXXX
 40280098 00000000
 
-V2 all resources: (spreadsheet)
+all resources ALT: (spreadsheet)
 8001000A D5988217
 05F1C489 55290000
 92000000 0000000D
