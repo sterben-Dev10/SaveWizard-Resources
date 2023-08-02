@@ -371,7 +371,7 @@ Birth of a legend/growth of a legend trophy quick code (complete delivery after 
 4A0005D1 00000050
 400A0004 00000000
 
-Max porter grade (complete a delivery to get all the upgrades:
+Max porter grade (complete a delivery to get all the upgrades):
 80010004 9B21C18E
 A8000011 00000028
 FFE30B54 02000000
