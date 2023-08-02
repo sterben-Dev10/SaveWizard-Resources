@@ -1,7 +1,8 @@
-[INFO: Some patches may not be supported by BSD yet]
-; 3D Dot Game Heroes
 ; BLUS30490
+; 3D Dot Game Heroes
 ;From Game Genie For PS3
+
+[INFO: Some patches may not be supported by BSD yet]
 
 :BLUS30490GAME-DATA*\DATA.SAV
 

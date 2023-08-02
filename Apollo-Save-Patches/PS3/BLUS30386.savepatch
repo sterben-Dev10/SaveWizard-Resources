@@ -1,7 +1,8 @@
-[INFO: Some patches may not be supported by BSD yet]
-; Borderlands
 ; BLUS30386
+; Borderlands
 ;From Game Genie For PS3
+
+[INFO: Some patches may not be supported by BSD yet]
 
 :BLUS30386-PROFILE\PAYLOAD
 

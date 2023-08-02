@@ -2,7 +2,7 @@
 ;Fight Night Champion
 ;From zeick & unostar
  
-:NPUB3059502*/SYS-DATA
+:NPUB3059502*\SYS-DATA
 
 [Group:Legacy Mode]
 
@@ -130,7 +130,7 @@ set range:0x1C,0x81B33B
 set [hash]:crc32
 write at 0x10:[hash]
 
-:NPUB3059506*/SYS-DATA
+:NPUB3059506*\SYS-DATA
 
 [Group:Online Boxer]
 

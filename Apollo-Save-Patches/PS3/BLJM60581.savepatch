@@ -1,5 +1,5 @@
+; BLJM60581
 ;Pro Yakyuu Spirits 2013
-;BLJM60581
 ;From KE-HA and savedata.jp
 
 ; --- System Data ---
@@ -12,7 +12,7 @@
 
 ; --- Grand Prix Data ---
 
-:BLJM60581-GPX-**/GRNDPRIX.DAT
+:BLJM60581-GPX-*\GRNDPRIX.DAT
 
 ;From Mohe
 [Spi Coin 9999999]
@@ -23,7 +23,7 @@
 
 ; --- Star Player Data ---
 
-:BLJM60581-SPL-**/STARPLYR.DAT
+:BLJM60581-SPL-*\STARPLYR.DAT
 
 ;From Mohe
 [Pitcher Exp All 999999]
@@ -46,7 +46,7 @@
 
 ; --- Management Data ---
 
-:BLJM60581-FRG-**/FRNGAME.DAT
+:BLJM60581-FRG-*\FRNGAME.DAT
 
 ;From Mohe
 [Exp All 99999]

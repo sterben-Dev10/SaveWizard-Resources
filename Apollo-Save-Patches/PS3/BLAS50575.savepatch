@@ -1,5 +1,5 @@
+; BLAS50575
 ;Pro Yakyuu Spirits 2013
-;BLAS50575
 ;From KE-HA and savedata.jp
 
 ; --- System Data ---
@@ -12,7 +12,7 @@
 
 ; --- Grand Prix Data ---
 
-:BLAS50575-GPX-**/GRNDPRIX.DAT
+:BLAS50575-GPX-*\GRNDPRIX.DAT
 
 ;From Mohe
 [Spi Coin 9999999]
@@ -23,7 +23,7 @@
 
 ; --- Star Player Data ---
 
-:BLAS50575-SPL-**/STARPLYR.DAT
+:BLAS50575-SPL-*\STARPLYR.DAT
 
 ;From Mohe
 [Pitcher Exp All 999999]
@@ -46,7 +46,7 @@
 
 ; --- Management Data ---
 
-:BLAS50575-FRG-**/FRNGAME.DAT
+:BLAS50575-FRG-*\FRNGAME.DAT
 
 ;From Mohe
 [Exp All 99999]

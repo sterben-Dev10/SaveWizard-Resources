@@ -1,7 +1,8 @@
-[INFO: Some patches may not be supported by BSD yet]
-; Conan
 ; BLES00076
+; Conan
 ;From Game Genie For PS3
+
+[INFO: Some patches may not be supported by BSD yet]
 
 :BLES00076SAVE*\RPGDATA.NSG
 :BLES00076_PREFS\PROFILE.NSI

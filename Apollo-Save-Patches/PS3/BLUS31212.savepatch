@@ -1,13 +1,11 @@
-[INFO: Same patches may not be supported by BSD yet]
-; Kingdom Hearts Final Mix
 ; BLUS31212
+; Kingdom Hearts Final Mix
 ; From bokosukagames, savedata.jp, krustytoe and wilhitewarrior
+
+[INFO: Same patches may not be supported by BSD yet]
 
 ; --- KINGDOM HEARTS FINAL MIX ---
 ;PS: Only work on save number 1 of the 99 list
-
-
-
 
 :USR-01
 

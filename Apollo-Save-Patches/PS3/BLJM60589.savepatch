@@ -1,7 +1,8 @@
-[INFO: Same patches may not be supported by BSD yet]
-; Kingdom Hearts HD 1.5 ReMIX
 ; BLJM60589
+; Kingdom Hearts HD 1.5 ReMIX
 ; dark nachos 
+
+[INFO: Same patches may not be supported by BSD yet]
 
 [Group:Kingdom Hearts Chain of Memories]
 
@@ -120,6 +121,3 @@
 set range:0x0010,eof+1
 set [hash]:khcom_checksum
 write at 0x00004:[hash]
-
-
-
