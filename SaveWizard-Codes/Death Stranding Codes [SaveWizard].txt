@@ -7,7 +7,19 @@ Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 
 -- I will keep this updated as long as I can, as updates made to the game do sometimes break codes & they do get updated 
 
-Credits: Derwangler, Skiller, Thela & Others...
+Credits: Derwangler, Skiller, Thela, XxUnkn0wnxX & Others...
+
+Max HP-Stamina (9999999)
+80010009 80BFFFFF
+FFFFFF42 60000000
+93000000 000000CD
+A8000000 00000030
+7F96184B 7F96184B
+7F96184B 7F96184B
+7F96184B 7F96184B
+7F96184B 7F96184B
+7F96184B 7F96184B
+7F96184B 7F96184B
 
 99999999 of all Resources all locations:
 8001000A D5988217
