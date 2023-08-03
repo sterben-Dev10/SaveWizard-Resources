@@ -507,3 +507,24 @@ other values in hex:
 00001388 (5000)
 00002710 (10000)
 000061A8 (25000)
+
+[XxUnkn0nwxX]
+
+Experimental Structures Upgrade/Repair Cheat:
+80010009 BFABAAAA 
+BFABAAAA 3F000000
+B8010004 FFFFFFFF
+93000000 00000088
+D8000000 05130005
+08000000 00000004
+A8000028 00000004
+7F96184B 00000000
+4A000034 0001869F
+40060004 00000000
+
+Note: this only writes once to the 1st found instance found for structures, 
+if anyone can think of a way to make this loop with just QC alone or some simpler method not using a custom python script be my guest, 
+a repeat write is impossible with QC alone since the data shifts between each section. sometimes the address spacing can be 200 bytes apart, sometimes less or more.
+
+one way would be to automate the search string like 1st result then 2nd result via some script combined with Apollo's CLI lib tools, however the max limit would be 255 searches which isn't enough..
+Doubt BSD scripts could accomplish this either..
