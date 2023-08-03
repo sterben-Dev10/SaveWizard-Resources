@@ -17,5 +17,5 @@ SW Discord Code Vault: [SW Code Vault](https://docs.google.com/spreadsheets/d/1p
 Skiller's Old Codes Archive: [Skillers World](https://drive.google.com/drive/folders/12PiWyP3uaSvMxTxc0FmA0utoOmWtzbER)  
 Chaoszage's Cheat Repository: https://chaoszage.blogspot.com  
 Apollo CLI Tool: [apollo-lib](https://github.com/bucanero/apollo-lib)  
-Save Patches: [ReadMe](Apollo-Save-Patches)
-
+Save Patches: [ReadMe](Apollo-Save-Patches)  
+Scripts: [Readme](Scripts)
