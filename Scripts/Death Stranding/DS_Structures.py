@@ -11,7 +11,7 @@ import argparse
 # Define values
 struct_lvl = 4 # Structure Level
 float_val = 9999999 # Structure Health
-struct_val = 99999 # Some other value regarding the structure
+struct_val = 99999 # Upgrade Stages?
 
 # struct_lvl = 4
 # float_val = 9999999
