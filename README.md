@@ -18,4 +18,4 @@ Skiller's Old Codes Archive: [Skillers World](https://drive.google.com/drive/fol
 Chaoszage's Cheat Repository: https://chaoszage.blogspot.com  
 Apollo CLI Tool: [apollo-lib](https://github.com/bucanero/apollo-lib)  
 Save Patches: [ReadMe](Apollo-Save-Patches)  
-Scripts: [Readme](Scripts)
+Scripts: [ReadMe](Scripts)
