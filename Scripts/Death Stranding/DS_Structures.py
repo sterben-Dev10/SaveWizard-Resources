@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-# Death Stranding All Structures Repair
+# Death Stranding All Structures Repair - PS4 Saves Only
 # ChatGPT Generated Script
 
 import struct
