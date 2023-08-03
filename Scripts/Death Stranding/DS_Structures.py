@@ -8,14 +8,26 @@ import sys
 import signal
 import argparse
 
-# Define values
-struct_lvl = 4 # Structure Level
-float_val = 9999999 # Structure Health
-struct_val = 99999 # Upgrade Stages?
+# Variables
+struct_lvl = 4 # Structure level, 4 = lvl 3
+float_val = 9999999.0 # Structure Health
+struct_val = 99999 # Upgrades
 
-# struct_lvl = 4
-# float_val = 9999999
-# struct_val = 99999
+# Defaults
+# struct_lvl = 4 
+# float_val = 9999999.0 
+# struct_val = 99999 
+
+# Check if struct_lvl exceeds 1 byte
+if not (0 <= struct_lvl <= 255):
+    raise ValueError("The value of struct_lvl must be between 0 and 255.")
+
+# Check if float_val or struct_val exceed 4 bytes
+if not (-2147483648 <= float_val <= 2147483647):
+    raise ValueError("The value of float_val must be between -2147483648 and 2147483647.")
+
+if not (0 <= struct_val <= 4294967295):
+    raise ValueError("The value of struct_val must be between 0 and 4294967295.")
 
 # Convert hex string to bytes
 first_hex = bytes.fromhex('BFABAAAABFABAAAA3F')
