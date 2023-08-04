@@ -10,7 +10,7 @@ import signal
 import argparse
 
 # Variables
-struct_lvl = 5 # Structure level, 4 = lvl 3
+struct_lvl = 4 # Structure level, 4 = lvl 3
 float_val = 2147483000.0 # Structure Health
 struct_val = 99999 # Upgrades
 
