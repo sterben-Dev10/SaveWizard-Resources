@@ -116,6 +116,7 @@ while True:
         if value < 5:
             # Increment edit count
             edit_count += 1
+            count += 1 # Count the successful modification
             is_successful_edit = True
 
             # Print pointer information for successful edit
