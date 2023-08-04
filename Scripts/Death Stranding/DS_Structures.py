@@ -10,7 +10,7 @@ import signal
 import argparse
 
 # Variables
-struct_lvl = 4 # Structure level, 4 = lvl 3
+struct_lvl = 5 # Structure level, 4 = lvl 3
 float_val = 2147483000.0 # Structure Health
 struct_val = 99999 # Upgrades
 
@@ -21,6 +21,9 @@ struct_val = 99999 # Upgrades
 
 # Initialize counter
 edit_count = 0
+
+# Count of modifications
+count = 0
 
 # Initialize global variable for successful edit status
 global is_successful_edit
@@ -99,9 +102,6 @@ content = bytearray(content)
 
 # Initial start index
 start_index = 0
-
-# Count of modifications
-count = 0
 
 # Process the --skipchecks argument
 skip_checks = []
