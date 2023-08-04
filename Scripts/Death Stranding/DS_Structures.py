@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 
 # Death Stranding All Structures Repair - PS4 Saves Only
@@ -10,13 +11,20 @@ import argparse
 
 # Variables
 struct_lvl = 4 # Structure level, 4 = lvl 3
-float_val = 9999999.0 # Structure Health
+float_val = 2147483000.0 # Structure Health
 struct_val = 99999 # Upgrades
 
 # Defaults
 # struct_lvl = 4 
 # float_val = 9999999.0 
 # struct_val = 99999 
+
+# Initialize counter
+edit_count = 0
+
+# Initialize global variable for successful edit status
+global is_successful_edit
+is_successful_edit = False
 
 # Check if struct_lvl exceeds 1 byte
 if not (0 <= struct_lvl <= 255):
@@ -46,31 +54,27 @@ def find_pointers(start_index, content):
     # Find first pointer
     first_pointer = content.find(first_hex, start_index)
     if first_pointer == -1:
-        print('End of File Reached')
-        return -1, -1
-    print(f'First pointer found at address: 0x{first_pointer:x}')
+        print('End of File Reached,')
+        return -1, -1, -1
 
     # Find second pointer backwards from the first pointer
     second_pointer = content.rfind(second_hex, 0, first_pointer)
     if second_pointer == -1:
-        print('Second hex not found')
-        return -1, -1
-    print(f'Second pointer found at address: 0x{second_pointer:x}')
+        return -1, -1, -1
 
     # Calculate third pointer
     third_pointer = second_pointer - 0x8C
     if third_pointer < 0:
-        print('Third pointer address is negative')
-        return -1, -1
-    print(f'Third pointer is at address: 0x{third_pointer:x}')
+        return -1, -1, -1
 
-    return first_pointer, third_pointer
+    return first_pointer, second_pointer, third_pointer
 
 # Create argument parser
 parser = argparse.ArgumentParser(description='Process a binary file.')
 parser.add_argument('file', type=str, help='Path to the file to process.')
 parser.add_argument('--times', type=int, help='Number of times to modify the file.')
 parser.add_argument('--bak', action='store_true', help='Create a backup of the original file.')
+parser.add_argument('--debug', action='store_true', help='Print debug information')
 args = parser.parse_args()
 
 # Get file path from command line arguments
@@ -95,53 +99,79 @@ start_index = 0
 count = 0
 
 while True:
-    print('---------------------------------------')
     # Find third pointer
-    first_pointer, third_pointer = find_pointers(start_index, content)
+    is_successful_edit = False
+    first_pointer, second_pointer, third_pointer = find_pointers(start_index, content)
 
     # Break if no more pointers can be found
     if third_pointer == -1:
         break
 
-    # Check first two bytes at third pointer
+    # Check first two bytes at third pointer, Inside the loop, increment the counter every time an edit is made
     value1, value2 = struct.unpack('<BB', content[third_pointer:third_pointer+2])
     if value1 in range(1, 255) and value2 in range(1, 255):
-        print(f'Values at third pointer are: {value1}, {value2}')
 
         # Check value at third pointer + 0x4
         value = struct.unpack('<B', content[third_pointer+0x4:third_pointer+0x5])[0]
         if value < 5:
-            print(f'Value at third pointer + 0x4 is: {value}')
+            # Increment edit count
+            edit_count += 1
+            is_successful_edit = True
+
+            # Print pointer information for successful edit
+            print(f'First pointer found at address: 0x{first_pointer:x}')
+            print(f'Second pointer found at address: 0x{second_pointer:x}')
+            print(f'Third pointer is at address: 0x{third_pointer:x}')
 
             # Write value at third pointer + 0x4
             content[third_pointer+0x4:third_pointer+0x5] = struct.pack('<B', struct_lvl)
-            print(f'Value {struct_lvl} written at third pointer + 0x4')
 
             # Write float value at third pointer + 0x2C
             content[third_pointer+0x2C:third_pointer+0x2C+4] = struct.pack('<f', float_val)
-            print(f'Float value {float_val} written at third pointer + 0x2C')
 
             # Write struct_val six times at third pointer + 0x38, each 4 bytes apart
             for i in range(6):
                 content[third_pointer+0x38+i*4:third_pointer+0x38+i*4+4] = struct.pack('<I', struct_val)
+
+            # Print information about what was written for successful edit
+            print(f'Value {struct_lvl} written at third pointer + 0x4')
+            print(f'Float value {float_val} written at third pointer + 0x2C')
             print(f'Value {struct_val} written six times at third pointer + 0x38, each 4 bytes apart')
+
+            if args.debug:
+                print(f'- Debug Check 1: 1st Two Values at third pointer are: {value1}, {value2}')
+                print(f'- Debug Check 2: 3rd Value at third pointer + 0x4 is: {value}')
+        else:
+            if args.debug:
+                print(f'First pointer found at address: 0x{first_pointer:x}')
+                print(f'Second pointer found at address: 0x{second_pointer:x}')
+                print(f'Third pointer is at address: 0x{third_pointer:x}')
+                print(f'- Debug Check 1: Success, values at third pointer are: {value1}, {value2}')
+                print('- Debug Check 2: 3rd Value at third pointer is not less than 5. Continuing to next pointer.')
     else:
-        print('Values at third pointer are not in range 1-254. Continuing to next pointer.')
+        if args.debug:
+            print(f'First pointer found at address: 0x{first_pointer:x}')
+            print(f'Second pointer found at address: 0x{second_pointer:x}')
+            print(f'Third pointer is at address: 0x{third_pointer:x}')
+            print('- Debug Check 1: 1st Two Values at third pointer are not in range 1-254. Continuing to next pointer.')
+
+
+    if is_successful_edit or args.debug:
+        print('---------------------------------------')
 
     # Update start index for next loop
     start_index = first_pointer + 1
-
-    # Increase count of modifications
-    count += 1
 
     # Stop if count reached the limit specified by --times
     if args.times is not None and count >= args.times:
         break
 
-# Overwrite the original file
-with open(file_path, 'wb') as f:
-    f.write(content)
+# Print the count of edits before saving the file
+print(f'Total edits made: {edit_count}')
 
-print()
-print()
+# Save the modified content to the file
+with open(args.file, 'wb') as f:
+    f.write(content)
+    
+print('---------------------------------------')
 print('File saved successfully')
