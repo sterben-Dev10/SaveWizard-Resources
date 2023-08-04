@@ -27,8 +27,8 @@ global is_successful_edit
 is_successful_edit = False
 
 # Check if struct_lvl exceeds 1 byte
-if not (0 <= struct_lvl <= 255):
-    raise ValueError("The value of struct_lvl must be between 0 and 255.")
+if not (0 <= struct_lvl <= 4):
+    raise ValueError("The value of struct_lvl must be between 0 and 4.")
 
 # Check if float_val or struct_val exceed 4 bytes
 if not (-2147483648 <= float_val <= 2147483647):

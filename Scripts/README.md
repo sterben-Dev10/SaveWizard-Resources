@@ -26,3 +26,14 @@ A collection of scripts that edit save files rather then using quickcode.
 `--debug` shows debug info as well as skipped edits
 
 > `python3 DS_Structures.py --debug checkpoint.dat`
+
+**Note:** if the game softlocks on you & unable to contribute to the bridge construction In order No. 10
+
+Edit the following varribles to following in the script:
+```
+struct_lvl = 1 
+float_val = 1000.0 
+struct_val = 0
+```
+
+which should erase any upgrades, set health to 1000 & set the bridge back to Lvl 1
