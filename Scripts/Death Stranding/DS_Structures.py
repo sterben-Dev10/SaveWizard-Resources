@@ -27,8 +27,12 @@ global is_successful_edit
 is_successful_edit = False
 
 # Check if struct_lvl exceeds 1 byte
-if not (0 <= struct_lvl <= 4):
-    raise ValueError("The value of struct_lvl must be between 0 and 4.")
+if not (0 <= struct_lvl <= 5):
+    raise ValueError("The value of struct_lvl must be between 0 and 5.")
+
+# Comment the above code then uncomment this if you want to mess with higher level above LVL 4
+# if not (0 <= struct_lvl <= 255):
+#    raise ValueError("The value of struct_lvl must be between 0 and 255.")
 
 # Check if float_val or struct_val exceed 4 bytes
 if not (-2147483648 <= float_val <= 2147483647):
@@ -75,6 +79,7 @@ parser.add_argument('file', type=str, help='Path to the file to process.')
 parser.add_argument('--times', type=int, help='Number of times to modify the file.')
 parser.add_argument('--bak', action='store_true', help='Create a backup of the original file.')
 parser.add_argument('--debug', action='store_true', help='Print debug information')
+parser.add_argument('--skipchecks', type=str, help='Specify checks to skip. Options: 1, 2, all, or a range like 1-2')
 args = parser.parse_args()
 
 # Get file path from command line arguments
@@ -98,6 +103,27 @@ start_index = 0
 # Count of modifications
 count = 0
 
+# Process the --skipchecks argument
+skip_checks = []
+if args.skipchecks:
+    if args.skipchecks.lower() == 'all':
+        skip_checks = [1, 2]  # Add the numbers of all checks here
+    elif ',' in args.skipchecks:
+        values = args.skipchecks.split(',')
+        if len(values) < 2 or not all(i.isdigit() for i in values):
+            raise ValueError("Invalid value for --skipchecks. Expecting two comma-separated numbers.")
+        skip_checks = [int(i) for i in values]
+    elif '-' in args.skipchecks:
+        values = args.skipchecks.split('-')
+        if len(values) < 2 or not all(i.isdigit() for i in values):
+            raise ValueError("Invalid value for --skipchecks. Expecting two dash-separated numbers.")
+        start, end = [int(i) for i in values]
+        skip_checks = list(range(start, end + 1))
+    elif args.skipchecks.isdigit():
+        skip_checks = [int(args.skipchecks)]
+    else:
+        raise ValueError("Invalid value for --skipchecks.")
+
 while True:
     # Find third pointer
     is_successful_edit = False
@@ -109,11 +135,12 @@ while True:
 
     # Check first two bytes at third pointer, Inside the loop, increment the counter every time an edit is made
     value1, value2 = struct.unpack('<BB', content[third_pointer:third_pointer+2])
-    if value1 in range(1, 255) and value2 in range(1, 255):
+    if 1 in skip_checks or (value1 in range(1, 255) and value2 in range(1, 255)):
 
         # Check value at third pointer + 0x4
         value = struct.unpack('<B', content[third_pointer+0x4:third_pointer+0x5])[0]
-        if value < 5:
+        if 2 in skip_checks or value < 5:
+            # Perform actions if check 2 is not skipped
             # Increment edit count
             edit_count += 1
             count += 1 # Count the successful modification
