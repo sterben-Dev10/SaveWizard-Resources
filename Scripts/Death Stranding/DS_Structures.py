@@ -139,7 +139,7 @@ while True:
 
         # Check value at third pointer + 0x4
         value = struct.unpack('<B', content[third_pointer+0x4:third_pointer+0x5])[0]
-        if 2 in skip_checks or value < 5:
+        if 2 in skip_checks or value <= 5:
             # Perform actions if check 2 is not skipped
             # Increment edit count
             edit_count += 1
@@ -175,7 +175,7 @@ while True:
                 print(f'Second pointer found at address: 0x{second_pointer:x}')
                 print(f'Third pointer is at address: 0x{third_pointer:x}')
                 print(f'- Debug Check 1: Success, values at third pointer are: {value1}, {value2}')
-                print('- Debug Check 2: 3rd Value at third pointer is not less than 5. Continuing to next pointer.')
+                print('- Debug Check 2: 3rd Value at third pointer is not less than or equal 5. Continuing to next pointer.')
     else:
         if args.debug:
             print(f'First pointer found at address: 0x{first_pointer:x}')
