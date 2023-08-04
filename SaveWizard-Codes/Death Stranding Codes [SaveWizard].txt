@@ -527,5 +527,5 @@ Note: this only writes once to the 1st found instance found for structures,
 if anyone can think of a way to make this loop with just QC alone or some simpler method not using a custom python script be my guest, 
 a repeat write is impossible with QC alone since the data shifts between each section. sometimes the address spacing can be 200 bytes apart, sometimes less or more.
 
-one way would be to automate the search string like 1st result then 2nd result via some script combined with Apollo's CLI lib tools, however the max limit would be 255 searches which isn't enough..
+one way would be to automate the search string like 1st result then 2nd result via some script combined with Apollo's CLI lib tools, however the max limit would be 4095 (FFF) searches which isn't enough..
 Doubt BSD scripts could accomplish this either..
