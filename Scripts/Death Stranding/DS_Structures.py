@@ -10,14 +10,26 @@ import signal
 import argparse
 
 # Variables
-struct_lvl = 4 # Structure level, 4 = lvl 3
-float_val = 2147483000.0 # Structure Health
-struct_val = 99999 # Upgrades
+struct_lvl = 3 # Structure Level
+float_health = 2147483000.0 # Structure Health
+struct_upgrade = 99999 # Upgrades & Controls Level
 
 # Defaults
-# struct_lvl = 4 
-# float_val = 9999999.0 
-# struct_val = 99999 
+# struct_lvl = 3 
+# float_health = 9999999.0 
+# struct_upgrade = 99999 
+
+# struct_lvl Controls wether Structure Health is applied depended on what this is set to
+# if set to level 2, the struct_upgrade needs to match the min amount of materials for level 2
+# if struct_lvl is set to 0,1,2,4,5 while the struct_upgrade is super maxed, I.E 9999999.0 
+# the float_health value will be ignored on load time & just max out to the in-game max
+# Example: 
+# struct_lvl = 1 
+# float_health = 10.0 
+# struct_upgrade = 10 
+# everything will be set to level 1 due to struct_upgrade being so low
+# & the struct_lvl matching the level 1 requirement, due to struct_lvl set to 1, float_health takes into effect
+# all buildings & road pavers will be rusted away.
 
 # Initialize counter
 edit_count = 0
@@ -31,18 +43,14 @@ is_successful_edit = False
 
 # Check if struct_lvl exceeds 1 byte
 if not (0 <= struct_lvl <= 5):
-    raise ValueError("The value of struct_lvl must be between 0 and 5.")
+    raise ValueError("The value of struct_lvl must be between 0 and 4.")
 
-# Comment the above code then uncomment this if you want to mess with higher level above LVL 4
-# if not (0 <= struct_lvl <= 255):
-#    raise ValueError("The value of struct_lvl must be between 0 and 255.")
+# Check if float_health or struct_upgrade exceed 4 bytes
+if not (-2147483648 <= float_health <= 2147483647):
+    raise ValueError("The value of float_health must be between -2147483648 and 2147483647.")
 
-# Check if float_val or struct_val exceed 4 bytes
-if not (-2147483648 <= float_val <= 2147483647):
-    raise ValueError("The value of float_val must be between -2147483648 and 2147483647.")
-
-if not (0 <= struct_val <= 4294967295):
-    raise ValueError("The value of struct_val must be between 0 and 4294967295.")
+if not (0 <= struct_upgrade <= 4294967295):
+    raise ValueError("The value of struct_upgrade must be between 0 and 4294967295.")
 
 # Convert hex string to bytes
 first_hex = bytes.fromhex('BFABAAAABFABAAAA3F')
@@ -155,16 +163,16 @@ while True:
             content[third_pointer+0x4:third_pointer+0x5] = struct.pack('<B', struct_lvl)
 
             # Write float value at third pointer + 0x2C
-            content[third_pointer+0x2C:third_pointer+0x2C+4] = struct.pack('<f', float_val)
+            content[third_pointer+0x2C:third_pointer+0x2C+4] = struct.pack('<f', float_health)
 
-            # Write struct_val six times at third pointer + 0x38, each 4 bytes apart
+            # Write struct_upgrade six times at third pointer + 0x38, each 4 bytes apart
             for i in range(6):
-                content[third_pointer+0x38+i*4:third_pointer+0x38+i*4+4] = struct.pack('<I', struct_val)
+                content[third_pointer+0x38+i*4:third_pointer+0x38+i*4+4] = struct.pack('<I', struct_upgrade)
 
             # Print information about what was written for successful edit
             print(f'Value {struct_lvl} written at third pointer + 0x4')
-            print(f'Float value {float_val} written at third pointer + 0x2C')
-            print(f'Value {struct_val} written six times at third pointer + 0x38, each 4 bytes apart')
+            print(f'Float value {float_health} written at third pointer + 0x2C')
+            print(f'Value {struct_upgrade} written six times at third pointer + 0x38, each 4 bytes apart')
 
             if args.debug:
                 print(f'- Debug Check 1: 1st Two Values at third pointer are: {value1}, {value2}')
