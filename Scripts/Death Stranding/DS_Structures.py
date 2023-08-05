@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 
 # Death Stranding All Structures Repair - PS4 Saves Only
