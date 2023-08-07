@@ -512,7 +512,7 @@ other values in hex:
 [XxUnkn0nwxX]
 
 Experimental Structures Upgrade/Repair Cheat:
-80020009 BFABAAAA 
+80010009 BFABAAAA 
 BFABAAAA 3F000000
 B8010004 FFFFFFFF
 93000000 0000008C
@@ -527,7 +527,7 @@ A800002C 00000004
 4A000038 0001869F
 40060004 00000000
 
-Note: this only writes once to the 1st found instance found for structures, 
+Note: this only writes once to the 1st found instance found for structures, change 8001 to 8002 if you want it to write something, by default it will skip due to checks as the 1st result does not match criteria.
 if anyone can think of a way to make this loop with just QC alone or some simpler method not using a custom python script be my guest, 
 a repeat write is impossible with QC alone since the data shifts between each section. sometimes the address spacing can be 200 bytes apart, sometimes less or more.
 
