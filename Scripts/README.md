@@ -33,7 +33,7 @@ A collection of scripts that edit save files rather then using quickcode.
 `--skipchecks` skips certain checks within the script that validate if it should write where it needs to.
 
 > `python3 DS_Structures.py checkpoint.dat --skipchecks all`  
-> **WARNING:** only use this if you edited like the level of the building higher then 3
+> **WARNING:** only use this if you know what you are doing & are not affraid of possible save corruption.
 > this is only ment for debug cases.
 
 `--debug2` restores the file form backup after writes.
