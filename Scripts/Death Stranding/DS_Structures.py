@@ -47,7 +47,7 @@ skip_checks = []
 
 # Check if struct_lvl exceeds 1 byte
 if not (0 <= struct_lvl <= 5):
-    raise ValueError("The value of struct_lvl must be between 0 and 4.")
+    raise ValueError("The value of struct_lvl must be between 0 and 5.")
 
 # Check if float_health or struct_upgrade exceed 4 bytes
 if not (-2147483648 <= float_health <= 2147483647):
