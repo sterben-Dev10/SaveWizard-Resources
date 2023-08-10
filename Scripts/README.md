@@ -12,7 +12,7 @@ A collection of scripts that edit save files rather then using quickcode.
 > Upgrades & Repairs all strctures to max level.
 > Usage: `python3 DS_Structures.py checkpoint.dat`
 
-##### Additinal Options
+##### Additional Options
 
 `--help` brings up the help menu
 
