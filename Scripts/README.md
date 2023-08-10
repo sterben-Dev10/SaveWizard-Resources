@@ -7,7 +7,7 @@ A collection of scripts that edit save files rather then using quickcode.
 `DS_Structures.py`  - PS4 Saves Only
 
 > Following Dependencies Required
-> `pip3 isntall colorama`
+> `pip3 install colorama`
 
 > Upgrades & Repairs all strctures to max level.
 > Usage: `python3 DS_Structures.py checkpoint.dat`
@@ -38,14 +38,16 @@ A collection of scripts that edit save files rather then using quickcode.
 
 `--debug2` restores the file form backup after writes.
 
+> `python3 DS_Structures.py checkpoint.dat --debug2`  
 > this is intedned to see what edits would have been made without making them.
 
 `--logs` Speicify a file to write logs to.
 
-> python3 DS_Structures.py checkpoint.dat --logs log1.txt
+> `python3 DS_Structures.py checkpoint.dat --logs log1.txt`
 
-`--roads` Attempt to incldue roads & misc stucutres missed by the main script.
+`--roads` Attempt to include roads & misc stucutres missed by the main script.
 
+> `python3 DS_Structures.py checkpoint.dat --roads`  
 > this is extremely experimental, expect game crashes or save corruption or soft locs. (missing interaction buttons from delivery terminals)
 
 **Note:** if the game softlocks on you & unable to contribute to the bridge construction In order No. 10
