@@ -6,10 +6,10 @@ A collection of scripts that edit save files rather than using quickcode.
 
 `DS_Structures.py`  - PS4 Saves Only
 
-> Following Dependencies Required
+> Following Dependencies Required:  
 > `pip3 install colorama`
 
-> Upgrades & Repairs all structures to max level.
+> Upgrades & Repairs all structures to max level.  
 > Usage: `python3 DS_Structures.py checkpoint.dat`
 
 ##### Additional Options
