@@ -7,7 +7,6 @@ https://qcgenerators.com
 [Slayer's Ice Realm](https://discord.gg/Yqfz7EBjEG)  
 [Save Wizard Discord](https://discord.gg/3N8gWYk)  
 [Boosting/Teaming Up](https://discord.gg/GPpWCgw6uy)  
-[Code Save Trophy PS4](https://discord.gg/kURVD5TFTc)  
 [XDG Nation](https://discord.gg/P7WWvf6xPP)  
 [GTA Dark Server](https://discord.gg/savewizard)  
 
