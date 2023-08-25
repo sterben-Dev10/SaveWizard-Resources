@@ -3,7 +3,7 @@
 ;source: xdgmods
 ;Automated & simplified file by @officialahmed0
 
-:*
+:userdata00*
 [INFO:Untested - Make sure to backup your save data first]
 
 [Max Blood Stone Shard (Must Have 1 in inventory or Storage)]
@@ -399,3 +399,31 @@
 28000028 0000003F
 28000030 0000003F
 
+;Highest tier of Great One Coldblood listed in official guide but never found. When used gain 100k of Blood Echoes.
+;More info: https://www.bloodborne-wiki.com/2017/05/revered-great-one-coldblood.html
+
+[Revered Great One Coldblood (Converts amount of Great One Coldblood, must have one Great One Coldblood in inventory)]
+80010004 380600B0
+08000000 0000003A
+92000000 00000004
+08000000 0000003A
+
+;Highest tier of Guidance Caryll Rune, listed in official guide but never found within game. Boosts rally potential +30%.
+;https://www.bloodborne-wiki.com/2015/11/guidance.html
+
+[Guidance Rune Tier 3 (Converts Tier 1 to Tier 3, must have Guidance Rune Tier 1 in inventory)]
+80010004 40960180
+08000000 00000042
+80010004 08691100
+08000000 0000000A
+80010004 40960180
+08000000 00000042
+
+;The Isz Glitch is a bug in Bloodborne that prevents certain characters from creating all possible Isz dungeons.
+;More info: https://github.com/jrson83/bloodborne-isz-glitch-cure
+
+[Isz Glitch Cure (Character must be affected by Isz Glitch)]
+80010004 07001300
+92000000 00000DB3
+D8000000 0100C0FF
+18000000 0000FFFF
