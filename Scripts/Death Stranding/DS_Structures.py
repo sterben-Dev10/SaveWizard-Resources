@@ -2,6 +2,7 @@
 
 # Death Stranding All Structures Repair - PS4 Saves Only
 # ChatGPT Generated Script, Research Done By XxUnkn0wnxX
+# Script Ver 4.01
 
 import struct
 import sys
@@ -227,14 +228,14 @@ while True:
             if i+1 not in skip_checks and not check(*parameters[i]):
                 break
         else:  # All checks passed
-            write_data = True
+            write_data = not force_no_write
 
     # Logic for checks when --roads is provided
     else:
         float_health_check = struct.unpack('<f', content[third_pointer+0x2C:third_pointer+0x2C+4])[0]
         values = [struct.unpack('<I', content[third_pointer+0x38+i*4:third_pointer+0x38+i*4+4])[0] for i in range(6)]
         write_data = should_write_data_for_roads(skip_checks, value, float_health_check, values)
-        write_data = write_data and not force_no_write
+        write_data = write_data and (not force_no_write)
     
     # After determining write_data and before acting on it:
     if not write_data and args.debug:
