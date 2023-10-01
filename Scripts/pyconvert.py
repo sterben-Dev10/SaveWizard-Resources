@@ -82,10 +82,10 @@ def generic_conversion(value, format_str, little_endian, to_hex=True):
                 hex_value = hex(struct.unpack(byte_order + format_str.replace("f", "I").replace("d", "Q"), packed_value)[0])[2:].upper()
             else:
                 if is_hex:
-                    int_val = int(value, 16)
-                    if little_endian:
+                    value = value.replace('0x', '')  # Remove '0x' before processing
+                    if little_endian:  
                         value = ''.join(reversed([value[i:i+2] for i in range(0, len(value), 2)]))
-                        int_val = int(value, 16)
+                    int_val = int(value, 16)
                     unpacked_value = struct.unpack(byte_order + format_str, struct.pack(byte_order + format_str.replace("f", "I").replace("d", "Q"), int_val))
                     return unpacked_value[0]
                 else:
@@ -97,7 +97,8 @@ def generic_conversion(value, format_str, little_endian, to_hex=True):
                 hex_value = hex(struct.unpack(byte_order + format_str.upper(), packed_value)[0])[2:].upper()
             else:
                 if is_hex:
-                    if little_endian:
+                    value = value.replace('0x', '')  # Remove '0x' before processing
+                    if little_endian:  
                         value = ''.join(reversed([value[i:i+2] for i in range(0, len(value), 2)]))
                     packed_value = struct.pack(byte_order + format_str.upper(), int(value, 16))
                 else:
