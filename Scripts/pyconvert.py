@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# ChatGPT Generated Script.
 
 import sys
 import struct
@@ -81,13 +80,11 @@ def generic_conversion(value, format_str, little_endian, to_hex=True):
             if to_hex:
                 packed_value = struct.pack(byte_order + format_str, float(value))
                 hex_value = hex(struct.unpack(byte_order + format_str.replace("f", "I").replace("d", "Q"), packed_value)[0])[2:].upper()
-                if little_endian:
-                    hex_value = ''.join(reversed([hex_value[i:i+2] for i in range(0, len(hex_value), 2)]))
             else:
                 if is_hex:
                     int_val = int(value, 16)
                     if little_endian:
-                        value = ''.join(reversed([value[i:i+2] for i in range(2, len(value), 2)]))
+                        value = ''.join(reversed([value[i:i+2] for i in range(0, len(value), 2)]))
                         int_val = int(value, 16)
                     unpacked_value = struct.unpack(byte_order + format_str, struct.pack(byte_order + format_str.replace("f", "I").replace("d", "Q"), int_val))
                     return unpacked_value[0]
@@ -101,12 +98,16 @@ def generic_conversion(value, format_str, little_endian, to_hex=True):
             else:
                 if is_hex:
                     if little_endian:
-                        value = '0x' + ''.join(reversed([value[i:i+2] for i in range(2, len(value), 2)]))
+                        value = ''.join(reversed([value[i:i+2] for i in range(0, len(value), 2)]))
                     packed_value = struct.pack(byte_order + format_str.upper(), int(value, 16))
                 else:
                     packed_value = struct.pack(byte_order + format_str, int(value))
                 return struct.unpack(byte_order + format_str, packed_value)[0]
-
+        
+        # Correctly reverse the hexadecimal string for little-endian
+        if little_endian:
+            hex_value = hex_value.zfill(format_byte_size[format_str])
+            hex_value = ''.join(reversed([hex_value[i:i+2] for i in range(0, len(hex_value), 2)]))
     except Exception as e:
         raise ValueError(f"Error when processing value {value} with format string {format_str}. Error: {e}")
     
