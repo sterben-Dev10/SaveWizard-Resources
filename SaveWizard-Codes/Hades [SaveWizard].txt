@@ -460,7 +460,7 @@ DarknessHealMetaUpgrade
 A8000018 00000008
 VVVVVVVV VVVVVVVV
 
-AM Search String: DarknessHealMetaUpgradeN 
+AM Search String: DarknessHealMetaUpgradeN
 
 Death Defiance
 80010014 530C0000
