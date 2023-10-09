@@ -386,7 +386,7 @@ Diamonds
 A800000E 00000008
 VVVVVVVV VVVVVVVV
 
-AM Search String:
+AM Search String: SuperGemsN
 
 Gemstones
 80010010 09000000
@@ -770,8 +770,6 @@ VV (Anything higher then 200,000 can cause issues)
 9999999 | 000000E0CF126341
 99999999 | 000000FC83D79741
 999999999 | 000080FF64CDCD41
-
-
  
 [Zeraf3000#8256]
 
