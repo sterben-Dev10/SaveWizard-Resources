@@ -402,7 +402,7 @@ Gemstones
 A8000006 00000008
 VVVVVVVV VVVVVVVV
 
-AM Search String: Gems
+AM Search String: GemsN
 
 Keys
 80010010 09000000
@@ -413,7 +413,7 @@ Keys
 A800000A 00000008
 VVVVVVVV VVVVVVVV
 
-AM Search String: LockKeys
+AM Search String: LockKeysN
 
 Nectar
 80010010 09000000
