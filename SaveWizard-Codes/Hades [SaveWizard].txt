@@ -92,6 +92,10 @@ A8000006 00000008
 
 -- STATS --
 
+WARNING:
+in order to use these, the respective skill has to be already UNLOCKED in the mirror in your room and preferably maxed out. 
+Which means you have to be in the temple when applying them.
+
 Chtonic Vitality(Health Regen After Each Area) [200000]
 80010014 530C0000
 004D6574 61557067
