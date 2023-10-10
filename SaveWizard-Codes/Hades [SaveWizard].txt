@@ -138,7 +138,7 @@ Dark Regeneration [199999]
 A8000018 00000008
 00000000 F8690841
 
-Death Defiance [199999]
+Death Defiance [1000]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -147,7 +147,7 @@ Death Defiance [199999]
 65746155 70677261
 64654E00 00000000
 A8000017 00000008
-00000000 F8690841
+00000000 00408F40
 
 Stubborn Defiance [199999]
 80010014 530C0000
@@ -778,7 +778,12 @@ Usage: python3 pyconvert.py 999 -df -ltl
 
 if thats to hard use the inspector window in a hex editor & type in the double float field, make sure the workflow is set in little endian.
 
+If you don't want your health bar leaking off the edge of the screen I suggest capping Thick Skin to maximum of 1k
+as for Death Defiance if the icons flowing off the screen bug you I suggest using a value of 8
+
 VV (Anything higher then 200,000 can cause issues)
+08 | 00000000 00002040
+10 | 00000000 00002440
 100 | 00000000 00005940
 500 | 00000000 00407F40
 999 | 00000000 00388F40
