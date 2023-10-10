@@ -96,7 +96,7 @@ WARNING:
 in order to use these, the respective skill has to be already UNLOCKED in the mirror in your room and preferably maxed out. 
 Which means you have to be in the temple when applying them.
 
-Shadow Presence [199999]
+Shadow Presence [500]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -104,7 +104,7 @@ Shadow Presence [199999]
 73746162 4D657461
 55706772 6164654E
 A8000014 00000008
-00000000 F8690841
+00000000 00407F40
 
 Fiery Presence (Max Damage when enemies are at max health) [1000]
 80010014 530C0000
@@ -182,7 +182,7 @@ Ruthless Reflex [199999]
 A8000017 00000008
 00000000 F8690841
 
-Boiling Blood [199999]
+Boiling Blood [500]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -192,7 +192,7 @@ Boiling Blood [199999]
 6974794D 65746155
 70677261 64654E00
 A8000023 00000008
-00000000 F8690841
+00000000 00407F40
 
 Abyssal Blood [199999]
 80010014 530C0000
@@ -267,7 +267,7 @@ High Confidence [199999]
 A800001C 00000008
 00000000 F8690841
 
-Privileged Status [199999]
+Privileged Status [500]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -277,7 +277,7 @@ Privileged Status [199999]
 6F6E7573 4D657461
 55706772 6164654E
 A8000024 00000008
-00000000 F8690841
+00000000 00407F40
 
 Family Favorite [199999]
 80010014 530C0000
@@ -780,6 +780,7 @@ if thats to hard use the inspector window in a hex editor & type in the double f
 
 If you don't want your health bar leaking off the edge of the screen I suggest capping Thick Skin to maximum of 1k
 as for Death Defiance if the icons flowing off the screen bug you I suggest using a value of 8
+for Privileged Status, Boiling Blood, Shadow Presence set to 500, max is 10000 games gets to laggy if set to max.
 
 VV (Anything higher then 200,000 can cause issues)
 08 | 00000000 00002040
@@ -842,8 +843,7 @@ Max Greater Reflex (Infinite dash)
 696E614D 65746155                
 70677261 64654E00                
 A8000013 00000008                
-00000000 F8690841                
-                    
+00000000 F8690841                                 
                     
 Max Stygian Soul (Unlimited Ranged attck)                    
 80010014 530C0000                    
