@@ -104,7 +104,7 @@ WARNING:
 in order to use these, the respective skill has to be already UNLOCKED in the mirror in your room and preferably maxed out. 
 Which means you have to be in the temple when applying them.
 
-Shadow Presence [500]
+Shadow Presence (Backstab Damage) [500]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -135,7 +135,7 @@ Chtonic Vitality (Health Regen After Each Area) [199999]
 A8000014 00000008
 00000000 F8690841
 
-Dark Regeneration [199999]
+Dark Regeneration (Heal picking up darkness) [199999]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -146,7 +146,7 @@ Dark Regeneration [199999]
 A8000018 00000008
 00000000 F8690841
 
-Death Defiance [1000]
+Death Defiance (extra life) [1000]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -157,7 +157,7 @@ Death Defiance [1000]
 A8000017 00000008
 00000000 00408F40
 
-Stubborn Defiance [1000]
+Stubborn Defiance (health heal when you hit 1 HP) [1000]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -179,7 +179,7 @@ Greater Reflex (Dash) [199999]
 A8000013 00000008
 00000000 F8690841
 
-Ruthless Reflex [5000]
+Ruthless Reflex (Damage & Doge chance boost after dashing before getting hit) [5000]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -190,7 +190,7 @@ Ruthless Reflex [5000]
 A8000017 00000008
 00000000 0088B340
 
-Boiling Blood [500]
+Boiling Blood (Damage boost based on cast gems in enemies) [500]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -202,7 +202,7 @@ Boiling Blood [500]
 A8000023 00000008
 00000000 00407F40
 
-Abyssal Blood [5000]
+Abyssal Blood (enemy damage & speed debuff based on cast gems in them)[5000]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -213,7 +213,7 @@ Abyssal Blood [5000]
 A800001A 00000008
 00000000 0088B340
 
-Infernal Soul [5000]
+Infernal Soul (increases total cast gems pool) [5000]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -223,7 +223,7 @@ Infernal Soul [5000]
 A8000010 00000008
 00000000 0088B340
 
-Stygian Soul (Ranged Attack) [199999]
+Stygian Soul (Regen cast gems) [199999]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -244,7 +244,7 @@ Deep Pockets (amount of money you start with) [999999]
 A8000011 00000008
 00000000 7E842E41
 
-Golden Touch [199999]
+Golden Touch (money multiplier after clearing region) [199999]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -264,7 +264,7 @@ Thick Skin (Base Health/Super Health) [199999]
 A8000012 00000008
 00000000 F8690841
 
-High Confidence [5000]
+High Confidence (damage boost if your on high health) [5000]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -275,7 +275,7 @@ High Confidence [5000]
 A800001C 00000008
 00000000 0088B340
 
-Privileged Status [500]
+Privileged Status (damage boost based on enemies debuffs) [500]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -287,7 +287,7 @@ Privileged Status [500]
 A8000024 00000008
 00000000 00407F40
 
-Family Favorite [5000]
+Family Favorite (damage boost based on total boons owned) [5000]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -298,7 +298,7 @@ Family Favorite [5000]
 A800001A 00000008
 00000000 0088B340
 
-Olypian Favour [199999]
+Olypian Favour (increases chance for boons to be rare) [199999]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -309,7 +309,7 @@ Olypian Favour [199999]
 A8000018 00000008
 00000000 F8690841
 
-Dark Foresight [199999]
+Dark Foresight (increases chance to get Boons, Hammers, Obol, Poms) [199999]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -321,7 +321,7 @@ Dark Foresight [199999]
 A800001D 00000008
 00000000 F8690841
 
-God's Pride [199999]
+God's Pride (increases chance for boons to be epic) [199999]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -332,7 +332,7 @@ God's Pride [199999]
 A8000018 00000008
 00000000 F8690841
 
-Gods' Legacy [199999]
+Gods' Legacy (increase chance for boons to be Legendary/Duo) [199999]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -344,7 +344,7 @@ Gods' Legacy [199999]
 A800001D 00000008
 00000000 F8690841
 
-Fated Authority [199999]
+Fated Authority (re-roll chamber rewards) [199999]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -354,7 +354,7 @@ Fated Authority [199999]
 A8000012 00000008
 00000000 F8690841
 
-Fated Persuasion [199999]
+Fated Persuasion (re-roll Boons & Purple shop cauldron) [199999]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
