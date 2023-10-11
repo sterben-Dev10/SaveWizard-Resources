@@ -179,7 +179,7 @@ Greater Reflex (Dash) [199999]
 A8000013 00000008
 00000000 F8690841
 
-Ruthless Reflex (Damage & Doge chance boost after dashing before getting hit) [5000]
+Ruthless Reflex (Damage & Dodge chance boost after dashing before getting hit) [5000]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
