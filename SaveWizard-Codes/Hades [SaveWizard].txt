@@ -344,7 +344,7 @@ Gods' Legacy (increase chance for boons to be Legendary/Duo) [199999]
 A800001D 00000008
 00000000 F8690841
 
-Fated Authority (re-roll chamber rewards) [199999]
+Fated Authority (re-roll chamber rewards) [999999]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -352,9 +352,9 @@ Fated Authority (re-roll chamber rewards) [199999]
 6C6C4D65 74615570
 67726164 654E0000
 A8000012 00000008
-00000000 F8690841
+00000000 7E842E41
 
-Fated Persuasion (re-roll Boons & Purple shop cauldron) [199999]
+Fated Persuasion (re-roll Boons & Purple shop cauldron) [999999]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -363,7 +363,7 @@ Fated Persuasion (re-roll Boons & Purple shop cauldron) [199999]
 65746155 70677261
 64654E00 00000000
 A8000017 00000008
-00000000 F8690841
+00000000 7E842E41
 
 -- Item Templates --
 
