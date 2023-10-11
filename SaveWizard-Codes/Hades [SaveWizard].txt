@@ -205,7 +205,7 @@ Abyssal Blood [199999]
 A800001A 00000008
 00000000 F8690841
 
-Infernal Soul [199999]
+Infernal Soul [5000]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
@@ -213,7 +213,7 @@ Infernal Soul [199999]
 4D657461 55706772
 6164654E 00000000
 A8000010 00000008
-00000000 F8690841
+00000000 0088B340
 
 Stygian Soul (Ranged Attack) [199999]
 80010014 530C0000
@@ -781,6 +781,7 @@ if thats to hard use the inspector window in a hex editor & type in the double f
 If you don't want your health bar leaking off the edge of the screen I suggest capping Thick Skin to maximum of 1k
 as for Death Defiance if the icons flowing off the screen bug you I suggest using a value of 8
 for Privileged Status, Boiling Blood, Shadow Presence set to 500, max is 10000 games gets to laggy if set to max.
+for Infernal Soul, if value set higher then 5k & you try to change or upgrade any of the weapon aspects expect crashes to occur.
 
 VV (Anything higher then 200,000 can cause issues)
 08 | 00000000 00002040
