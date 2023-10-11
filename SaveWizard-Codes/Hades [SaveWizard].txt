@@ -157,7 +157,7 @@ Death Defiance (extra life) [1000]
 A8000017 00000008
 00000000 00408F40
 
-Stubborn Defiance (health heal when you hit 1 HP) [1000]
+Stubborn Defiance (extra life once per chamber) [1000]
 80010014 530C0000
 004D6574 61557067
 72616465 73540000
