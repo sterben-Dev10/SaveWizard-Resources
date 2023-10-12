@@ -30,7 +30,7 @@ they should still be active though.
 WHAT YOU MUST NEVER DO: never edit both saves in one go, only edit the ACTIVE SAVE otherwise you will PERMANENTLY MESS UP YOUR SAVE.
  
  
-[Method] [XxUnkn0wnxX]
+[Method] [Zeraf3000] [XxUnkn0wnxX]
 -- ITEMS --
 999999x Ambrosia
 80010010 09000000
