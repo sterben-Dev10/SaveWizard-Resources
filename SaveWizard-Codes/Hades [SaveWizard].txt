@@ -29,9 +29,9 @@ if you apply stat mods to the tamp save file you just wont see the modded stats 
 they should still be active though. 
 
 WHAT YOU MUST NEVER DO: never edit both saves in one go, only edit the ACTIVE SAVE otherwise you will PERMANENTLY MESS UP YOUR SAVE.
+
  
- 
-[Method] [Zeraf3000] [XxUnkn0wnxX]
+Code Author: Zeraf3000, Maintainers: Method, XxUnkn0wnxX, Skiller
 -- ITEMS --
 999999x Ambrosia
 80010010 09000000
