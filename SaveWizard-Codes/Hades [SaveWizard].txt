@@ -4,6 +4,31 @@ USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes br
 ########## DISCLAIMER ##########
 The work put into the creation of these codes & resources come from some of the following Discord Servers: 
 Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+
+The Way Saves work in Hades:
+
+There are two saves for each slot, The Main "ProfileX.sav" save & "ProfileX_temp.sav" save (X = Slot number).
+when you die in the game the main save gets overwritten this is the only way to overwrite the main save from the temp save.
+the temp save only gets overwritten when you begin the next run from home base.
+
+choosing give up option during a run will simply change the active save slot from temp to main save with no changes being transferred from temp save.
+you can essentially revert a deleted save from the main menu this way.
+
+Rules for applying cheats:
+    For Items: must have at least one of said item.
+    For Stats: must have sunken 1 upgrade point into the stat you are editing, otherwise you will corrupt the mirror & the stat will be erased forever. (in-game reset wont help you)
+
+so for applying cheats only overwrite the main active save, making changes to temp file while at home base will have temp file overwritten when you start the run.
+same goes if you edit main save & then die, temp will erase modded changes to main save.
+
+All codes will work on the main save 100% of the time
+while item codes are safe on both, try to avoid stat codes on temp file.
+
+if you apply stat mods to the tamp save file you just wont see the modded stats refresh in the UI till you get back to home base.
+they should still be active though. 
+
+WHAT YOU MUST NEVER DO: never edit both saves in one go, only edit the ACTIVE SAVE otherwise you will PERMANENTLY MESS UP YOUR SAVE.
+ 
  
 [Method] [XxUnkn0wnxX]
 -- ITEMS --
