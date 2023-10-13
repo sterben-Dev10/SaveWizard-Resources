@@ -858,7 +858,7 @@ VV (Anything higher then 200,000 can cause issues)
 99999999 | 000000FC 83D79741
 999999999 | 000080FF 64CDCD41
  
-[Zeraf3000#8256]
+Code Author: Zeraf3000#8256
 
 APPLY THESE TO THE PROFILE x.SAV (not the temp file)                    
 Max Thick Skin (Super Health)                    
@@ -918,7 +918,7 @@ These codes will make you permanently OP, which means you probably will be able 
 Make sure you have everything unlocked and everything done in the Temple of Styx (if you're a completionist) before using them.
 ALSO, in order to use these, the respective skill has to be already UNLOCKED in the mirror in your room and preferably maxed out. Which means you have to be in the temple when applying them
 
-[Skiller#4741]
+Template Author: Skiller#4741
 Mirror Upgrades (MetaUpgrades)
 80010014 530C0000
 004D6574 61557067
