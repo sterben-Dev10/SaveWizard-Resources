@@ -2,7 +2,7 @@
 
 ###### In Regard's To Code Authors & Maintainers
 
-> Any Persons Maintaining any cheats, source code etc..
+> Any Persons Maintaining any resources, cheats, code etc..
 > Will be credited no matter how small the change is as its a **ethical** and a **community-driven practice**.
 
 **SaveWizard Code Generators**  
