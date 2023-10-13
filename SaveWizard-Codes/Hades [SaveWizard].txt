@@ -31,7 +31,7 @@ they should still be active though.
 WHAT YOU MUST NEVER DO: never edit both saves in one go, only edit the ACTIVE SAVE otherwise you will PERMANENTLY MESS UP YOUR SAVE.
 
  
-Code Author: Zeraf3000, Maintainers: Method, XxUnkn0wnxX, Skiller
+Code Author: Skiller, Maintainers: Method, XxUnkn0wnxX, Skiller
 -- ITEMS --
 999999x Ambrosia
 80010010 09000000
@@ -98,6 +98,8 @@ A800000C 00000008
 A800000F 00000008
 00000000 7E842E41
 
+
+Code Author: XxUnkn0wnxX
 999999x Obdols (Money)
 8001000B 53050000
 004D6F6E 65794E00
@@ -124,6 +126,7 @@ A800000B 00000008
 A800000B 00000008
 000000FC 83D79741
 
+Code Author: Anonymous, Tester: XxUnkn0wnxX
 -- STATS --
 
 WARNING:
@@ -391,6 +394,8 @@ Fated Persuasion (re-roll Boons & Purple shop cauldron) [999999]
 A8000017 00000008
 00000000 7E842E41
 
+
+Template Author: Skiller, Method
 -- Item Templates --
 
 Ambrosia
@@ -472,6 +477,8 @@ VVVVVVVV VVVVVVVV
 
 AM Search String: SuperLockKeysN
 
+
+Template Author: XxUnkn0wnxX
 Obdols
 8001000B 53050000
 004D6F6E 65794E00
@@ -500,6 +507,7 @@ VVVVVVVV VVVVVVVV
 
 AM Search String: MoneyN
 
+Template Author: Anonymous
 -- Stats Templates --
 
 Shadow Presence
