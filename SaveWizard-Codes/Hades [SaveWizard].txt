@@ -97,9 +97,10 @@ A800000C 00000008
 79734E00 00000000
 A800000F 00000008
 00000000 7E842E41
-
+-- ITEMS --
 
 Code Author: XxUnkn0wnxX
+-- Currency --
 999999x Obdols (Money)
 8001000B 53050000
 004D6F6E 65794E00
@@ -125,6 +126,7 @@ A800000B 00000008
 004D6F6E 65794E00
 A800000B 00000008
 000000FC 83D79741
+-- Currency --
 
 Code Author: Anonymous, Tester: XxUnkn0wnxX
 -- STATS --
@@ -393,6 +395,7 @@ Fated Persuasion (re-roll Boons & Purple shop cauldron) [999999]
 64654E00 00000000
 A8000017 00000008
 00000000 7E842E41
+-- STATS --
 
 
 Template Author: Skiller, Method
@@ -476,9 +479,10 @@ A800000F 00000008
 VVVVVVVV VVVVVVVV
 
 AM Search String: SuperLockKeysN
-
+-- Item Templates --
 
 Template Author: XxUnkn0wnxX
+-- Currency Template --
 Obdols
 8001000B 53050000
 004D6F6E 65794E00
@@ -506,6 +510,7 @@ A800000B 00000008
 VVVVVVVV VVVVVVVV
 
 AM Search String: MoneyN
+-- Currency Template --
 
 Template Author: Anonymous
 -- Stats Templates --
@@ -818,6 +823,7 @@ A8000017 00000008
 VVVVVVVV VVVVVVVV
 
 AM Search String: RerollPanelMetaUpgradeN
+-- Stats Templates --
 
 Notes: 
 VV's = Value in Double Float (Little Endian)
