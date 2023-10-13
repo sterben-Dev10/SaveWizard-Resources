@@ -1,5 +1,10 @@
 # Discord Servers & SW Resources
 
+###### In Regard's To Code Authors & Maintainers
+
+> Any Persons Maintaining any cheats, source code etc..
+> Will be credited no matter how small the change is as its a **ethical** and a **community-driven practice**.
+
 **SaveWizard Code Generators**  
 https://qcgenerators.com
 
@@ -18,3 +23,4 @@ Chaoszage's Cheat Repository: [Chaoszage's Blog](https://chaoszage.blogspot.com)
 Apollo CLI Tool: [apollo-lib](https://github.com/bucanero/apollo-lib)  
 Save Patches: [ReadMe](Apollo-Save-Patches)  
 Scripts: [ReadMe](Scripts)  
+
