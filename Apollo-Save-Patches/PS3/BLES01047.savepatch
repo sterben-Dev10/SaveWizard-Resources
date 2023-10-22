@@ -1,9 +1,7 @@
 ; BLES01047
 ; Castlevania: Lords Of Shadow
 ;From Game Genie For PS3
-
-[INFO: Save Data has Checksum!]
-[INFO:Requires Castlevania Lords Of Shadow CRC Fixer! http://ps3cheating.net/external-save-editors/]
+;checksum by bucanero
 
 :BLES01047-AUTO-\DATA.DAT
 
@@ -55,3 +53,9 @@
 73050000 00000000
 28000011 74727565
 08000015 00000000
+
+[Update Custom Checksum (Required)]
+set pointer:EOF-3
+set range:0x0,pointer
+set [csum]:castlevania_checksum
+write next (0):[csum]

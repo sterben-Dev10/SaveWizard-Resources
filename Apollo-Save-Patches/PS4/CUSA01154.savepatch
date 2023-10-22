@@ -1,0 +1,95 @@
+; CUSA01154
+; Metal Gear Solid 5: The Phantom Pain
+;encryption/checksum by bucanero
+;https://forum.hackinformer.com/viewtopic.php?f=115&t=1150
+
+:TPP_GAME_DATA*
+
+[Decrypt Save Data (Required)]
+set range:0x0000,EOF+1
+DECRYPT MGS5_TPP(0x4131F8BE)
+
+;codes by krustytoe
+; Version 1.14 - Code is tested and Work -
+
+[Max Heroism]
+2001C474 05F5E0FF
+
+[Max Materials (processed)]
+42027138 000F4240
+40050004 00000000
+
+[Max Materials (unprocessed)]
+42027224 003D0900
+40050004 00000000
+
+[Max Medicinal Plant]
+4202714C 00002EE0
+40080004 00000000
+
+[Max Vehicle]
+4202716C 00061A80
+400A0004 00000000
+
+[Max Placed Weapon]
+420271C0 00061A80
+40050004 00000000
+
+[Max Walker Gear]
+42027194 00061A80
+40050004 00000000
+
+[Max Parasite]
+420271B0 00001770
+40030004 00000000
+
+[Infinite Clip Pistol Sniper and Assult Rifle]
+100047D6 0000FFFF
+100047D8 0000FFFF
+100047DA 0000FFFF
+
+[Max Demon Points]
+2001C478 7FFFFFFF
+
+[0 Demon Points]
+2001C478 00000000
+
+[8 Nuclear Weapons]
+200271A8 00000010
+
+[Max Resources (All)]
+42027138 000F4240
+40050004 00000000
+42027224 003D0902
+40050004 00000000
+4202714C 00002EE0
+40080004 00000000
+4202716C 00061A80
+400A0004 00000000
+420271C0 00061A80
+40050004 00000000
+42027194 00061A80
+40050004 00000000
+420271B0 00001770
+40030004 00000000
+200271AC 001E8480
+
+[Build all bases]
+4201C1D0 40014001
+40110004 00000000
+
+[Soldier ranking system (S+ and S++)]
+4001FB34 0000004E
+4xxx0004 00000000
+;Replace xxx with number of soldiers in hex.
+;For example, if I have 48 soldiers, then xxx = 030
+
+
+[Update MD5 checksum (Required)]
+set range:0x0010,EOF+1
+set [hash]:MD5
+write at 0x0000:[hash]
+
+[Encrypt Save Data (Required)]
+set range:0x0000,EOF+1
+ENCRYPT MGS5_TPP(0x4131F8BE)

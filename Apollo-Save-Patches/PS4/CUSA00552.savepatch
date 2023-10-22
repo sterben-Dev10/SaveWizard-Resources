@@ -1,12 +1,19 @@
 ;CUSA00552
-;PS4 The Last of Us: Remastered
+;The Last of Us: Remastered
 ;source: 
-;Credits: 
+;decryption/checksums: by bucanero
 ;Automated & simplified file by @officialahmed0
 
-:*
+:USR-DATA*
 
 [INFO:Untested - Make sure to backup your save data first]
+
+
+[Decrypt USR-DATA (Required)]
+set [end]:read(EOF-3, 4)
+set [end]:endian_swap
+set range:0x000008,[end]+7
+DECRYPT blowfish_ecb("(SH[@2>r62%5+QKpy|g6")
 
 
 [Infinite Current Melee Weapon]
@@ -14,6 +21,24 @@
 
 [Upgrade Current Melee Weapon]
 00004148 00000001
+
+[Difficulty levels]
+80010004 c8dc7f3e
+28000004 000000xx
+80010004 288D5E5B
+28000004 000000xx
+
+;xx ??
+;01 easy
+;02 normal
+;03 hard
+;04 survivor
+
+[Grounded plus mode]
+80010004 c8dc7f3e
+28000004 00000005
+80010004 96778ebd
+28000004 00000001
 
 
 ;Advanced codes
@@ -46,6 +71,33 @@
 ;00000000 00000000
 ;01000000 00000000
 
+[Add Upgraded and Infinite Axe]
+A0004134 00000029
+BB08ED37 00000000
+00000000 00000000
+00000075 01000000
+03000000 FFFF0000
+00000000 00000000
+01000000 00000000
+
+[Add Upgraded and Infinite Bat]
+A0004134 00000029
+783DF18C 00000000
+00000000 00000000
+00000075 01000000
+03000000 FFFF0000
+00000000 00000000
+01000000 00000000
+
+[Add Upgraded and Infinite Machete]
+A0004134 00000029
+8E346D22 00000000
+00000000 00000000
+00000075 01000000
+03000000 FFFF0000
+00000000 00000000
+01000000 00000000
+
 [Add Assault Rifle]
 A0003FB4 00000029
 64A365D0 1E000000
@@ -66,3 +118,25 @@ FFFFFFFF 00000000
 
 ;Swap Current Melee weapon
 ;20004134 XXXXXXXX
+
+
+[Update CRC32 checksum for USR-DATA (Required)]
+set [block_length]:read(0x58C,4)
+set [block_length]:endian_swap
+set [block_length]:[block_length]+0x587
+set range:0x58C,[block_length]
+set [hash]:crc32
+set [hash]:endian_swap
+write at 0x588:[hash]
+
+[Update HMAC SHA1 checksum for USR-DATA (Required)]
+set pointer:EOF-0x23
+set range:0x000008,pointer
+set [hash]:hmac_sha1("xM;6X%/p^L/:}-5QoA+K8:F*M!~sb(WK<E%6sW_un0a[7Gm6,()kHoXY+yI/s;Ba")
+write next (0):[hash]
+
+[Encrypt USR-DATA (Required)]
+set [end]:read(EOF-3, 4)
+set [end]:endian_swap
+set range:0x000008,[end]+7
+ENCRYPT blowfish_ecb("(SH[@2>r62%5+QKpy|g6")

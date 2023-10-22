@@ -2,9 +2,26 @@
 ;PS4 Red dead redemption 2
 ;source: xdgmods
 ;Automated & simplified file by @Officialahmed0
+;encryption/checksum by bucanero
 
-:*
+:SRDR*
+
+[AES Decrypt data (Required)]
+set range:0x000120,EOF+1
+DECRYPT aes_ecb(0x1685FFA38D010F0DFE661CF9B5572C500D802648DB37B9ED0F48C57342C022F5)
+
 [INFO:Untested - Make sure to backup your save data first]
+
+[SUPER MAX MONEY (Main Area)]
+80010004 CE548CF5
+A800000E 00000006
+5AF3107A 3FFF0000
+
+; Need at least 1 dollar in each before applying.
+[SUPER MAX MONEY (Camp)]
+80010004 A69B4C37
+A804C1DC 00000004
+3B9AC9FF 00000000
 
 [Add $1,000.00 (1k) Money]
 80010004 CE548CF5
@@ -116,6 +133,13 @@ BBBBBBBB 00000000
 ;BCC63763 – Double Bit Hatchet
 ;8F0FDE0E – Rusted Double Bit Hatchet
 
+[Cattleman Pistol for Midnight Pistol]
+80010008 169F59F7
+670506DD 00000000
+A8000000 00000004
+4AAE5FFA 00000000
+28000014 63000000
+
 [Satchel Legendary (must have Tender Pork Loin)]
 80010004 B39E0D3C
 08000004 00000001
@@ -148,3 +172,12 @@ B39E0D3C 00000000
 ;550898DE = Pearson
 ;AEEE1782 = Trapper Give
 ;D56F3216 = Trapper Buy
+
+
+[Update CHKS checksums (Required)]
+set range:0x000000,eof+1
+set [chks]:rockstar_checksum
+
+[AES Encrypt data (Required)]
+set range:0x000120,EOF+1
+ENCRYPT aes_ecb(0x1685FFA38D010F0DFE661CF9B5572C500D802648DB37B9ED0F48C57342C022F5)

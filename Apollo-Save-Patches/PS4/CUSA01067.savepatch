@@ -1,0 +1,220 @@
+; CUSA01067
+; RESIDENT EVIL HD REMASTER
+;https://forum.hackinformer.com/viewtopic.php?t=4907
+
+:*
+[INFO:Untested - Make sure to backup your save data first]
+
+[save-slot-1]
+
+[Defense Knife (255)]
+0001B448 000000FF
+
+[2nd Defense Item (255)]
+0001B44C 000000FF
+
+[Super Max HP]
+A000E0CC 00000002
+FFFF0000 00000000
+
+[Inventory slot 7 Infinite ammo]
+20016414 FFFFFFFF
+
+[Inventory slot 8 Infinite ammo]
+2001641C FFFFFFFF
+ 
+[Weapons and ammo in item box]
+; You'll have to visit the safe room by the stairs
+00016470 00000009
+00016474 000000FF
+00016478 0000000A
+0001647C 000000FF
+00016480 0000000B
+00016484 000000FF
+00016488 0000000C
+0001648C 000000FF
+00016490 0000000D
+00016494 000000FF
+00016498 0000000E
+0001649C 000000FF
+000164A0 0000000F
+000164A4 000000FF
+000164A8 00000010
+000164AC 000000FF
+000164B0 00000011
+000164B4 000000FF
+000164B8 00000012
+000164BC 000000FF
+000164C0 00000013
+000164C4 000000FF
+000164C8 00000014
+000164CC 000000FF
+000164F0 00000019
+000164F4 000000FF
+
+[Infinite Rocket Launcher - Jill (slot 7)]
+;(Inventory slot 7) - Jill
+A0016410 00000001
+0E000000 00000000
+
+[Infinite Rocket Launcher - Chris (slot 3)]
+;(Inventory slot 3) - Chris
+A00163F0 00000001
+0E000000 00000000
+
+ 
+[Group:255 Items in slots]
+
+[Inventory slot 1]
+000163E4 000000FF
+ 
+[Inventory slot 2]
+000163EC 000000FF
+ 
+[Inventory slot 3]
+000163F4 000000FF
+ 
+[Inventory slot 4]
+000163FC 000000FF
+ 
+[Inventory slot 5]
+00016404 000000FF
+ 
+[Inventory slot 6]
+0001640C 000000FF
+ 
+[Inventory slot 7]
+00016414 000000FF
+ 
+[Inventory slot 8]
+0001641C 000000FF
+
+;Inventory ID Address slot 1=163E0
+;Inventory ID Address slot 2=163E8
+;Inventory ID Address slot 3=163F0
+;Inventory ID Address slot 4=163F8
+;Inventory ID Address slot 5=16400
+;Inventory ID Address slot 6=16408
+;Inventory ID Address slot 7=16410
+;Inventory ID Address slot 8=16418
+;
+;A00XXXXX 00000001 [Place address here "XXXXX"]
+;XX000000 00000000 [Place ID here "XX"]
+
+; ITEM IDs
+; 0x0E = Rocket Launcher
+; 0x0F = Barry's 44 Magnum (doesn't reload)
+; 0x10 = Grenade Shells
+; 0x11 = Handgun Magazine
+; 0x12 = Shotgun Shells
+; 0x13 = Acid Shells
+; 0x14 = Incendiary Shells
+; 0x15 = Golden Arrow
+; 0x16 = Book of Curses
+; 0x17 = A coin with an emblem of armor
+; 0x18 = Collar
+; 0x19 = Magnum rounds
+; 0x1A = Broach
+; 0x1B = Fuel Canteen
+; 0x1C = Arrowhead
+; 0x1D = Imitation of a key
+; 0x1E = Residence Key
+; 0x1F = Fuel Supply Capsule
+; 0x20 = Musical Score
+; 0x21 = First Aid Spray
+; 0x22 = Green Herb
+; 0x23 = Red Herb
+; 0x24 = Blue Herb
+; 0x25 = Mixed Herbs (2 green)
+; 0x26 = Mixed Herbs (3 green)
+; 0x27 = Mixed Herbs (1 green 1 red)
+; 0x28 = Mixed Herbs (1 green 1 red 1 blue)
+; 0x29 = Mixed Herbs (1 green 1 blue)
+; 0x2A = Mixed Herbs (2 green 1 blue)
+; 0x2B = Lock Pick
+; 0x2C = Old Key
+; 0x2D = Mansion Key (Gold)
+; 0x2E = Mansion Key (Sliver)
+; 0x2F = Mansion Key (Copper)
+; 0x30 = Mansion Key (Bloody)
+; 0x31 = Residence Key (Sliver)
+; 0x32 = Residence Key (Gold)
+; 0x33 = Medal of Eagle
+; 0x34 = Medal of Wolf
+; 0x35 = Stone & Metal Object
+; 0x36 = Laboratory Key
+; 0x37 = Laboratory Key (looks like a car key)
+; 0x38 = Star Crest
+; 0x39 = Wind Crest
+; 0x3A = Sun Crest
+; 0x3B = Moon Crest
+; 0x3C = Crank (green)
+; 0x3D = Crank (red)
+; 0x3E = Closet Key
+; 0x3F = Emblem Key
+; 0x40 = Stone Ring
+; 0x41 = Metal Object
+; 0x42 = Survival Knife
+; 0x43 = Battery
+; 0x44 = Ink Ribbon
+; 0x45 = Emblem (brown)
+; 0x46 = Gold Emblem
+; 0x47 = Sheet Music
+; 0x48 = Red Gemstone
+; 0x49 = Blue Gemstone
+; 0x4A = Yellow Gemstone
+; 0x4B = Broken Shotgun
+; 0x4C = Chemical to use on plants
+; 0x4D = Lighter
+; 0x4E = Serum
+; 0x4F = Transceiver
+; 0x50 = Empty Bottle
+; 0x51 = Water
+; 0x52 = UMB No.3
+; 0x53 = NP-004
+; 0x54 = Yellow-6
+; 0x55 = UMB No.7
+; 0x56 = UMB No.10
+; 0x57 = VP-017
+; 0x58 = V-JOLT
+; 0x59 = "It hasn't been used"
+; 0x5A = Red Book
+; 0x5B = Last Book Vol.1
+; 0x5C = Last Book Vol.2
+; 0x5D = MO Disk
+; 0x5E = MO Disk
+; 0x5F = MO Disk
+; 0x60 = Dog Whistle
+; 0x61 = Fuse Unit
+; 0x62 = Capsule
+; 0x63 = Jewelry Box
+; 0x64 = Insecticide Spray
+; 0x65 = First Aid Box
+; 0x66 = Jewelry Box
+; 0x67 = Jewelry Box
+; 0x68 = First Aid Box
+; 0x69 = Signal Rockets
+; 0x6A = Broken Flamethrower
+; 0x6B = Wooden Mount
+; 0x6C = Slide Fliter
+; 0x6D = Control Room Key
+; 0x6E = Fuel Supply Capsule
+; 0x6F = Dagger
+; 0x70 = Flash Grenade
+; 0x71 = Stun Gun
+; 0x72 = Bee Specimen
+; 0x73 = Lure of a bee
+; 0x74 = Fishhook
+; 0x75 = Lure of a bee
+; 0x76 = X-Ray
+; 0x77 = X-Ray 
+; 0x78 = Battery Pack
+; 0x79 = Shaft
+; 0x7A = Cylinder
+; 0x7B = Cylinder Shaft
+; 0x7C = Death Mask
+; 0x7D = Death Mask
+; 0x7E = Death Mask
+; 0x7F = Death Mask
+; 0x80 = Musical Score
+; 0x81 = Map

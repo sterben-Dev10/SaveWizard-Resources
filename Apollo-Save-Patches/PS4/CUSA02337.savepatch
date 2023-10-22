@@ -12,12 +12,26 @@
 [Billy]
 0001DCC0 000000FA
 
+[Rebecca - God Mode]
+2001DBAC 007FFFFF
+
+[Billy - God Mode]
+2001DCC0 007FFFFF
+
+
 [--- NORMAL ---]
 [Rebecca]
 0001DA3C 00000096
 
 [Billy]
 0001DB50 000000FA
+
+[Rebecca - God Mode]
+2001DA3C 007FFFFF
+
+[Billy - God Mode]
+2001DB50 007FFFFF
+
 
 [--- HARD ---]
 [Rebecca]
@@ -26,8 +40,163 @@
 [Billy]
 0001DA98 000000FA
 
+[Rebecca - God Mode]
+2001D984 007FFFFF
+
+[Billy - God Mode]
+2001DA98 007FFFFF
+
+
 [Low Time]
 2001C94C 00000000
 
 [0 Saves]
 2001C948 00000000
+
+
+;Character Slot 1: [Rebecca]
+;
+;Inventory ID Address slot 1=390BC
+;Inventory ID Address slot 2=390C4
+;Inventory ID Address slot 3=390CC
+;Inventory ID Address slot 4=390D4
+;Inventory ID Address slot 5=390DC
+;Inventory ID Address slot 6=390E4
+;
+;Character Slot 2: [Billy]
+;
+;Inventory ID Address slot 1=390F8
+;Inventory ID Address slot 2=39100
+;Inventory ID Address slot 3=39108
+;Inventory ID Address slot 4=39110
+;Inventory ID Address slot 5=39118
+;Inventory ID Address slot 6=39120
+;
+;A00XXXXX 00000001 [Place address here "XXXXX"]
+;XX000000 00000000 [Place ID here "XX"]
+
+; ITEM IDs
+; 0x02 = Knife	
+; 0x03 = Handgun	 
+; 0x04 = Handgun	
+; 0x05 = Hunting gun	
+; 0x06 = Shotgun	
+; 0x07 = Grenade launcher	
+; 0x08 = Grenade launcher	
+; 0x09 = Grenade launcher	
+; 0x0A = Magnum	
+; 0x0B = Sub Machinegun	
+; 0x0E = Molotov Cocktail	
+; 0x11 = Custom handgun	
+; 0x13 = Custom Handgun	
+; 0x16 = Magnum Revolver	
+; 0x17 = Rocket Launcher	
+; 0x1A = Handgun Parts	
+; 0x20 = Handgun Ammo	
+; 0x21 = Shotgun Ammo	
+; 0x22 = Magnum Ammo	
+; 0x23 = Grenades	
+; 0x24 = Acid Grenades	
+; 0x25 = Napalm Grenades	
+; 0x26 = Empty Bottle	
+; 0x27 = Gas Tank	
+; 0x28 = Machinegun Ammo	
+; 0x2B = Green Herb	
+; 0x2C = Blue Herb	
+; 0x2D = Red Herb	
+; 0x2E = Herb Mix (green + green)	
+; 0x2F = Herbal Mix (green+ green + green)	
+; 0x30 = Herbal Mix (green + red)	
+; 0x31 = Herbal Mix (green + blue)	
+; 0x32 = Herbal Mix (green + green + blue)	
+; 0x33 = Herbal Mix (green + blue + red)	
+; 0x34 = Herbal Mix	
+; 0x35 = First Aid spray	
+; 0x37 = Ink Ribbon	
+; 0x39 = Gold Ring	
+; 0x3A = Silver Ring	
+; 0x3B = Briefcase	
+; 0x3C = Briefcase	
+; 0x3D = Briefcase	
+; 0x3E = Briefcase	
+; 0x3F = Lighter Fluid	
+; 0x41 = Train Key	
+; 0x42 = Breeding Rm. Key	
+; 0x43 = Elavator Key	
+; 0x44 = Facility Key	
+; 0x45 = Facility Key	
+; 0x46 = Facility Key	
+; 0x47 = Blue Leech Charm	
+; 0x48 = Green Leech Charm	
+; 0x49 = Factory Key	
+; 0x4A = Factory Key	
+; 0x4B = Blue Keycard	
+; 0x4C = Keycard	
+; 0x4D = Magnetic Card	
+; 0x4E = Locker Key	
+; 0x4F = Unity tablet	
+; 0x50 = Obedience Tablet	
+; 0x51 = Discipline Tablet	
+; 0x52 = Panel Opener	
+; 0x53 = Vice Handle	
+; 0x56 = Crank Handle	
+; 0x57 = Handle	
+; 0x58 = Book of Good	
+; 0x59 = Book of Evil	
+; 0x5A = Blue Leech Charm	
+; 0x5B = Green Leech Charm	
+; 0x5C = Input Reg. Coil	
+; 0x5D = Output Reg. Coil	
+; 0x5E = Battery	
+; 0x5F = HighPower Battery	
+; 0x60 = Sterilizing Agent	
+; 0x61 = Motherboard	
+; 0x63 = Microfilm A	
+; 0x64 = Microfilm B	
+; 0x66 = Shaft Key	
+; 0x67 = Train Key	
+; 0x68 = Hookshot	
+; 0x69 = Lighter	
+; 0x6A = Lighter	
+; 0x6B = Conductor's Key	
+; 0x6C = Fire Key	
+; 0x6E = Water Key	
+; 0x6F = Up Key	
+; 0x70 = Down Key	
+; 0x71 = Dining Car Key	
+; 0x75 = Leech Capsule	
+; 0x76 = Dial	
+; 0x77 = Duralumin Case	
+; 0x78 = Statue of Evil	
+; 0x79 = Statue of Good	
+; 0x7A = Jewelry Box	
+; 0x7B = Mixing Set	
+; 0x7C = MO Disk	
+; 0x7D = Ice Pick	
+; 0x7E = Iron Needle	
+; 0x7F = Shaft Key	
+; 0x80 = Industrial Water	
+; 0x81 = Empty Battery				
+; 0x82 = Angel Wings	
+; 0x83 = Black Wing	
+; 0x84 = White Statue	
+; 0x85 = Black Statue	
+; 0x86 = Red Chemical	
+; 0x87 = Blue Chemical	
+; 0x88 = Green Chemical	
+; 0x89 = Stripping Agent	
+; 0x8B = Sulfuric Acid	
+; 0x8C = Battery Fluid	
+; 0x8D = Closet Key					
+; 0x8F = Train Map					
+; 0x90 = Training Facility Map					
+; 0x91 = Training Facility Basement Map	
+; 0x92 = Lab Map	
+; 0x93 = Tratment Plant Map	
+; 0x94 = Factory Map	
+; 0x96 = Player's Manual 1	
+; 0x97 = Player's Manual 2
+; 0x98 = Court Order for Transportation	
+; 0x99 = Investigation Orders	
+; 0x9A = Notice to Supervisors	
+; 0xB4 = Suitcase

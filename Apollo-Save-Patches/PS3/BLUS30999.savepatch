@@ -1,0 +1,11 @@
+; BLUS30999
+; Castlevania: Lords Of Shadow 2
+;checksum by bucanero
+
+:DATA.DAT
+
+[Update DATA.DAT Checksum (Required)]
+set pointer:EOF-3
+set range:0x0,pointer
+set [csum]:castlevania_checksum
+write next (0):[csum]
