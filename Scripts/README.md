@@ -20,7 +20,7 @@ Apply `--little` if you want it in Little Endian.
 
 > A script for macOS to build and compile Apollo CLI tools
 > will handle the Installation of Xcode dev tools & hombrew.
-> as well as any other nessery dependcies.
+> as well as any other necessary dependcies.
 
 **Usage**  
 open a temrinal window type in `chmod 755` then a space, then drag the script on the window & hit enter.  
