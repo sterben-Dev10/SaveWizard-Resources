@@ -68,7 +68,7 @@ else
 fi
 
 # if you want to place the compiled binaries somewhere after building
-# STORE_PATH=""
+STORE_PATH="$HOME/Desktop/Apollo CLI Tools"
 
 # Resolve the full absolute path of the directory where the script is located
 script_dir="$(cd "$(dirname "$0")" && pwd)"
@@ -282,10 +282,23 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# List of binaries
+binaries=("patcher-bigendian" "patcher" "parser")
+
+# Change file permissions for each binary
+for binary in "${binaries[@]}"; do
+    if [ -f "$binary" ]; then
+        echo "Setting execute permissions for $binary"
+        chmod 755 "$binary"
+    else
+        echo "Warning: Expected binary file $binary does not exist, unable to set permissions." >&2
+    fi
+done
+
 # Confirm the current directory
 echo "Current directory: $(pwd)"
 sleep 1
 
 # Call the function to store binaries
 # Uncomment the line below if you want to store the binaries after building
-# store_binaries
+store_binaries
