@@ -16,5 +16,5 @@
 
 [default:Update crc32 (required)]
 set range:0x4,0x11E676
-set [crc]:crc-32
+set [crc]:crc32
 write at 0x0:[crc]

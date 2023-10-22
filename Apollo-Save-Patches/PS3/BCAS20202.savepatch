@@ -5,7 +5,7 @@
 
 [group:ICO]
 
-:BCES01097_ICO/MASTER.BIN
+:BCES01097_ICO\MASTER.BIN
 [Save 1 Play Time 0:00]
 20000008 00000000
 [Save 2 Play Time 0:00]
@@ -17,7 +17,7 @@
 [Save 5 Play Time 0:00]
 20000058 00000000
 
-:BCAS20202_SOTC/GAME.00*
+:BCAS20202_SOTC\GAME.00*
 
 [group:Shadow of the Colossus]
 
@@ -74,7 +74,7 @@
 
 Group: Update ICO Checksum (Required)
 
-:BCAS20202_ICO/MASTER.BIN
+:BCAS20202_ICO\MASTER.BIN
 [Update Checksum for MASTER.BIN (Required)]
 set [csum]:0
 ;set [csum]:add(0x000000,0x0001FB)
@@ -84,7 +84,7 @@ set [csum]:add(0x000000,pointer)
 set pointer:eof-3
 write next (0):[csum]
 
-:BCAS20202_ICO/GAME.000
+:BCAS20202_ICO\GAME.000
 [Update Checksum for GAME.000 (Required)]
 set [csum]:0
 set pointer:eof-4
@@ -92,7 +92,7 @@ set [csum]:add(0x000000,pointer)
 set pointer:eof-3
 write next (0):[csum]
 
-:BCAS20202_ICO/GAME.001
+:BCAS20202_ICO\GAME.001
 [Update Checksum for GAME.001 (Required)]
 set [csum]:0
 set pointer:eof-4
@@ -100,7 +100,7 @@ set [csum]:add(0x000000,pointer)
 set pointer:eof-3
 write next (0):[csum]
 
-:BCAS20202_ICO/GAME.002
+:BCAS20202_ICO\GAME.002
 [Update Checksum for GAME.002 (Required)]
 set [csum]:0
 set pointer:eof-4
@@ -108,7 +108,7 @@ set [csum]:add(0x000000,pointer)
 set pointer:eof-3
 write next (0):[csum]
 
-:BCAS20202_ICO/GAME.003
+:BCAS20202_ICO\GAME.003
 [Update Checksum for GAME.004 (Required)]
 set [csum]:0
 set pointer:eof-4
@@ -116,7 +116,7 @@ set [csum]:add(0x000000,pointer)
 set pointer:eof-3
 write next (0):[csum]
 
-:BCAS20202_ICO/GAME.004
+:BCAS20202_ICO\GAME.004
 [Update Checksum for GAME.004 (Required)]
 set [csum]:0
 set pointer:eof-4
@@ -124,7 +124,7 @@ set [csum]:add(0x000000,pointer)
 set pointer:eof-3
 write next (0):[csum]
 
-:BCAS20202_ICO/GAME.005
+:BCAS20202_ICO\GAME.005
 [Update Checksum for GAME.005 (Required)]
 set [csum]:0
 set pointer:eof-4
@@ -132,7 +132,7 @@ set [csum]:add(0x000000,pointer)
 set pointer:eof-3
 write next (0):[csum]
 
-:BCAS20202_ICO/GAME.006
+:BCAS20202_ICO\GAME.006
 [Update Checksum for GAME.006 (Required)]
 set [csum]:0
 set pointer:eof-4
@@ -140,7 +140,7 @@ set [csum]:add(0x000000,pointer)
 set pointer:eof-3
 write next (0):[csum]
 
-:BCAS20202_ICO/GAME.007
+:BCAS20202_ICO\GAME.007
 [Update Checksum for GAME.007 (Required)]
 set [csum]:0
 set pointer:eof-4
@@ -148,7 +148,7 @@ set [csum]:add(0x000000,pointer)
 set pointer:eof-3
 write next (0):[csum]
 
-:BCAS20202_ICO/GAME.008
+:BCAS20202_ICO\GAME.008
 [Update Checksum for GAME.008 (Required)]
 set [csum]:0
 set pointer:eof-4
@@ -156,7 +156,7 @@ set [csum]:add(0x000000,pointer)
 set pointer:eof-3
 write next (0):[csum]
 
-:BCAS20202_ICO/GAME.009
+:BCAS20202_ICO\GAME.009
 [Update Checksum for GAME.009 (Required)]
 set [csum]:0
 set pointer:eof-4

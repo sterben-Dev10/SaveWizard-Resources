@@ -16,7 +16,7 @@ Decompress SAVE.DAT
 ;7. click yes to recompress and input -w 15 then click ok
 ;8. update pfd -> encrypt pfd -> verify pfd as usual
 
-:~extracted/*.neo
+:~extracted\*.neo
 
 [32767 Skill Points(Apply on xxx.neo file)]
 search 0xFFFFAA07

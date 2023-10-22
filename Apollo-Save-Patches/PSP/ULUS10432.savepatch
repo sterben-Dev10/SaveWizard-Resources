@@ -1,0 +1,166 @@
+; ULUS-10432
+; Persona
+; PSP
+; https://web.save-editor.com/bbs/patchcode/psp/bbs.cgi?list=pickup&num=2653
+
+:*
+
+[Money in hand MAX (9,999,999 yen)]
+20000D24 0098967F
+
+[Group:1st person status]
+; (+0x6C / up to 5th person)
+
+[HP (999)]
+10000000 000003E7
+
+[Max HP (999)]
+10000004 000003E7
+
+[MP (999)]
+10000008 000003E7
+
+[Max MP (999)]
+1000000C 000003E7
+
+[EXP (99999999)]
+20000010 05F5E0FF
+
+[Persona EXP (99999999)]
+2000001C 05F5E0FF
+
+[Equipment Hand (Spiegel Blade)]
+10000020 000000AE
+
+[Equipment Gun (Hell Rain)]
+10000022 00000119
+
+[Equipment Ammo (Angel Whisper)]
+10000024 0000013E 
+
+[Equipment Head (Spiegel Mask)]
+10000026 0000014E 
+
+[Equipment Body (Spiegelmail)]
+10000028 0000015E 
+
+[Equipment Arm( Spiegel Shield)]
+1000002A 0000016E 
+
+[Equipment Legs (Spiegelbein)]
+1000002C 0000017E 
+
+[Normal attack attack(65535)]
+1000002E 0000FFFF 
+
+[Normal attack hit(65535)]
+10000030 0000FFFF 
+
+[Gun attack(65535)]
+10000032 0000FFFF  
+
+[Gun hit (65535)]
+10000034 0000FFFF 
+
+[Defense (65535)]
+10000036 0000FFFF 
+
+[Evasion (65535)]
+10000038 0000FFFF 
+
+[Magic Attack (65535)]
+1000003A 0000FFFF 
+
+[Magic Defense (65535)]
+1000003C 0000FFFF 
+
+[Level (99)]
+00000056 00000063 
+
+[Strength (99)]
+00000057 00000063 
+
+[Body (99)]
+00000058 00000063 
+
+[Skill (99)]
+00000059 00000063 
+
+[Speed ​​(99)]
+0000005A 00000063 
+
+[Luck (99)]
+0000005B 00000063 
+
+[Strength (99)]
+0000005C 00000063 
+
+[Body (99)]
+0000005D 00000063 
+
+[Technique (99)]
+0000005E 00000063 
+
+[Speed ​​(99)]
+0000005F 00000063 
+
+[Luck (99)]
+00000060 00000063 
+
+[Persona LV (99)]
+00000061 00000063 
+
+
+[Group:Persona Status]
+
+[Persona Magic attack (65535)]
+1000022C 0000FFFF 
+
+[Persona Magic defense (65535)]
+1000022E 0000FFFF 
+
+[Persona Type (Kamakura Gongoro)]
+00000234 00000062 
+
+[Persona SP consumption (0)]
+0000024C 00000000 
+
+[Persona LV(99)]
+0000024D 00000063 
+
+[Persona Power(99)]
+0000024F 00000063 
+
+[Persona Body(99)]
+00000250 00000063 
+
+[Persona Technique(99)]
+00000251 00000063 
+
+[Persona Speed(99)]
+00000252 00000063 
+
+[Persona Luck (99)]
+00000253 00000063 
+
+[Persona Rank (MAX)]
+00000255 00000008 
+
+;00000256 000000XX Persona Skill 1
+;0000025C 000000XX Persona Skill 7
+;0000025D 000000XX Persona Skill 1 (Enter the same)
+;00000263 000000XX Persona Skill 7 (Enter the same)
+
+;Persona Card
+;0000112C 000000XX Card_1st
+;0000112D 000000XX Card_2nd 
+;0000112E 000000XX Card_3rd
+;0000112F 000000XX Card_4th
+;00001130 000000XX Card_5th
+;00001131 000000XX Card_6th
+;00001132 000000XX Card_7
+;00001133 000000XX Card_8th
+;00001134 000000XX Card_9th
+;00001135 000000XX Card_10th
+;00001136 000000XX Card_11th
+;00001137 000000XX Card_12th

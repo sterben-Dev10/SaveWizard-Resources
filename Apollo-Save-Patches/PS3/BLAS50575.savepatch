@@ -4,7 +4,7 @@
 
 ; --- System Data ---
 
-:BLJM60581-SYS/SYSTEM.DAT
+:BLJM60581-SYS\SYSTEM.DAT
 
 ;From Mohe
 [VP 999999(Max)]

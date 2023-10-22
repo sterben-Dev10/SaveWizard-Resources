@@ -8,8 +8,7 @@
 
 ;Max HP [the max amount the game will allow] - [will have to re-apply, after so many hits]
 
-[Code Type 0: Standard 1 Byte Write]
-
+[save-slot-1: Super Max HP]
 00001F40 000000FF
 00001F41 0000007F
 00001F42 000000FF
@@ -20,95 +19,380 @@
 00001F47 0000007F
 
 
-[Code Type 1: Standard 2 Byte Write]
-
+[Code Type 1: Super Max HP]
 10001F40 00007FFF
 10001F42 00007FFF
 10001F44 00007FFF
 10001F46 00007FFF
 
 
-[Code Type 2: Standard 4 Byte Write]
+[Handgun (999) Enhanced (works from the first save)]
+A0005626 00000004
+EFEFF87C 00000000
 
-20001F40 7FFF7F77
-20001F44 7FFF7F77
+[Swap Handgun for Handcannon]
+A0005624 00000006
+3700EFEF F87C0000
+
+[Unlock Inventory to full]
+A0005618 00000001
+7F000000 00000000
+
+[Everything you need in your inventory]
+A0005620 00000118
+00000000 2300EFEF 
+F87C0000 02010001 
+30002652 F87C0000 
+12050001 0500F67C 
+00000000 16050001 
+1700F67C 00000000 
+070D0001 AD000100 
+02000000 00000000 
+3F000100 01000000 
+17000001 25009F9F 
+F87C0000 0B050001 
+AE000100 03000000 
+00000000 0300EFEF 
+F87C0000 10010001 
+3700EFEF F87C0000 
+03050401 94002652 
+F87C0000 07090001 
+38000100 00000000 
+18020101 AF000100 
+04000000 00000000 
+7F000100 00000000 
+00000000 0A00F67C 
+00000000 1A000001 
+2F00EFEF F87C0000 
+160D0001 0200F67C 
+00000000 18050001 
+0100F67C 00000000 
+1C050001 0E00F67C 
+00000000 1A050001 
+36002652 F87C0000 
+18090001 43000100 
+02000000 11090001 
+27003F3F F87C0000 
+08010001 0800F87C 
+00000000 1C000001
 
 
-[Code Type 9: Pointer Manipulator: (Set/Move Pointer) + Code Type A: Mass Write]
+; ITEM IDs
+; 0x00 = Magnum ammo
+; 0x01 = Hand grenade
+; 0x02 = Incendiary grenade
+; 0x03 = Matilda
+; 0x04 = Handgun ammo
+; 0x05 = First aid spray
+; 0x06 = Green herb
+; 0x07 = Rifle ammo
+; 0x08 = Chicken egg
+; 0x09 = Brown chicken egg
+; 0x0A = Gold chicken egg
+; 0x0C = Plaga sample
+; 0x0D = Krausers knife
+; 0x0E = Flash grenade
+; 0x0F = Salazar family insignia
+; 0x10 = Bowgun
+; 0x11 = Bowgun bolts
+; 0x12 = Green herb x2
+; 0x13 = Green herb x3
+; 0x14 = Mixed herbs [g+r]
+; 0x15 = Mixed herbs [g+r+y]
+; 0x16 = Mixed herbs [g+y]
+; 0x17 = Rocket Launcher [special]
+; 0x18 = Shotgun shells
+; 0x19 = Red herb
+; 0x1A = Handcannon ammo
+; 0x1B = Hourglass with/ gold decor
+; 0x1C = Yellow herb
+; 0x1D = Stone tablet
+; 0x1E = Lion ornament
+; 0x1F = Goat ornament
+; 0x20 = TMP ammo
+; 0x21 = Punisher
+; 0x22 = Punisher with/ silencer
+; 0x23 = Handgun
+; 0x24 = Handgun with/ silencer
+; 0x25 = Red9
+; 0x26 = Red9 with/ stock
+; 0x27 = Blacktail
+; 0x28 = Blacktail with/ silencer
+; 0x29 = Broken butterfly
+; 0x2A = Killer7
+; 0x2B = Killer7 with/ silencer
+; 0x2C = Shotgun
+; 0x2D = Striker
+; 0x2E = Rifle
+; 0x2F = Rifle [semiauto]
+; 0x30 = TMP
+; 0x31 = Activation key [blue]
+; 0x32 = TMP with/ stock
+; 0x33 = Activation key [red]
+; 0x34 = Chicago typewriter [infinite]
+; 0x35 = Rocket Launcher
+; 0x36 = Mine thrower
+; 0x37 = Handcannon
+; 0x38 = Combat knife
+; 0x39 = Serpent ornament
+; 0x3A = Moonstone [right half]
+; 0x3B = Insignia key
+; 0x3C = Round insignia
+; 0x3D = False eye
+; 0x3E = Custom TMP
+; 0x3F = Silencer [handgun]
+; 0x40 = Punisher
+; 0x41 = P.R.L. 412
+; 0x42 = Stock [red9]
+; 0x43 = Stock [TMP]
+; 0x44 = Scope [rifle]
+; 0x45 = Scope [semiauto rifle]
+; 0x46 = Minedarts
+; 0x47 = Shotgun
+; 0x48 = Capture luis sera
+; 0x49 = Target practice
+; 0x4A = Luis memo
+; 0x4B = Castellan memo
+; 0x4C = Female intruder
+; 0x4D = Butlers memo
+; 0x4E = Sample retrieved
+; 0x4F = Ritual preparation
+; 0x50 = Luis memo 2
+; 0x51 = Rifle [semiauto] with/ infrared scope
+; 0x52 = Krausers bow
+; 0x53 = Chicago typewriter [regular]
+; 0x54 = Treasure map [castle]
+; 0x55 = Treasure map [island]
+; 0x56 = Velvet blue
+; 0x57 = Spinel
+; 0x58 = Pearl pendant
+; 0x59 = Brass pocket watch
+; 0x5A = Elegant headdress
+; 0x5B = Antique pipe
+; 0x5C = Gold bangle with/ pearls
+; 0x5D = Amber ring
+; 0x5E = Beerstein
+; 0x5F = Green catseye
+; 0x60 = Red catseye
+; 0x61 = Yellow catseye
+; 0x62 = Beerstein with/ [g]
+; 0x63 = Beerstein with/ [r]
+; 0x64 = Beerstein with/ [y]
+; 0x65 = Beerstein with/ [g,r]
+; 0x66 = Beerstein with/ [g,y]
+; 0x67 = Beerstein with/ [r,y]
+; 0x68 = Beerstein with/ [g,r,y]
+; 0x69 = Moonstone [left half]
+; 0x6A = Chicago typewriter ammo
+; 0x6B = Rifle + scope
+; 0x6C = Rifle [semiauto] with/ scope
+; 0x6D = Infinite launcher
+; 0x6E = Kings grail
+; 0x6F = Queens grail
+; 0x70 = Staff of royalty
+; 0x71 = Gold bars
+; 0x72 = Arrows
+; 0x73 = Bonus time
+; 0x74 = Emergency lock card key
+; 0x75 = Bonus points
+; 0x76 = Green catseye
+; 0x77 = Ruby
+; 0x78 = Treasure box [s]
+; 0x79 = Treasure box [l]
+; 0x7A = Blue moonstone
+; 0x7B = Key to the mine
+; 0x7C = Attache case s
+; 0x7D = Attache case m
+; 0x7E = Attache case l
+; 0x7F = Attache case xl
+; 0x80 = Golden sword
+; 0x81 = Iron key
+; 0x82 = Stone of sacrifice
+; 0x83 = Storage room card key
+; 0x84 = Freezer card key
+; 0x85 = Piece of the holy beast, panther
+; 0x86 = Piece of the holy beast, serpent
+; 0x87 = Piece of the holy beast, eagle
+; 0x88 = Jetski key
+; 0x89 = Dirty pearl pendant
+; 0x8A = Dirty brass pocket watch
+; 0x8B = Old key
+; 0x8C = Camp key
+; 0x8D = Dynamite
+; 0x8E = Lift activation key
+; 0x8F = Gold bangle
+; 0x90 = Elegant perfume bottle
+; 0x91 = Mirror with/ pearls & rubies
+; 0x92 = Waste disposal card key
+; 0x93 = Elegant chessboard
+; 0x94 = Riot gun
+; 0x95 = Black bass
+; 0x96 = Hourglass with/ gold decor
+; 0x97 = Black bass [l]
+; 0x98 = Illuminados pendant
+; 0x99 = Rifle with/ infrared scope
+; 0x9A = Crown
+; 0x9B = Crown jewel
+; 0x9C = Royal insignia
+; 0x9D = Crown with jewels
+; 0x9E = Crown with an insignia
+; 0x9F = Salazar family crown
+; 0xA0 = Rifle ammo [infrared]
+; 0xA1 = Emerald
+; 0xA2 = Bottle caps
+; 0xA3 = Gallery key
+; 0xA4 = Emblem [right half]
+; 0xA5 = Emblem [left half]
+; 0xA6 = Hexagonal emblem
+; 0xA7 = Castle gate key
+; 0xA8 = Mixed herbs [r+y]
+; 0xA9 = Treasure map [village]
+; 0xAA = Scope [minethrower]
+; 0xAB = Minethrower + scope
+; 0xAC = Playing manual 1
+; 0xAD = Info on ashley
+; 0xAE = Playing manual 2
+; 0xAF = Alert order
+; 0xB0 = About the blue medallions
+; 0xB1 = Chiefs note
+; 0xB2 = Closure of the church
+; 0xB3 = Anonymous letter
+; 0xB4 = Playing manual 3
+; 0xB5 = Sera and the 3rd party
+; 0xB6 = Two routes
+; 0xB7 = Villages last defense
+; 0xB8 = Butterfly lamp
+; 0xB9 = Green eye
+; 0xBA = Red eye
+; 0xBB = Blue eye
+; 0xBC = Butterfly lamp with/ [ g ]
+; 0xBD = Butterfly lamp with/ [ r ]
+; 0xBE = Butterfly lamp with/ [ b ]
+; 0xBF = Butterfly lamp with/ [ g, r ]
+; 0xC0 = Butterfly lamp with/ [ g, b ]
+; 0xC1 = Butterfly lamp with/ [ r, b ]
+; 0xC2 = Butterfly lamp with/ [ r, g, b ]
+; 0xC3 = Prison key
+; 0xC4 = Platinum sword
+; 0xC5 = Infrared scope
+; 0xC6 = Elegant mask
+; 0xC7 = Green gem
+; 0xC8 = Red gem
+; 0xC9 = Purple gem
+; 0xCA = Elegant mask with/ [ g ]
+; 0xCB = Elegant mask with/ [ r ]
+; 0xCC = Elegant mask with/ [ p ]
+; 0xCD = Elegant mask with/ [ g, r ]
+; 0xCE = Elegant mask with/ [ g, p ]
+; 0xCF = Elegant mask with/ [ r, p ]
+; 0xD0 = Elegant mask with/ [ r, g, p ]
+; 0xD1 = Golden lynx
+; 0xD2 = Green stone of judgement
+; 0xD3 = Red stone of faith
+; 0xD4 = Blue stone of treason
+; 0xD5 = Golden lynx with/ [ g ]
+; 0xD6 = Golden lynx with/ [ r ]
+; 0xD7 = Golden lynx with/ [ b ]
+; 0xD8 = Golden lynx with/ [ g, r ]
+; 0xD9 = Golden lynx with/ [ g, b ]
+; 0xDA = Golden lynx with/ [ r, b ]
+; 0xDB = Golden lynx with/ [ g, r, b ]
+; 0xDC = Leon with/ rocket launcher
+; 0xDD = Leon with/ shotgun
+; 0xDE = Leon with/ handgun
+; 0xDF = Ashley Graham
+; 0xE0 = Luis sera
+; 0xE1 = Don jose
+; 0xE2 = Don diego
+; 0xE3 = Don esteban
+; 0xE4 = Don manuel
+; 0xE5 = Dr. salvador
+; 0xE6 = Merchant
+; 0xE7 = Zealot with/ scythe
+; 0xE8 = Zealot with/ shield
+; 0xE9 = Zealot with/ bowgun
+; 0xEA = Leader zealot
+; 0xEB = Soldier with/ dynamite
+; 0xEC = Soldier with/ stunrod
+; 0xED = Soldier with/ hammer
+; 0xEE = Isabel
+; 0xEF = Maria
+; 0xF0 = Ada wong
+; 0xF1 = Bella sisters
+; 0xF2 = Don pedro
+; 0xF3 = J.J.
+; 0xF4 = letter from ada
+; 0xF5 = Luis memo 3
+; 0xF6 = Paper airplane
+; 0xF7 = Our plan
+; 0xF8 = Luis memo 4
+; 0xF9 = Krausers note
+; 0xFA = Luis memo 5
+; 0xFB = Our mission
+; 0xFE = Tactical vest
+; 0x100 = Punisher
+; 0x101 = Handgun
+; 0x102 = Shotgun
+; 0x103 = Mine thrower
+; 0x104 = Handcannon
+; 0x105 = Mine thrower + scope
+; 0x106 = Mission directives 1
+; 0x107 = Mission directives 2
+; 0x108 = Mission directives 3
+; 0x109 = Mission directives 4
+; 0x10A = Mission directives 5
+; 0x10B = Mission 1 treasure map
+; 0x10C = Mission 2 treasure map
+; 0x10D = Mission 3 treasure map
+; 0x10E = Mission 4 treasure map
+; 0x10F = Mission 5 treasure map
 
 
-95000000 00001F40
-A8000000 00000008
-FF7FFF7F FF7FFF7F
-
-
-[Code Type A: Mass Write]
-
-
+[save-slot-1 MAX HP]
 A0001F40 00000008
 FF7FFF7F FF7FFF7F
 
 
-;save-slots in order
-;MAX HP
-
-
-
-[save-slot-1]
-
-A0001F40 00000008
-FF7FFF7F FF7FFF7F
-
-
-[save-slot-2
-
+[save-slot-2 MAX HP]
 A000EA3C 00000008
 FF7FFF7F FF7FFF7F
 
 
-[save-slot-3]
-
+[save-slot-3 MAX HP]
 A001B538 00000008
 FF7FFF7F FF7FFF7F
 
 
-[save-slot-4]
-
+[save-slot-4 MAX HP]
 A0028034 00000008
 FF7FFF7F FF7FFF7F
 
 
-[save-slot-5]
-
+[save-slot-5 MAX HP]
 A0034B30 00000008
 FF7FFF7F FF7FFF7F
 
 
-[save-slot-6]
-
+[save-slot-6 MAX HP]
 A004162C 00000008
 FF7FFF7F FF7FFF7F
 
 
-[save-slot-7]
-
+[save-slot-7 MAX HP]
 A004E128 00000008
 FF7FFF7F FF7FFF7F
 
 
-[save-slot-8]
-
+[save-slot-8 MAX HP]
 A005AC24 00000008
 FF7FFF7F FF7FFF7F
 
 
-[save-slot-9]
-
+[save-slot-9 MAX HP]
 A0067720 00000008
 FF7FFF7F FF7FFF7F
 
 
-[save-slot-10]
-
+[save-slot-10 MAX HP]
 A007421C 00000008
 FF7FFF7F FF7FFF7F

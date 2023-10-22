@@ -8,6 +8,18 @@
 set range:0x000000,eof+1
 DECRYPT aes_ecb(0x1685FFA38D010F0DFE661CF9B5572C500D802648DB37B9ED0F48C57342C022F5)
 
+[Franklin Money 999999999]
+80010004 44BD6982
+28000004 3B9AC9FF
+
+[Michael Money 999999999]
+80010004 0324C31D
+28000004 3B9AC9FF
+
+[Trevor Money 999999999]
+80010004 8D75047D
+28000004 3B9AC9FF
+
 [INFO: For XXXXXXXX Values go to http://ps3cheating.net/forum/?mingleforumaction=viewtopic&t=809#postid-2657]
 
 [GROUP:Franklin]
@@ -295,6 +307,10 @@ DECRYPT aes_ecb(0x1685FFA38D010F0DFE661CF9B5572C500D802648DB37B9ED0F48C57342C022
 28000AFC XXXXXXXX
 
 [GROUP:Encryption]
+
+[Update CHKS checksum (Required)]
+set range:0x000000,eof+1
+set [chks]:rockstar_checksum
 
 [Encrypt RAGE.SAV (Required)]
 set range:0x000000,eof+1
