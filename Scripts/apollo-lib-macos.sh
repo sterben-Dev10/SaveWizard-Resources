@@ -43,6 +43,17 @@ else
     fi
 fi
 
+echo "Checking if cmake is installed..."
+
+if ! command -v cmake &>/dev/null; then
+    echo "cmake not found, installing now via Homebrew..."
+    brew install cmake
+    if [ $? -ne 0 ]; then
+        echo "Failed to install cmake via Homebrew. Please check your Homebrew installation and try again." >&2
+        exit 1
+    fi
+fi
+
 echo "Checking if zlib is installed via Homebrew..."
 
 if brew list zlib &>/dev/null; then
