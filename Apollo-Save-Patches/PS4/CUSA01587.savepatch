@@ -1,0 +1,11 @@
+; CUSA01587
+; Shantae: Risky's Revenge
+; checksum by Zhaxxy
+
+:savedata.sav
+
+[Update JHash savedata.dat (Required)]
+set range:0x027C,0x048F
+set [csum]:jhash
+set [csum]:endian_swap
+write at 0x0278:[csum]

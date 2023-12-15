@@ -10,3 +10,31 @@
 28000097 FFE0F505
 80010004 29942444
 28000097 FFE0F505
+
+
+[Update Custom CRC32 AC2_0.SAV (Required)]
+set crc_bandwidth:32
+set crc_polynomial:0x4C11DB7
+set crc_initial_value:0xbae23cd0
+set crc_output_xor:0xFFFFFFFF
+set crc_reflection_input:1
+set crc_reflection_output:1
+set [size]:read(0x00,4)
+set range:0x0008,[size]+7
+set [hash]:crc
+write at 0x0004:[hash]
+
+
+:OPTIONS
+
+[Update Custom CRC32 OPTIONS (Required)]
+set crc_bandwidth:32
+set crc_polynomial:0x4C11DB7
+set crc_initial_value:0xbae23cd0
+set crc_output_xor:0xFFFFFFFF
+set crc_reflection_input:1
+set crc_reflection_output:1
+set [size]:read(0x00,4)
+set range:0x0008,[size]+7
+set [hash]:crc
+write at 0x0004:[hash]

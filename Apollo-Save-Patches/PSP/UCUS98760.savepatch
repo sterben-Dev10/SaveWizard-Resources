@@ -1,0 +1,23 @@
+; UCUS98760
+; InviZimals: Shadow Zone
+; PSP
+; codes & checksum reversed by bucanero
+
+:GAMEDATA
+
+[Update Save Owner to Current PSP]
+set [wlan]:host_wlan_addr
+write at 0x0034:[wlan]
+
+[Lock Save to Current PSP]
+00000030 00000001
+
+[Unlock Save to any PSP]
+00000030 00000000
+
+[Update Custom Adler32 (Required)]
+write at 0x000C:0x99547688
+set range:0x0000,EOF+1
+set [hash]:Adler32:0x00000000
+set [hash]:endian_swap
+write at 0x000C:[hash]

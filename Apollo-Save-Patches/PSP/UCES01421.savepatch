@@ -1,0 +1,15 @@
+;UCES01421
+;Patapon 3
+; encryption by bucanero
+
+:SECURE.BIN
+
+[Decrypt SECURE.BIN (required)]
+set range:0x0000,EOF+1
+DECRYPT patapon3
+
+; // mods should go here
+
+[Encrypt SECURE.BIN (required)]
+set range:0x0000,EOF+1
+ENCRYPT patapon3

@@ -1,0 +1,64 @@
+;BLUS30364
+;Assassin's Creed II
+; crc checksum by Devildwarf
+
+:OPTIONS
+
+[Enable Auditore Crypt Uplay map]
+00000498 00000001
+
+[Enable Uplay Altairs outfit]
+00000486 00000001
+
+[Enable Uplay knives upgrade]
+00000474 00000001
+
+[Enable Verizon App Store Bonus skin]
+0000041A 00000001
+
+[Enable Maria Thorpe LongSword]
+0000056B 00000001
+
+[Enable Fredricks Hammer]
+0000056C 00000001
+
+[Enable Mace of the Bull]
+0000056D 00000001
+
+[Enable Dark Oracle Bone Dagger]
+0000056E 00000001
+
+[Enable Twins Rapier]
+0000056F 00000001
+
+[Enable Boucharts blade]
+00000570 00000001
+
+[Update Custom CRC32 OPTIONS (Required)]
+set crc_bandwidth:32
+set crc_polynomial:0x4C11DB7
+set crc_initial_value:0
+set crc_output_xor:0x1bf3278a
+set crc_reflection_input:1
+set crc_reflection_output:1
+set [size]:read(0x00,4)
+set range:0x0008,[size]+7
+set [hash]:crc
+write at 0x0004:[hash]
+
+
+
+:AC2_0.SAV
+
+[Update Custom CRC32 AC2_0.SAV (Required)]
+set crc_bandwidth:32
+set crc_polynomial:0x4C11DB7
+set crc_initial_value:0xbae23cd0
+set crc_output_xor:0xFFFFFFFF
+set crc_reflection_input:1
+set crc_reflection_output:1
+set [size]:read(0x00,4)
+set range:0x0008,[size]+7
+set [hash]:crc
+write at 0x0004:[hash]
+

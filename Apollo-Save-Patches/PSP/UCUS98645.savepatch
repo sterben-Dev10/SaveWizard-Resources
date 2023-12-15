@@ -1,0 +1,11 @@
+; UCUS98645
+; SOCOM: Fire Team Bravo 2
+; PSP
+
+:SOCOMFT2.BIN
+
+;by bucanero
+
+[Fix Save Owner SOCOMFT2.BIN (Required)]
+set [wlan]:host_wlan_addr
+write at 0x0008:[wlan]

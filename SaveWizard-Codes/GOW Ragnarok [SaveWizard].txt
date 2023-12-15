@@ -10,6 +10,53 @@ Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/1f5cjWcJsY3SF0lcViY
 GOW Ragnarok Starter Saves Mirror: https://github.com/sterben-Dev10/SaveWizard-Resources/tree/main/Saves/GOW%20Ragnarok
 Code Prince GOWR Save Editor (PAID): https://codesprince.com/2022/12/06/ps4-ps5-save-editor-for-gow-ragnarok/
 
+[Community]
+Chaos Crest - [x2147400000] (DLC Valhalla)
+80010008 FC310960
+8971D048 00000000
+28000008 7FFEB940
+
+Divine Triumph - [x2147400000] (DLC Valhalla)
+80010008 74356ADC
+98B45166 00000000
+28000008 7FFEB940
+
+Draupnir Crest - [x2147400000] (DLC Valhalla)
+80010008 BF6CA471 
+D73D0B11 00000000
+28000008 7FFEB940
+
+Fleeting Echoes - [x2147400000] (DLC Valhalla)
+80010008 27D402DD 
+DEBD7993 00000000
+28000008 7FFEB940
+
+Leviathan Crest - [x2147400000] (DLC Valhalla)
+80010008 43638B83 
+8E5D35F5 00000000
+28000008 7FFEB940
+
+Mastery Seal - [x2147400000] (DLC Valhalla)
+80010008 C72D3884 
+CDCD71E3 00000000
+28000008 7FFEB940
+
+Sanctuary Barrier Key - [x2147400000] (DLC Valhalla)
+80010008 3BD4A8D0 
+1459A2C6 00000000
+28000008 7FFEB940
+
+Sanctuary Barrier Key Alt - [x28] (DLC Valhalla)
+80010008 3BD4A8D0 
+1459A2C6 00000000
+28000008 0000001C
+
+Spirit Seal - [x2147400000] (DLC Valhalla)
+80010008 AC284417 
+EB53989C 00000000
+28000008 7FFEB940
+Notes: these just set the value of said items, you still need to earn 1 of each before applying.
+
 [XxUnkn0wnxX#0001]
 Difficulty Changer
 95000000 0002F440

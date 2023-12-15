@@ -1,0 +1,94 @@
+; NPEB02140
+; Metal Gear Solid 5: The Phantom Pain
+;https://web.save-editor.com/bbs/patchcode/ps3/bbs.cgi?list=pickup&num=508#
+;encryption/checksum by bucanero
+
+:TPP_GAM*
+
+[Decrypt Save Data (Required)]
+set range:0x0000,EOF+1
+DECRYPT MGS5_TPP(0x1FBAB234)
+
+; *Precautions before use*
+; Update to match the version [Version 1.12]
+; Being in the air command center [Standing by in the ACC ]
+; Save data For both GAM0 and GAM1
+; If characters and numbers such as fuel resources and common metals disappear on the resource screen,
+; open another screen and save the auto-save 
+
+[INFO:Must Have Game Version 1.12]
+
+[Processed resources]
+420270EC 000F4240
+40050004 00000000
+
+[Plants]
+42027100 00002EE0
+40080004 00000000
+
+[Raw resources]
+420271D8 003D0900
+40050004 00000000
+
+[Parasites]
+42027164 00001770
+40030004 00000000
+
+[Various weapons]
+42027120 0000EA60
+400F0004 00000000
+42027174 0000EA60
+40050004 00000000
+
+[Group:Soldier ability value change]
+[700 people]
+4001FAEB 0000004E
+42BC0004 00000000
+
+[1400 people]
+4001FAEB 0000004E
+45780004 00000000
+
+[2100 people]
+4001FAEB 0000004E
+48340004 00000000
+
+[2800 people]
+4001FAEB 0000004E
+4AF00004 00000000
+
+[3500 people]
+4001FAEB 0000004E
+4DAC0004 00000000
+
+[Group:3 types of soldier medals]
+[700 people]
+4002319A 000000FE
+42BC0004 00000000
+
+[1400 people]
+4002319A 000000FE
+45780004 00000000
+
+[2100 people]
+4002319A 000000FE
+48340004 00000000
+
+[2800 people]
+4002319A 000000FE
+4AF00004 00000000
+
+[3500 people]
+4002319A 000000FE
+4DAC0004 00000000
+
+[Group:\]
+
+[Update MD5 checksum (Required)]
+set range:0x0010,EOF+1
+set [hash]:MD5
+write at 0x0000:[hash]
+
+[Encrypt Save Data (Required)]
+set range:0x0000,EOF+1
+ENCRYPT MGS5_TPP(0x1FBAB234)
