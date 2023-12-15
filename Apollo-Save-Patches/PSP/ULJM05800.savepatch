@@ -1,0 +1,25 @@
+; ULJM05800
+; Monster Hunter Portable 3rd
+; PSP
+; encryption & checksum by bucanero
+
+:MHP3RD.BIN
+
+[Decrypt MHP3RD.BIN (Required)]
+set range:0x0000,EOF+1
+DECRYPT monster_hunter(3)
+
+[Update Custom SHA1 (Required)]
+; add salt at (size-36), then calc sha1
+; hash stored at (size-24)
+set pointer:EOF-0x23
+set [temp]:read(pointer, 0x14)
+write next (0):"VQ(DOdIO9?X3!2GmW#XF"
+set range:0x0000,EOF-0x10
+set [shasum]:SHA1
+write next (0):[temp]
+write next (12):[shasum]
+
+[Encrypt MHP3RD.BIN (Required)]
+set range:0x0000,EOF+1
+ENCRYPT monster_hunter(3)

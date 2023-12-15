@@ -14,5 +14,3 @@ set pointer:eof+1
 set range:0x007804,pointer
 set [hash]:CRC32
 write at 0x007800:[hash]
-
-

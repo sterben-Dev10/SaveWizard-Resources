@@ -1,0 +1,20 @@
+; CUSA03199
+; Shantae and the Pirate's Curse
+; checksum by Zhaxxy
+
+; magic value PC saves (Steam): 0x20D4ACC1
+
+:*
+
+[Update JHash (Required)]
+set range:0x0004,EOF+1
+set [csum]:jhash
+set [csum]:[csum]+0x4900DC7C
+set [csum]:endian_swap
+write at 0x0000:[csum]
+
+;[Decompress Save (Required)]
+;Decompress SAVE.DAT
+
+;[Compress Save (Required)]
+;Compress SAVE.DAT,-w -15
