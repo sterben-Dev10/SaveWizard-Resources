@@ -7,10 +7,10 @@ Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 The Author's listed above codes & the Creators & Maintainers
 
 Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY/edit?pli=1#gid=773874006
-Credits to Lotus#0676 for research & Codes.
+Credits to Lotus for research & Codes.
 
 
-[Lotus#0676]
+[Lotus]
 Set Quality To 999 All Items [1-9999]
 8001000F 6D5F756E
 6974436F 6E746169
@@ -175,7 +175,7 @@ Item Adder Template Multi Builder (Multiple) - [This Code Adds stuff to your bas
 08000029 000000SP <-- SP = Speed Stat
 -- Ends Here --
 
-Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
+Notes: Targets m_unitBasket, Credits to Lotus for research.
 Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
 This one is scalable, after the 1st ID you just add +44 Bytes (2C in Hex)
 if you want to target multiple slots in one go..
