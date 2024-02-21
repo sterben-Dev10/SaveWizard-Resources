@@ -15,4 +15,4 @@ Set Quantity To 255 All Items [1-5000]
 49C40058 00000000
 48035B7A 000000FF
 49C40058 00000000
-Notes: Credits to Lotus#0676 for research.
+Notes: Credits to Lotus for research.

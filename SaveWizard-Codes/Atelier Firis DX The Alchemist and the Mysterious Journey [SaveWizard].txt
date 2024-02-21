@@ -7,9 +7,9 @@ Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 The Author's listed above codes & the Creators & Maintainers
 
 Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY/edit#gid=592501824
-Credits to Lotus#0676 for research.
+Credits to Lotus for research.
 
-[Lotus#0676]
+[Lotus]
 Set Quality To 999 All Items [1-4000]
 8001000F 6D5F756E
 6974436F 6E746169
@@ -140,7 +140,7 @@ This Code Adds stuff to your basket
 08000028 000000AA <-- AA = Item Amount
 -- Ends Here --
 
-Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
+Notes: Targets m_unitBasket, Credits to Lotus for research.
 Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
 This one is scalable, after the 1st ID you just add +56 Bytes (38 in Hex)
 if you want to target multiple slots in one go..

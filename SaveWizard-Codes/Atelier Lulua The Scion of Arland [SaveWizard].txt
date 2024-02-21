@@ -17,9 +17,9 @@ Set Quality To 999 All Items [1-5000]
 49C40020 00000000
 49013898 000003E7
 49C40020 00000000
-Notes: Credits to Lotus#0676 for research.
+Notes: Credits to Lotus for research.
 
-[XxUnkn0wnxX#0001, Lotus#0676]
+[XxUnkn0wnxX#0001, Lotus]
 Item Add/Replace Template Builder (SIMPLE):
 -- This Code Adds stuff to your basket --
 
@@ -72,7 +72,7 @@ Same code for Simple Copy & Paste
 0800001B 000000SP
 -- Ends Here --
 
-Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
+Notes: Targets m_unitBasket, Credits to Lotus for research.
 Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
 There is a bonus section called "Uses"
 
@@ -144,7 +144,7 @@ Example Usage: Add/Replace Item with Coffee In Slot 1 With Traits & 1 Effect
 18000013 00000101 <-- Needed to make items appear
 08000015 00000063 <-- AA [63] x99
 
-[XxUnkn0wnxX#0001, Lotus#0676]
+[XxUnkn0wnxX#0001, Lotus]
 Item Add/Replace Template Multi Builder (HARD):
 -- This Code Adds stuff to your basket --
 
@@ -268,7 +268,7 @@ Same code for Simple Copy & Paste
 0800001A 000000DF
 0800001B 000000SP
 -- Ends Here --
-Notes: Targets m_unitBasket, Credits to Lotus#0676 for research.
+Notes: Targets m_unitBasket, Credits to Lotus for research.
 Refer to Spreadsheet with columns marked with [QC] for the appropriate ID's
 This one is scalable, after the 1st ID you just add +32 Bytes (20 in Hex)
 if you want to target multiple slots in one go..
@@ -342,7 +342,7 @@ With Various Traits & Effects.
 18000013 00000101 <-- Needed to make items appear
 08000015 00000063 <-- AA [63] x99
 
-[Lotus#0676]
+[Lotus]
 
 Single item replace example - Changes 1st item in basket to alchemy coat
 8001000C 6D5F756E
