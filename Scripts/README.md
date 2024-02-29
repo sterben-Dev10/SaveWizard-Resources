@@ -26,3 +26,20 @@ Apply `--little` if you want it in Little Endian.
 open a temrinal window type in `chmod 755` then a space, then drag the script on the window & hit enter.  
 now right click on the `apollo-lib-macos.sh` script & open with Terminal.
 
+[MediaFire](MediaFire.py)  
+
+> A Script that bypasse's the blocked/dangerous links that you cannot download on mediafire.  
+> you must be logged in with mediafire 1st & have a dummy file uploaded to your own mediafire drive,  
+> use that dummy file to set the varrible for `Link1`.
+
+**Usage:**  
+`python3 MediaFire.py` it will then ask you to enter the link you are trying to access,  
+enter the link & hit enter, it should give you an example link like this `mediafire.com/?i0w4rh8twcwfirv,b1wt1l2hrb0ey3e`  
+as the output.
+
+<a href=".images/Step1.png" target="_blank">
+    <img src=".images/Step1.png"" alt="Alt Text" width="300" style="display: inline-block; margin-right: 10px;"/>
+</a>
+<a href=".images/Step2.png" target="_blank">
+    <img src=".images/Step2.png"" alt="Alt Text" width="300" style="display: inline-block; margin-right: 10px;"/>
+</a>
