@@ -34,7 +34,7 @@ now right click on the `apollo-lib-macos.sh` script & open with Terminal.
 
 **Usage:**  
 `python3 MediaFire.py` it will then ask you to enter the link you are trying to access,  
-enter the link & hit enter, it should give you an example link like this `mediafire.com/?i0w4rh8twcwfirv,b1wt1l2hrb0ey3e`  
+enter the link & hit enter, it should give you an example link like this `mediafire.com/?i0w4rh8twcwfirv,znig9z0dsbg6x7k`  
 as the output.
 
 <a href=".images/Step1.png" target="_blank">
@@ -42,3 +42,5 @@ as the output.
 </a> <br><a href=".images/Step2.png" target="_blank">
     <img src=".images/Step2.png"" alt="Alt Text" width="300" style="display: inline-block; margin-right: 10px;"/>
 </a>
+
+you should be able to see one of your files & the block file, then you just right click on the file that is blocked (red tint), click on "Copy File To" & place it in your own drive, from there you can download the blocked file as you own it now.
