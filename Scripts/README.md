@@ -40,6 +40,7 @@ as the output.
 <a href=".images/Step1.png" target="_blank">
     <img src=".images/Step1.png"" alt="Alt Text" width="300" style="display: inline-block; margin-right: 10px;"/>
 </a>
+
 <a href=".images/Step2.png" target="_blank">
     <img src=".images/Step2.png"" alt="Alt Text" width="300" style="display: inline-block; margin-right: 10px;"/>
 </a>
