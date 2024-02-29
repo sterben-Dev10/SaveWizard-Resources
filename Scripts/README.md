@@ -33,8 +33,9 @@ now right click on the `apollo-lib-macos.sh` script & open with Terminal.
 > use that dummy file to set the varrible for `Link1`.
 
 **Usage:**  
-`python3 MediaFire.py` it will then ask you to enter the link you are trying to access,  
-enter the link & hit enter, it should give you an example link like this `mediafire.com/?i0w4rh8twcwfirv,b1wt1l2hrb0ey3e`  
+
+>`python3 MediaFire.py` it will then ask you to enter the link you are trying to access,  
+enter the link & hit enter, it should give you an example link like this `mediafire.com/?i0w4rh8twcwfirv,b1wt1l2hrb0ey3e` 
 as the output.
 
 <a href=".images/Step1.png" target="_blank">
