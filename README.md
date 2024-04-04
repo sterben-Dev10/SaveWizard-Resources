@@ -13,7 +13,6 @@ https://qcgenerators.com
 [Save Wizard Discord](https://discord.gg/3N8gWYk)  
 [Boosting/Teaming Up](https://discord.gg/GPpWCgw6uy)  
 [XDG Nation](https://discord.gg/P7WWvf6xPP)  
-[GTA Dark Server](https://discord.gg/savewizard)  
 
 **Resources**  
 Slayer's Ice Realm Code Vault: [Slayer's Code Vault](https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY)  
