@@ -6,7 +6,7 @@ import sys
 # Global variable for Link 1 - Set This To a DL Link You own in your mediafire folder
 # Example:
 # Link1 = "https://www.mediafire.com/view/i0w4rh8twcwfirv/Test.png/file"
-Link1 = ""
+Link1 = "https://www.mediafire.com/file/b1wt1l2hrb0ey3e/Test.zip/file"
 
 # Immediately check if Link1 is set
 if not Link1:
@@ -23,13 +23,18 @@ signal.signal(signal.SIGINT, signal_handler)
 
 # Function to extract the unique ID from a Mediafire link
 def extract_id(link):
-    # Split the link by '/' and return the part that contains the file's unique ID
+    # Attempt to extract the ID from the URL path
     parts = link.split('/')
-    # Find the index of the part that contains "mediafire.com"
-    for i, part in enumerate(parts):
-        if "mediafire.com" in part:
-            # The unique ID should be one or two positions after this, depending on the link structure
-            return parts[i + 2] if len(parts) > i + 2 else None
+    mediafire_index = next((i for i, part in enumerate(parts) if "mediafire.com" in part), None)
+    if mediafire_index is not None and len(parts) > mediafire_index + 2:
+        return parts[mediafire_index + 2]
+
+    # If the path method fails, attempt to extract the ID using the 'quickkey' parameter
+    if 'quickkey=' in link:
+        start = link.find('quickkey=') + len('quickkey=')
+        end = link.find('&', start)
+        return link[start:end if end != -1 else None]
+
     return None
 
 # Function to build the final link with the two IDs
