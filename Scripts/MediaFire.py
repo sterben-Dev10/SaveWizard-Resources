@@ -6,7 +6,7 @@ import sys
 # Global variable for Link 1 - Set This To a DL Link You own in your mediafire folder
 # Example:
 # Link1 = "https://www.mediafire.com/view/i0w4rh8twcwfirv/Test.png/file"
-Link1 = "https://www.mediafire.com/file/b1wt1l2hrb0ey3e/Test.zip/file"
+Link1 = ""
 
 # Immediately check if Link1 is set
 if not Link1:
