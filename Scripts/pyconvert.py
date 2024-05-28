@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Script Ver: V4.4
 
 import sys
 import struct
@@ -59,6 +60,16 @@ def half_float_to_float(i, little_endian):
         # Normalized number
         return (-1) ** sign * (1.0 + fraction / 1024.0) * 2 ** (exponent - 15)
 
+def format_float(value, precision=6):
+    if value != value:  # Check for NaN
+        return "NaN"
+    elif value == float('inf'):
+        return "Infinity"
+    elif value == float('-inf'):
+        return "-Infinity"
+    else:
+        return f"{value:.{precision}g}"
+
 def float_to_half_float(f, little_endian):
     s = struct.pack('>f', f)
     i = struct.unpack('>I', s)[0]
@@ -86,7 +97,7 @@ def float_to_half_float(f, little_endian):
             hex_value = ((hex_value & 0xFF) << 8) | ((hex_value & 0xFF00) >> 8)
         return hex_value
 
-def generic_conversion(value, format_str, little_endian, to_hex=True):
+def generic_conversion(value, format_str, little_endian, to_hex=True, precision=6):
     byte_order = '<' if little_endian else '>'
     struct_format = format_map[format_str]
     
@@ -99,6 +110,8 @@ def generic_conversion(value, format_str, little_endian, to_hex=True):
             float_value = float(value) if not is_hex else None
             if to_hex:
                 if is_hex:
+                    if len(value_cleaned) > format_byte_size[format_str]:
+                        raise ValueError(f"Hex value {value} exceeds the allowed byte size for format {format_str}[{format_byte_size[format_str]}].")
                     int_value = int(value, 16)
                     packed_value = struct.pack(byte_order + struct_format.replace("f", "I").replace("d", "Q"), int_value)
                 else:
@@ -107,17 +120,19 @@ def generic_conversion(value, format_str, little_endian, to_hex=True):
             else:
                 if is_hex:
                     if len(value_cleaned) > format_byte_size[format_str]:
-                        raise ValueError(f"Hex value exceeds the allowed byte size for format {format_str}[{format_byte_size[format_str]}].")
+                        raise ValueError(f"Hex value {value} exceeds the allowed byte size for format {format_str}[{format_byte_size[format_str]}].")
                     if little_endian:
                         value_cleaned = ''.join(reversed([value_cleaned[i:i + 2] for i in range(0, len(value_cleaned), 2)]))
                     int_val = int(value_cleaned, 16)
                     unpacked_value = struct.unpack(byte_order + struct_format, struct.pack(byte_order + struct_format.replace("f", "I").replace("d", "Q"), int_val))
-                    return f"Dec: {unpacked_value[0]}"
+                    return f"Dec: {format_float(unpacked_value[0], precision)}"
                 else:
                     packed_value = struct.pack(byte_order + struct_format, float_value)
                     hex_value = hex(struct.unpack(byte_order + struct_format.replace("f", "I").replace("d", "Q"), packed_value)[0])[2:].upper()
         else:  # Handling other integer types
             if is_hex:
+                if len(value_cleaned) > format_byte_size[format_str]:
+                    raise ValueError(f"Hex value {value} exceeds the allowed byte size for format {format_str}[{format_byte_size[format_str]}].")
                 int_value = int(value_cleaned, 16)
                 if int_value < format_bounds[format_str][0] or int_value > format_bounds[format_str][1]:
                     raise ValueError(f"Hex value {value} out of bounds for format {format_str}. Allowed range: {format_bounds[format_str][0]} to {format_bounds[format_str][1]}.")
@@ -129,19 +144,20 @@ def generic_conversion(value, format_str, little_endian, to_hex=True):
             else:
                 if is_hex:
                     if len(value_cleaned) > format_byte_size[format_str]:
-                        raise ValueError(f"Hex value exceeds the allowed byte size for format {format_str}[{format_byte_size[format_str]}].")
+                        raise ValueError(f"Hex value {value} exceeds the allowed byte size for format {format_str}[{format_byte_size[format_str]}].")
                     if little_endian:
                         value_cleaned = ''.join(reversed([value_cleaned[i:i + 2] for i in range(0, len(value_cleaned), 2)]))
                     int_value = int(value_cleaned, 16)
                 packed_value = struct.pack(byte_order + struct_format, int_value)
-                return f"Dec: {struct.unpack(byte_order + struct_format, packed_value)[0]}"
+                return f"Dec: {int(struct.unpack(byte_order + struct_format, packed_value)[0])}"
         
         # Correctly reverse the hexadecimal string for little-endian
         if little_endian:
             hex_value = hex_value.zfill(format_byte_size[format_str])
             hex_value = ''.join(reversed([hex_value[i:i + 2] for i in range(0, len(hex_value), 2)]))
-    except Exception as e:
-        raise ValueError(f"Error when processing value {value} with format string {format_str}. Error: {e}")
+    except ValueError as e:
+        # Handle the error directly and raise a formatted error message
+        raise ValueError(str(e))
     
     # Adjust hex representation for byte size
     hex_value = hex_value.zfill(format_byte_size[format_str])
@@ -154,6 +170,11 @@ def check_bounds(value, format_str):
     logger.debug(f"Checking bounds for value {value} in range {lower} to {upper}")
     if not lower <= value <= upper:
         raise ValueError(f"Value out of bounds for format {format_str}. Allowed range: {lower} to {upper}.")
+        
+def is_valid_decimal(value):
+    if value.startswith('-'):
+        value = value[1:]
+    return all(c in '0123456789.' for c in value)
 
 def alias_parser(args):
     alias_map = {
@@ -205,8 +226,11 @@ def main():
             print("Error: Decimal points are only allowed for float, double float, and half float types.")
             sys.exit(1)
 
-    # Validate value against format bounds if it's not in hexadecimal
+    # Additional validation for decimal and hexadecimal values
     if not value.startswith('0x'):
+        if not (args.halffloat or args.float or args.doublefloat) and not is_valid_decimal(value):
+            print("Error: Decimal values can only contain digits and a decimal point for floats. Use '0x' prefix for hex values.")
+            sys.exit(1)
         try:
             if args.ubyte:
                 check_bounds(int(value), 'ubyte')
@@ -239,29 +263,32 @@ def main():
             print(f"Hex value {value} exceeds the allowed byte size for format uint64[{format_byte_size['uint64']}].")
             sys.exit(1)
 
-    if args.halffloat:
-        if '0x' in value:
-            int_value = int(value, 16)
-            result = f"Dec: {half_float_to_float(int_value, little_endian)}"
-        else:
-            float_value = float(value)
-            check_bounds(float_value, 'float')
-            hex_value = hex(float_to_half_float(float_value, little_endian))[2:].upper().zfill(4)
-            result = f"Hex: {hex_value}"
-    elif args.float:
-        result = generic_conversion(value, 'float', little_endian, not value.startswith('0x'))
-    elif args.doublefloat:
-        result = generic_conversion(value, 'doublefloat', little_endian, not value.startswith('0x'))
-    elif args.ubyte:
-        result = generic_conversion(value, 'ubyte', little_endian, not value.startswith('0x'))
-    elif args.ushort:
-        result = generic_conversion(value, 'ushort', little_endian, not value.startswith('0x'))
-    elif args.uint32:
-        result = generic_conversion(value, 'uint32', little_endian, not value.startswith('0x'))
-    elif args.uint64:
-        result = generic_conversion(value, 'uint64', little_endian, not value.startswith('0x'))
-
-    print(result)
+    try:
+        if args.halffloat:
+            if '0x' in value:
+                int_value = int(value, 16)
+                result = f"Dec: {format_float(half_float_to_float(int_value, little_endian), precision=5)}"
+            else:
+                float_value = float(value)
+                check_bounds(float_value, 'float')
+                hex_value = hex(float_to_half_float(float_value, little_endian))[2:].upper().zfill(4)
+                result = f"Hex: {hex_value}"
+        elif args.float:
+            result = generic_conversion(value, 'float', little_endian, not value.startswith('0x'), precision=7)
+        elif args.doublefloat:
+            result = generic_conversion(value, 'doublefloat', little_endian, not value.startswith('0x'), precision=16)
+        elif args.ubyte:
+            result = generic_conversion(value, 'ubyte', little_endian, not value.startswith('0x'))
+        elif args.ushort:
+            result = generic_conversion(value, 'ushort', little_endian, not value.startswith('0x'))
+        elif args.uint32:
+            result = generic_conversion(value, 'uint32', little_endian, not value.startswith('0x'))
+        elif args.uint64:
+            result = generic_conversion(value, 'uint64', little_endian, not value.startswith('0x'))
+        print(result)
+    except ValueError as e:
+        print(f"Error: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
