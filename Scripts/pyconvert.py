@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Script Ver: V4.4
+# Script Ver: V4.5
 
 import sys
 import struct
@@ -185,7 +185,8 @@ def alias_parser(args):
         "-ui16": "--ushort",
         "-ui32": "--uint32",
         "-ui64": "--uint64",
-        "-ltl": "--little"
+        "-ltl": "--little",
+        "-swp": "--swap"
     }
     new_args = []
     for arg in args:
@@ -194,6 +195,12 @@ def alias_parser(args):
         else:
             new_args.append(arg)
     return new_args
+
+def swap_endianness(hex_string):
+    if len(hex_string) % 2 != 0:
+        hex_string = '0' + hex_string
+    swapped = ''.join([hex_string[i:i+2] for i in range(0, len(hex_string), 2)][::-1])
+    return swapped
 
 def main():
     parser = argparse.ArgumentParser(description="Convert decimal and hex values.", allow_abbrev=False)
@@ -206,6 +213,7 @@ def main():
     group.add_argument("--ushort", action="store_true", help="Convert to/from unsigned short")
     group.add_argument("--uint32", action="store_true", help="Convert to/from unsigned int (32-bit)")
     group.add_argument("--uint64", action="store_true", help="Convert to/from unsigned int (64-bit)")
+    group.add_argument("--swap", action="store_true", help="Swap endianness of the input value")
     parser.add_argument("--little", action="store_true", help="Use little endian byte order")
     parser.add_argument("--debug", action="store_true", help="Enable debug output")
     
@@ -219,6 +227,15 @@ def main():
         logger.setLevel(logging.DEBUG)
     else:
         logger.setLevel(logging.ERROR)
+    
+    # Hex Value validaiton for endianness swap 
+    if args.swap:
+        if not all(c in '0123456789ABCDEFabcdef' for c in value):
+            logger.error("Error: Invalid input. Please input a proper hex string using only characters A-F and numbers 0-9.")
+            sys.exit(1)
+        swapped_value = swap_endianness(value.upper())
+        print(f"Swap: {swapped_value}")
+        return
 
     # Validate value based on the selected type
     if '.' in value:
