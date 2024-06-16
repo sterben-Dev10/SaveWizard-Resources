@@ -13,6 +13,8 @@ https://qcgenerators.com
 [Save Wizard Discord](https://discord.gg/3N8gWYk)  
 [Boosting/Teaming Up](https://discord.gg/GPpWCgw6uy)  
 [XDG Nation](https://discord.gg/P7WWvf6xPP)  
+[Xcier](https://discord.gg/xcier-752300555355029566) - SW alternative utilities  
+[HTOS](https://discord.gg/uC6tNYhHwF) - SW alternative utilities 
 
 **Resources**  
 Slayer's Ice Realm Code Vault: [Slayer's Code Vault](https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY)  
@@ -21,5 +23,4 @@ Skiller's Old Codes Archive: [Skillers World](https://drive.google.com/drive/fol
 Chaoszage's Cheat Repository: [Chaoszage's Blog](https://chaoszage.blogspot.com)  
 Apollo CLI Tool: [apollo-lib](https://github.com/bucanero/apollo-lib)  
 Save Patches: [ReadMe](Apollo-Save-Patches)  
-Scripts: [ReadMe](Scripts)  
-
+Scripts: [ReadMe](Scripts)
