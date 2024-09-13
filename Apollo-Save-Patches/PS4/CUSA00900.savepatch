@@ -650,8 +650,12 @@
 ;The Isz Glitch is a bug in Bloodborne that prevents certain characters from creating all possible Isz dungeons.
 ;More info: https://github.com/jrson83/bloodborne-isz-glitch-cure
 
-[Isz Glitch Cure (Character must be affected by Isz Glitch)]
-80010004 07001300
-92000000 00000DB3
+[Isz Glitch Cure (Fixes Isz Glitch, character may or may not be affected by Isz Glitch)]
+80010008 03000000
+05000100 00000000
+92000000 00000DD1
+D8000000 020130FF
+D8000000 0103C0FF
+08000001 00000030
 D8000000 0100C0FF
-18000000 0000FFFF
+08000001 000000FF

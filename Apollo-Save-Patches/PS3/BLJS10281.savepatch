@@ -3,31 +3,18 @@
 
 ; from shaka and chaoszage
 
-
-;:~extracted\00000018.dat
-
-;[9999999 token(Apply on 0000000018.dat)]
-;write at 0x00000320:0x98967F00
-
-;:PAYLOAD
-
-;[Update SHA1 for PAYLOAD (Required)]
-;set range:0x000014,0x000166
-;set pointer:eof+1
-;set range:0x000014,pointer
-;set [hash]:SHA1
-;write at 0x000000:[hash]
-
+:PAYLOAD
 
 [Decompress PAYLOAD (Required)]
-Decompress PAYLOAD
+Decompress(0x00000018, 15)
 
-:XXXX\~extracted\00000018.dat
-group: 9999999 Token
+:~extracted\00000018.dat
+[9999999 Token]
 write at 0x00000320:0x98967F00
 
-group: Compress PAYLOAD (Required)
-Compress PAYLOAD,-w 15
+:PAYLOAD
+[Compress PAYLOAD (Required)]
+Compress(0x00000018)
 
 :XXXX\PAYLOAD
 group: SHA1 for PAYLOAD by chaoszage (Required)

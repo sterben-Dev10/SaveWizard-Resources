@@ -1,0 +1,43 @@
+;CUSA32171
+;Like a Dragon: Ishin!
+;encryption/checksum/codes by bucanero
+
+:data.ps4.sav
+
+[Decrypt data.ps4.sav (Required)]
+set pointer:EOF-0x0F
+set range:0x00,pointer
+DECRYPT rgg_studio("fuEw5rWN8MBS")
+
+[9999999 Virtue]
+20017738 0098967F
+
+[9999999 Money]
+20017708 0098967F
+
+[99 Blue Swordman Orbs]
+00007428 00000063
+
+[99 Yellow Gunman Orbs]
+00007429 00000063
+
+[99 Green Wild Dancer Orbs]
+0000742A 00000063
+
+[99 Red Brawler Orbs]
+0000742B 00000063
+
+[99 Grey Training Orbs]
+0000742C 00000063
+
+[Update CRC32 (Required)]
+set pointer:EOF-0x0F
+set range:0x00,pointer
+set [crc]:crc32
+set [crc]:endian_swap
+write next 0x08:[crc]
+
+[Encrypt data.ps4.sav (Required)]
+set pointer:EOF-0x0F
+set range:0x00,pointer
+ENCRYPT rgg_studio("fuEw5rWN8MBS")

@@ -8,7 +8,7 @@
 :BLUS30978-SAVE*\PAYLOAD
 
 [Decompress Save (Required)]
-Decompress PAYLOAD
+Decompress(*, 15)
 
 [Level Up (Not Working)]
 90000000 0000001C
@@ -40,5 +40,6 @@ Decompress PAYLOAD
 48000000 00000001
 40500001 00000000
 
+:PAYLOAD
 [Compress Save (Required)]
-Compress PAYLOAD,-w 15
+Compress(*)

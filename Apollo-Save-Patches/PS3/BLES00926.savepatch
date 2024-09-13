@@ -7,7 +7,7 @@
 :BLES00926-SAVE*\PAYLOAD
 
 [Decompress Save (Required)]
-Decompress PAYLOAD
+Decompress(*, 15)
 
 [Level Up (Not Working)]
 90000000 0000001C
@@ -40,4 +40,4 @@ Decompress PAYLOAD
 40500001 00000000
 
 [Compress Save (Required)]
-Compress PAYLOAD,-w 15
+Compress(*)

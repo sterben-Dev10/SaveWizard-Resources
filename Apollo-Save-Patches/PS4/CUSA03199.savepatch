@@ -6,6 +6,13 @@
 
 :*
 
+[Decompress Save (Required)]
+Decompress(*, -15)
+
+[Compress Save (Required)]
+Compress(*)
+
+
 [Update JHash (Required)]
 set range:0x0004,EOF+1
 set [csum]:jhash
@@ -13,8 +20,3 @@ set [csum]:[csum]+0x4900DC7C
 set [csum]:endian_swap
 write at 0x0000:[csum]
 
-;[Decompress Save (Required)]
-;Decompress SAVE.DAT
-
-;[Compress Save (Required)]
-;Compress SAVE.DAT,-w -15

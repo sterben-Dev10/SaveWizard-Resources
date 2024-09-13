@@ -3,10 +3,15 @@
 ;source: discord
 ;Credits: 
 ;Automated & simplified file by @officialahmed0
+;decryption/checksums: by bucanero
 
-:*
+:USR-DATA
 
-[INFO:Untested - Make sure to backup your save data first]
+[Decrypt USR-DATA (Required)]
+set [end]:read(0x08, 4)
+set [end]:endian_swap
+set range:0x000010,[end]+0x0F
+DECRYPT blowfish_ecb("(SH[@2>r62%5+QKpy|g6")
 
 [Inf Silencer (Must have one, Must Use Load Save)]
 80010010 5A896447
@@ -252,3 +257,31 @@ C793FDAD 00000000
 ;Unknown item		                                8ABC3901A05AB3EA
 ;Unknown item		                                D25787DB0E00AD43
 ;Unknown item		                                A20FF751DA7F67CB
+
+; Castagnoli CRC32
+[Update CRC32-C checksum for USR-DATA (Required)]
+set [block_length]:read(0x594,4)
+set [block_length]:endian_swap
+set [block_length]:[block_length]+0x58F
+set range:0x594,[block_length]
+set crc_bandwidth:32
+set crc_polynomial:0x1EDC6F41
+set crc_initial_value:0xFFFFFFFF
+set crc_output_xor:0xFFFFFFFF
+set crc_reflection_input:1
+set crc_reflection_output:1
+set [hash]:crc
+set [hash]:endian_swap
+write at 0x590:[hash]
+
+[Update HMAC SHA1 checksum for USR-DATA (Required)]
+set pointer:EOF-0x1F
+set range:0x000010,pointer
+set [hash]:hmac_sha1("xM;6X%/p^L/:}-5QoA+K8:F*M!~sb(WK<E%6sW_un0a[7Gm6,()kHoXY+yI/s;Ba")
+write next (0):[hash]
+
+[Encrypt USR-DATA (Required)]
+set [end]:read(0x08, 4)
+set [end]:endian_swap
+set range:0x000010,[end]+0x0F
+ENCRYPT blowfish_ecb("(SH[@2>r62%5+QKpy|g6")

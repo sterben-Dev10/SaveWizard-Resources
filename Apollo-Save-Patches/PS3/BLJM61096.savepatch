@@ -3,8 +3,9 @@
 
 ; From zeick
 
+:SPBATMAN
 [Decompress SAVE (Required)]
-Decompress SPBATMAN
+Decompress(*, 15)
 
 :BLUS31207-SAVE*\~extracted\*.dat
 [9000000 XP]
@@ -14,8 +15,9 @@ write next (73):0x00895440
 search "VoiceOfThePeople"
 write next (32):0x63
 
+:SPBATMAN
 [Compress SAVE (Required)]
-Compress SPBATMAN,-w 15
+Compress(*)
 
 :SPBATMAN
 [Update CRC32Big for SPBATMAN (Required)]

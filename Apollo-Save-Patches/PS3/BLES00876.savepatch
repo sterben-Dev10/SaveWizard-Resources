@@ -4,10 +4,10 @@
 :SAVE
 
 [Decompress Save (Required)]
-Decompress SAVE
+Decompress(*, 15)
 
 [Compress Save (Required)]
-Compress SAVE,-w 15
+Compress(*)
 
 [Update CRC-16 CCITT for SAVE (Required)]
 set crc_bandwidth:16

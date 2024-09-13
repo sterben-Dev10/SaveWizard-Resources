@@ -5,7 +5,7 @@
 :data/data0000.bin
 
 [Decompress data0000.bin (Required)]
-Decompress data/data0000.bin
+Decompress(0x00000000, 15)
 
 :~extracted\00000000.dat
 
@@ -35,4 +35,4 @@ endian_swap(4)
 delete at 0x00:0x4000
 
 [Compress data0000.bin (Required)]
-Compress data/data0000.bin,-w 15
+Compress(0x00000000)
