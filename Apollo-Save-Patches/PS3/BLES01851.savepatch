@@ -1,11 +1,12 @@
 ; BLES01851
 ; XCOM: Enemy Within
 
+:PAYLOAD
 [Decompress Save (Required)]
-Decompress PAYLOAD
+Decompress(*, 15)
 
 [Compress Save (Required)]
-Compress PAYLOAD,-w 15
+Compress(*)
 
 Group: Update PAYLOAD Checksums  (Required)
 

@@ -1,11 +1,12 @@
 ; BLUS31055
 ; GRID 2
 
+:PROGRESS.DAT
 [Decompress Save (Required)]
-Decompress PROGRESS.DAT
+Decompress(*, -15)
 
 [Compress Save (Required)]
-Compress PROGRESS.DAT,-w -15
+Compress(*)
 
 :PROGRESS.DAT
 

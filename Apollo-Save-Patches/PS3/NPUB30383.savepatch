@@ -2,10 +2,13 @@
 ;I Am Alive™ (PSN)
 ;From zeick
 
+:SAVEGAME.SAV
 [Decompress Save (Required)]
-Decompress SAVEGAME.SAV
+Decompress(*, 15)
+
 :NPUB30383-AUTOSAVE\~extracted\*.dat
-red:Must have 1 or more for cheats to work
+
+[Must have 1 or more for cheats to work]
 [Retry x 9999]
 search 0x42A000000000:1
 write next (6):0x270F
@@ -489,8 +492,10 @@ search 0xE69CE35B0000000025000000:20
 write next (12):0x63
 search 0xE69CE35B0000000025000000:21
 write next (12):0x63
+
+:SAVEGAME.SAV
 [Compress Save (Required)]
-Compress SAVEGAME.SAV,-w 15
+Compress(*)
 
 :SAVEGAME.SAV
 [Update CRC32Big for SAVEGAME.SAV (Required)]

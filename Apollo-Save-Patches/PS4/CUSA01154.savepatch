@@ -7,7 +7,7 @@
 
 [Decrypt Save Data (Required)]
 set range:0x0000,EOF+1
-DECRYPT MGS5_TPP(0x4131F8BE)
+DECRYPT MGS5_TPP(0x4F36C055)
 
 ;codes by krustytoe
 ; Version 1.14 - Code is tested and Work -
@@ -92,4 +92,4 @@ write at 0x0000:[hash]
 
 [Encrypt Save Data (Required)]
 set range:0x0000,EOF+1
-ENCRYPT MGS5_TPP(0x4131F8BE)
+ENCRYPT MGS5_TPP(0x4F36C055)

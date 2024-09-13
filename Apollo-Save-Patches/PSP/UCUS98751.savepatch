@@ -6,10 +6,33 @@
 
 [Decrypt SECURE.BIN (required)]
 set range:0x0000,EOF+1
-DECRYPT patapon3
+DECRYPT camellia_ecb("SVsyE56pniSRS9dIPTiE8ApDaUnN0AEa")
 
 ; // mods should go here
 
 [Encrypt SECURE.BIN (required)]
 set range:0x0000,EOF+1
-ENCRYPT patapon3
+ENCRYPT camellia_ecb("SVsyE56pniSRS9dIPTiE8ApDaUnN0AEa")
+
+;CWCheats
+;
+;_C1 # Disable Save Hash Check
+;_L 0xD0235CB0 0x00000018
+;_L 0x20235CB0 0x8E050000
+;_L 0xD0235FA4 0x00000018
+;_L 0x20235FA4 0x8E050000
+;
+; # Original code by Owocek
+; # Adapted to USA by Madwig
+; # The code works on EUR / USA
+; # After saving once code is not needed, unless save is modified again
+;
+;Disable Security Hash Check [P3] [EUR]
+;
+;_C0 Disable Security Hash Check [ON]
+;# Created by owocek
+;_L 0x20235CB0 0x8E050000 # lw a1,0x0(s0)
+;
+;_C0 Disable Security Hash Check [OFF]
+;# Created by efonte
+;_L 0x20235CB0 0x8FA50018 # lw a1,0x18(sp)

@@ -1,0 +1,38 @@
+;CUSA00341
+;Uncharted 4: A Thief's End
+;decryption/checksums: by bucanero
+
+:USR-DATA
+
+[Decrypt USR-DATA (Required)]
+set [end]:read(EOF-3, 4)
+set [end]:endian_swap
+set range:0x000008,[end]+7
+DECRYPT blowfish_ecb("(SH[@2>r62%5+QKpy|g6")
+
+
+;
+;add cheat codes here
+;
+
+
+[Update CRC32 checksum for USR-DATA (Required)]
+set [block_length]:read(0x58C,4)
+set [block_length]:endian_swap
+set [block_length]:[block_length]+0x587
+set range:0x58C,[block_length]
+set [hash]:crc32
+set [hash]:endian_swap
+write at 0x588:[hash]
+
+[Update HMAC SHA1 checksum for USR-DATA (Required)]
+set pointer:EOF-0x1F
+set range:0x000008,pointer
+set [hash]:hmac_sha1("xM;6X%/p^L/:}-5QoA+K8:F*M!~sb(WK<E%6sW_un0a[7Gm6,()kHoXY+yI/s;Ba")
+write next (0):[hash]
+
+[Encrypt USR-DATA (Required)]
+set [end]:read(EOF-3, 4)
+set [end]:endian_swap
+set range:0x000008,[end]+7
+ENCRYPT blowfish_ecb("(SH[@2>r62%5+QKpy|g6")

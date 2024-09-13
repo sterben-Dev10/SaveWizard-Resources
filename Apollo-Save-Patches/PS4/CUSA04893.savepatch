@@ -1,0 +1,48 @@
+;CUSA04893
+;Assassins Creed II
+;source: TLH offsets from https://steamcommunity.com/sharedfiles/filedetails/?id=2841221628
+
+:AC2OPTIONS.SAV
+[INFO:Untested - Make sure to backup your save data first]
+
+[Palazzo Medici Templar Lair (Deluxe Edition)]
+0000040C 00000001
+
+[Santa Maria dei Frari Templar Lair (Deluxe Edition)]
+0000041E 00000001
+
+[Arsenale di Venezia Templar Lair (Deluxe Edition)]
+00000430 00000001
+
+[Bonus outfit dye (Deluxe Edition)]
+00000454 00000001
+
+[Wallpaper?]
+0000049C 00000001
+
+[Throwing knives capacity upgrade (Ubisoft Connect)]
+000004AE 00000001
+
+[Altair's outfit (Ubisoft Connect)]
+000004C0 00000001
+
+[Auditore Family Crypt (Ubisoft Connect)]
+000004D2 00000001
+
+[Maria Thorpe's Longsword (Bloodlines)]
+000005AD 00000001
+
+[Fredrick's Hammer (Bloodlines)]
+000005AE 00000001
+
+[Mace of the Bull (Bloodlines)]
+000005AF 00000001
+
+[Dark Oracle's Bone Dagger (Bloodlines)]
+000005B0 00000001
+
+[Twins' Rapier (Bloodlines)]
+000005B1 00000001
+
+[Bouchart's Blade (Bloodlines)]
+000005B2 00000001

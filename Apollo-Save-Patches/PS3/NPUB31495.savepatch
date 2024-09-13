@@ -3,8 +3,9 @@
 
 ; BSD cheat version by chaoszage
 
+:SAVEGAME.SAV
 [Decompress Save (Required)]
-Decompress SAVEGAME.SAV
+Decompress(0x00000008, -15)
 
 :~extracted\00000008.dat
 
@@ -65,5 +66,6 @@ write next EA:0x77359400
 search "Player":2
 write next F9:0x64
 
+:SAVEGAME.SAV
 [Compress Save (Required)]
-Compress SAVEGAME.SAV,-w -15
+Compress(0x00000008)

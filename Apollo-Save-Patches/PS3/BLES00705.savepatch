@@ -2,8 +2,9 @@
 ;Darksiders
 ;From zeick
 
+:DSSAVE
 [Decompress DSSAVE (Required)]
-Decompress DSSAVE
+Decompress(0x00000035, 15)
  
 :*\~extracted\00000035.dat
 
@@ -55,5 +56,6 @@ write next (21):95
 search "NumberOfArtifactsCollected"
 write next (27):1A
 
+:DSSAVE
 [Compress DSSAVE (Required)]
-Compress DSSAVE,-w 15
+Compress(0x00000035)

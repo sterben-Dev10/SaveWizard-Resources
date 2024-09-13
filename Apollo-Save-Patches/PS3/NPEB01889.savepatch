@@ -1,0 +1,20 @@
+; NPEB01889
+; Metal Gear Solid 5: Ground Zeroes
+;encryption/checksum by bucanero
+
+:SAVE*
+
+[Decrypt Save Data (Required)]
+set range:0x0000,EOF+1
+DECRYPT MGS5_TPP(0xae88976a)
+
+;codes go here
+
+[Update MD5 checksum (Required)]
+set range:0x0010,EOF+1
+set [hash]:MD5
+write at 0x0000:[hash]
+
+[Encrypt Save Data (Required)]
+set range:0x0000,EOF+1
+ENCRYPT MGS5_TPP(0xae88976a)

@@ -3,8 +3,9 @@
 ;source: discord
 ;Credits: Molly "LLLCCC"
 ;Automated & simplified file by @officialahmed0
+;checksum by bucanero
 
-:*
+:deadrising
 
 [INFO:Untested - Make sure to backup your save data first]
 
@@ -14,3 +15,9 @@ FF7D7DF3 FDF90300
 FF7D7DF3 FDF90300
 CA092600 00000000
 604F8200 78022600
+
+
+[Update Custom Checksum (Required)]
+set pointer:eof+1
+set range:0x0000,pointer
+set [csum]:deadrising_checksum

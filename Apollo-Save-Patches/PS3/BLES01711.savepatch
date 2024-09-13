@@ -5,10 +5,10 @@
 :PAYLOAD
 
 [Decompress Save (Required)]
-Decompress PAYLOAD
+Decompress(*, 15)
 
 [Compress Save (Required)]
-Compress PAYLOAD,-w 15
+Compress(*)
 
 [Update SHA1 for PAYLOAD (Required)]
 ;set range:0x000014,0x000450

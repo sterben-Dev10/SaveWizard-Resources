@@ -7,7 +7,7 @@
 
 [Decrypt Save Data (Required)]
 set range:0x0000,EOF+1
-DECRYPT MGS5_TPP(0x1FBAB234)
+DECRYPT MGS5_TPP(0x7b0ed589)
 
 ; *Precautions before use*
 ; Update to match the version [Version 1.12]
@@ -91,4 +91,4 @@ write at 0x0000:[hash]
 
 [Encrypt Save Data (Required)]
 set range:0x0000,EOF+1
-ENCRYPT MGS5_TPP(0x1FBAB234)
+ENCRYPT MGS5_TPP(0x7b0ed589)

@@ -2,20 +2,25 @@
 ;Deadpool
 ;From zeick
 
-[group: 999999 DP Points]
-Decompress PAYLOAD
+:PAYLOAD
+[Decompress PAYLOAD (required)]
+Decompress(0x00000018, 15)
+
 :BLES01789-PROFILE\~extracted\00000018.dat
-[Apply cheat]
+[999999 DP Points]
 search 0x00004505 
 write next (4):497423F0
-:BLES01789-PROFILE\PAYLOAD
-[Fix Compression]
-delete at 0x20:0x4ff
-[Compress PAYLOAD]
-Compress PAYLOAD,-w 15
 
 :BLES01789-PROFILE\PAYLOAD
-Group: Update SHA1 (Required)
+[Fix Compression (required)]
+delete at 0x20:0x4ff
+
+:PAYLOAD
+[Compress PAYLOAD (required)]
+Compress(0x00000018)
+
+:BLES01789-PROFILE\PAYLOAD
+[Update SHA1 (Required)]
 set pointer:eof+1
 set range:0x000014,pointer
 set [hash]:SHA1

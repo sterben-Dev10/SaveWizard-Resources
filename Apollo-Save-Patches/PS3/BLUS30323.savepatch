@@ -4,16 +4,19 @@
 
 :PROFILE.DVP
 
-[group: 999999 Points]
-Decompress PROFILE.DVP
+[Decompress Save (required)]
+Decompress(0x00000020, 15)
+
 :BLUS30323_PROFILE\~extracted\00000020.dat
-[Apply cheat]
+[999999 Points]
 write at 0x0000004C:0x000F423F
+
 :BLUS30323_PROFILE\PROFILE.DVP
 [Fix Compression]
 delete at 0x30:0x4ff
-[Compress PROFILE.DVP]
-Compress PROFILE.DVP,-w 15
+
+[Compress PROFILE.DVP (required)]
+Compress(0x00000020)
 
 
 Group: Update Checksums (Required)

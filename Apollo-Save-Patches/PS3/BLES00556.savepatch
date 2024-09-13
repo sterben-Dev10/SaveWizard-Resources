@@ -2,8 +2,9 @@
 ;Call of Juarez® Bound in Blood
 ;Created by startuga
 
+:COJ2-DAT
 [Decompress COJ2-DAT (Required)]
-Decompress COJ2-DAT
+Decompress(0x0000000a, -15)
 
 :*\~extracted\0000000a.dat
 
@@ -41,5 +42,6 @@ write next (12):0x0000000001
 search "CheatMagicAmmo"
 write next (14):0x0000000001
 
+:COJ2-DAT
 [Compress COJ2-DAT (Required)]
-Compress COJ2-DAT,-w -15
+Compress(0x0000000a)

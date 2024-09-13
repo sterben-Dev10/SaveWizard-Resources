@@ -1,0 +1,13 @@
+; UCES01241
+; InviZimals
+; PSP
+; checksum reversed by bucanero
+
+:GAMEDATA
+
+[Update Custom Adler32 (Required)]
+write at 0x000C:0x99674588
+set range:0x0000,EOF+1
+set [hash]:Adler32:0x00000000
+set [hash]:endian_swap
+write at 0x000C:[hash]

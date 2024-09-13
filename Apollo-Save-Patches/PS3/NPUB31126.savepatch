@@ -28,5 +28,5 @@
 [Update Checksum for SAVE.DAT (Required)]
 set pointer:eof+1
 set range:0x10,pointer
-set [hash]:ducktales_checksum
+set [hash]:lookup3_little2(0x04D2, 0x162E)
 write at 0x0000:[hash]

@@ -5,7 +5,7 @@
 :BLUS30420-*\MAINSAVE.BSG
 
 [Decompress Save (Required)]
-Decompress MAINSAVE.BSG
+Decompress(*, 15)
 
 ; You MUST have at least 1 Dollar to use this cheat.
 [Max Money]
@@ -26,4 +26,4 @@ Decompress MAINSAVE.BSG
 18000012 0000270F
 
 [Compress Save (Required)]
-Compress MAINSAVE.BSG,-w 15
+Compress(*)

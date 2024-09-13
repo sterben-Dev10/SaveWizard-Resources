@@ -2,8 +2,9 @@
 ; Aliens: Colonial Marines
 ;From zeick
 
+:PAYLOAD
 [Decompress PAYLOAD (Required)]
-Decompress PAYLOAD
+Decompress(0x00000018, 15)
 
 :BLES01455-PROFILE\~extracted\00000018.dat
 group: Xenomorph 99 Upgrade Points
@@ -35,11 +36,12 @@ write next (3):0x00039206
 [Fix Compression]
 delete at 0x20:0x4ff
 
-group: Compress PAYLOAD (Required)
-Compress PAYLOAD,-w 15
+:PAYLOAD
+[Compress PAYLOAD (Required)]
+Compress(0x00000018)
 
 :BLES01455-PROFILE\PAYLOAD
-Group: Update SHA1 (Required)
+[Update SHA1 (Required)]
 set pointer:eof+1
 set range:0x000014,pointer
 set [hash]:SHA1
