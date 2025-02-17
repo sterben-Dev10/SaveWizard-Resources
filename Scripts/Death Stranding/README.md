@@ -3,7 +3,7 @@
 `DS_Structures.py`  - PS4 Saves Only
 
 > Following Dependencies Required:  
-> `pip3 install colorama`
+> `python3 -m pip install colorama`
 
 > Upgrades & Repairs all structures to max level.  
 > Usage: `python3 DS_Structures.py checkpoint.dat`
