@@ -2,8 +2,9 @@
 
 # Death Stranding All Structures Repair - PS4 Saves Only
 # ChatGPT Generated Script, Research Done By XxUnkn0wnxX
-# Script Ver 4.01
+# Script Ver 4.02
 
+import os
 import struct
 import sys
 import signal
@@ -13,14 +14,14 @@ from colorama import init, Fore, Style
 init(autoreset=True)
 
 # Variables
-struct_lvl = 5 # Structure Level
-float_health = 2147483000.0 # Structure Health
-struct_upgrade = 999999 # Upgrades & Controls Level
+struct_lvl = int(os.environ.get('struct_lvl', 5)) # Structure Level
+float_health = float(os.environ.get('float_health', 2147483000.0)) # Structure Health
+struct_upgrade = int(os.environ.get('struct_upgrade', 999999)) # Upgrades & Controls Level
 
 # Defaults
-# struct_lvl = 3 
-# float_health = 9999999.0 
-# struct_upgrade = 99999 
+# struct_lvl = int(os.environ.get('struct_lvl', 5)) 
+# float_health = float(os.environ.get('float_health', 9999999.0))
+# struct_upgrade = int(os.environ.get('struct_upgrade', 999999)) 
 
 # struct_lvl Controls wether Structure Health is applied depended on what this is set to
 # if set to level 2, the struct_upgrade needs to match the min amount of materials for level 2

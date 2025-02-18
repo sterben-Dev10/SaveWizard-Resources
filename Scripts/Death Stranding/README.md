@@ -51,9 +51,19 @@
 
 Edit the following variables to following in the script:
 ```
-struct_lvl = 1 
-float_val = 10.0 
-struct_val = 10
+struct_lvl = int(os.environ.get('struct_lvl', 1) 
+float_health = float(os.environ.get('float_health', 10.0)) 
+struct_upgrade = int(os.environ.get('struct_upgrade', 10))
 ```
 
 which should erase any upgrades, set health to 10 & set the bridge back to Lvl 1
+
+##### Custom Values
+
+if you wish to set custom values, either edit the "Variables" near the top of the script or export them in the shell & the script will pull the values from env.
+```
+export struct_upgrade=3
+export float_health=9999999.0
+export struct_lvl=999999
+```
+
