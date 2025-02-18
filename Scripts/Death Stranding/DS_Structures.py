@@ -19,7 +19,7 @@ float_health = float(os.environ.get('float_health', 2147483000.0)) # Structure H
 struct_upgrade = int(os.environ.get('struct_upgrade', 999999)) # Upgrades & Controls Level
 
 # Defaults
-# struct_lvl = int(os.environ.get('struct_lvl', 5)) 
+# struct_lvl = int(os.environ.get('struct_lvl', 3)) 
 # float_health = float(os.environ.get('float_health', 9999999.0))
 # struct_upgrade = int(os.environ.get('struct_upgrade', 999999)) 
 
