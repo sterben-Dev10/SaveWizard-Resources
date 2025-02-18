@@ -28,9 +28,9 @@ struct_upgrade = int(os.environ.get('struct_upgrade', 999999)) # Upgrades & Cont
 # if struct_lvl is set to 0,1,2,4,5 while the struct_upgrade is super maxed, I.E 9999999.0 
 # the float_health value will be ignored on load time & just max out to the in-game max
 # Example: 
-# struct_lvl = 1 
-# float_health = 10.0 
-# struct_upgrade = 10 
+# struct_lvl = int(os.environ.get('struct_lvl', 1))
+# float_health = float(os.environ.get('float_health', 10.0))
+# struct_upgrade = int(os.environ.get('struct_upgrade', 10)) 
 # everything will be set to level 1 due to struct_upgrade being so low
 # & the struct_lvl matching the level 1 requirement, due to struct_lvl set to 1, float_health takes into effect
 # all buildings & road pavers will be rusted away.
