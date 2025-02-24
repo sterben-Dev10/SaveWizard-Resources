@@ -7,6 +7,8 @@
 
 > Upgrades & Repairs all structures to max level.  
 > Usage: `python3 DS_Structures.py checkpoint.dat`
+>
+> Note: Does not work on safehouses.
 
 ##### Additional Options
 
