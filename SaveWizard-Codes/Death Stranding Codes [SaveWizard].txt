@@ -587,7 +587,6 @@ a repeat write is impossible with QC alone since the data shifts between each se
 one way would be to automate the search string like 1st result then 2nd result via some script combined with Apollo's CLI lib tools, however the max limit would be 4095 (FFF) searches which isn't enough..
 Doubt BSD scripts could accomplish this either..
 
-
 Experimental Max Safe-house Resources:
 8001000A D5988217
 05F1C489 55290000
@@ -600,3 +599,4 @@ D80000A8 02020001
 40060008 00000000
 
 Note: This targets only the 1st or last safe house placed, as it only edits the resources for the safe house found at the bottom after the all resources locations QC.
+Warning: Only apply if you have placed down at least 1 safe house.
