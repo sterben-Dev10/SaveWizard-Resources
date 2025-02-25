@@ -4,7 +4,7 @@ A collection of scripts that edit save files rather than using quickcode.
 
 [Death Stranding](Death%20Stranding)  
 
-> Repairs & Upgrades all Structures on the map, excluding safehouses
+> Repairs & Upgrades all Structures on the map, excluding safehouses  
 > Maxes out your owned safehouses resources
 
 [pyconvert](pyconvert.py)  
