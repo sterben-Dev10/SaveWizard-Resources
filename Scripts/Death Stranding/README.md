@@ -1,14 +1,14 @@
-## Death Stranding
+## Death Stranding Scripts
 
-`DS_Structures.py`  - PS4 Saves Only
+###### PS4 Saves Only
+##### DS_Structures.py
 
 > Following Dependencies Required:  
 > `python3 -m pip install colorama`
 
 > Upgrades & Repairs all structures to max level.  
-> Usage: `python3 DS_Structures.py checkpoint.dat`
->
-> Note: Does not work on safehouses.
+> Usage: `python3 DS_Structures.py checkpoint.dat`  
+>Note: Does not work on safehouses.
 
 ##### Additional Options
 
@@ -67,5 +67,47 @@ if you wish to set custom values, either edit the "Variables" near the top of th
 export struct_upgrade=3
 export float_health=9999999.0
 export struct_lvl=999999
+```
+
+##### DS_SH-Resources.py
+
+> Following Dependencies Required:  
+> `python3 -m pip install colorama`  
+> @bucanero's [Apollo CLI Tools](https://github.com/bucanero/apollo-lib/releases), place `patcher` binary in the same folder as the script. 
+
+> Maxes out "your" owned safehosues resources.  
+> Usage: `python3 DS_SH-Resources.py checkpoint.dat`
+
+##### Additional Options
+
+`--help` brings up the help menu  
+
+`--bak` creates a backup of the file
+
+> `python3 DS_SH-Resources.py checkpoint.dat --bak`
+
+`--debug` shows debug info  
+
+> `python3 DS_SH-Resources.py checkpoint.dat --debug`
+
+`--logs` Specify a file to write logs to.
+
+> `python3 DS_SH-Resources.py checkpoint.dat --logs log1.txt`
+
+##### Custom Values
+
+if you wish to set custom values, either edit the "Variables" near the top of the script or export them in the shell & the script will pull the values from env.
+
+###### Variables
+
+```
+APOLLO_PATCHER = os.environ.get('APOLLO_PATCHER', '')
+safehouse_resources = int(os.environ.get('safehouse_resources', 999999999))
+```
+
+Or export values in shell.
+```
+export APOLLO_PATCHER=%USERPROFILE%/Downloads/tools/patcher.exe
+export safehouse_resources=1000
 ```
 
