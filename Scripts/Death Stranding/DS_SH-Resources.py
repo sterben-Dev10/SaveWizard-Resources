@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-DS Safe House Resources Patch Generator (Consolidated Patch Group)
+DS Safe House Max Resources
 -------------------------------------------------------------------
 
 This script uses a pointer chain to locate the first writable block:
