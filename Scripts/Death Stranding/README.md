@@ -73,7 +73,7 @@ export struct_lvl=999999
 
 > Following Dependencies Required:  
 > `python3 -m pip install colorama`  
-> @bucanero's [Apollo CLI Tools](https://github.com/bucanero/apollo-lib/releases), place `patcher` binary in the same folder as the script. 
+> @bucanero [Apollo CLI Tools](https://github.com/bucanero/apollo-lib/releases), place `patcher` binary in the same folder as the script. 
 
 > Maxes out "your" owned safehosues resources.  
 > Usage: `python3 DS_SH-Resources.py checkpoint.dat`
