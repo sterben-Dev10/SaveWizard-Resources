@@ -594,9 +594,40 @@ Experimental Max Safe-house Resources:
 00000000 00000000
 88010005 20030000
 28000000 00000000
-D80000A8 02020001
-4A0000E0 3B9AC9FF
-40060008 00000000
+D800000C FF110000
+D8000010 FF100004
+D8000014 FF100004
+D80000A8 FF010000
+92000000 00000048
+-- 1st Segment --
+4A000000 3B9AC9FF
+4XXX0098 00000000
+-- 2nd Segment --
+4A000008 3B9AC9FF
+4XXX0098 00000000
+-- 3rd Segment --
+4A000010 3B9AC9FF
+4XXX0098 00000000
+-- 4th Segment --
+4A000018 3B9AC9FF
+4XXX0098 00000000
+-- 5th Segment --
+4A000020 3B9AC9FF
+4XXX0098 00000000
+-- 6th Segment --
+4A000028 3B9AC9FF
+4XXX0098 00000000
 
-Note: This targets only the 1st or last safe house placed, as it only edits the resources for the safe house found at the bottom after the all resources locations QC.
-Warning: Only apply if you have placed down at least 1 safe house.
+Note: Only use if you have placed a safe house.
+    XXX = The number of safe houses you have placed down.
+    Use a Dec To HEX Calulator to write the X amount of safe houses to have in HEX
+    
+    XXX - Possible Values
+        001 = 1 Safe house
+        002 = 2 Safe houses
+        003 = 3 safe houses
+        006 = 6 safe houses
+        00C = 12 safe houses
+        014 = 20 safe houses
+        01E = 30 safe houses
+        
