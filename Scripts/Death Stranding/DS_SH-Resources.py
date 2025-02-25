@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+
+# Death Stranding Max Player Owned Safehouse Resources - PS4 Saves Only
+# OpenAI Generated Script, Research Done By XxUnkn0wnxX
+# Script Ver 1.01
+
 """
 DS Safe House Max Resources
 -------------------------------------------------------------------
