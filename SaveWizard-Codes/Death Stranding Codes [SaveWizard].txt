@@ -620,7 +620,7 @@ D80000A8 FF010000
 
 Note: Only use if you have placed a safe house.
     XXX = The number of safe houses you have placed down.
-    Use a Dec To HEX Calulator to write the X amount of safe houses to have in HEX
+    Use a Dec To HEX Calulator to write the X amount of safe houses you have in HEX
     
     XXX - Possible Values
         001 = 1 Safe house
