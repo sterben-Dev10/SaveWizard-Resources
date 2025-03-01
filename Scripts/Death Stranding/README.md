@@ -46,8 +46,9 @@
 `--roads` Attempt to include roads & misc structures missed by the main script.
 
 > `python3 DS_Structures.py checkpoint.dat --roads`  
-> this is extremely experimental, expect game crashes or save corruption, softlocks. (missing interaction buttons from delivery terminals)
-> this runs separately from the main script & does not include the same changes from the main script.
+> this is extremely experimental, expect game crashes or save corruption, softlocks. (missing interaction buttons from delivery terminals)  
+> this runs separately from the main script & does not include the same changes from the main script.  
+> expect your safehosues to be nuked (deleted) when running `--roads`
 
 **Note:** if the game softlocks on you & unable to contribute to the bridge construction In order No. 10
 
