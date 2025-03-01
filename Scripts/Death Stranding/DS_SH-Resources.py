@@ -2,23 +2,23 @@
 
 # Death Stranding Max Player Owned Safehouse Resources - PS4 Saves Only
 # OpenAI Generated Script, Research Done By XxUnkn0wnxX
-# Script Ver 1.01
+# Script Ver 1.02
 
 """
 DS Safe House Max Resources
 -------------------------------------------------------------------
 
 This script uses a pointer chain to locate the first writable block:
-  • PATTERN1: D598821705F1C4895529   (10 bytes)
-  • PATTERN2: 1401000000000000         (8 bytes)
-  • PATTERN3: 2003000028               (5 bytes)
+  • 1st Pointer (expected pattern): D598821705F1C4895529   (10 bytes)
+  • 2nd Pointer (expected pattern): 1401000000000000         (8 bytes)
+  • 3rd Pointer (expected pattern): 2003000028               (5 bytes)
 
 It then performs tests:
-  - Offset +0xC: the 2 bytes must not be 00 00.
-  - Offset +0x10: the 1 byte must equal 04.
-  - Offset +0x14: the 1 byte must equal 04.
-  - Offset +0xA8: the 2 bytes must not be 00 00.
-If these pass, the writable block is assumed to begin at (p3 + 0x48).
+  - 3rd Pointer + 0xC: the 2 bytes must not be 00 00.
+  - 3rd Pointer + 0x10: the 1 byte must equal 04.
+  - 3rd Pointer + 0x14: the 1 byte must equal 04.
+  - 3rd Pointer + 0xA8: the 2 bytes must not be 00 00.
+If these pass, the writable block is assumed to begin at (3rd Pointer + 0x48).
 
 The writable area is divided into segments spaced exactly 0x6C (108) bytes apart.
 Within each segment the first 44 bytes (the “data region”) hold 6 write‐slots:
@@ -44,9 +44,8 @@ The patch file is then written as “DS_SHResources.savepatch” and the patcher
 APOLLO_PATCHER must be set to a full path if desired; if left empty the script will look in the
 current folder for the "patcher" binary. If --debug is not passed the temporary patch file is deleted.
 
-Additionally, when --debug is passed the script outputs each candidate region’s hex data (the 44‑byte region)
-and whether it is valid or not.
-
+Additionally, when --debug is passed the script outputs each candidate region’s hex data (the 44‐byte region)
+and whether it is valid or not, as well as detailed test output for the 3rd Pointer offsets.
 Additionally, if the --logs option is used, the log file is written in plain text (ANSI color codes stripped).
 If the --bak flag is passed, a backup of the save file (filename + ".bak") is created before any edits.
   
@@ -57,6 +56,16 @@ import os, sys, struct, argparse, signal, subprocess, re
 from colorama import init, Fore, Style
 init(autoreset=True)
 
+def strip_ansi(text):
+    return re.sub(r'\x1b\[[0-9;]*m', '', text)
+
+def write_log(message, log_file=None):
+    # Print colored message to terminal and plain text to file.
+    print(message)
+    if log_file:
+        with open(log_file, "a") as f:
+            f.write(strip_ansi(message) + "\n")
+
 # User-set variable for the patcher tool. By default, leave empty to force local search.
 APOLLO_PATCHER = os.environ.get('APOLLO_PATCHER', '')
 
@@ -65,36 +74,31 @@ safehouse_resources = int(os.environ.get('safehouse_resources', 999999999))
 safe_hex = safehouse_resources.to_bytes(4, byteorder='big').hex().upper()
 
 # Constants:
-DATA_REGION_SIZE = 0x2C     # 44 bytes: data region per segment.
-SEGMENT_SPACING = 0x6C      # 108 bytes gap.
+DATA_REGION_SIZE = 0x2C      # 44 bytes: data region per segment.
+SEGMENT_SPACING = 0x6C       # 108 bytes gap.
 NEXT_SEGMENT_DELTA = DATA_REGION_SIZE + SEGMENT_SPACING  # 44 + 108 = 152 bytes (0x98)
 
-# Define HEX patterns (all little-endian)
-PATTERN1 = bytes.fromhex("D598821705F1C4895529")   # 10 bytes
-PATTERN2 = bytes.fromhex("1401000000000000")         # 8 bytes
-PATTERN3 = bytes.fromhex("2003000028")               # 5 bytes
+# Define expected pointer patterns (all little-endian)
+# We'll output these as expected in the log.
+EXPECTED_PTR1 = "D598821705F1C4895529"
+EXPECTED_PTR2 = "1401000000000000"
+EXPECTED_PTR3 = "2003000028"
+
+# These are used to find the pointers in the file.
+PTR1 = bytes.fromhex(EXPECTED_PTR1)   # 10 bytes
+PTR2 = bytes.fromhex(EXPECTED_PTR2)   # 8 bytes
+PTR3 = bytes.fromhex(EXPECTED_PTR3)   # 5 bytes
 
 def signal_handler(sig, frame):
     write_log(Fore.RED + "SIGINT received. Exiting.")
     sys.exit(0)
 signal.signal(signal.SIGINT, signal_handler)
 
-def strip_ansi(text):
-    return re.sub(r'\x1b\[[0-9;]*m', '', text)
-
-def write_log(message, log_file=None):
-    # Print the colored message to the terminal
-    print(message)
-    # If logging to a file, strip the ANSI escape sequences so the file is plain text.
-    if log_file:
-        with open(log_file, "a") as f:
-            f.write(strip_ansi(message) + "\n")
-
 def valid_data_region(region):
     """
     Return True if the 44-byte region is valid for overwriting.
-    It is valid if it is completely blank OR if for groups 0–4, each 4-byte value (at offset i*8)
-    is followed by exactly 4 bytes of 0's.
+    It is valid if it is completely blank OR if for groups 0–4, each 4-byte value
+    (at offset i*8) is followed by exactly 4 bytes of 0's.
     Group 5 (offset 40-44) is not checked.
     """
     if len(region) < DATA_REGION_SIZE:
@@ -123,13 +127,58 @@ def generate_patch_group(block_ptr, repeat_count):
         lines.append(f"{format(addr, '08X')} {safe_hex}")
         lines.append(f"{rep_str} 00000000")
     return lines
+    
+def run_tests(content, third_pointer, args, log_file=None):
+    # Test 1: Check 2 bytes at (3rd Pointer + 0xC) must not be 00 00.
+    test1_addr = third_pointer + 0xC
+    test1_value = content[test1_addr:test1_addr+2].hex().upper()
+    if content[test1_addr:test1_addr+2] == b'\x00\x00':
+        write_log(Fore.RED + f"Test1 failed at 3rd Pointer + 0xC (Address: 0x{test1_addr:X}): [{test1_value}]. Exiting.", log_file)
+        sys.exit(0)
+    else:
+        if args.debug:
+            write_log(Fore.GREEN + f"Test1 success at 3rd Pointer + 0xC (Address: 0x{test1_addr:X}): [{test1_value}]", log_file)
+
+    # Test 2: Check 1 byte at (3rd Pointer + 0x10) must equal 04.
+    test2_addr = third_pointer + 0x10
+    test2_value = format(content[test2_addr], '02X')
+    if content[test2_addr] != 0x04:
+        write_log(Fore.RED + f"Test2 failed at 3rd Pointer + 0x10 (Address: 0x{test2_addr:X}): [{test2_value}]. Exiting.", log_file)
+        sys.exit(0)
+    else:
+        if args.debug:
+            write_log(Fore.GREEN + f"Test2 success at 3rd Pointer + 0x10 (Address: 0x{test2_addr:X}): [{test2_value}]", log_file)
+
+    # Test 3: Check 1 byte at (3rd Pointer + 0x14) must equal 04.
+    test3_addr = third_pointer + 0x14
+    test3_value = format(content[test3_addr], '02X')
+    if content[test3_addr] != 0x04:
+        write_log(Fore.RED + f"Test3 failed at 3rd Pointer + 0x14 (Address: 0x{test3_addr:X}): [{test3_value}]. Exiting.", log_file)
+        sys.exit(0)
+    else:
+        if args.debug:
+            write_log(Fore.GREEN + f"Test3 success at 3rd Pointer + 0x14 (Address: 0x{test3_addr:X}): [{test3_value}]", log_file)
+
+    # Test 4: Check 2 bytes at (3rd Pointer + 0xA8) must not be 00 00.
+    test4_addr = third_pointer + 0xA8
+    test4_value = content[test4_addr:test4_addr+2].hex().upper()
+    if content[test4_addr:test4_addr+2] == b'\x00\x00':
+        write_log(Fore.RED + f"Test4 failed at 3rd Pointer + 0xA8 (Address: 0x{test4_addr:X}): [{test4_value}]. Exiting.", log_file)
+        sys.exit(0)
+    else:
+        if args.debug:
+            write_log(Fore.GREEN + f"Test4 success at 3rd Pointer + 0xA8 (Address: 0x{test4_addr:X}): [{test4_value}]", log_file)
+            
+    # Print overall success only when --debug is NOT passed.
+    if not args.debug:
+        write_log(Fore.GREEN + "All tests passed.", log_file)
 
 def main():
     parser = argparse.ArgumentParser(description="DS Safe House Max Resources")
-    parser.add_argument("file", help="Path to the save file")
-    parser.add_argument("--debug", action="store_true", help="Keep temporary patch file and output candidate regions")
-    parser.add_argument("--logs", help="Log file path")
-    parser.add_argument("--bak", action="store_true", help="Create a backup of the save file before editing")
+    parser.add_argument("file", help="Path to the file to process.")
+    parser.add_argument("--debug", action="store_true", help="Keep temporary patch file and output candidate regions.")
+    parser.add_argument("--logs", "-log", type=str, help="Specify a file to write logs to.")
+    parser.add_argument("--bak", action="store_true", help="Create a backup of the original file.")
     args = parser.parse_args()
 
     # Determine patcher binary path.
@@ -180,41 +229,28 @@ def main():
 
     # --- Pointer chain to locate first writable block ---
     start_index = 0
-    p1 = content.find(PATTERN1, start_index)
-    if p1 == -1:
-        write_log(Fore.YELLOW + "PATTERN1 not found. Exiting.", args.logs)
+    first_pointer = content.find(PTR1, start_index)
+    if first_pointer == -1:
+        write_log(Fore.YELLOW + "1st Pointer not found. Exiting.", args.logs)
         sys.exit(0)
-    p2 = content.find(PATTERN2, p1)
-    if p2 == -1:
-        write_log(Fore.YELLOW + "PATTERN2 not found after PATTERN1. Exiting.", args.logs)
+    second_pointer = content.find(PTR2, first_pointer)
+    if second_pointer == -1:
+        write_log(Fore.YELLOW + "2nd Pointer not found after 1st Pointer. Exiting.", args.logs)
         sys.exit(0)
-    p3 = content.find(PATTERN3, p2)
-    if p3 == -1:
-        write_log(Fore.YELLOW + "PATTERN3 not found after PATTERN2. Exiting.", args.logs)
-        sys.exit(0)
-    if args.debug:
-        write_log(Fore.CYAN + f"PATTERN1 found at: 0x{p1:X}", args.logs)
-        write_log(Fore.CYAN + f"PATTERN2 found at: 0x{p2:X}", args.logs)
-        write_log(Fore.CYAN + f"PATTERN3 found at: 0x{p3:X}", args.logs)
-
-    # --- Run tests at p3 ---
-    if content[p3+0xC : p3+0xC+2] == b'\x00\x00':
-        write_log(Fore.RED + f"Test1 failed at 0x{p3+0xC:X}. Exiting.", args.logs)
-        sys.exit(0)
-    if content[p3+0x10] != 0x04:
-        write_log(Fore.RED + f"Test2 failed at 0x{p3+0x10:X}. Exiting.", args.logs)
-        sys.exit(0)
-    if content[p3+0x14] != 0x04:
-        write_log(Fore.RED + f"Test3 failed at 0x{p3+0x14:X}. Exiting.", args.logs)
-        sys.exit(0)
-    if content[p3+0xA8 : p3+0xA8+2] == b'\x00\x00':
-        write_log(Fore.RED + f"Test4 failed at 0x{p3+0xA8:X}. Exiting.", args.logs)
+    third_pointer = content.find(PTR3, second_pointer)
+    if third_pointer == -1:
+        write_log(Fore.YELLOW + "3rd Pointer not found after 2nd Pointer. Exiting.", args.logs)
         sys.exit(0)
     if args.debug:
-        write_log(Fore.GREEN + "All tests passed.", args.logs)
+        write_log(Fore.CYAN + f"1st Pointer found at address: 0x{first_pointer:X} [{PTR1.hex().upper()}]", args.logs)
+        write_log(Fore.CYAN + f"2nd Pointer found at address: 0x{second_pointer:X} [{PTR2.hex().upper()}]", args.logs)
+        write_log(Fore.CYAN + f"3rd Pointer found at address: 0x{third_pointer:X} [{PTR3.hex().upper()}]", args.logs)
 
-    # The first writable block is assumed to begin at (p3 + 0x48)
-    first_block_ptr = p3 + 0x48
+    # --- Run tests at 3rd Pointer offsets ---
+    run_tests(content, third_pointer, args, args.logs)
+
+    # The first writable block is assumed to begin at (3rd Pointer + 0x48)
+    first_block_ptr = third_pointer + 0x48
     if first_block_ptr + DATA_REGION_SIZE > len(content):
         write_log(Fore.YELLOW + "Not enough bytes for first data region. Exiting.", args.logs)
         sys.exit(0)
