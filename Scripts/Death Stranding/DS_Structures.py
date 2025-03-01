@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Death Stranding All Structures Repair - PS4 Saves Only
-# ChatGPT Generated Script, Research Done By XxUnkn0wnxX
+# OpenAI Generated Script, Research Done By XxUnkn0wnxX
 # Script Ver 4.1.1
 
 import os
