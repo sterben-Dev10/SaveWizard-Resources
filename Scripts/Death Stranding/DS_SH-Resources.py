@@ -69,9 +69,8 @@ def write_log(message, log_file=None):
 # User-set variable for the patcher tool. By default, leave empty to force local search.
 APOLLO_PATCHER = os.environ.get('APOLLO_PATCHER', '')
 
-# Get safehouse_resources (default 999999999) and convert to a 4-byte Big Endian HEX string.
+# Get safehouse_resources (default 999999999)
 safehouse_resources = int(os.environ.get('safehouse_resources', 999999999))
-safe_hex = safehouse_resources.to_bytes(4, byteorder='big').hex().upper()
 
 # Constants:
 DATA_REGION_SIZE = 0x2C      # 44 bytes: data region per segment.
@@ -115,8 +114,8 @@ def generate_patch_group(block_ptr, repeat_count):
     The header line is:
          95000000 <block_ptr in 8-digit Big Endian>
     Then for i = 0 .. 5, output two lines:
-         Write line: address = 4A000000 + (i*8), value = safe_hex.
-         Repeater line: "4{repeat_count:03X}0098 00000000" where repeat_count is the total number of valid segments.
+         - Write line: address = 4A000000 + (i * 8), value = safehouse_resources converted to a 4-byte Big Endian HEX string.
+         - Repeater line: "4{repeat_count:03X}0098 00000000" where repeat_count is the total number of valid segments.
     """
     lines = []
     header = f"95000000 {format(block_ptr, '08X')}"
@@ -124,7 +123,9 @@ def generate_patch_group(block_ptr, repeat_count):
     rep_str = f"4{repeat_count:03X}0098"
     for i in range(6):
         addr = 0x4A000000 + (i * 8)
-        lines.append(f"{format(addr, '08X')} {safe_hex}")
+        # Inline conversion of safehouse_resources to 4-byte Big Endian HEX string.
+        value_str = safehouse_resources.to_bytes(4, byteorder='big').hex().upper()
+        lines.append(f"{format(addr, '08X')} {value_str}")
         lines.append(f"{rep_str} 00000000")
     return lines
     
