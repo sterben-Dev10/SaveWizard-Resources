@@ -13,7 +13,7 @@ https://qcgenerators.com
 [Save Wizard Discord](https://discord.gg/3N8gWYk)  
 [Boosting/Teaming Up](https://discord.gg/GPpWCgw6uy)  
 [XDG Nation](https://discord.gg/P7WWvf6xPP)  
-[Xcier](https://discord.gg/xcier-752300555355029566) - SW alternative utilities  
+[Xcier](https://discord.gg/protobuffers) - SW alternative utilities  
 [HTOS](https://discord.gg/uC6tNYhHwF) - SW alternative utilities 
 
 **Resources**  
