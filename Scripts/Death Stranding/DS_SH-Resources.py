@@ -2,7 +2,7 @@
 
 # Death Stranding Max Player Owned Safehouse Resources - PS4 Saves Only
 # OpenAI Generated Script, Research Done By XxUnkn0wnxX
-# Script Ver 1.02
+# Script Ver 1.04
 
 """
 DS Safe House Max Resources
@@ -39,8 +39,8 @@ The next segment’s pointer is calculated as:
     next_segment_ptr = (current_segment_ptr + DATA_REGION_SIZE) + 0x6C
 which is DATA_REGION_SIZE (0x2C, 44 bytes) plus 0x6C (108 bytes) = 152 bytes (0x98) from the current segment’s start.
 
-The patch file is then written as “DS_SHResources.savepatch” and the patcher tool is executed with:
-    {APOLLO_PATCHER} DS_SHResources.savepatch 1 <savefile>
+The patch file is then written as “DS_SHResources.savepatch” when --debug is passed, for manual inspection and the patcher tool is executed with:
+    {APOLLO_PATCHER} {patch_lines} 1 <savefile>
 APOLLO_PATCHER must be set to a full path if desired; if left empty the script will look in the
 current folder for the "patcher" binary. If --debug is not passed the temporary patch file is deleted.
 
@@ -52,7 +52,7 @@ If the --bak flag is passed, a backup of the save file (filename + ".bak") is cr
 Note: This script does not source your shell rc file.
 """
 
-import os, sys, struct, argparse, signal, subprocess, re
+import os, sys, struct, argparse, signal, subprocess, re, shlex
 from colorama import init, Fore, Style
 init(autoreset=True)
 
@@ -71,6 +71,14 @@ APOLLO_PATCHER = os.environ.get('APOLLO_PATCHER', '')
 
 # Get safehouse_resources (default 999999999)
 safehouse_resources = int(os.environ.get('safehouse_resources', 999999999))
+
+# Clamp to valid 32-bit unsigned max (0xFFFFFFFF = 4294967295)
+if safehouse_resources < 0:
+    write_log(Fore.YELLOW + f"safehouse_resources value {safehouse_resources} is negative. Clamped to 0.", None)
+    safehouse_resources = 0
+elif safehouse_resources > 0xFFFFFFFF:
+    write_log(Fore.YELLOW + f"safehouse_resources value {safehouse_resources} exceeds 32-bit max. Clamped to 4294967295.", None)
+    safehouse_resources = 0xFFFFFFFF
 
 # Constants:
 DATA_REGION_SIZE = 0x2C      # 44 bytes: data region per segment.
@@ -111,13 +119,18 @@ def valid_data_region(region):
 def generate_patch_group(block_ptr, repeat_count):
     """
     Generate a consolidated patch group for a segment starting at block_ptr.
-    The header line is:
+    The first line must be the marker:
+         [DS_SHR]
+    The second line is the header:
          95000000 <block_ptr in 8-digit Big Endian>
     Then for i = 0 .. 5, output two lines:
          - Write line: address = 4A000000 + (i * 8), value = safehouse_resources converted to a 4-byte Big Endian HEX string.
          - Repeater line: "4{repeat_count:03X}0098 00000000" where repeat_count is the total number of valid segments.
     """
     lines = []
+    # First line is the marker
+    lines.append("[DS_SHR]")
+    # Second line is the header
     header = f"95000000 {format(block_ptr, '08X')}"
     lines.append(header)
     rep_str = f"4{repeat_count:03X}0098"
@@ -173,7 +186,7 @@ def run_tests(content, third_pointer, args, log_file=None):
     # Print overall success only when --debug is NOT passed.
     if not args.debug:
         write_log(Fore.GREEN + "All tests passed.", log_file)
-
+        
 def main():
     parser = argparse.ArgumentParser(description="DS Safe House Max Resources")
     parser.add_argument("file", help="Path to the file to process.")
@@ -206,7 +219,8 @@ def main():
                 sys.exit(1)
 
     patch_filename = "DS_SHResources.savepatch"
-    if os.path.exists(patch_filename) and not args.debug:
+    # Only handle existing patch file when --debug is passed.
+    if args.debug and os.path.exists(patch_filename):
         try:
             os.remove(patch_filename)
             write_log(Fore.CYAN + f"Existing patch file '{patch_filename}' deleted.", args.logs)
@@ -277,34 +291,59 @@ def main():
     if count == 0:
         write_log(Fore.YELLOW + "No valid segments found. Exiting.", args.logs)
         sys.exit(0)
+        
+    # --- Validate repeat count (must fit in 3 hex digits: 0x000–0xFFF) ---
+    if count > 0xFFF:
+        write_log(Fore.RED + f"Too many safe houses detected ({count}). Maximum supported is 4095 (0xFFF). Exiting.", args.logs)
+        sys.exit(1)
 
     # --- Generate consolidated patch group ---
     patch_lines = generate_patch_group(first_block_ptr, count)
     write_log(Fore.YELLOW + f"Total patch groups (repeat count) generated: {count}", args.logs)
 
-    # Write patch file.
-    with open(patch_filename, "w") as f:
-        f.write(":*\n\n[DS_SHR]\n")
-        for line in patch_lines:
-            f.write(line + "\n")
-    write_log(Fore.WHITE + f"Patch file '{patch_filename}' created.", args.logs)
-
-    # Build and run the patcher command.
-    cmd = f'"{patcher_path}" {patch_filename} 1 "{args.file}"'
+    # Write patch file only when --debug is passed.
     if args.debug:
-        write_log(Fore.WHITE + f"Executing command: {cmd}", args.logs)
-    result = subprocess.run(cmd, shell=True)
+        with open(patch_filename, "w") as f:
+            f.write(":*\n\n")  # [DS_SHR] removed because it's now added by the patcher function
+            for line in patch_lines:
+                f.write(line + "\n")
+        write_log(Fore.WHITE + f"Patch file '{patch_filename}' created.", args.logs)
+
+    # Build and run the patcher command using in-memory patch content (safe, cross-platform).
+    patch_str = "\n".join(patch_lines)
+    argv = [patcher_path, patch_str, "1", args.file]
+
+    if args.debug:
+        if os.name == "nt":
+            from subprocess import list2cmdline
+            preview = list2cmdline(argv)  # Windows-style preview
+        else:
+            preview = " ".join(shlex.quote(a) for a in argv)  # POSIX-style preview
+        write_log(Fore.WHITE + f"Executing: {preview}", args.logs)
+
+    # Run and capture output for logging
+    result = subprocess.run(
+        argv,
+        shell=False,
+        capture_output=True,
+        text=True
+    )
+
+    # Append patcher stdout/stderr to logs (no formatting applied)
+    if result.stdout:
+        out = result.stdout.rstrip("\n")
+        if out:
+            write_log(out, args.logs)
+
+    if result.stderr:
+        err = result.stderr.rstrip("\n")
+        if err:
+            write_log(err, args.logs)
+
     if result.returncode != 0:
         write_log(Fore.RED + f"Patcher tool returned error code {result.returncode}.", args.logs)
     else:
         write_log(Fore.GREEN + "Patcher tool executed successfully.", args.logs)
-
-    if not args.debug:
-        try:
-            os.remove(patch_filename)
-            write_log(Fore.WHITE + f"Temporary patch file '{patch_filename}' deleted.", args.logs)
-        except Exception as e:
-            write_log(Fore.YELLOW + f"Could not delete temporary patch file: {e}", args.logs)
 
 if __name__ == "__main__":
     main()
