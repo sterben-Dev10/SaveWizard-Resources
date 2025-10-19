@@ -209,7 +209,7 @@ sleep 1
 
 # Run cmake and check if it was successful
 echo "Running cmake..."
-cmake ..
+cmake -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ..
 if [ $? -ne 0 ]; then
     echo "cmake failed" >&2  # Redirects the error message to standard error
     exit 1  # Exits the script with a non-zero status to indicate an error occurred
