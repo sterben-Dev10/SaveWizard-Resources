@@ -137,6 +137,22 @@ Code targets to your basket
 08000021 000000AA <-- AA = Item Amount
 -- Ends here --
 
+This one is scalable, after the 1st ID you just add +36 Bytes (24 in Hex)
+if you want to target multiple slots in one go.."		
+			
+EG:
+92000000 00000011 - Slot 1
+Item + Attributes
+92000000 00000035 - Slot 2
+Item + Attributes
+92000000 00000059 - Slot 3
+Item + Attributes
+92000000 0000007D - Slot 4
+Item + Attributes
+92000000 000000A1 - Slot 5
+
+You Get the idea as each time you add 36 bytes you go down by an additional slot.
+
 Example: 3 Battle Items
 8001000C 6D5F756E
 69744B61 676F0000
@@ -153,7 +169,7 @@ Example: 3 Battle Items
 08000018 00000080 
 0800001B 0000003C <-- UU [3C] Item Uses (Consumables & Items): x60
 08000021 00000006 <-- AA [06] Item Amount: x6
-92000000 00000035 <-- YYY [035] Item Slot 2
+92000000 00000024 <-- YYY [035] Item Slot 2
 18000000 0000A900 <-- IIII [A900] Item ID: Flying Board
 28000002 00C07944 <-- QQQQ [00C07944] Quality: x12613956
 18000006 00002801 <-- PPPP [2801] Property 1: Jumbo Blessing
@@ -166,7 +182,7 @@ Example: 3 Battle Items
 08000018 00000080
 0800001B 0000003C <-- UU [3C] Item Uses (Consumables & Items): x60
 08000021 00000006 <-- AA [06] Item Amount: x6
-92000000 00000059 <-- YYY [059] Item Slot 3
+92000000 00000024 <-- YYY [059] Item Slot 3
 18000000 0000A200 <-- IIII [A200] Item ID: Talisman of Ancient Beasts
 28000002 00C07944 <-- QQQQ [00C07944] Quality: x12613956
 18000006 00002C01 <-- PPPP [2C01] Property 1: Property Super Enhance
