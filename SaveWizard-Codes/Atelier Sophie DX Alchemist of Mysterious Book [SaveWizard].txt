@@ -41,7 +41,7 @@ This Code Adds stuff to your basket
 18000010 0000EEEE <-- EEEE = Effect 3
 18000012 0000EEEE <-- EEEE = Effect 4
 18000015 00009202	
-08000019 000000UU <-- AA = Item Uses (Consumables & Items)
+08000019 000000UU <-- UU = Item Uses (Consumables & Items)
 08000021 000000AA <-- AA = Item Amount
 
 ARMOR/WEAPONS/ACCESSORY Stats [add these lines for equipment only]
@@ -121,7 +121,7 @@ Quality - Choose One [QQQQ]
 0000C642 - 99
 For Custom Value Refer To https://www.save-editor.com/tool/converter_ieee_754.cgi
 
-Amount, Uses - Choose One [AA]	
+Amount, Uses - Choose One [AA | UU]	
 01 - 1
 05 - 5
 0A - 10
@@ -153,7 +153,7 @@ Item + Attributes
 18000010 0000EEEE <-- EEEE = Effect 3
 18000012 0000EEEE <-- EEEE = Effect 4
 18000015 00009202	
-08000019 000000UU <-- AA = Item Uses (Consumables & Items)
+08000019 000000UU <-- UU = Item Uses (Consumables & Items)
 08000021 000000AA <-- AA = Item Amount
 -- Extra --
 ARMOR/WEAPONS/ACCESSORY Stats [required for equipment only (only add these lines for that)]
@@ -177,7 +177,7 @@ Item + Attributes
 18000010 0000EEEE <-- EEEE = Effect 3
 18000012 0000EEEE <-- EEEE = Effect 4
 18000015 00009202
-08000019 000000UU <-- AA = Item Uses (Consumables & Items)
+08000019 000000UU <-- UU = Item Uses (Consumables & Items)
 08000021 000000AA <-- AA = Item Amount
 -- Extra --
 ARMOR/WEAPONS/ACCESSORY Stats [required for equipment only (only add these lines for that)]
@@ -201,7 +201,7 @@ Item + Attributes
 18000010 0000EEEE <-- EEEE = Effect 3
 18000012 0000EEEE <-- EEEE = Effect 4
 18000015 00009202
-08000019 000000UU <-- AA = Item Uses (Consumables & Items)
+08000019 000000UU <-- UU = Item Uses (Consumables & Items)
 08000021 000000AA <-- AA = Item Amount
 -- Extra --
 ARMOR/WEAPONS/ACCESSORY Stats [required for equipment only (only add these lines for that)]
@@ -313,7 +313,7 @@ Example Add 3 items: Wanderer's Shirt, Fairy Guide, Breezy Aroma
 18000010 00009105 <-- EEEE [9105] Effect 3: Ultimate Reduction
 18000012 00007905 <-- EEEE [7905] Effect 4: Ultimate Mobility
 18000015 00009202 
-08000019 00000001 <-- AA [01] Item Uses x1
+08000019 00000001 <-- UU [01] Item Uses x1
 08000021 00000003 <-- AA [03] Item Amount x03
 08000028 00000015 <-- HP [15] HP Stat +21
 08000029 00000015 <-- MP [15] MP Stat +21
@@ -327,7 +327,7 @@ Example Add 3 items: Wanderer's Shirt, Fairy Guide, Breezy Aroma
 28000002 00C07944 <-- QQQQ [00C07944] Quality x999
 1800000C 00005F03 <-- EEEE [5F03] Effect 1: Return to Base
 18000015 00009202
-08000019 00000063 <-- AA [63] Item Uses x99
+08000019 00000063 <-- UU [63] Item Uses x99
 08000021 00000001 <-- AA [01] Item Amount x1
 92000000 00000038 <-- YYY [038] Slot 3
 18000000 0000DA00 <-- IIII [DA00] Item ID: Breezy Aroma (Recovery Item)
@@ -340,7 +340,7 @@ Example Add 3 items: Wanderer's Shirt, Fairy Guide, Breezy Aroma
 18000010 00008101 <-- EEEE [8101] Effect 3: Removes Many Ailments
 18000012 0000E300 <-- EEEE [E300] Effect 4: MPLP Recovery XL
 18000015 00009202
-08000019 00000063 <-- AA [63] Item Uses x99
+08000019 00000063 <-- UU [63] Item Uses x99
 08000021 00000001 <-- AA [01] Item Amount x1
 Notes: Coloured Diagram https://i.imgur.com/9AgqvAI.png
 
