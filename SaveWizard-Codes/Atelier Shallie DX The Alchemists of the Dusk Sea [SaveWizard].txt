@@ -150,7 +150,7 @@ Item + Attributes
 92000000 0000007D - Slot 4
 Item + Attributes
 92000000 000000A1 - Slot 5
-
+Item + Attributes
 You Get the idea as each time you add 36 bytes you go down by an additional slot.
 
 Same code for Simple Copy & Paste
