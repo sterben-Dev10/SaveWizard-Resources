@@ -142,13 +142,13 @@ if you want to target multiple slots in one go.."
 EG:
 92000000 00000011 - Slot 1
 Item + Attributes
-92000000 00000035 - Slot 2
+92000000 00000024 - Slot 2
 Item + Attributes
-92000000 00000059 - Slot 3
+92000000 00000024 - Slot 3
 Item + Attributes
-92000000 0000007D - Slot 4
+92000000 00000024 - Slot 4
 Item + Attributes
-92000000 000000A1 - Slot 5
+92000000 00000024 - Slot 5
 Item + Attributes
 You Get the idea as each time you add 36 bytes you go down by an additional slot.
 
