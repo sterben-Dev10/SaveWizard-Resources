@@ -216,7 +216,7 @@ Example: 3 Battle Items
 08000018 00000080 
 0800001B 0000003C <-- UU [3C] Item Uses (Consumables & Items): x60
 08000021 00000006 <-- AA [06] Item Amount: x6
-92000000 00000024 <-- YYY [035] Item Slot 2
+92000000 00000024 <-- YYY [024] Item Slot 2
 18000000 0000A900 <-- IIII [A900] Item ID: Flying Board
 28000002 00C07944 <-- QQQQ [00C07944] Quality: x12613956
 18000006 00002801 <-- PPPP [2801] Property 1: Jumbo Blessing
@@ -229,7 +229,7 @@ Example: 3 Battle Items
 08000018 00000080
 0800001B 0000003C <-- UU [3C] Item Uses (Consumables & Items): x60
 08000021 00000006 <-- AA [06] Item Amount: x6
-92000000 00000024 <-- YYY [059] Item Slot 3
+92000000 00000024 <-- YYY [024] Item Slot 3
 18000000 0000A200 <-- IIII [A200] Item ID: Talisman of Ancient Beasts
 28000002 00C07944 <-- QQQQ [00C07944] Quality: x12613956
 18000006 00002C01 <-- PPPP [2C01] Property 1: Property Super Enhance
