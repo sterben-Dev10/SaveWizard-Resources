@@ -53,7 +53,7 @@ Example: Divine Shirt
 69744B61 676F0000
 92000000 00000011 <-- YYY [011] Slot 1
 18000000 00005A01 <-- IIII [5A01] Item ID: Divine Shirt
-28000002 00C07944 <-- QQQQ [00C07944] Quality: x12613956
+28000002 00C07944 <-- QQQQ [00C07944] Quality: x999
 18000006 00001001 <-- PPPP [1001] Property 1: Awakened Soul
 18000008 00001301 <-- PPPP [1301] Property 2: Benevolent Soul
 1800000A 00001201 <-- PPPP [1201] Property 3: Heroic Soul
@@ -75,10 +75,9 @@ Slots - Choose One [YYYY]
 Quality - Choose One [QQQQ]
 00C07944 - 999
 0000FA43 - 500
-00007A43 - 250
-0000C842 - 100
-0000C642 - 99
-For Custom Value Refer To https://www.save-editor.com/tool/converter_ieee_754.cgi
+For Custom Value Refer To https://www.save-editor.com/tools/converter_ieee_754.html
+Notes: values are in Floats, game stores them as Big Endian. 
+however we write them as Little Endian as SW/Apollo will flip the byte order.
 
 Amount, Uses - Choose One [AA | UU]	
 01 - 1
