@@ -91,7 +91,7 @@ store_binaries() {
     fi
 
     # List of binaries
-    binaries=("patcher-bigendian" "patcher" "parser")
+    binaries=("patcher-bigendian" "patcher" "parser" "dumper")
 
     # Verify that STORE_PATH directory exists
     if [ ! -d "$STORE_PATH" ]; then
@@ -237,7 +237,7 @@ echo "Current directory: $(pwd)"
 sleep 1
 
 # List of binaries to check and delete if they exist
-binaries=("patcher-bigendian" "patcher" "parser")
+binaries=("patcher-bigendian" "patcher" "parser" "dumper")
 
 # Loop through the binaries array and delete the files if they exist
 for binary in "${binaries[@]}"; do
@@ -283,7 +283,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # List of binaries
-binaries=("patcher-bigendian" "patcher" "parser")
+binaries=("patcher-bigendian" "patcher" "parser" "dumper")
 
 # Change file permissions for each binary
 for binary in "${binaries[@]}"; do
