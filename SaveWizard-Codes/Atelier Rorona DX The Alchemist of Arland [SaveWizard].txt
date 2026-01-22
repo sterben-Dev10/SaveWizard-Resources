@@ -110,6 +110,9 @@ Slots - Choose One [YYY]
 
 Quality - Choose One [QQQQ]
 42F00000 - 120
+For Custom Value Refer To https://www.save-editor.com/tools/converter_ieee_754.html
+Notes: values are in Floats, game stores them as Little Endian. 
+however we write them as Big Endian as SW/Apollo will flip the byte order.
 
 Uses - Choose One [UU]	
 01 - 1

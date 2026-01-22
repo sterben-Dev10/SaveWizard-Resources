@@ -85,7 +85,9 @@ Quality - Choose One [QQQQ]
 00007A43 - 250
 0000C842 - 100
 0000C642 - 99
-For Custom Value Refer To https://www.save-editor.com/tool/converter_ieee_754.cgi
+For Custom Value Refer To https://www.save-editor.com/tools/converter_ieee_754.html
+Notes: values are in Floats, game stores them as Big Endian. 
+however we write them as Little Endian as SW/Apollo will flip the byte order.
 
 Amount, Uses - Choose One [AA | UU]	
 01 - 1
