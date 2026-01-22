@@ -48,7 +48,7 @@ Same code for Simple Copy & Paste
 08000021 000000AA
 -- Ends here --
 
-Example: 2 Divine Shirt
+Example: Divine Shirt
 8001000C 6D5F756E
 69744B61 676F0000
 92000000 00000011 <-- YYY [011] Slot 1
