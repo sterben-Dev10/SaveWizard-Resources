@@ -8,18 +8,16 @@ The Author's listed above codes & the Creators & Maintainers
 
 Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY/edit#gid=1582167642
 
-[XxUnkn0wnxX#0001]
+[XxUnkn0wnxX, Skillercmp]
 Set Quality To 999 All Items [1-5000]
-8001000F 6D5F756E
+80010010 6D5F756E
 6974436F 6E746169
 6E657200 00000000
-49000018 000003E7
-49C40020 00000000
-49013898 000003E7
-49C40020 00000000
+4D000018 000003E7
+13880020 00000000
 Notes: Credits to Lotus for research.
 
-[XxUnkn0wnxX#0001, Lotus]
+[XxUnkn0wnxX, Lotus]
 Item Add/Replace Template Builder (SIMPLE):
 -- This Code Adds stuff to your basket --
 
@@ -144,7 +142,7 @@ Example Usage: Add/Replace Item with Coffee In Slot 1 With Traits & 1 Effect
 18000013 00000101 <-- Needed to make items appear
 08000015 00000063 <-- AA [63] x99
 
-[XxUnkn0wnxX#0001, Lotus]
+[XxUnkn0wnxX, Lotus]
 Item Add/Replace Template Multi Builder (HARD):
 -- This Code Adds stuff to your basket --
 
