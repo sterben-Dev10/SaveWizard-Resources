@@ -4,6 +4,10 @@
 
 > Any Persons Maintaining any resources, cheats, code etc..
 > Will be credited no matter how small the change is as its a **ethical** and a **community-driven practice**.
+>
+> ### Credit is owed where value is created
+> - **Incremental improvement earns shared authorship:** improve existing code → your name is added alongside prior contributors.
+> - **A true rewrite earns primary authorship (with intellectual honesty):** rewrite the implementation → you may become the primary listed author, **while still crediting the original author for the research, approach, or findings that made it possible.**
 
 **SaveWizard Code Generators**  
 https://qcgenerators.com
