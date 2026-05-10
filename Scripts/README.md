@@ -18,7 +18,7 @@ Apply `--little` if you want it in Little Endian.
 `python3 pyconvert.py 0x000003E7 -ui32` will output the decimal value. All hexadecimal values must start with `0x` when converting back to decimal.  
 `python3 pyconvet.py C39E943977124BE8 -swp` will swap endianness of the inputed hexadecimal input.
 
-[Apollo-lib Compiler macOS](apollo-lib-macos.sh)
+[Apollo-lib Compiler macOS](apollo-lib-macos.zsh)
 
 > A script for macOS to build and compile Apollo CLI tools
 > will handle the Installation of Xcode dev tools & hombrew.
@@ -26,7 +26,7 @@ Apply `--little` if you want it in Little Endian.
 
 **Usage**  
 open a temrinal window type in `chmod 755` then a space, then drag the script on the window & hit enter.  
-now right click on the `apollo-lib-macos.sh` script & open with Terminal.
+now right click on the `apollo-lib-macos.zsh` script & open with Terminal.
 
 [MediaFire](MediaFire.py)  
 
