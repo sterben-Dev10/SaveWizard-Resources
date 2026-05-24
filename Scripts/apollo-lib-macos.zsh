@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/local/bin/zsh
 
 # Always run this script with zsh, even if it was launched through another shell.
 if [ -z "${ZSH_VERSION:-}" ]; then
@@ -11,20 +11,31 @@ setopt pipefail
 
 # if you want to place the compiled binaries somewhere after building
 STORE_PATH="$HOME/Desktop/Apollo CLI Tools"
+APOLLO_REPO_URL="git@github.com:bucanero/apollo-lib.git"
 
-MBEDTLS_VERSION="2.16.12"
-MBEDTLS_ARCHIVE="mbedtls-${MBEDTLS_VERSION}.tar.gz"
-MBEDTLS_DIR="mbedtls-${MBEDTLS_VERSION}"
-MBEDTLS_URL="https://src.fedoraproject.org/repo/pkgs/mbedtls/${MBEDTLS_ARCHIVE}/sha512/8d96d8cd906cc0999134320e4e1f550631426d166eab5da6e65469ee7286093810fcc6ac4bd5500ee55972d159f8bef7f9e53245f7f0eec72f72c35265b4313b/${MBEDTLS_ARCHIVE}"
+MBEDTLS_VERSION=""
+MBEDTLS_ARCHIVE=""
+MBEDTLS_DIR=""
+MBEDTLS_URL=""
 
 # Resolve the full absolute path of the directory where the script is located
 script_dir="$(cd "$(dirname "$0")" && pwd)"
+apollo_repo_dir="$script_dir/apollo-lib"
 repo_root=""
 
 if [ -f "$script_dir/tools/Makefile" ]; then
     repo_root="$script_dir"
-elif [ -f "$script_dir/apollo-lib/tools/Makefile" ]; then
-    repo_root="$(cd "$script_dir/apollo-lib" && pwd)"
+elif [ ! -e "$apollo_repo_dir" ]; then
+    if ! command -v git &>/dev/null; then
+        echo "Error: git is required to clone apollo-lib but was not found." >&2
+        exit 1
+    fi
+
+    echo "apollo-lib repository not found, cloning fresh copy..."
+    git clone "$APOLLO_REPO_URL" "$apollo_repo_dir"
+    repo_root="$(cd "$apollo_repo_dir" && pwd)"
+elif [ -f "$apollo_repo_dir/tools/Makefile" ]; then
+    repo_root="$(cd "$apollo_repo_dir" && pwd)"
 else
     echo "Unable to locate the apollo-lib repository root from: $script_dir" >&2
     exit 1
@@ -32,6 +43,54 @@ fi
 
 echo "Script directory: $script_dir"
 echo "Repository root: $repo_root"
+
+pull_latest_source() {
+    if [ ! -d "$repo_root/.git" ]; then
+        echo "Repository root is not a Git checkout, skipping pull."
+        return
+    fi
+
+    if ! command -v git &>/dev/null; then
+        echo "Warning: git is not installed, skipping repository pull." >&2
+        return
+    fi
+
+    echo "Pulling latest apollo-lib changes..."
+    git -C "$repo_root" pull --ff-only
+}
+
+load_mbedtls_settings_from_workflow() {
+    local workflow_path="$repo_root/.github/workflows/build.yml"
+    local workflow_url=""
+
+    if [ ! -f "$workflow_path" ]; then
+        echo "Error: Unable to find workflow file: $workflow_path" >&2
+        exit 1
+    fi
+
+    workflow_url="$(sed -nE 's|^[[:space:]]*curl[[:space:]]+-sL[[:space:]]+([^[:space:]]*mbedtls-[0-9][0-9.]*\.tar\.gz).*|\1|p' "$workflow_path" | head -n 1)"
+    workflow_url="${workflow_url#\"}"
+    workflow_url="${workflow_url%\"}"
+    workflow_url="${workflow_url#\'}"
+    workflow_url="${workflow_url%\'}"
+
+    if [ -z "$workflow_url" ]; then
+        echo "Error: Unable to find an mbedTLS tarball URL in $workflow_path" >&2
+        exit 1
+    fi
+
+    MBEDTLS_URL="$workflow_url"
+    MBEDTLS_ARCHIVE="${MBEDTLS_URL:t}"
+    MBEDTLS_DIR="${MBEDTLS_ARCHIVE%.tar.gz}"
+    MBEDTLS_VERSION="${MBEDTLS_DIR#mbedtls-}"
+
+    if [[ ! "$MBEDTLS_VERSION" =~ '^[0-9]+(\.[0-9]+)+$' ]]; then
+        echo "Error: Parsed invalid mbedTLS version from $workflow_path: $MBEDTLS_VERSION" >&2
+        exit 1
+    fi
+
+    echo "Using mbedTLS ${MBEDTLS_VERSION} from workflow: $workflow_path"
+}
 
 # Function to handle the SIGINT signal
 function handle_sigint() {
@@ -145,6 +204,8 @@ cd "$repo_root"
 echo "Current directory: $(pwd)"
 sleep 1
 
+pull_latest_source
+load_mbedtls_settings_from_workflow
 cleanup_previous_builds
 
 echo "Preparing mbedTLS ${MBEDTLS_VERSION}..."
