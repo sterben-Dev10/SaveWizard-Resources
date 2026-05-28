@@ -1,0 +1,395 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation & maintainment of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+The Author's listed above codes & the Creators & Maintainers
+
+Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY/edit?pli=1&gid=1499881968#gid=1499881968
+
+[XxUnkn0wnxX, Lotus]
+All Characters XP [1421489015]
+42000F58 54BA3377
+401D0508 00000000
+
+All Characters Lvl [999]
+42000F5E 000003E7
+401D0508 00000000
+
+All Characters HP [99999]
+42000F70 0001869F
+401D0508 00000000
+42000F80 0001869F
+401D0508 00000000
+
+All Characters SP [9999]
+42000F78 0000270F
+401D0508 00000000
+42000F88 0000270F
+401D0508 00000000
+
+Max Inventory [99]
+4000CA44 00000063
+48B70004 00000000
+
+Max Credits [99999999]
+42000EBC 05F5E0FF
+4002EA70 00000000
+
+Inventory Item Replace Template Builder
+-- Starts Here --
+95000000 0000CA42
+88010003 IIIIVV00 <-- AM ID Item & Value
+18000000 0000IIII <-- QC ID Item
+08000002 000000VV <-- Item Value
+08000003 000000FF <-- Flag Value
+-- Ends Here --
+
+Example Usage:
+95000000 0000CA42
+88010003 19001D00 <-- AM IIII [1900] VV [1D] x29
+18000000 000006AE <-- QC IIII [06AE]
+08000002 00000063 <-- VV [63] x99
+08000003 00000000 <-- FF [00] x0
+
+Easy Copy & Paste
+-- Starts Here --
+95000000 0000CA42
+88010003 19001D00
+18000000 000006AE
+08000002 00000063
+08000003 00000000
+-- Ends Here --
+
+Notes:
+-- VV --
+0A	- 10
+32	- 50
+63	- 99
+
+-- FF --
+00 - 0
+01 - 1
+02 - 2
+03 - 3
+04 - 4
+05 - 5
+
+Inventory Item Adder Template Builder
+-- Starts Here --
+-- Slot 1 --
+95000000 0000CA42 <-- <-- 1st Slot, Must Have this for additinal Slots
+-- Code Block Start --
+18000000 0000IIII <-- QC ID Item
+08000002 000000VV <-- Item Value
+08000003 000000FF <-- Flag Value
+-- Code Block End --
+-- Only Add When Adding Additional Slots --
+92000000 00000004 <-- Additinal Slot ID When doing Batches
+92000000 00000SSS <-- SSS Additinal Targeted Slot ID 
+-- Ends Here --
+
+Easy Copy & Paste
+-- Starts Here --
+95000000 0000CA42
+18000000 0000IIII
+08000002 000000VV
+08000003 000000FF
+92000000 00000SSS
+-- Ends Here --
+
+Example Batch:
+-- Starts Here --
+-- Slot 1 --
+95000000 0000CA42 <-- [CA42] Slot 1
+18000000 00000727 <-- QC IIII [0727] Silver Fragment
+08000002 00000063 <-- VV [63] x99
+08000003 00000001 <-- FF [01] x1
+-- Slot 2 --
+92000000 00000004 <-- [004] Slot 2
+18000000 0000076F <-- QC IIII [076F] Mysterious Halo
+08000002 00000063 <-- VV [63] x99
+08000003 00000003 <-- FF [03] x3
+-- Slot 3 --
+92000000 00000004 <-- [004] Slot 3
+18000000 0000080A <-- QC IIII [080A] Silver Sword
+08000002 0000000A <-- VV [0A] x10
+08000003 00000005 <-- FF [05] x5
+-- Slot 4 --
+92000000 00000004 <-- [004] Slot 4
+18000000 000009F9 <-- QC IIII [09F9] Cellphone Strap
+08000002 00000032 <-- VV [32] x50
+08000003 00000002 <-- FF [02] x2
+-- Slot 5 --
+92000000 00000004 <-- [004] Slot 5
+18000000 00000B4D <-- QC IIII [0B4D] Lime Coat
+08000002 0000000F <-- VV [0F] x15
+08000003 00000004 <-- FF [04] x4
+-- Slot 6 --
+92000000 00000004 <-- [004] Slot 6
+18000000 00000C1D <-- QC IIII [0C1D] White Ribbon
+08000002 00000050 <-- VV [50] x80
+08000003 00000000 <-- FF [00] x0
+-- Ends Here --
+
+Easy Copy & Paste
+-- Starts Here --
+95000000 0000CA42
+18000000 00000727
+08000002 00000063
+08000003 00000001
+92000000 00000004
+18000000 0000076F
+08000002 00000063
+08000003 00000003
+92000000 00000004
+18000000 0000080A
+08000002 0000000A
+08000003 00000005
+92000000 00000004
+18000000 000009F9
+08000002 00000032
+08000003 00000002
+92000000 00000004
+18000000 00000B4D
+08000002 0000000F
+08000003 00000004
+92000000 00000004
+18000000 00000C1D
+08000002 00000050
+08000003 00000000
+-- Ends Here --
+
+Example Targeted:
+-- Starts Here --
+95000000 0000CA42 <-- [CA42] Slot 1
+-- Slot 5 --
+92000000 00000010 <-- SSS [010] Slot 5
+18000000 00000B4D <-- QC IIII [0B4D] Lime Coat
+08000002 0000000F <-- VV [0F] x15
+08000003 00000004 <-- FF [04] x4
+-- Ends Here --
+
+Example Targeted + Batch
+-- Starts Here --
+95000000 0000CA42 <-- [CA42] Slot 1
+92000000 00000010 <-- SSS [010] Slot 5
+18000000 00000B4D <-- QC IIII [0B4D] Lime Coat
+08000002 0000000F <-- VV [0F] x15
+08000003 00000004 <-- FF [04] x4
+92000000 00000004 <-- SSS [004] Slot 6
+18000000 00000C1D <-- Q IIII [0C1D] White Ribbon
+08000002 00000050 <-- VV [50] x80
+08000003 00000000 <-- FF [00] x0
+92000000 00000004 <-- SSS [004] Slot 7
+18000000 000009D9 <-- QC IIII [09D9] Studded Armlet
+08000002 00000063 <-- VV [63] x99
+08000003 00000001 <-- FF [01] x1
+-- Ends Here --
+
+Notes:
+You will need to pre-populate the Inventory slots with random loot before they can be inserted into.
+
+-- SSS --
+
+-- Slot 2 --
+92000000 00000004
+-- Slot 3 --
+92000000 00000008
+-- Slot 4 --
+92000000 0000000C
+-- Slot 5 --
+92000000 00000010
+-- Slot 6 --
+92000000 00000014
+-- Slot 7 --
+92000000 00000018
+-- Slot 8 --
+92000000 0000001C
+-- Slot 9 --
+92000000 00000020
+-- Slot 10 --
+92000000 00000024
+-- Slot 11 --
+92000000 00000028
+-- Slot 12 --
+92000000 0000002C
+
+Use Slot 2 for every slot that comes after Slot 2, Slot 3, Slot 4 if you doing in one go Batch. 		
+Slot ID's 3 - 12 If you do Targeted write where you want to skip slots.
+
+For Reference Calculated Full Slots Addresses
+CA42 - Slot 1
+CA46 - Slot 2
+CA4A - Slot 3
+CA4E - Slot 4
+CA52 - Slot 5
+CA56 - Slot 6
+CA5A - Slot 7
+CA5E - Slot 8
+CA62 - Slot 9
+CA66 - Slot 10
+CA6A - Slot 11
+CA6E - Slot 12
+
+Slots can be calculated by adding 4 bytes from the last ID slot
+
+Character Slot Template Builder
+-- Starts Here --
+95000000 0000CCSS <-- CCSS Slot
+-- Stats --
+28000020 VVVVVVVV <-- VVVV XP
+18000026 VVVVVVVV <-- VVVV LVL (Max Val 65535)
+28000038 VVVVVVVV <-- VVVV HP 1
+28000040 VVVVVVVV <-- VVVV SP 1
+28000048 VVVVVVVV <-- VVVV HP 2
+28000050 VVVVVVVV <-- VVVV SP 2
+-- Equip Slots --
+180000A4 0000IIII <-- QC IIII | Slot 1
+180000A8 0000IIII <-- QC IIII | Slot 2
+180000AC 0000IIII <-- QC IIII | Slot 3
+180000B0 0000IIII <-- QC IIII | Slot 4
+180000B4 0000IIII <-- QC IIII | Slot 5
+-- Ends Here --
+
+Easy Copy & Paste
+-- Starts Here --
+95000000 0000CCSS
+28000020 VVVVVVVV
+18000026 VVVVVVVV
+28000038 VVVVVVVV
+28000040 VVVVVVVV
+28000048 VVVVVVVV
+28000050 VVVVVVVV
+180000A4 0000IIII
+180000A8 0000IIII
+180000AC 0000IIII
+180000B0 0000IIII
+180000B4 0000IIII
+-- Ends Here --
+
+Example: Stats & Equip Slots
+-- Starts Here --
+95000000 00000F38 <-- CCSS [0F38] Slot 1 
+-- Stats --
+28000020 77359400 <-- VVVV XP [77359400] x2000000000
+18000026 000001F4 <-- VVVV LVL [01F4] x500
+28000038 00015F90 <-- VVVV HP 1 [00015F90] x90000
+28000040 00001F40 <-- VVVV SP 1 [00001F40] x8000
+28000048 00015F90 <-- VVVV HP 2 [00015F90] x90000
+28000050 00001F40 <-- VVVV SP 2 [00001F40] x8000
+-- Equip Slots --
+180000A4 00000959 <-- QC IIII Equip Slot 1 [0959] Cyber Edge 2 (Weapon)
+180000A8 000009E5 <-- QC IIII Equip Slot 2 [09E5] Goddess Bangle (Armor)
+180000AC 00000AA9 <-- QC IIII Equip Slot 3 [0AA9] Molten Ring (Accessory)
+180000B0 00000B37 <-- QC IIII Equip Slot 4 [0B37] Royal Knight (Outfit)
+180000B4 00000BE0 <-- QC IIII Equip Slot 5 [0BE0] Shooting Star (Cosmetic Accessory)
+-- Ends Here --
+
+Easy Copy & Paste
+-- Starts Here --
+95000000 00000F38
+28000020 77359400
+18000026 000001F4
+28000038 00015F90
+28000040 00001F40
+28000048 00015F90
+28000050 00001F40
+180000A4 00000959
+180000A8 000009E5
+180000AC 00000AA9
+180000B0 00000B37
+180000B4 00000BE0
+-- Ends Here --
+
+Example: Equip Slots
+-- Starts Here --
+95000000 00000F38 <-- CCSS [0F38] Slot 1 
+180000A4 00000959 <-- QC IIII  | Equip Slot 1 [0959] Cyber Edge 2 (Weapon)
+180000A8 000009E5 <-- QC IIII  | Equip Slot 2 [09E5] Goddess Bangle (Armor)
+180000AC 00000AA9 <-- QC IIII  | Equip Slot 3 [0AA9] Molten Ring (Accessory)
+180000B0 00000B37 <-- QC IIII  | Equip Slot 4 [0B37] Royal Knight (Outfit)
+180000B4 00000BE0 <-- QC IIII  | Equip Slot 5 [0BE0] Shooting Star (Cosmetic Accessory)
+-- Ends Here --
+
+Notes: Disks are excluded from these slots
+
+-- CCSS --
+Base Game
+-- Slot 1 --
+95000000 00000F38
+-- Slot 2 --
+95000000 00001440
+-- Slot 3 --
+95000000 00001948
+-- Slot 4 --
+95000000 00001E50
+-- Slot 5 --
+95000000 00002358
+-- Slot 6 --
+95000000 00002860
+-- Slot 7 --
+95000000 00002D68
+-- Slot 8 --
+95000000 00003270
+-- Slot 9 --
+95000000 00003778
+-- Slot 10 --
+95000000 00003C80
+-- Slot 11 --
+95000000 00004188
+-- Slot 12 --
+95000000 00004690
+-- Slot 13 --
+95000000 00004B98
+-- Slot 14 --
+95000000 000050A0
+-- Slot 15 --
+95000000 000055A8
+-- Slot 16 --
+95000000 00005AB0
+
+DLC Extra
+-- Slot 17 --
+95000000 00005FB8
+-- Slot 18 --
+95000000 000064C0
+-- Slot 19 --
+95000000 000069C8
+-- Slot 20 --
+95000000 00006ED0
+-- Slot 21 --
+95000000 000073D8
+-- Slot 22 --
+95000000 000078E0
+-- Slot 23 --
+95000000 00007DE8
+-- Slot 24 --
+95000000 000082F0
+-- Slot 25 --
+95000000 000087F8
+-- Slot 26 --
+95000000 00008D00
+
+PC/Switch DLC Extra
+-- Slot 27 --
+95000000 00009208
+-- Slot 28 --
+95000000 00009710
+-- Slot 29 --
+95000000 00009C18
+
+Notes: 
+
+-- VVVV --	
+00000064 - 100
+000003E7 - 999
+000003E8 - 1000
+0000270F - 9999
+00002710 - 10000
+0001869F - 99999
+
+Neptune is always 1st slot
+size in hex between each character 0x508h
+
