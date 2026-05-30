@@ -31,7 +31,9 @@ All Characters SP [9999]
 
 Max Inventory [99]
 4000CA44 00000063
-48B70004 00000000
+47D00004 00000000
+
+Notes: Writes x2000 inv slots, may or may not crash your game
 
 Max Credits [99999999]
 42000EBC 05F5E0FF
