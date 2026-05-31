@@ -9,8 +9,8 @@ The Author's listed above codes & the Creators & Maintainers
 Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY/edit?pli=1&gid=1499881968#gid=1499881968
 
 [XxUnkn0wnxX, Lotus]
-All Characters XP [1421489015]
-42000F58 54BA3377
+All Characters XP [20161616 XP (Lvl 100)]
+42000F58 0133A450
 401D0508 00000000
 
 All Characters Lvl [999]
