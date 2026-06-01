@@ -42,7 +42,7 @@ Max Credits [99999999]
 Inventory Item Replace Template Builder
 -- Starts Here --
 95000000 0000CA42
-88010003 IIIIVV00 <-- AM ID Item & Value
+88010003 IIIIVV00 <-- AM ID Item & VV Value (For VV you need to write the value In hex of the item count you actualy have.)
 18000000 0000IIII <-- QC ID Item
 08000002 000000VV <-- Item Value
 08000003 000000FF <-- Flag Value
