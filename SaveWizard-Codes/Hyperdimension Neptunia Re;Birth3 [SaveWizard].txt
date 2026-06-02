@@ -6,7 +6,7 @@ The work put into the creation & maintainment of these codes & resources come fr
 Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 The Author's listed above codes & the Creators & Maintainers
 
-Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY/edit?pli=1&gid=1668233890#gid=1668233890
+Spreadsheet for ID's: https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY/edit?pli=1&gid=1164048223#gid=1164048223
 
 [XxUnkn0wnxX, Lotus]
 All Characters XP [20161616 XP (Lvl 100)]
@@ -79,15 +79,6 @@ Inventory Slot Replacer Template Builder
 92000000 00000SSS <-- SSS Additinal Targeted Slot ID 
 -- Ends Here --
 
-Easy Copy & Paste
--- Starts Here --
-95000000 0000C7C4
-18000000 0000IIII
-08000002 000000VV
-08000003 000000FF
-92000000 00000SSS
--- Ends Here --
-
 Notes:
 You will need to pre-populate the Inventory slots with random loot before they can be replaced. 
 this will only replace items up to a point, 
@@ -135,7 +126,7 @@ C7E8 - Slot 10
 C7EC - Slot 11
 C7F0 - Slot 12
 
-Slots can be calculated by adding 4 bytes from the last ID slot
+Slot ID is Item ID, slots can be calculated by adding 4 bytes from the last ID slot
 
 Character Slot Template Builder
 -- Starts Here --
@@ -153,52 +144,8 @@ Character Slot Template Builder
 180000AC 0000IIII <-- QC IIII | Slot 3
 180000B0 0000IIII <-- QC IIII | Slot 4
 180000B4 0000IIII <-- QC IIII | Slot 5
-180000B8 0000IIII <-- QC IIII | Slot 6 Processor
+180000B8 0000IIII <-- QC IIII | Slot 6
 -- Ends Here --
-
-Easy Copy & Paste
--- Starts Here --
-95000000 0000CCSS
-28000020 VVVVVVVV
-18000026 VVVVVVVV
-28000038 VVVVVVVV
-28000040 VVVVVVVV
-28000048 VVVVVVVV
-28000050 VVVVVVVV
-180000A4 0000IIII
-180000A8 0000IIII
-180000AC 0000IIII
-180000B0 0000IIII
-180000B4 0000IIII
-180000B8 0000IIII
--- Ends Here --
-
-Example: Stats
--- Starts Here --
-95000000 00000F3C <-- CCSS [0F3C] Slot 1 
--- Stats --
-28000020 77359400 <-- VVVV XP [77359400] x2000000000
-18000026 000001F4 <-- VVVV LVL [01F4] x500
-28000038 00015F90 <-- VVVV HP 1 [00015F90] x90000
-28000040 00001F40 <-- VVVV SP 1 [00001F40] x8000
-28000048 00015F90 <-- VVVV HP 2 [00015F90] x90000
-28000050 00001F40 <-- VVVV SP 2 [00001F40] x8000
--- Ends Here --
-
-Easy Copy & Paste
--- Starts Here --
-95000000 00000F3C
-28000020 77359400
-18000026 000001F4
-28000038 00015F90
-28000040 00001F40
-28000048 00015F90
-28000050 00001F40
--- Ends Here --
-
-Notes: Equip examples are excluded due to lack of confirmed Re;Birth3 IDs
-Notes: Slot 6 at +B8 is the Processor slot in game 3
-Notes: Disks are excluded from these slots
 
 -- CCSS --
 Base Game
@@ -222,6 +169,7 @@ Base Game
 95000000 0000381C
 -- Slot 10 --
 95000000 00003D38
+
 DLC Extra
 -- Slot 11 --
 95000000 00004254
