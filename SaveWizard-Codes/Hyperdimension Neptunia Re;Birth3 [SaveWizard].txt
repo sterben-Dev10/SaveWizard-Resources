@@ -34,11 +34,12 @@ Max Inventory [99]
 4B250004 00000000
 
 Notes: Writes x2853 inv slots, may or may not crash your game
-Notes: No examples for 3rd game due to lack of IDs
 
 Max Credits [99999999]
 42000EBC 05F5E0FF
 4002E7F4 00000000
+
+Notes: No examples for 3rd game for following template codes due to lack of IDs
 
 Inventory Search Replacer Template Builder
 -- Starts Here --
