@@ -34,12 +34,11 @@ Max Inventory [99]
 4B250004 00000000
 
 Notes: Writes x2853 inv slots, may or may not crash your game
+Notes: No examples for 3rd game due to lack of IDs
 
 Max Credits [99999999]
 42000EBC 05F5E0FF
 4002E7F4 00000000
-
-Notes: Following Codes No examples for 3rd game due to lack of IDs
 
 Inventory Search Replacer Template Builder
 -- Starts Here --
@@ -208,6 +207,7 @@ DLC Extra
 95000000 00009414
 -- Slot 28 --
 95000000 00009930
+
 PC/Switch DLC Extra
 -- Slot 29 --
 95000000 00009E4C
