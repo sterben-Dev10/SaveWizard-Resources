@@ -39,7 +39,7 @@ Max Credits [99999999]
 42000EBC 05F5E0FF
 4002EA70 00000000
 
-Inventory Item Replace Template Builder
+Inventory Search Replacer Template Builder
 -- Starts Here --
 95000000 0000CA42
 88010003 IIIIVV00 <-- AM ID Item & VV Value (For VV you need to write the value In hex of the item count you actualy have.)
@@ -78,7 +78,7 @@ Notes:
 04 - 4
 05 - 5
 
-Inventory Item Adder Template Builder
+Inventory Slot Replacer Template Builder
 -- Starts Here --
 -- Slot 1 --
 95000000 0000CA42 <-- <-- 1st Slot, Must Have this for additinal Slots
@@ -191,7 +191,9 @@ Example Targeted + Batch
 -- Ends Here --
 
 Notes:
-You will need to pre-populate the Inventory slots with random loot before they can be inserted into.
+You will need to pre-populate the Inventory slots with random loot before they can be replaced. 
+this will only replace items up to a point, 
+as many individual existing items you have as in each different item not including count.	
 
 -- SSS --
 
