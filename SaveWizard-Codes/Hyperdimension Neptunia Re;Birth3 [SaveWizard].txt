@@ -86,10 +86,10 @@ All Characters ??? [x9999 (Sets the 3 reamaining mystery stats)]
 401D051C 00000000	
 
 Max Inventory [x99]
-4000C7C6 00000063
-4B250004 00000000
+4000C7D2 00000063
+4B220004 00000000
 
-Notes: Writes x2853 inv slots, may or may not crash your game
+Notes: Writes x2850 inv slots, may or may not crash your game
 
 Max Credits [x99999999]
 42000EBC 05F5E0FF
@@ -99,7 +99,7 @@ Notes: No examples for 3rd game for following template codes due to lack of IDs
 
 Inventory Search Replacer Template Builder
 -- Starts Here --
-95000000 0000C7C4
+95000000 0000C7D0
 88010003 IIIIVV00 <-- AM ID Item & VV Value (For VV you need to write the value In hex of the item count you actualy have.)
 18000000 0000IIII <-- QC ID Item
 08000002 000000VV <-- Item Value
@@ -125,7 +125,7 @@ Notes: Not 100% Certain what Flag does, use 00 or 01 for now.
 Inventory Slot Replacer Template Builder
 -- Starts Here --
 -- Slot 1 --
-95000000 0000C7C4 <-- <-- 1st Slot, Must Have this for additinal Slots
+95000000 0000C7D0 <-- <-- 1st Slot, Must Have this for additinal Slots
 -- Code Block Start --
 18000000 0000IIII <-- QC ID Item
 08000002 000000VV <-- Item Value
@@ -170,18 +170,18 @@ Use Slot 2 for every slot that comes after Slot 2, Slot 3, Slot 4 if you doing i
 Slot ID's 3 - 12 If you do Targeted write where you want to skip slots.
 
 For Reference Calculated Full Slots Addresses
-C7C4 - Slot 1
-C7C8 - Slot 2
-C7CC - Slot 3
-C7D0 - Slot 4
-C7D4 - Slot 5
-C7D8 - Slot 6
-C7DC - Slot 7
-C7E0 - Slot 8
-C7E4 - Slot 9
-C7E8 - Slot 10
-C7EC - Slot 11
-C7F0 - Slot 12
+C7D0 - Slot 1
+C7D4 - Slot 2
+C7D8 - Slot 3
+C7DC - Slot 4
+C7E0 - Slot 5
+C7E4 - Slot 6
+C7E8 - Slot 7
+C7EC - Slot 8
+C7F0 - Slot 9
+C7F4 - Slot 10
+C7F8 - Slot 11
+C7FC - Slot 12
 
 Slot ID is Item ID, slots can be calculated by adding 4 bytes from the last ID slot
 
