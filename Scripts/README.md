@@ -20,13 +20,15 @@ Apply `--little` if you want it in Little Endian.
 
 [Apollo-lib Compiler macOS](apollo-lib-macos.zsh)
 
-> A script for macOS to build and compile Apollo CLI tools
-> will handle the Installation of Xcode dev tools & hombrew.
-> as well as any other necessary dependcies.
+> Builds Apollo CLI tools (`patcher`, `dumper`) and the macOS GUI app (`apollo_patcher_gui.app`).
+> Checks/installs Xcode CLT, Homebrew, CMake, and zlib; then bootstraps the workflow-selected mbedTLS tarball. The upstream GUI requires CMake 3.16 or newer.
+> GUI CMake configuration fetches Dear ImGui/GLFW, so network access and Git are required.
+> `patcher` handles both endianness modes; use `-b/--big-endian` at runtime. No `patcher-bigendian` artifact is produced.
+> All three artifacts land together in `~/Desktop/Apollo CLI Tools`; override that destination for one run with `STORE_PATH`.
+> On macOS, no extra GUI package install is required (Cocoa/OpenGL/osascript are OS-provided).
 
 **Usage**  
-open a temrinal window type in `chmod 755` then a space, then drag the script on the window & hit enter.  
-now right click on the `apollo-lib-macos.zsh` script & open with Terminal.
+open a terminal and run `chmod 755` on the script, or right-click the script and open with Terminal.
 
 [MediaFire](MediaFire.py)  
 

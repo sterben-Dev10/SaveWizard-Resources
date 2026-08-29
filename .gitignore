@@ -3,3 +3,4 @@
 tmp/
 AGENTS.md
 .venv/
+/Scripts/apollo-lib/

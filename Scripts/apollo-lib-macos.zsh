@@ -1,4 +1,4 @@
-#!/usr/local/bin/zsh
+#!/usr/bin/env zsh
 
 # Always run this script with zsh, even if it was launched through another shell.
 if [ -z "${ZSH_VERSION:-}" ]; then
@@ -10,7 +10,9 @@ set -e
 setopt pipefail
 
 # if you want to place the compiled binaries somewhere after building
-STORE_PATH="$HOME/Desktop/Apollo CLI Tools"
+STORE_PATH="${STORE_PATH:-$HOME/Desktop/Apollo CLI Tools}"
+
+GIT_BIN="$(command -v git 2>/dev/null || true)"
 APOLLO_REPO_URL="git@github.com:bucanero/apollo-lib.git"
 
 MBEDTLS_VERSION=""
@@ -26,13 +28,13 @@ repo_root=""
 if [ -f "$script_dir/tools/Makefile" ]; then
     repo_root="$script_dir"
 elif [ ! -e "$apollo_repo_dir" ]; then
-    if ! command -v git &>/dev/null; then
+    if [ ! -x "$GIT_BIN" ]; then
         echo "Error: git is required to clone apollo-lib but was not found." >&2
         exit 1
     fi
 
     echo "apollo-lib repository not found, cloning fresh copy..."
-    git clone "$APOLLO_REPO_URL" "$apollo_repo_dir"
+    "$GIT_BIN" clone "$APOLLO_REPO_URL" "$apollo_repo_dir"
     repo_root="$(cd "$apollo_repo_dir" && pwd)"
 elif [ -f "$apollo_repo_dir/tools/Makefile" ]; then
     repo_root="$(cd "$apollo_repo_dir" && pwd)"
@@ -50,13 +52,23 @@ pull_latest_source() {
         return
     fi
 
-    if ! command -v git &>/dev/null; then
+    if [ ! -x "$GIT_BIN" ]; then
         echo "Warning: git is not installed, skipping repository pull." >&2
         return
     fi
 
     echo "Pulling latest apollo-lib changes..."
-    git -C "$repo_root" pull --ff-only
+    "$GIT_BIN" -C "$repo_root" pull --ff-only
+}
+
+ensure_artifact_exists() {
+    local artifact="$1"
+    local description="$2"
+
+    if [ ! -e "$artifact" ]; then
+        echo "Error: Required $description not found: $artifact" >&2
+        exit 1
+    fi
 }
 
 load_mbedtls_settings_from_workflow() {
@@ -106,21 +118,64 @@ store_binaries() {
         exit 1
     fi
 
-    # List of binaries
-    binaries=("patcher-bigendian" "patcher" "dumper")
+    echo "Ensuring STORE_PATH exists: $STORE_PATH"
+    mkdir -p "$STORE_PATH"
+
+    # Copy each CLI binary
+    local binaries=(
+        "$repo_root/tools/patcher"
+        "$repo_root/tools/dumper"
+    )
+
+    for binary in "${binaries[@]}"; do
+        ensure_artifact_exists "$binary" "CLI artifact"
+        echo "Copying $(basename "$binary") to $STORE_PATH"
+        cp "$binary" "$STORE_PATH"
+    done
+}
+
+store_gui_bundle() {
+    if [ -z "$STORE_PATH" ]; then
+        echo "Error: STORE_PATH is not set. Set the STORE_PATH variable to the directory where you want to store the compiled artifacts." >&2
+        exit 1
+    fi
+
+    local gui_app="$repo_root/gui/build/apollo_patcher_gui.app"
+    local gui_exec="$gui_app/Contents/MacOS/apollo_patcher_gui"
+    local destination_app="$STORE_PATH/apollo_patcher_gui.app"
+    local staged_app="$STORE_PATH/.apollo_patcher_gui.app.new"
+    local staged_exec="$staged_app/Contents/MacOS/apollo_patcher_gui"
 
     echo "Ensuring STORE_PATH exists: $STORE_PATH"
     mkdir -p "$STORE_PATH"
 
-    # Copy each binary
-    for binary in "${binaries[@]}"; do
-        if [ -f "$binary" ]; then
-            echo "Copying $binary to $STORE_PATH"
-            cp "$binary" "$STORE_PATH"
-        else
-            echo "Warning: Expected binary file $binary does not exist and was not copied." >&2
-        fi
-    done
+    ensure_artifact_exists "$gui_app" "GUI bundle"
+    ensure_artifact_exists "$gui_exec" "GUI executable"
+
+    if [ -e "$staged_app" ]; then
+        rm -rf -- "$staged_app"
+    fi
+
+    echo "Staging Apollo GUI bundle in $STORE_PATH"
+    if ! cp -R -- "$gui_app" "$staged_app"; then
+        rm -rf -- "$staged_app"
+        echo "Error: Unable to stage Apollo GUI bundle in $STORE_PATH" >&2
+        return 1
+    fi
+
+    if [ ! -x "$staged_exec" ]; then
+        rm -rf -- "$staged_app"
+        echo "Error: Staged GUI executable is missing or not executable: $staged_exec" >&2
+        return 1
+    fi
+
+    if [ -e "$destination_app" ]; then
+        echo "Replacing existing GUI bundle: $destination_app"
+        rm -rf -- "$destination_app"
+    fi
+
+    mv -- "$staged_app" "$destination_app"
+    echo "Stored Apollo GUI bundle: $destination_app"
 }
 
 # Trap the SIGINT signal
@@ -150,6 +205,16 @@ cleanup_previous_builds() {
         rm -f patcher.exe patcher-bigendian.exe dumper.exe
 
         cd "$repo_root"
+    fi
+
+    if [ -d "gui/build" ]; then
+        echo "Removing existing gui/build directory..."
+        rm -rf "gui/build"
+    fi
+
+    if [ -d "gui/dist" ]; then
+        echo "Removing existing gui/dist directory..."
+        rm -rf "gui/dist"
     fi
 }
 
@@ -251,34 +316,26 @@ cd tools
 echo "Current directory: $(pwd)"
 sleep 1
 
-# make PS3 patcher
-echo "Building PS3 Patcher"
-make BIGENDIAN=1
-
-# Rename the patcher to patcher-bigendian
-mv patcher patcher-bigendian
-
-# make default patcher + dumper
+# Build patcher + dumper
 echo "Building default Apollo CLI tools"
 make clean
 make
+ensure_artifact_exists "$repo_root/tools/patcher" "CLI artifact patcher"
+ensure_artifact_exists "$repo_root/tools/dumper" "CLI artifact dumper"
+chmod 755 "$repo_root/tools/patcher" "$repo_root/tools/dumper"
+cd "$repo_root"
 
-# List of binaries
-binaries=("patcher-bigendian" "patcher" "dumper")
+if [ ! -d "$repo_root/gui" ]; then
+    echo "Error: Unable to locate gui directory from repo root: $repo_root/gui" >&2
+    exit 1
+fi
 
-# Change file permissions for each binary
-for binary in "${binaries[@]}"; do
-    if [ -f "$binary" ]; then
-        echo "Setting execute permissions for $binary"
-        chmod 755 "$binary"
-    else
-        echo "Warning: Expected binary file $binary does not exist, unable to set permissions." >&2
-    fi
-done
+echo "Building Apollo GUI"
+cd "$repo_root/gui"
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --parallel
 
-# Confirm the current directory
-echo "Current directory: $(pwd)"
-sleep 1
+store_gui_bundle
 
 # Call the function to store binaries
 store_binaries
