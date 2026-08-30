@@ -18,17 +18,12 @@ Apply `--little` if you want it in Little Endian.
 `python3 pyconvert.py 0x000003E7 -ui32` will output the decimal value. All hexadecimal values must start with `0x` when converting back to decimal.  
 `python3 pyconvet.py C39E943977124BE8 -swp` will swap endianness of the inputed hexadecimal input.
 
-[Apollo-lib Compiler macOS](apollo-lib-macos.zsh)
+[Apollo-lib Compiler macOS](apollo-lib-macos.md)
 
-> Builds Apollo CLI tools (`patcher`, `dumper`) and the macOS GUI app (`apollo_patcher_gui.app`).
-> Checks/installs Xcode CLT, Homebrew, CMake, and zlib; then bootstraps the workflow-selected mbedTLS tarball. The upstream GUI requires CMake 3.16 or newer.
-> GUI CMake configuration fetches Dear ImGui/GLFW, so network access and Git are required.
-> `patcher` handles both endianness modes; use `-b/--big-endian` at runtime. No `patcher-bigendian` artifact is produced.
-> All three artifacts land together in `~/Desktop/Apollo CLI Tools`; override that destination for one run with `STORE_PATH`.
-> On macOS, no extra GUI package install is required (Cocoa/OpenGL/osascript are OS-provided).
+> Builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools (`patcher`, `dumper`) and the macOS GUI app (`apollo_patcher_gui.app`) for macOS 11.0 or later. Full Xcode is optional—Command Line Tools are enough; see the [dedicated build guide](apollo-lib-macos.md) for setup, outputs, signing, and usage.
 
 **Usage**  
-open a terminal and run `chmod 755` on the script, or right-click the script and open with Terminal.
+See the [Apollo-lib macOS build guide](apollo-lib-macos.md#usage).
 
 [MediaFire](MediaFire.py)  
 
