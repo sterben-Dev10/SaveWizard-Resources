@@ -25,6 +25,8 @@ Stats
 - Score - x99999
 2800000C 0001869F
 
+Note: for stats to work you need at least 1 death, zombie kill etc..
+
 Easy Copy & Paste
 -- Starts Here --
 80010014 00000300
