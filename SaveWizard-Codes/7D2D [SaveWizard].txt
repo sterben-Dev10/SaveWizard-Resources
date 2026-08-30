@@ -7,6 +7,9 @@ Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
 The Author's listed above codes & the Creators & Maintainers
 
 PS4 Ver of 7D2D, use tools outside of SW to decrypt & mod.
+you need to target the *.ttp, primary.ttp is host while the rest are the friends/players that joined you.
+you can also edit gameOptions.sdf to tweak MP settings like enable cheatmode on & off etc. settings you get locked out off.
+just use hex editor for the settings file.
 
 [XxUnkn0wnxX]
 
