@@ -1,0 +1,54 @@
+########## RESOURCES & CODES START HERE ##########
+USE THESE CODES AT YOUR OWN RISK!, I am not responsible if any of these codes break your save, as a good practice I always make a backup of my save beforehand every time I apply a cheat.
+ 
+########## DISCLAIMER ##########
+The work put into the creation & maintainment of these codes & resources come from some of the following Discord Servers: 
+Discord Server List: https://github.com/sterben-Dev10/SaveWizard-Resources
+The Author's listed above codes & the Creators & Maintainers
+
+PS4 Ver of 7D2D, use tools outside of SW to decrypt & mod.
+
+[XxUnkn0wnxX]
+
+Stats
+80010014 00000300
+00000000 00000000
+00000000 00000001
+88010004 01030000
+93000000 00000010
+- Player Kills - x99999
+28000000 0001869F
+- Zombie Kills - x99999
+28000004 0001869F
+- Deaths - x0
+28000008 00000000
+- Score - x99999
+2800000C 0001869F
+
+Easy Copy & Paste
+-- Starts Here --
+80010014 00000300
+00000000 00000000
+00000000 00000001
+88010004 01030000
+93000000 00000010
+28000000 0001869F
+28000004 0001869F
+28000008 00000000
+2800000C 0001869F
+-- Ends Here --
+
+Level - x9999
+B001000F 01030000
+00000000 00000000 
+00000300 00000000
+92000000 000001A5
+28000000 0000270F
+
+SP (SkillPoints) - x999999999
+B0010015 14717565
+73745F62 61736963
+73757276 6976616C
+31000000 00000000
+93000000 00000007
+28000000 3B9AC9FF
