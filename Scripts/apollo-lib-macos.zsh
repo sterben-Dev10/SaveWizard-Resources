@@ -178,7 +178,7 @@ load_mbedtls_settings_from_workflow() {
         exit 1
     fi
 
-    workflow_url="$(sed -nE 's|^[[:space:]]*curl[[:space:]]+-sL[[:space:]]+([^[:space:]]*mbedtls-[0-9][0-9.]*\.tar\.gz).*|\1|p' "$workflow_path" | head -n 1)"
+    workflow_url="$(sed -nE "/^[[:space:]]*curl[[:space:]]/s|.*['\"]?(https?://[^[:space:]'\"]*mbedtls-[0-9][0-9.]*\.tar\.gz)['\"]?.*|\1|p" "$workflow_path" | head -n 1)"
     workflow_url="${workflow_url#\"}"
     workflow_url="${workflow_url%\"}"
     workflow_url="${workflow_url#\'}"
