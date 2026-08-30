@@ -1,6 +1,6 @@
 # Apollo-lib Compiler for macOS
 
-The [`apollo-lib-macos.zsh`](apollo-lib-macos.zsh) wrapper builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools (`patcher`, `dumper`) and the macOS GUI app for macOS 11.0 or later. Upstream CMake still produces `apollo_patcher_gui.app`; the wrapper installs that build as the friendly bundle `Apollo Patcher.app`. Full Xcode is not required: Command Line Tools (CLT) are enough for Apollo and Homebrew.
+The [`apollo-lib-macos.zsh`](apollo-lib-macos.zsh) wrapper builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools (`patcher`, `dumper`) and the macOS GUI app with a minimum deployment target of macOS 11.0. Upstream CMake still produces `apollo_patcher_gui.app`; the wrapper installs that build as the friendly bundle `Apollo Patcher.app`. Full Xcode is not required: [Command Line Tools (CLT)](https://developer.apple.com/documentation/xcode/installing-the-command-line-tools/) are enough for Apollo and Homebrew.
 
 ## Toolchain and dependencies
 
@@ -8,7 +8,7 @@ The wrapper accepts a caller-provided `DEVELOPER_DIR`, then checks the active `x
 
 If none of those developer directories is usable, the wrapper runs `xcode-select --install` and polls until the tools become available. macOS presents Apple’s installer and license flow; the user must approve it manually. The wrapper cannot silently accept that GUI/license step, but it resumes automatically after the installation completes.
 
-Ordinary `git`, `cmake`, `make`, `curl`, and `tar` commands resolve from `PATH` first. Homebrew is used or installed only when CMake is missing. The macOS SDK supplies zlib and the system Cocoa/OpenGL frameworks; GUI CMake `FetchContent` downloads GLFW and Dear ImGui, so network access and Git are required, with no separate Homebrew GUI dependencies. GLFW and Dear ImGui are linked statically, and the validated app links at runtime only to Apple system libraries and frameworks.
+Ordinary `git`, `cmake`, `make`, `curl`, and `tar` commands resolve from `PATH` first. Homebrew is used or installed only when CMake is missing. macOS 11.0 is the artifact target, not a promise that current Homebrew supports a macOS 11 build host: [Homebrew's current requirements](https://docs.brew.sh/Installation) are newer, so a fresh Homebrew fallback on an older host is best-effort. An existing working CMake or Homebrew installation found on `PATH` remains usable. The macOS SDK supplies zlib and the system Cocoa/OpenGL frameworks; GUI CMake `FetchContent` downloads GLFW and Dear ImGui, so network access and Git are required, with no separate Homebrew GUI dependencies. GLFW and Dear ImGui are linked statically, and the validated app links at runtime only to Apple system libraries and frameworks.
 
 ## Build flow
 
