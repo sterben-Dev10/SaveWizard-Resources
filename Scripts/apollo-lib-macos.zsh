@@ -13,6 +13,8 @@ setopt pipefail
 STORE_PATH="${STORE_PATH:-$HOME/Desktop/Apollo CLI Tools}"
 
 GIT_BIN="$(command -v git 2>/dev/null || true)"
+XATTR_BIN="$(command -v xattr 2>/dev/null || true)"
+CODESIGN_BIN="$(command -v codesign 2>/dev/null || true)"
 APOLLO_REPO_URL="git@github.com:bucanero/apollo-lib.git"
 
 MBEDTLS_VERSION=""
@@ -69,6 +71,48 @@ ensure_artifact_exists() {
         echo "Error: Required $description not found: $artifact" >&2
         exit 1
     fi
+}
+
+clear_quarantine() {
+    local artifact_path="$1"
+    local description="$2"
+    local attribute_listing
+
+    if [ -n "$description" ]; then
+        echo "Checking quarantine state for $description: $artifact_path"
+    fi
+
+    "$XATTR_BIN" -dr com.apple.quarantine "$artifact_path" 2>/dev/null || true
+
+    attribute_listing="$("$XATTR_BIN" -lr "$artifact_path" 2>/dev/null || true)"
+    if [[ "$attribute_listing" == *": com.apple.quarantine:"* ]]; then
+        echo "Error: $description still has com.apple.quarantine." >&2
+        exit 1
+    fi
+}
+
+sign_cli_artifact() {
+    local artifact="$1"
+
+    "$CODESIGN_BIN" --force --sign - "$artifact"
+}
+
+verify_cli_artifact() {
+    local artifact="$1"
+
+    "$CODESIGN_BIN" --verify --strict --verbose=2 "$artifact"
+}
+
+sign_gui_app() {
+    local artifact="$1"
+
+    "$CODESIGN_BIN" --force --sign - "$artifact"
+}
+
+verify_gui_app() {
+    local artifact="$1"
+
+    "$CODESIGN_BIN" --verify --deep --strict --verbose=2 "$artifact"
 }
 
 load_mbedtls_settings_from_workflow() {
@@ -129,8 +173,14 @@ store_binaries() {
 
     for binary in "${binaries[@]}"; do
         ensure_artifact_exists "$binary" "CLI artifact"
+        chmod 755 "$binary"
+        clear_quarantine "$binary" "built CLI artifact $(basename "$binary")"
+        verify_cli_artifact "$binary"
         echo "Copying $(basename "$binary") to $STORE_PATH"
         cp "$binary" "$STORE_PATH"
+        chmod 755 "$STORE_PATH/$(basename "$binary")"
+        clear_quarantine "$STORE_PATH/$(basename "$binary")" "stored CLI artifact $(basename "$binary")"
+        verify_cli_artifact "$STORE_PATH/$(basename "$binary")"
     done
 }
 
@@ -143,7 +193,7 @@ store_gui_bundle() {
     local gui_app="$repo_root/gui/build/apollo_patcher_gui.app"
     local gui_exec="$gui_app/Contents/MacOS/apollo_patcher_gui"
     local destination_app="$STORE_PATH/apollo_patcher_gui.app"
-    local staged_app="$STORE_PATH/.apollo_patcher_gui.app.new"
+    local staged_app="$STORE_PATH/.apollo_patcher_gui.staged.app"
     local staged_exec="$staged_app/Contents/MacOS/apollo_patcher_gui"
 
     echo "Ensuring STORE_PATH exists: $STORE_PATH"
@@ -151,6 +201,12 @@ store_gui_bundle() {
 
     ensure_artifact_exists "$gui_app" "GUI bundle"
     ensure_artifact_exists "$gui_exec" "GUI executable"
+
+    chmod 755 "$gui_exec"
+    clear_quarantine "$gui_exec" "built GUI executable"
+    clear_quarantine "$gui_app" "built GUI app"
+    sign_gui_app "$gui_app"
+    verify_gui_app "$gui_app"
 
     if [ -e "$staged_app" ]; then
         rm -rf -- "$staged_app"
@@ -163,11 +219,15 @@ store_gui_bundle() {
         return 1
     fi
 
+    chmod 755 "$staged_exec"
+    clear_quarantine "$staged_exec" "staged GUI executable"
+    clear_quarantine "$staged_app" "staged GUI app"
     if [ ! -x "$staged_exec" ]; then
         rm -rf -- "$staged_app"
         echo "Error: Staged GUI executable is missing or not executable: $staged_exec" >&2
         return 1
     fi
+    verify_gui_app "$staged_app"
 
     if [ -e "$destination_app" ]; then
         echo "Replacing existing GUI bundle: $destination_app"
@@ -175,6 +235,10 @@ store_gui_bundle() {
     fi
 
     mv -- "$staged_app" "$destination_app"
+    chmod 755 "$destination_app/Contents/MacOS/apollo_patcher_gui"
+    clear_quarantine "$destination_app" "stored GUI app"
+    clear_quarantine "$destination_app/Contents/MacOS/apollo_patcher_gui" "stored GUI executable"
+    verify_gui_app "$destination_app"
     echo "Stored Apollo GUI bundle: $destination_app"
 }
 
@@ -263,6 +327,16 @@ if ! command -v curl &>/dev/null; then
     exit 1
 fi
 
+if [ ! -x "$XATTR_BIN" ]; then
+    echo "Error: xattr is required to clear quarantine but was not found on PATH." >&2
+    exit 1
+fi
+
+if [ ! -x "$CODESIGN_BIN" ]; then
+    echo "Error: codesign is required for artifact signing but was not found on PATH." >&2
+    exit 1
+fi
+
 cd "$repo_root"
 
 # Confirm the current directory
@@ -323,6 +397,12 @@ make
 ensure_artifact_exists "$repo_root/tools/patcher" "CLI artifact patcher"
 ensure_artifact_exists "$repo_root/tools/dumper" "CLI artifact dumper"
 chmod 755 "$repo_root/tools/patcher" "$repo_root/tools/dumper"
+clear_quarantine "$repo_root/tools/patcher" "built CLI artifact patcher"
+clear_quarantine "$repo_root/tools/dumper" "built CLI artifact dumper"
+sign_cli_artifact "$repo_root/tools/patcher"
+sign_cli_artifact "$repo_root/tools/dumper"
+verify_cli_artifact "$repo_root/tools/patcher"
+verify_cli_artifact "$repo_root/tools/dumper"
 cd "$repo_root"
 
 if [ ! -d "$repo_root/gui" ]; then
