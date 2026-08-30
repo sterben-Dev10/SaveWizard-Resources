@@ -12,7 +12,9 @@ setopt pipefail
 # if you want to place the compiled binaries somewhere after building
 STORE_PATH="${STORE_PATH:-$HOME/Desktop/Apollo CLI Tools}"
 GUI_INSTALL_DIR="/Applications"
-GUI_APP_NAME="apollo_patcher_gui.app"
+GUI_BUILD_APP_NAME="apollo_patcher_gui.app"
+GUI_INSTALL_APP_NAME="Apollo Patcher.app"
+LSREGISTER_SYSTEM_BIN="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister"
 
 GIT_BIN="$(command -v git 2>/dev/null || true)"
 XCODESELECT_BIN="$(command -v xcode-select 2>/dev/null || true)"
@@ -24,6 +26,7 @@ BREW_BIN="$(command -v brew 2>/dev/null || true)"
 XATTR_BIN="$(command -v xattr 2>/dev/null || true)"
 CODESIGN_BIN="$(command -v codesign 2>/dev/null || true)"
 XCRUN_BIN="$(command -v xcrun 2>/dev/null || true)"
+LSREGISTER_BIN=""
 UNIVERSAL_CMAKE_ARCHITECTURES='x86_64;arm64'
 MACOS_DEPLOYMENT_TARGET='11.0'
 APPLE_CLANG_BIN="${APPLE_CLANG_BIN:-}"
@@ -324,6 +327,13 @@ discover_build_tools() {
     CODESIGN_BIN="$(command -v codesign 2>/dev/null || true)"
 }
 
+resolve_lsregister_bin() {
+    LSREGISTER_BIN="$(command -v lsregister 2>/dev/null || true)"
+    if [ ! -x "$LSREGISTER_BIN" ] && [ -x "$LSREGISTER_SYSTEM_BIN" ]; then
+        LSREGISTER_BIN="$LSREGISTER_SYSTEM_BIN"
+    fi
+}
+
 resolve_brew_bin() {
     BREW_BIN="$(command -v brew 2>/dev/null || true)"
     if [ -x "$BREW_BIN" ]; then
@@ -548,9 +558,9 @@ store_binaries() {
 }
 
 store_gui_bundle() {
-    local gui_app="$repo_root/gui/build/$GUI_APP_NAME"
+    local gui_app="$repo_root/gui/build/$GUI_BUILD_APP_NAME"
     local gui_exec="$gui_app/Contents/MacOS/apollo_patcher_gui"
-    local destination_app="$GUI_INSTALL_DIR/$GUI_APP_NAME"
+    local destination_app="$GUI_INSTALL_DIR/$GUI_INSTALL_APP_NAME"
     local destination_existed="false"
     local staging_dir=""
     local staged_app=""
@@ -581,7 +591,7 @@ store_gui_bundle() {
         return 1
     fi
 
-    staged_app="$staging_dir/$GUI_APP_NAME"
+    staged_app="$staging_dir/$GUI_INSTALL_APP_NAME"
     staged_exec="$staged_app/Contents/MacOS/apollo_patcher_gui"
     backup_app="$staging_dir/.apollo_patcher_gui.previous.app"
 
@@ -699,6 +709,14 @@ store_gui_bundle() {
     rm -rf -- "$GUI_TRANSACTION_BACKUP_APP"
     rm -rf -- "$GUI_TRANSACTION_STAGING_DIR"
     reset_gui_transaction_state
+
+    echo "Registering installed Apollo GUI bundle with LaunchServices: $destination_app"
+    if ! "$LSREGISTER_BIN" -f "$destination_app"; then
+        echo "Error: LaunchServices registration failed for installed Apollo GUI bundle: $destination_app" >&2
+        return 1
+    fi
+
+    echo "Registered Apollo GUI bundle: $destination_app"
     echo "Stored Apollo GUI bundle: $destination_app"
 }
 
@@ -798,6 +816,12 @@ fi
 
 if [ ! -x "$XCRUN_BIN" ]; then
     echo "Error: xcrun is required for Apple toolchain discovery but was not found on PATH." >&2
+    exit 1
+fi
+
+resolve_lsregister_bin
+if [ ! -x "$LSREGISTER_BIN" ]; then
+    echo "Error: lsregister is required to register the installed Apollo GUI bundle but was not found on PATH or at: $LSREGISTER_SYSTEM_BIN" >&2
     exit 1
 fi
 
