@@ -1,0 +1,2 @@
+# Used by the Death Stranding scripts for cross-platform terminal colors.
+colorama>=0.4.6

@@ -2,6 +2,28 @@
 
 A collection of scripts that edit save files rather than using quickcode.
 
+## Python setup
+
+Before running any Python script, run the following setup from the repository root.
+
+macOS/Linux:
+
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+Windows PowerShell:
+
+```powershell
+py -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+Reactivate `.venv` in each new shell. All later Python examples assume that it is active and are run from the repository root.
+
 [Death Stranding](Death%20Stranding)  
 
 > Repairs & Upgrades all Structures on the map, excluding safehouses  
@@ -13,10 +35,10 @@ A collection of scripts that edit save files rather than using quickcode.
 > Supports Floats as well, bring up the help menu to view all options `--help`
 
 **Usage:**  
-`python3 pyconvert.py 999 -ui32` will output the hexadecimal value of 999 in 32bit integer (4 bytes) Big Endian by default,  
+`python Scripts/pyconvert.py 999 -ui32` will output the hexadecimal value of 999 in 32bit integer (4 bytes) Big Endian by default,
 Apply `--little` if you want it in Little Endian.  
-`python3 pyconvert.py 0x000003E7 -ui32` will output the decimal value. All hexadecimal values must start with `0x` when converting back to decimal.  
-`python3 pyconvet.py C39E943977124BE8 -swp` will swap endianness of the inputed hexadecimal input.
+`python Scripts/pyconvert.py 0x000003E7 -ui32` will output the decimal value. All hexadecimal values must start with `0x` when converting back to decimal.
+`python Scripts/pyconvert.py C39E943977124BE8 -swp` will swap endianness of the inputed hexadecimal input.
 
 [Apollo-lib Compiler macOS](apollo-lib-macos.md)
 
@@ -32,7 +54,7 @@ See the [Apollo-lib macOS build guide](apollo-lib-macos.md#usage).
 > use that dummy file to set the varrible for `Link1`.
 
 **Usage:**  
-`python3 MediaFire.py` it will then ask you to enter the link you are trying to access,  
+`python Scripts/MediaFire.py` it will then ask you to enter the link you are trying to access,
 enter the link & hit enter, it should give you an example link like this `mediafire.com/?i0w4rh8twcwfirv,znig9z0dsbg6x7k`  
 as the output.
 

@@ -1,13 +1,36 @@
 ## Death Stranding Scripts
 
 ###### PS4 Saves Only
+
+## Python setup
+
+From the repository root, create and activate a virtual environment, then install the shared dependencies before running either script.
+
+macOS/Linux:
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+Windows PowerShell:
+```powershell
+py -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+Then change into the script directory:
+```sh
+cd "Scripts/Death Stranding"
+```
+
+Reactivate `.venv` in each new shell. The examples below assume that the virtual environment is active and that the working directory is `Scripts/Death Stranding`.
+
 ##### DS_Structures.py
 
-> Following Dependencies Required:  
-> `python3 -m pip install colorama`
-
 > Upgrades & Repairs all structures to max level.  
-> Usage: `python3 DS_Structures.py checkpoint.dat`  
+> Usage: `python DS_Structures.py checkpoint.dat`
 >Note: Does not work on safehouses.
 
 ##### Additional Options
@@ -16,36 +39,36 @@
 
 `--bak` creates a backup of the file
 
-> `python3 DS_Structures.py checkpoint.dat --bak`
+> `python DS_Structures.py checkpoint.dat --bak`
 
 `--times` the amount of times you want to run through each sequence
 
-> `python3 DS_Structures.py checkpoint.dat --times 30`
+> `python DS_Structures.py checkpoint.dat --times 30`
 >
 > will make the 1st 30 edits then stop.
 
 `--debug` shows debug info as well as skipped edits
 
-> `python3 DS_Structures.py checkpoint.dat --debug`
+> `python DS_Structures.py checkpoint.dat --debug`
 
 `--skipchecks` skips certain checks within the script that validate if it should write where it needs to.
 
-> `python3 DS_Structures.py checkpoint.dat --skipchecks all`  
+> `python DS_Structures.py checkpoint.dat --skipchecks all`
 > **WARNING:** only use this if you know what you are doing & are not afraid of possible save corruption.
 > this is only meant for debug cases.
 
 `--debug2` restores the file from backup after writes.
 
-> `python3 DS_Structures.py checkpoint.dat --debug2`  
+> `python DS_Structures.py checkpoint.dat --debug2`
 > this is intended to see what edits would have been made without making them.
 
 `--logs` Specify a file to write logs to.
 
-> `python3 DS_Structures.py checkpoint.dat --logs log1.txt`
+> `python DS_Structures.py checkpoint.dat --logs log1.txt`
 
 `--roads` Attempt to include roads & misc structures missed by the main script.
 
-> `python3 DS_Structures.py checkpoint.dat --roads`  
+> `python DS_Structures.py checkpoint.dat --roads`
 > this is extremely experimental, expect game crashes or save corruption, softlocks. (missing interaction buttons from delivery terminals)  
 > this runs separately from the main script & does not include the same changes from the main script.  
 > expect your safehosues to be nuked (deleted) when running `--roads`
@@ -72,12 +95,10 @@ export struct_lvl=999999
 
 ##### DS_SH-Resources.py
 
-> Following Dependencies Required:  
-> `python3 -m pip install colorama`  
-> @bucanero [Apollo CLI Tools](https://github.com/bucanero/apollo-lib/releases), place `patcher` binary in the same folder as the script. 
+> Additional non-Python prerequisite: @bucanero [Apollo CLI Tools](https://github.com/bucanero/apollo-lib/releases); place the `patcher` binary in the same folder as the script.
 
 > Maxes out "your" owned safehosues resources.  
-> Usage: `python3 DS_SH-Resources.py checkpoint.dat`
+> Usage: `python DS_SH-Resources.py checkpoint.dat`
 
 ##### Additional Options
 
@@ -85,15 +106,15 @@ export struct_lvl=999999
 
 `--bak` creates a backup of the file
 
-> `python3 DS_SH-Resources.py checkpoint.dat --bak`
+> `python DS_SH-Resources.py checkpoint.dat --bak`
 
 `--debug` shows debug info  
 
-> `python3 DS_SH-Resources.py checkpoint.dat --debug`
+> `python DS_SH-Resources.py checkpoint.dat --debug`
 
 `--logs` Specify a file to write logs to.
 
-> `python3 DS_SH-Resources.py checkpoint.dat --logs log1.txt`
+> `python DS_SH-Resources.py checkpoint.dat --logs log1.txt`
 
 ##### Custom Values
 
@@ -111,4 +132,3 @@ Or export values in shell.
 export APOLLO_PATCHER=%USERPROFILE%/Downloads/tools/patcher.exe
 export safehouse_resources=1000
 ```
-

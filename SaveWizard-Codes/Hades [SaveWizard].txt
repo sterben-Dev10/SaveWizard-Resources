@@ -582,8 +582,11 @@ Notes:
 VV's = Value in Double Float (Little Endian)
 https://www.binaryconvert.com/convert_double.html
 to convert to double float, use windows programers calculator to flip the bits
-or use this python3 script here: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/Scripts/pyconvert.py
-Usage: python3 pyconvert.py 999 -df -ltl
+or use this Python script here: https://github.com/sterben-Dev10/SaveWizard-Resources/blob/main/Scripts/pyconvert.py
+First-time setup from repository root: python3 -m venv .venv (use py -m venv .venv on Windows).
+Activate it with source .venv/bin/activate (macOS/Linux) or .\.venv\Scripts\Activate.ps1 (Windows PowerShell), and reactivate it in each new shell.
+Install dependencies: python -m pip install -r requirements.txt
+Usage from repository root with .venv active: python Scripts/pyconvert.py 999 -df -ltl
 
 if thats to hard use the inspector window in a hex editor & type in the double float field, make sure the workflow is set in little endian.
 
