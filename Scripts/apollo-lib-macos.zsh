@@ -19,6 +19,46 @@ if [[ -t 1 && -z "${NO_COLOR+x}" && "${TERM:-}" != dumb ]]; then
     UI_ACCENT=$'\e[36m' UI_OK=$'\e[32m' UI_WARN=$'\e[33m' UI_ERROR=$'\e[31m' UI_RESET=$'\e[0m'
 fi
 
+UI_HELPER_PID=""
+BUILD_WORKSPACE_ACTIVE=0
+CLI_BUILD_READY=0
+BUILD_OUTPUTS_READY=0
+GUI_STAGING_DIR=""
+GUI_STAGING_PARENT=""
+
+# Only the display loop is backgrounded; build commands remain foreground jobs.
+start_work_indicator() {
+    [[ -t 1 && "${TERM:-}" != dumb ]] || return 0
+    local owner_pid="$$"
+    (
+        trap - EXIT
+        trap 'exit 0' INT TERM
+        local frame=1
+        local -a dots=(. .. ... .... ..)
+        local use_zselect=0
+        zmodload zsh/zselect 2>/dev/null && use_zselect=1
+        while kill -0 "$owner_pid" 2>/dev/null; do
+            printf '\r\033[2K  Working%s' "${dots[$frame]}"
+            if (( use_zselect )); then
+                zselect -t 25 || true
+            else
+                sleep 0.25
+            fi
+            frame=$((frame % ${#dots} + 1))
+        done
+    ) &
+    UI_HELPER_PID=$!
+}
+
+stop_work_indicator() {
+    local helper_pid="$UI_HELPER_PID"
+    [ -n "$helper_pid" ] || return 0
+    UI_HELPER_PID=""
+    kill -TERM "$helper_pid" 2>/dev/null || true
+    wait "$helper_pid" 2>/dev/null || true
+    printf '\r\033[2K' || true
+}
+
 ui_emit() {
     local tone="$1" message="$2"
     print -r -- "${tone}${message}${UI_RESET}"
@@ -34,7 +74,7 @@ ui_banner() {
 ui_section() {
     ui_emit "$UI_ACCENT" "
 +----------------------------------------------------------------+
-  [$1/8] $2
+  [$1/8] $2  $3
 +----------------------------------------------------------------+"
 }
 
@@ -113,22 +153,70 @@ finish_logged_step() {
     return "$return_code"
 }
 
+cleanup_cancelled_work() {
+    local managed_root staging_root cleanup_ok=1
+    # The same two-child, ownership, physical-path and source-overlap checks
+    # used before normal workspace preparation must pass before either deletion.
+    if (( BUILD_WORKSPACE_ACTIVE && ! BUILD_OUTPUTS_READY )); then
+        if validate_build_workspace; then
+            for managed_root in "$lib_build_root" "$gui_build_root"; do
+                if [ -d "$managed_root" ]; then
+                    if ! rm -rf -- "$managed_root" >> "$LOG_FILE" 2>&1; then
+                        cleanup_ok=0
+                        ui_emit "$UI_WARN" "  ⚠ Unable to remove partial build copy: $managed_root" >&2 || true
+                    fi
+                fi
+            done
+            if (( cleanup_ok )); then
+                ui_emit "$UI_WARN" "  Partial build copies cleaned; source checkouts and installed files retained." >&2 || true
+            else
+                ui_emit "$UI_WARN" "  ⚠ Partial build cleanup incomplete; inspect BUILD_DIR. Source checkouts and installed files retained." >&2 || true
+            fi
+        else
+            ui_emit "$UI_WARN" "  ⚠ Partial build cleanup refused by workspace safety checks; inspect BUILD_DIR." >&2 || true
+        fi
+    fi
+    # Keep only the temporary directory created by this invocation in scope.
+    if [ -n "$GUI_STAGING_DIR" ]; then
+        if [ ! -L "$GUI_STAGING_DIR" ] && [ -d "$GUI_STAGING_DIR" ] &&
+           [[ "${GUI_STAGING_DIR:h}" == "$GUI_STAGING_PARENT" && "${GUI_STAGING_DIR:t}" == .apollo_patcher_gui.* ]] &&
+           staging_root="$(physical_path "$GUI_STAGING_DIR")" && [[ "$staging_root" == "$GUI_STAGING_DIR" ]]; then
+            if ! rm -rf -- "$GUI_STAGING_DIR" >> "$LOG_FILE" 2>&1; then
+                ui_emit "$UI_WARN" "  ⚠ Temporary GUI staging directory remains: $GUI_STAGING_DIR" >&2 || true
+            fi
+        else
+            ui_emit "$UI_WARN" "  ⚠ Temporary GUI staging cleanup refused: $GUI_STAGING_DIR" >&2 || true
+        fi
+    fi
+}
+
 handle_signal() {
-    ui_emit "$UI_WARN" "  ⚠ Cancelled by $1; no further installation will run." >&2 || true
-    exit "$2"
+    local signal_name="$1" exit_code="$2"
+    trap '' INT TERM
+    stop_work_indicator || true
+    ui_emit "$UI_WARN" "  ⚠ Cancelled by $signal_name; no further installation will run." >&2 || true
+    cleanup_cancelled_work || true
+    exit "$exit_code"
 }
 
 # Use only for individual external commands, never multi-step shell functions.
 run_logged() {
+    local animate=0
+    if [[ "$1" == --animate ]]; then
+        animate=1
+        shift
+    fi
     local description="$1" started_at="$SECONDS" line_count return_code
     shift
     ui_step "$description" || return 1
     line_count="$(wc -l < "$LOG_FILE")" || return 1
+    if (( animate )); then start_work_indicator; fi
     if "$@" >> "$LOG_FILE" 2>&1; then
         return_code=0
     else
         return_code=$?
     fi
+    stop_work_indicator
     finish_logged_step "$return_code" "$description" "$started_at" "$((line_count + 1))"
 }
 
@@ -138,12 +226,14 @@ download_mbedtls() {
     local started_at="$SECONDS" line_count return_code
     ui_step "$description" || return 1
     line_count="$(wc -l < "$LOG_FILE")" || return 1
+    start_work_indicator
     # The explicit conditional captures either pipeline failure under pipefail.
     if { "$CURL_BIN" -fsSL "$MBEDTLS_URL" | "$TAR_BIN" xvz -C "$lib_build_root"; } >> "$LOG_FILE" 2>&1; then
         return_code=0
     else
         return_code=$?
     fi
+    stop_work_indicator
     finish_logged_step "$return_code" "$description" "$started_at" "$((line_count + 1))"
 }
 
@@ -278,7 +368,7 @@ CONFIG
 
 # Validate all settings before any installation, repository mutation, or cleanup.
 ui_banner
-ui_section 1 "🧰 Configuration & tools"
+ui_section 1 "🧰" "Configuration & tools"
 load_configuration || exit 1
 initialize_build_log || exit 1
 
@@ -805,6 +895,10 @@ cleanup_gui_staging() {
             return 1
         fi
     fi
+    if [[ "$GUI_STAGING_DIR" == "$staging_dir" ]] && [ ! -e "$staging_dir" ]; then
+        GUI_STAGING_DIR=""
+        GUI_STAGING_PARENT=""
+    fi
     return 0
 }
 
@@ -822,10 +916,15 @@ install_gui_bundle() {
         GUI_INSTALL_NOTE="GUI destination is not writable: $GUI_INSTALL_DIR"
         return 1
     fi
-    if ! staging_dir="$(mktemp -d "$GUI_INSTALL_DIR/.apollo_patcher_gui.XXXXXX" 2>> "$LOG_FILE")"; then
+    if ! GUI_STAGING_PARENT="$(cd "$GUI_INSTALL_DIR" && pwd -P)"; then
+        GUI_INSTALL_NOTE="Unable to resolve the GUI destination directory"
+        return 1
+    fi
+    if ! staging_dir="$(mktemp -d "$GUI_STAGING_PARENT/.apollo_patcher_gui.XXXXXX" 2>> "$LOG_FILE")"; then
         GUI_INSTALL_NOTE="Unable to create a GUI staging directory in $GUI_INSTALL_DIR"
         return 1
     fi
+    GUI_STAGING_DIR="$staging_dir"
     if [ -z "$staging_dir" ] || [ ! -d "$staging_dir" ]; then
         GUI_INSTALL_NOTE="GUI staging directory was not created"
         return 1
@@ -930,6 +1029,7 @@ store_gui_bundle() {
     sign_gui_app "$gui_app"
     verify_gui_app "$gui_app"
     GUI_BUILD_APP_PATH="$gui_app"
+    if (( CLI_BUILD_READY )); then BUILD_OUTPUTS_READY=1; fi
     GUI_INSTALL_RESULT="manual"
 
     if install_gui_bundle "$gui_app"; then
@@ -1061,6 +1161,7 @@ prepare_build_workspace() {
 # Resolve Apple toolchain and required build tools.
 trap 'handle_signal SIGINT 130' SIGINT
 trap 'handle_signal SIGTERM 143' SIGTERM
+trap 'stop_work_indicator' EXIT
 resolve_developer_dir
 discover_build_tools
 ensure_homebrew_build_tools
@@ -1151,7 +1252,7 @@ UNIVERSAL_CC="${(q)APPLE_CLANG_BIN} -isysroot ${(q)MACOS_SDK_PATH} -arch ${UNIVE
 
 ui_done "Build tools ready"
 apollo_repo_dir="$WORKSPACE_DIR/apollo-lib"
-ui_section 2 "🔄 Source repositories"
+ui_section 2 "🔄" "Source repositories"
 resolve_repo_root
 resolve_gui_repo_root
 resolve_patches_repo_root
@@ -1173,12 +1274,13 @@ if [ ! -d "$patches_repo_root/python" ]; then
 fi
 load_mbedtls_settings_from_workflow
 ui_done "Source layouts and desktop resources validated"
-ui_section 3 "📁 Disposable build workspace"
+ui_section 3 "📁" "Disposable build workspace"
+BUILD_WORKSPACE_ACTIVE=1
 prepare_build_workspace
 log_detail "Library build workspace: $lib_build_root" "GUI build workspace: $gui_build_root"
 cd "$lib_build_root"
 
-ui_section 4 "🧱 mbedTLS $MBEDTLS_VERSION"
+ui_section 4 "🧱" "mbedTLS $MBEDTLS_VERSION"
 download_mbedtls
 
 cd "$MBEDTLS_DIR"
@@ -1191,7 +1293,7 @@ fi
 mkdir build
 cd build
 
-run_logged "Configure Universal2 mbedTLS" "$CMAKE_BIN" .. \
+run_logged --animate "Configure Universal2 mbedTLS" "$CMAKE_BIN" .. \
     -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_C_COMPILER="$APPLE_CLANG_BIN" \
@@ -1203,18 +1305,18 @@ run_logged "Configure Universal2 mbedTLS" "$CMAKE_BIN" .. \
     -DENABLE_PROGRAMS=OFF \
     -DENABLE_TESTING=OFF
 
-run_logged "Build Universal2 mbedcrypto" "$CMAKE_BIN" --build . --parallel --target mbedcrypto
+run_logged --animate "Build Universal2 mbedcrypto" "$CMAKE_BIN" --build . --parallel --target mbedcrypto
 ensure_artifact_exists "$lib_build_root/$MBEDTLS_DIR/build/library/libmbedcrypto.a" "mbedTLS static library"
 verify_universal_binary "$lib_build_root/$MBEDTLS_DIR/build/library/libmbedcrypto.a" "mbedTLS static library"
 
 cd "$lib_build_root"
 
-ui_section 5 "🔧 CLI build, signing & verification"
+ui_section 5 "🔧" "CLI build, signing & verification"
 cd tools
 
 # Build patcher + dumper
-run_logged "Clean copied CLI build output" "$MAKE_BIN" clean
-run_logged "Build Universal2 patcher and dumper" "$MAKE_BIN" CC="$UNIVERSAL_CC"
+run_logged --animate "Clean copied CLI build output" "$MAKE_BIN" clean
+run_logged --animate "Build Universal2 patcher and dumper" "$MAKE_BIN" CC="$UNIVERSAL_CC"
 ensure_artifact_exists "$lib_build_root/tools/patcher" "CLI artifact patcher"
 ensure_artifact_exists "$lib_build_root/tools/dumper" "CLI artifact dumper"
 run_logged "Set built CLI executable permissions" chmod 755 "$lib_build_root/tools/patcher" "$lib_build_root/tools/dumper"
@@ -1226,10 +1328,11 @@ sign_cli_artifact "$lib_build_root/tools/patcher"
 sign_cli_artifact "$lib_build_root/tools/dumper"
 verify_cli_artifact "$lib_build_root/tools/patcher"
 verify_cli_artifact "$lib_build_root/tools/dumper"
+CLI_BUILD_READY=1
 cd "$lib_build_root"
 
-ui_section 6 "🖥️ GUI build & bundled database"
-run_logged "Configure Universal2 GUI and resources" "$CMAKE_BIN" -S "$gui_build_root" -B "$gui_build_root/build" \
+ui_section 6 "💻" "GUI build & bundled database"
+run_logged --animate "Configure Universal2 GUI and resources" "$CMAKE_BIN" -S "$gui_build_root" -B "$gui_build_root/build" \
     -DAPOLLO_ROOT="$lib_build_root" \
     -DAPOLLO_PATCHES="$patches_repo_root" \
     -DGIT_EXECUTABLE="$GIT_BIN" \
@@ -1241,13 +1344,13 @@ run_logged "Configure Universal2 GUI and resources" "$CMAKE_BIN" -S "$gui_build_
     -DCMAKE_OSX_ARCHITECTURES="$UNIVERSAL_CMAKE_ARCHITECTURES" \
     -DCMAKE_OSX_DEPLOYMENT_TARGET="$MACOS_DEPLOYMENT_TARGET" \
     -DCMAKE_OSX_SYSROOT="$MACOS_SDK_PATH"
-run_logged "Build GUI, database, font and icons" "$CMAKE_BIN" --build "$gui_build_root/build" --parallel
+run_logged --animate "Build GUI, database, font and icons" "$CMAKE_BIN" --build "$gui_build_root/build" --parallel
 
-ui_section 7 "✍️ GUI signing, installation & registration"
+ui_section 7 "🔏" "GUI signing, installation & registration"
 store_gui_bundle
 
 # Call the function to store binaries
-ui_section 8 "📦 CLI installation"
+ui_section 8 "📦" "CLI installation"
 store_binaries
 case "$GUI_INSTALL_RESULT" in
     installed)
