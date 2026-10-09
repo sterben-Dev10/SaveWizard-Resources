@@ -8,14 +8,18 @@ The [`apollo-lib-macos.zsh`](apollo-lib-macos.zsh) wrapper builds Universal2 (`x
 
 ## Local configuration
 
-On its first run, including `--help` or `--cli`, the wrapper creates `apollo-lib-macos.conf` beside the script and reads it before installing tools, updating repositories, or cleaning build output. The file is ignored by Git and existing files are never overwritten. A renamed copy uses its own basename: `build-apollo-lib.zsh` reads `build-apollo-lib.conf` beside that copy.
+On its first run, including `--help` or `--cli`, the wrapper creates `build-apollo.conf` beside the script and reads it before installing tools, updating repositories, or cleaning build output. The file is ignored by Git and existing files are never overwritten. An `apollo/` workspace inside this checkout, including `Scripts/apollo/`, is also ignored. Renamed copies also read `build-apollo.conf` beside the script.
 
-The generated defaults are:
+The wrapper changes its working directory to the script’s directory, so invocation from another directory uses the same adjacent config and default workspace. Existing config paths remain authoritative.
+
+When the script is inside your home directory, newly generated paths use a literal `$HOME` prefix; for example, a script in `$HOME/Scripts` gets `WORKSPACE_DIR="$HOME/Scripts/apollo"`. Paths outside your home directory, such as an external volume, are written as full absolute paths. These settings resolve to the same script-local locations when read. Existing files are left unchanged.
+
+For a script stored in `/path/to/Scripts` (an absolute-path placeholder for your script directory), the generated defaults are:
 
 ```ini
-WORKSPACE_DIR="$HOME/Desktop/apollo"
-BUILD_DIR="$HOME/Desktop/apollo/apollo_build"
-STORE_PATH="$HOME/Desktop/apollo/Apollo CLI Tools"
+WORKSPACE_DIR="/path/to/Scripts/apollo"
+BUILD_DIR="/path/to/Scripts/apollo/apollo_build"
+STORE_PATH="/path/to/Scripts/apollo/Apollo CLI Tools"
 GUI_INSTALL_DIR=/Applications
 GUI_BUILD_APP_NAME=apollo_patcher_gui.app
 GUI_INSTALL_APP_NAME="Apollo Patcher.app"
@@ -63,10 +67,10 @@ In full mode, Git and Python are passed explicitly to GUI CMake as `GIT_EXECUTAB
 
 ## Build flow
 
-The wrapper manages three checkouts side by side under `WORKSPACE_DIR`: `apollo-lib`, `apollo-patcher`, and `apollo-patches`. By default, `$HOME/Desktop/apollo` holds these checkouts, the `apollo_build` build root, and stored CLI tools, keeping the Desktop uncluttered. The wrapper itself and its adjacent config stay wherever you placed them.
+The wrapper manages three checkouts side by side under `WORKSPACE_DIR`: `apollo-lib`, `apollo-patcher`, and `apollo-patches`. By default, an `apollo/` folder beside the script holds these checkouts, the `apollo_build` build root, log, and stored CLI tools. The example below uses the same `/path/to/Scripts` placeholder; generated settings resolve to absolute paths beside the script.
 
 ```text
-$HOME/Desktop/apollo/
+/path/to/Scripts/apollo/
 ├── apollo-lib/                   # Library and CLI source checkout
 ├── apollo-patcher/               # GUI source checkout
 ├── apollo-patches/               # Patch database checkout
@@ -103,7 +107,7 @@ Upstream code may emit legacy mbedTLS CMake compatibility/policy warnings and Ap
 
 | Artifact | Default destination | Notes |
 | --- | --- | --- |
-| `BUILD_DIR/apollo-lib/tools/patcher` and `dumper` | `$HOME/Desktop/apollo/Apollo CLI Tools` | Configure `STORE_PATH` persistently, or override it for one invocation. |
+| `BUILD_DIR/apollo-lib/tools/patcher` and `dumper` | `/path/to/Scripts/apollo/Apollo CLI Tools` | Configure `STORE_PATH` persistently, or override it for one invocation. |
 | `BUILD_DIR/apollo-patcher/build/gui/apollo_patcher_gui.app` | `/Applications/Apollo Patcher.app` | Configure `GUI_INSTALL_DIR` and `GUI_INSTALL_APP_NAME`; `STORE_PATH` controls only the CLI. |
 
 ## Signing and verification
@@ -124,7 +128,7 @@ Cleanup refusal or failure produces a warning and preserves the cancellation exi
 
 ## Terminal output and build log
 
-The terminal shows a mode-specific banner and eight numbered sections in full mode or six in CLI mode, with `→` for starting a step, `✓` for success, and `✗` for failure. Colors appear only on a real terminal and are disabled by `NO_COLOR` or `TERM=dumb`. Redirected output has no ANSI colors or animated redraws. Long commands show their action before running and elapsed time when at least one second passes.
+The terminal banner identifies `GUI & CLI` for a default build or `CLI Only` with `--cli`, followed by eight numbered sections in full mode or six in CLI mode. Steps use `→` for starting, `✓` for success, and `✗` for failure. Banners, section titles, and help headings are bold on a supported terminal. Colors and bold formatting are disabled by `NO_COLOR`, `TERM=dumb`, or redirected output; redirected output also has no animated redraws. Long commands show their action before running and elapsed time when at least one second passes.
 
 Selected noninteractive long steps (CMake, make, and mbedTLS extraction) show a rotating Braille spinner beside `Building`, cycling through `⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏` with one frame every 0.1 seconds. This uses the existing shell helper and needs no extra dependency. The animated line is cleared before the result. Animation is disabled for redirected output and `TERM=dumb`; `NO_COLOR` disables colors while retaining animation. Git and interactive installers do not animate. Build commands and their input stay in the foreground, and the display helper is stopped and reaped on completion or cancellation.
 
@@ -136,7 +140,7 @@ Illustrative abbreviated successful output (not a captured build):
 
 ```text
 +----------------------------------------------------------------+
-|  👾 Apollo macOS · Universal2 CLI + GUI                          |
+|  👾 Apollo macOS · GUI & CLI · Universal2                      |
 +----------------------------------------------------------------+
 
   [1/8] 🧰  Configuration & tools
@@ -156,24 +160,24 @@ Illustrative abbreviated successful output (not a captured build):
   [8/8] 📦  CLI installation
   ✓ Apollo build and installation complete
   GUI: /Applications/Apollo Patcher.app
-  CLI: $HOME/Desktop/apollo/Apollo CLI Tools
-  Log: $HOME/Desktop/apollo/build.log
+  CLI: /path/to/Scripts/apollo/Apollo CLI Tools
+  Log: /path/to/Scripts/apollo/build.log
 ```
 
 ## Usage
 
-From the `Scripts` directory, make the wrapper executable and run it:
+Make the wrapper executable, then run it from any working directory using its path. Replace `/path/to/Scripts` with the directory containing your copy:
 
 ```zsh
-chmod 755 apollo-lib-macos.zsh
-./apollo-lib-macos.zsh
+chmod 755 "/path/to/Scripts/apollo-lib-macos.zsh"
+"/path/to/Scripts/apollo-lib-macos.zsh"
 ```
 
 To inspect usage and initialize the full adjacent config without building, or to build only the CLI tools:
 
 ```zsh
-./apollo-lib-macos.zsh --help
-./apollo-lib-macos.zsh --cli
+"/path/to/Scripts/apollo-lib-macos.zsh" --help
+"/path/to/Scripts/apollo-lib-macos.zsh" --cli
 ```
 
 `-h` is an alias for `--help`, and help may be combined with `--cli`. Unknown options and positional arguments stop with a usage hint before config or build changes.
@@ -181,7 +185,7 @@ To inspect usage and initialize the full adjacent config without building, or to
 To choose another CLI destination for one invocation:
 
 ```zsh
-STORE_PATH="/path/to/Apollo CLI Tools" ./apollo-lib-macos.zsh
+STORE_PATH="/path/to/Apollo CLI Tools" "/path/to/Scripts/apollo-lib-macos.zsh"
 ```
 
 `patcher` selects endianness at runtime with `-b`/`--big-endian`; the build does not produce a separate `patcher-bigendian` executable.

@@ -4,7 +4,8 @@ tmp/
 .tmp/
 AGENTS.md
 .venv/
+apollo/
 /Scripts/apollo-lib/
 /Scripts/apollo-patcher/
 /Scripts/apollo-patches/
-/Scripts/apollo-lib-macos.conf
+/Scripts/build-apollo.conf

@@ -9,9 +9,10 @@ emulate -LR zsh
 set -e
 setopt pipefail
 
-# A renamed copy gets its own adjacent config (for example build-apollo-lib.conf).
+# Keep configuration and the default workspace beside this script.
 script_dir="$(cd "$(dirname "$0")" && pwd)"
-CONFIG_FILE="$script_dir/${${0:t}:r}.conf"
+cd "$script_dir"
+CONFIG_FILE="$script_dir/build-apollo.conf"
 SCRIPT_NAME="${0:t}"
 CLI_ONLY=0
 SHOW_HELP=0
@@ -28,24 +29,23 @@ for argument in "$@"; do
     esac
 done
 TOTAL_STAGES=8
-BUILD_LABEL="Universal2 CLI + GUI"
+BUILD_LABEL="GUI & CLI · Universal2"
 typeset -a MANAGED_BUILD_CHILDREN=(apollo-lib apollo-patcher)
 if (( CLI_ONLY )); then
     TOTAL_STAGES=6
-    BUILD_LABEL="Universal2 CLI only"
+    BUILD_LABEL="CLI Only · Universal2"
     MANAGED_BUILD_CHILDREN=(apollo-lib)
 fi
 
 show_help() {
-    ui_emit "$UI_ACCENT" "
-+----------------------------------------------------------------+
-  👾  Apollo macOS · Help
-+----------------------------------------------------------------+"
+    ui_heading "$UI_ACCENT" "  👾  Apollo macOS · Help"
     cat <<HELP
 
   Usage: $SCRIPT_NAME [--cli] [-h|--help]
 
-  Options
+HELP
+    ui_emit "$UI_BOLD" "  Options"
+    cat <<HELP
     --cli       Build and install CLI tools only.
     -h, --help  Show this help without building.
 
@@ -59,9 +59,9 @@ HELP
 
 STORE_PATH_OVERRIDE="${STORE_PATH:-}"
 LOG_FILE=""
-UI_ACCENT="" UI_OK="" UI_WARN="" UI_ERROR="" UI_RESET=""
+UI_ACCENT="" UI_OK="" UI_WARN="" UI_ERROR="" UI_BOLD="" UI_RESET=""
 if [[ -t 1 && -z "${NO_COLOR+x}" && "${TERM:-}" != dumb ]]; then
-    UI_ACCENT=$'\e[36m' UI_OK=$'\e[32m' UI_WARN=$'\e[33m' UI_ERROR=$'\e[31m' UI_RESET=$'\e[0m'
+    UI_ACCENT=$'\e[36m' UI_OK=$'\e[32m' UI_WARN=$'\e[33m' UI_ERROR=$'\e[31m' UI_BOLD=$'\e[1m' UI_RESET=$'\e[0m'
 fi
 
 UI_HELPER_PID=""
@@ -114,19 +114,19 @@ ui_emit() {
     fi
 }
 
-ui_banner() {
-    local banner_line="|  👾 Apollo macOS · ${(r:44:)BUILD_LABEL}|"
-    ui_emit "$UI_ACCENT" "
+ui_heading() {
+    ui_emit "${1}${UI_BOLD}" "
 +----------------------------------------------------------------+
-$banner_line
+$2
 +----------------------------------------------------------------+"
 }
 
+ui_banner() {
+    ui_heading "$UI_ACCENT" "|  👾 Apollo macOS · ${(r:44:)BUILD_LABEL}|"
+}
+
 ui_section() {
-    ui_emit "$UI_ACCENT" "
-+----------------------------------------------------------------+
-  [$1/$TOTAL_STAGES] $2  $3
-+----------------------------------------------------------------+"
+    ui_heading "$UI_ACCENT" "  [$1/$TOTAL_STAGES] $2  $3"
 }
 
 ui_step() { ui_emit "$UI_ACCENT" "  → $1"; }
@@ -307,28 +307,43 @@ expand_config_path() {
     REPLY="$value"
 }
 
+default_config_directory() {
+    local home_dir="${HOME:A}" resolved_script_dir="${script_dir:A}"
+    REPLY="$script_dir"
+    if [[ "$resolved_script_dir" == "$home_dir" ]]; then
+        REPLY='$HOME'
+    elif [[ "$resolved_script_dir" == "$home_dir/"* ]]; then
+        REPLY='$HOME/'"${resolved_script_dir#"$home_dir/"}"
+    fi
+}
+
 load_configuration() {
     setopt localoptions extendedglob
-    local config_line key value
+    local config_line key value config_default_dir
     local line_number=0
     local -A config_values
     local -a required_keys=(WORKSPACE_DIR STORE_PATH BUILD_DIR GUI_INSTALL_DIR GUI_BUILD_APP_NAME GUI_INSTALL_APP_NAME)
     CONFIG_ERROR_SOURCE=config
 
     if [ ! -e "$CONFIG_FILE" ]; then
+        default_config_directory
+        config_default_dir="$REPLY"
         # noclobber also protects an existing file created by a concurrent run.
-        if (setopt noclobber; umask 077; cat > "$CONFIG_FILE" <<'CONFIG'
+        if (setopt noclobber; umask 077; {
+            cat <<'CONFIG'
 # Literal key=value settings. No shell commands or general variable expansion.
 # Paths may start with $HOME, ${HOME}, or ~/. Surrounding quotes are optional.
 # STORE_PATH can also be overridden in the environment for one invocation.
-WORKSPACE_DIR="$HOME/Desktop/apollo"
-STORE_PATH="$HOME/Desktop/apollo/Apollo CLI Tools"
-BUILD_DIR="$HOME/Desktop/apollo/apollo_build"
+CONFIG
+            print -rl -- "WORKSPACE_DIR=\"$config_default_dir/apollo\"" \
+                "STORE_PATH=\"$config_default_dir/apollo/Apollo CLI Tools\"" \
+                "BUILD_DIR=\"$config_default_dir/apollo/apollo_build\""
+            cat <<'CONFIG'
 GUI_INSTALL_DIR=/Applications
 GUI_BUILD_APP_NAME=apollo_patcher_gui.app
 GUI_INSTALL_APP_NAME="Apollo Patcher.app"
 CONFIG
-        ); then
+        } > "$CONFIG_FILE"); then
             if (( ! SHOW_HELP )); then ui_done "Created local configuration"; fi
         elif [ ! -f "$CONFIG_FILE" ]; then
             ui_emit "$UI_ERROR" "Error: unable to create configuration: $CONFIG_FILE" >&2
@@ -1566,11 +1581,8 @@ store_binaries
 
 # Summarize the selected mode and actual installation result.
 if (( CLI_ONLY )); then
-    ui_emit "$UI_OK" "
-+----------------------------------------------------------------+
-  ✓ Apollo CLI build and installation complete
-+----------------------------------------------------------------+
-  CLI: $STORE_PATH
+    ui_heading "$UI_OK" "  ✓ Apollo CLI build and installation complete"
+    ui_emit "$UI_OK" "  CLI: $STORE_PATH
   Log: $LOG_FILE
 "
 else
@@ -1588,11 +1600,8 @@ else
             gui_summary="$GUI_BUILD_APP_PATH (copy manually)"
             ;;
     esac
-    ui_emit "$UI_OK" "
-+----------------------------------------------------------------+
-  ✓ $completion_message
-+----------------------------------------------------------------+
-  GUI: $gui_summary
+    ui_heading "$UI_OK" "  ✓ $completion_message"
+    ui_emit "$UI_OK" "  GUI: $gui_summary
   CLI: $STORE_PATH
   Log: $LOG_FILE
 "

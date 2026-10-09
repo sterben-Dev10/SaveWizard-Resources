@@ -117,10 +117,10 @@ The script reads these environment variables:
 | `APOLLO_PATCHER` | Empty | Optional path to the Apollo `patcher` executable. When unset, the script looks beside itself for `patcher` or `patcher.exe`. |
 | `safehouse_resources` | `999999999` | Resource value to write; values are clamped to the unsigned 32-bit range. |
 
-macOS/Linux example using the macOS wrapper's default CLI destination (adjust it if you configured a different location):
+macOS/Linux example using the macOS wrapper's default CLI destination. Replace `/path/to/Scripts` with the wrapper's directory, or use your configured `STORE_PATH`:
 
 ```sh
-export APOLLO_PATCHER="$HOME/Desktop/apollo/Apollo CLI Tools/patcher"
+export APOLLO_PATCHER="/path/to/Scripts/apollo/Apollo CLI Tools/patcher"
 export safehouse_resources=1000
 ```
 

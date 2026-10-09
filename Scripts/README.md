@@ -65,7 +65,7 @@ This swaps the endianness of the hexadecimal input.
 
 ## Apollo-lib Compiler for macOS
 
-By default, the wrapper keeps source checkouts, disposable build copies, and CLI tools under `$HOME/Desktop/apollo`. An ignored adjacent `.conf` file configures those paths and GUI installation. The wrapper automatically installs missing build tools, builds from source copies, and installs and registers `Apollo Patcher.app` in `/Applications` by default. Full Xcode is optional; Command Line Tools are enough.
+By default, the wrapper keeps source checkouts, disposable build copies, and CLI tools in an `apollo/` folder beside the script. The ignored adjacent `build-apollo.conf` file configures those paths and GUI installation. The wrapper automatically installs missing build tools, builds from source copies, and installs and registers `Apollo Patcher.app` in `/Applications` by default. Full Xcode is optional; Command Line Tools are enough.
 
 See the [Apollo-lib macOS build guide](apollo-lib-macos.md) for configuration, GitHub SSH setup, signing, build lifecycle, and usage.
 
