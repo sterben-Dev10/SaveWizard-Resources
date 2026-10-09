@@ -1,0 +1,22 @@
+; CUSA01778
+; Dead or Alive 5 Last Round
+; decryption by Bucanero
+
+:SAVESYS.DAT
+
+[python:Decrypt SAVESYS.DAT (Required)]
+import doa5
+
+doa5.doa5_crypt(doa5.DECRYPT, savedata)
+
+
+;
+;[example]
+;cheat codes should go here
+;
+
+
+[python:Encrypt SAVESYS.DAT (Required)]
+import doa5
+
+doa5.doa5_crypt(doa5.ENCRYPT, savedata)

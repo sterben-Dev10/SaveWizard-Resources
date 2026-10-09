@@ -2,46 +2,128 @@
 ;BioShock Infinite
 ;From zeick
 
+;BLUS30629*\
+
 :PAYLOAD
-[Decompress Save (Required)]
-Decompress(*, 15)
+[Python:Decompress PAYLOAD (Required)]
+import uzlib
 
-:BLUS30629*\~extracted\*.dat
+zip_offset = uzlib.offzip(savedata, 15)
+unzip_data = uzlib.decompress(savedata[zip_offset[0][0]:], 15)
+print("Zip offset: 0x{:08X}".format(zip_offset[0][0]))
+print("Compressed size:", zip_offset[0][1])
+print("Decompressed size:", zip_offset[0][2])
 
-[Money $9999]
-search 0xC12581B2
-write next (4):0000270F
 
-[Lockpicks 30]
-search 0xC12581B2
-write next (34):001E
+[Python:Money $9999]
+;search 0xC12581B2
+;write next (4):0000270F
 
-[red:info:CHEATS BELOW MAY STOP STORY TROPHIES]
+import apollo
 
-[Money 90000]
-search 0xC12581B2
-write next (4):00015F90
+sw_code = """
+80010004 C12581B2
+28000004 0000270F
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
 
-[Lockpicks $900]
-search 0xC12581B2
-write next (34):0384
+
+[Python:Lockpicks 30]
+;search 0xC12581B2
+;write next (34):001E
+
+import apollo
+
+sw_code = """
+80010004 C12581B2
+18000022 0000001E
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
+
+[info:CHEATS BELOW MAY STOP STORY TROPHIES]
+
+[Python:Money 90000]
+;search 0xC12581B2
+;write next (4):00015F90
+
+import apollo
+
+sw_code = """
+80010004 C12581B2
+28000004 00015F90
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
+
+[Python:Lockpicks 900]
+;search 0xC12581B2
+;write next (34):0384
+
+import apollo
+
+sw_code = """
+80010004 C12581B2
+18000022 00000384
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
 
 ;From Keha World
 
-[Silver Eagle 99999 *Uses for Extracted Files List 1]
-search C12581B2
-write next 4: 0001869F
+[Python:Silver Eagle 99999]
+;search C12581B2
+;write next 4: 0001869F
 ;*You must have at least one Silver Eagle
 
-[Lockpick 999 *Uses for Extracted Files List 1]
-search C12581B2
-write next 34: 000003E7
+import apollo
+
+sw_code = """
+80010004 C12581B2
+28000004 0001869F
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
+
+[Python:Lockpick 999]
+;search C12581B2
+;write next 34: 000003E7
 ;*You must have at least one Lockpick
 
-[Infinity Health (Normal Mode) *Uses for Extracted Files List 1]
-search C12581B2
-write next 97: 7FFFFF7FFFFF
+import apollo
+
+sw_code = """
+80010004 C12581B2
+28000034 000003E7
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
+
+[Python:Infinity Health (Normal Mode)]
+;search C12581B2
+;write next 97: 7FFFFF7FFFFF
+;https://web.save-editor.com/cache/bbs_savedata_ps3/5259.html
+
+import apollo
+
+sw_code = """
+80010004 C12581B2
+A8000097 00000008
+7FFFFFFF 7FFFFFFF
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
 
 :PAYLOAD
-[Compress Save (Required)]
-Compress(*)
+[Python:Compress PAYLOAD (Required)]
+import uzlib
+import ustruct as struct
+
+print("Compressing bytes:", len(unzip_data))
+print("Compress offset: 0x{:08X}".format(zip_offset[0][0]))
+print("Old compressed size:", zip_offset[0][1])
+savedata[:] = uzlib.packzip(savedata, zip_offset[0], unzip_data)
+print("New compressed size:", zip_offset[0][1])
+
+struct.pack_into(">I", savedata, zip_offset[0][0] - 0x08, zip_offset[0][1])
+struct.pack_into(">I", savedata, zip_offset[0][0] - 0x10, zip_offset[0][1])

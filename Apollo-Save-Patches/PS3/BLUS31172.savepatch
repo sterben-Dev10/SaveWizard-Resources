@@ -64,10 +64,11 @@
 402A5A67 3B9AC9FF
 402A5A6F 3B9AC9FF
 402A5A77 3B9AC9FF
-Next character +2150 h
 
-(First Chou) that will join order members
-Because you do not become that it does not put a limiter released 100 million or more units from the above code list Please note that is "HP SP ATK DEF INT MND AGI TEC"
+;Next character +2150 h
+
+;(First Chou) that will join order members
+;Because you do not become that it does not put a limiter released 100 million or more units from the above code list Please note that is "HP SP ATK DEF INT MND AGI TEC"
 
 ; BLUS31006
 ; Tales of Symphonia: Tales of Symphonia HD
@@ -85,7 +86,7 @@ Because you do not become that it does not put a limiter released 100 million or
 [Black feather 255 (max)]
 write at 0x00060C0F:FF
 
-[Black feather point (for trading)] 
+[Black feather point (for trading)]
 write at 0x00004A88:000003E8
 
 [Jude float 1000]
@@ -635,19 +636,19 @@ write at 0x00012484:0xFF
 ; --- Heal items ---
 ;type: none
 
-apple gel
+[apple gel]
 write at 0x00012451:0xFF
 
-Orange gel
+[Orange gel]
 write at 0x00012452:0xFF
 
-Melange gel
+[Melange gel]
 write at 0x00012453:0xFF
 
-Lemon gel
+[Lemon gel]
 write at 0x00012454:0xFF
 
-Pineapple gel
+[Pineapple gel]
 write at 0x00012455:0xFF
 
 [Miracle gel]
@@ -903,7 +904,7 @@ write at 0x00013958:0000270f
 [overdrive usage 9999]
 write at 0x00013ab0:0000270f
 
-[GROUP:Arts Usage Count\Alvin Arts] 
+[GROUP:Arts Usage Count\Alvin Arts]
 [demon fang usage 9999]
 write at 0x0001c8c0:0000270f
  
@@ -958,7 +959,7 @@ write at 0x0001c900:0000270f
 [hell fryer usage 9999]
 write at 0x0001d960:0000270f
 
-[GROUP:Arts Usage Count\Elize Arts] 
+[GROUP:Arts Usage Count\Elize Arts]
 [pixie circle usage 9999]
 write at 0x00026950:0000270f
  
@@ -1013,7 +1014,7 @@ write at 0x00026a68:0000270f
 [ignite terror usage 9999]
 write at 0x00027968:0000270f
 
-[GROUP:Arts Usage Count\Rowen Arts] 
+[GROUP:Arts Usage Count\Rowen Arts]
 [fireball usage 9999]
 write at 0x000309ac:0000270f
  
@@ -1068,7 +1069,7 @@ write at 0x000309a8:0000270f
 [tidal wave usage 9999]
 write at 0x00031970:0000270f
 
-[GROUP:Arts Usage Count\Leia Arts] 
+[GROUP:Arts Usage Count\Leia Arts]
 [first aid usage 9999]
 write at 0x0003aa3c:0000270f
  

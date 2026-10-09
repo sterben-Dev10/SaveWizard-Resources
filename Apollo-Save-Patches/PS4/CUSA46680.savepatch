@@ -1,0 +1,22 @@
+; CUSA46680
+; Goat Simulator 3
+; decryption by Bucanero
+
+:ue4savegame.ps4.sav
+
+[python:Decrypt and Unpack Savedata (Required)]
+import goat_sim3
+
+goat_sim3.gs3_crypt(goat_sim3.DECRYPT, savedata)
+
+
+;
+;[example]
+;cheat codes should go here
+;
+
+
+[python:Encrypt and Pack Savedata (Required)]
+import goat_sim3
+
+goat_sim3.gs3_crypt(goat_sim3.ENCRYPT, savedata)

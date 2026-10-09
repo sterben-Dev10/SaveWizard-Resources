@@ -1,0 +1,24 @@
+;PCSE00896
+;The Legend of Heroes: Trails of Cold Steel II
+;unpacker by Bucanero
+
+:save*.dat
+
+[Python:Unpack Save data (Required)]
+import loh_trails
+
+unpack = loh_trails.loh_trails_decompress(savedata)
+savedata = unpack
+
+
+;
+; add cheats here
+;
+
+[INFO:Compression takes time, please wait until it's done]
+
+[Python:Compress Save data (Required)]
+import loh_trails
+
+compressed = loh_trails.loh_trails_compress(savedata)
+savedata = compressed

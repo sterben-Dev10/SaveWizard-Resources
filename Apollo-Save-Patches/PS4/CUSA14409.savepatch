@@ -1,0 +1,29 @@
+; CUSA14409
+; Castle Crashers Remastered
+; encryption/checksum by Bucanero
+
+:*
+
+[python:Decrypt Save (Required)]
+import castlecrash
+
+castlecrash.castlecrash_crypt(castlecrash.MODE_DECRYPT, savedata)
+
+
+; [example]
+; cheats should go here
+;
+
+[python:Update Custom Checksum (Required)]
+import ustruct
+import castlecrash
+
+csum = castlecrash.castlecrash_checksum(savedata[:castlecrash.DATA_LEN])
+ustruct.pack_into('<I', savedata, castlecrash.DATA_LEN, csum)
+print("New Checksum: {:08X}".format(csum))
+
+
+[python:Encrypt Save (Required)]
+import castlecrash
+
+castlecrash.castlecrash_crypt(castlecrash.MODE_ENCRYPT, savedata)

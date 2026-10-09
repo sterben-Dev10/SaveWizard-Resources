@@ -1,9 +1,25 @@
 ;CUSA09193
-;PS4 Resident evil 2 remake
-;source: various forums (xdgmods & dazhuanlan.com)
+; Resident Evil 2 Remake
+; decrypt/checksum by Alfizari, Brotherguns5624, and hzh
+; BSD script by Bucanero
+; cheats source: various forums (xdgmods & dazhuanlan.com)
 ;Automated & simplified file by @officialahmed0
 
-:*
+:data*.bin
+
+[Decrypt Save data (Required)]
+;Decrypt data
+set range:0x0010,EOF-0x04
+endian_swap(4)
+decrypt blowfish_cbc("K<>$cl%isqA|~nV4W5~3z_Q)j]5DHdB9sb{cI9Hn&Gqc-zO8O6zf", 0x0000000000000000)
+endian_swap(4)
+;Decrypt header
+set range:0x0010,0x001F
+endian_swap(4)
+encrypt blowfish_cbc("K<>$cl%isqA|~nV4W5~3z_Q)j]5DHdB9sb{cI9Hn&Gqc-zO8O6zf", 0x0000000000000000)
+decrypt blowfish_ecb("K<>$cl%isqA|~nV4W5~3z_Q)j]5DHdB9sb{cI9Hn&Gqc-zO8O6zf")
+endian_swap(4)
+
 [INFO:Untested - Make sure to backup your save data first]
 
 ;Only these will get you killed with GOD MODE
@@ -71,3 +87,24 @@ F5C58BAA 01000000
 08000040 0000001C
 08000050 00000004
 2800000C 00000014
+
+
+[Encrypt Save data (Required)]
+;Encrypt header
+set range:0x0010,0x001F
+endian_swap(4)
+encrypt blowfish_ecb("K<>$cl%isqA|~nV4W5~3z_Q)j]5DHdB9sb{cI9Hn&Gqc-zO8O6zf")
+decrypt blowfish_cbc("K<>$cl%isqA|~nV4W5~3z_Q)j]5DHdB9sb{cI9Hn&Gqc-zO8O6zf", 0x0000000000000000)
+endian_swap(4)
+;Encrypt data
+set range:0x0010,EOF-0x04
+endian_swap(4)
+encrypt blowfish_cbc("K<>$cl%isqA|~nV4W5~3z_Q)j]5DHdB9sb{cI9Hn&Gqc-zO8O6zf", 0x0000000000000000)
+endian_swap(4)
+
+[Update Murmur3-32 Checksum (Required)]
+set pointer:EOF-0x03
+set range:0x0000,pointer
+set [hash]:murmur3_32:0xFFFFFFFF
+set [hash]:endian_swap
+write next 0x00:[hash]

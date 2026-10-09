@@ -10,7 +10,7 @@
 [Grade 10000]
 20001D1C 000F4240
 
-Also, I didn't made this one, but found it online somewhere:
+; Also, I didn't made this one, but found it online somewhere:
 
 [Max EX Gem]
 00001275 00000014
@@ -360,19 +360,19 @@ write at 0x00012484:0xFF
 ; --- Heal items ---
 ;type: none
 
-apple gel
+[apple gel]
 write at 0x00012451:0xFF
 
-Orange gel
+[Orange gel]
 write at 0x00012452:0xFF
 
-Melange gel
+[Melange gel]
 write at 0x00012453:0xFF
 
-Lemon gel
+[Lemon gel]
 write at 0x00012454:0xFF
 
-Pineapple gel
+[Pineapple gel]
 write at 0x00012455:0xFF
 
 [Miracle gel]

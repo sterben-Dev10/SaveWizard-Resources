@@ -1,0 +1,13 @@
+;CUSA09152
+;Sword Art Online Fatal Bullet
+;checksum by bucanero
+
+:ue4savegame.ps4.sav
+
+[python:Update HMAC-SHA1 Hash (Required)]
+import sao_fb
+
+if sao_fb.sao_fb_checksum(savedata):
+    print("Hash updated OK")
+else:
+    print("Hash not updated")

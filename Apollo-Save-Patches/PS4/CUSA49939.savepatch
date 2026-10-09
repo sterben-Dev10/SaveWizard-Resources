@@ -1,0 +1,52 @@
+; CUSA49939
+; Like a Dragon: Pirate Yakuza in Hawaii
+; by Bucanero
+;
+; save format info:
+; https://docs.google.com/spreadsheets/d/1sOgOPAGLvKZiDL67uObNQe8tj4lZlV4NstTUyJyjexM/edit?usp=drivesdk
+
+:data.sav
+
+[Python:Unpack Savedata (Required)]
+import umsgpack
+import gc
+
+def update_value(id, val):
+    print("Current:", msg_out['player']['m_points']['m_list'][0]['m_point'][id])
+    msg_out['player']['m_points']['m_list'][0]['m_point'][id] = val
+    print("New value:", msg_out['player']['m_points']['m_list'][0]['m_point'][id])
+
+msg_out = umsgpack.unpackb(savedata, use_ordered_dict=True)
+gc.collect()
+print("msgpacked size:", len(savedata))
+print("unpacked objects:", len(msg_out))
+
+[Python:Max Money $999999999]
+update_value(1, 999999999)
+
+[Python:Max Reputation 9999999]
+update_value(705, 9999999)
+
+[Python:Casino Chips 999999]
+update_value(118, 999999)
+
+[Python:Batting Center Points 99999]
+update_value(119, 99999)
+
+[Python:Shogi Points 9999]
+update_value(157, 9999)
+
+[Python:Crazy Delivery Points 99999]
+update_value(569, 99999)
+
+[Python:Crazy Dragon Kart Points 9999]
+update_value(907, 9999)
+
+[Python:Pack Savedata (Required)]
+import umsgpack
+import gc
+
+savedata = umsgpack.packb(msg_out)
+gc.collect()
+print("msgpacked objects:", len(msg_out))
+print("msgpacked size:", len(savedata))

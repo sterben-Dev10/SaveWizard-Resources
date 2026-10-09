@@ -1,11 +1,11 @@
 ; BLES01184
-Trinity: Souls Of Zill O'll
+;Trinity: Souls Of Zill O'll
 ;Patch created by haxxxen - 2013-02-18
 
 ;From CodeMastersProject GameGenie save hack thread and Cheats created by krustytoe
 
 ;It works fine for BLUS30503/BLES01184/BLJM60212
-Path: BLES01184-PLAY01
+;Path: BLES01184-PLAY01
 
 :PLAY.DAT
 [Max Money]

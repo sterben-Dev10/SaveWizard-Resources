@@ -1,7 +1,9 @@
 ; NPEB01151
 ; RESIDENT EVIL 6
-
 ;From Game Genie For PS3 & KE-HA & Skiller
+
+{PNTS}0F4240=1,000,000;98967F=9,999,999;FFFFFF=16,777,215{/PNTS}
+{SKILL}00=None;01=Firearms Lv1;02=Firearms Lv2;03=Firearms Lv3;04=Melee Lv1;05=Melee Lv2;06=Melee Lv3;07=Defense Lv1;08=Defense Lv2;09=Defense Lv3;0A=Critical Rate Lv1;0B=Critical Rate Lv2;0C=Critical Rate Lv3;0D=Piercing Lv1;0E=Piercing Lv2;0F=Piercing Lv3;10=J'avo Killer Lv1;11=J'avo Killer Lv2;12=Zombie Hunter Lv1;13=Zombie Hunter Lv2;14=Hand Grenade Master;15=Hand Gun Master;16=Shotgun Master;17=Magnum Master;18=Sniper Rifle Master;19=Machine Pistol Master;1A=Assault Rifle Master;1B=Grenade Launcher Master;1C=Crossbow Master;1D=Infinite Handgun;1E=Infinite Shotgun;1F=Infinite Magnum;20=Infinite Sniper Rifle;21=Infinite Machine Pistol;22=Infinite Assault Rifle;23=Infinite Grenade Launcher;24=Infinite Crossbow;25=AR Ammo Pickup Increase;26=Shotgun Shell Pickup Increase;27=Magnum Ammo Pickup Increase;28=Rifle Ammo Pickup Increase;29=Grenade Pickup Increase;2A=Arrow Pickup Increase;2B=Last Shot;2C=Run Silent (footsteps disappears);2D=Quick Reload;2E=Lock-On Lv1;2F=Lock-On Lv2;30=Rock Steady Lv1;31=Rock Steady Lv2;32=Breakout;33=Item Drop Increase;34=Recovery Lv1;35=Recovery Lv2;36=Combat Gauge Boost Lv1;37=Combat Gauge Boost Lv2;38=Eagle Eye;39=Team-up (SP);3A=Field Medic Lv1 (SP);3B=Field Medic Lv2 (SP);3C=Lone Wolf (SP);3D=Shooting Wild;3E=Go For Broke!;3F=Time Bonus +;40=Combo Bonus +;41=Limit Breaker;42=Blitz Play;43=Quick Shot Damage Increase;44=Power Counter;45=Second Wind;46=Martial Arts Master;47=Target Master;48=Last Stand;49=Revenge? (Attack power up to 49 players who beat his revenge) (for PvP?);4A=Preemptive Strike;4B=Gunslinger (Increase Firepower and Reload Speed);4C=Dying Breath;4D=Pharmacist;4E=Medic;4F=First Responder;50=Take It Easy;51=Natural Healing;52=Creature Point Boost;53=Creature Points UP;54=Training;55=Creature Offense Lv1;56=Creature Offense Lv2;57=Creature Offense Lv3;58=Creature Defense Lv1;59=Creature Defense Lv2;5A=Creature Defense Lv3;5B=Creature Health Lv1;5C=Creature Health Lv2;5D=Creature Health Lv3;5E=Creature Stamina Lv1;5F=Creature Stamina Lv2;60=Creature Stamina Lv3{/SKILL}
 
 :DATA0.DAT
 
@@ -207,19 +209,19 @@ Group: Codes by Dark Nacho
 
 ;This is for the leaderboard Points
 [Survivors Points]
-20003358 00??????
+20003358 00{PNTS}
 
 ;This is for the leaderboard Points
 [Onslaught Points]
-20003354 00??????
+20003354 00{PNTS}
 
 ;This is for the leaderboard Points
 [Predator Points]
-20003360 00??????
+20003360 00{PNTS}
 
 ;This is for the leaderboard Points
 [Siege Points]
-20003354 00??????
+20003354 00{PNTS}
 
 ;Only BSD
 [Onslaught  99 Wins]
@@ -234,86 +236,86 @@ write at 0x00003548:0x6363636363636363636363636363636363636363636363636363636363
 write at 0x000035E8:0x63636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363636363
 
 [Story Skill set 1]
-2000076C 000000??
-20000770 000000??
-20000774 000000??
+2000076C 0{SKILL}
+20000770 0{SKILL}
+20000774 0{SKILL}
 
 Group: Codes by Dark Nacho\Mercenaries Skills
 
 [Mercenaries SKill 1]
-20000917 000000??
+20000917 0{SKILL}
 
 [Mercenaries SKill 2]
-20000923 000000??
+20000923 0{SKILL}
 
 [Mercenaries SKill 3]
-2000092F 000000??
+2000092F 0{SKILL}
 
 [Mercenaries SKill 4]
-2000093B 000000??
+2000093B 0{SKILL}
 
 [Mercenaries SKill 5]
-20000947 000000??
+20000947 0{SKILL}
 
 [Mercenaries SKill 6]
-20000953 000000??
+20000953 0{SKILL}
 
 [Mercenaries SKill 7]
-2000095F 000000??
+2000095F 0{SKILL}
 
 [Mercenaries SKill 8]
-2000096B 000000??
+2000096B 0{SKILL}
 
 
 [Mercenaries SKill 1]
-20000917 000000??
+20000917 0{SKILL}
 
 [Mercenaries SKill 2]
-20000923 000000??
+20000923 0{SKILL}
 
 [Mercenaries SKill 3]
-2000092F 000000??
+2000092F 0{SKILL}
 
 [Mercenaries SKill 4]
-2000093B 000000??
+2000093B 0{SKILL}
 
 [Mercenaries SKill 5]
-20000947 000000??
+20000947 0{SKILL}
 
 [Mercenaries SKill 6]
-20000953 000000??
+20000953 0{SKILL}
 
 [Mercenaries SKill 7]
-2000095F 000000??
+2000095F 0{SKILL}
 
 [Mercenaries SKill 8]
-2000096B 000000??
+2000096B 0{SKILL}
 
 Group: Codes by Dark Nacho\Survivors Skills
 
 [Survivors SKill 1]
-20003287 000000??
+20003287 0{SKILL}
 
 [Survivors SKill 2]
-2000328B 000000??
+2000328B 0{SKILL}
 
 [Survivors SKill 3]
-2000328F 000000??
+2000328F 0{SKILL}
 
 [Survivors SKill 4]
-20003293 000000??
+20003293 0{SKILL}
 
 [Survivors SKill 5]
-20003297 000000??
+20003297 0{SKILL}
 
 [Survivors SKill 6]
-2000329B 000000??
+2000329B 0{SKILL}
 
 [Survivors SKill 7]
-2000329F 000000??
+2000329F 0{SKILL}
 
 [Survivors SKill 8]
-200032A3 000000??
+200032A3 0{SKILL}
 
 Group: More Codes
 
@@ -528,9 +530,9 @@ Group: More Codes\Survivors Skills
 
 
 [Story Skill set 1]
-2000076C 000000??
-20000770 000000??
-20000774 000000??
+2000076C 0{SKILL}
+20000770 0{SKILL}
+20000774 0{SKILL}
 
 Group: More Codes\Mercenaries Skills
 

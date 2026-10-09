@@ -5,7 +5,10 @@
 :BLUS30166-*\MAINSAVE.BSG
 
 [Decompress Save (Required)]
-Decompress(*, 15)
+Decompress(0x00000044, 15)
+
+
+:~extracted\00000044.dat
 
 ; You MUST have at least 1 Dollar to use this cheat.
 [Max Money]
@@ -21,4 +24,4 @@ Decompress(*, 15)
 
 :MAINSAVE.BSG
 [Compress Save (Required)]
-Compress(*)
+Compress(0x00000044)

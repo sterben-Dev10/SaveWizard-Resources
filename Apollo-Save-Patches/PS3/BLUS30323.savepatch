@@ -7,7 +7,7 @@
 [Decompress Save (required)]
 Decompress(0x00000020, 15)
 
-:BLUS30323_PROFILE\~extracted\00000020.dat
+:~extracted\00000020.dat
 [999999 Points]
 write at 0x0000004C:0x000F423F
 

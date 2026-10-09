@@ -4,8 +4,21 @@
 
 :BLUS30406-PROFILE\PAYLOAD
 
+[Decompress PAYLOAD (Required)]
+Decompress(0x00000018, 15)
+
+:~extracted\00000018.dat
+
 [Max Gold]
 20000173 000F423F
+
+[189999 Gold]
+80010004 00002301
+28000004 0002E62F
+
+:BLUS30406-PROFILE\PAYLOAD
+[Compress PAYLOAD (Required)]
+Compress(0x00000018)
 
 [Update SHA1 (Required)]
 ;set range:0x000014,0x00034C

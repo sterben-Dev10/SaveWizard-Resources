@@ -102,19 +102,19 @@
 [Max Fury Experience]
 100000EE 000003E8
 
-Max Attack Experience
+[Max Attack Experience]
 100000F0 000003E8
 
-Max Defense Experience
+[Max Defense Experience]
 100000F2 000003E8
 
-Max Move Experience
+[Max Move Experience]
 100000F4 000003E8
 
-Max Resist Experience
+[Max Resist Experience]
 100000F6 000003E8
 
-Max All Experience and Abilities
+[Max All Experience and Abilities]
 200000E0 03E803E8
 200000E4 03E803E8
 200000E8 03E803E8

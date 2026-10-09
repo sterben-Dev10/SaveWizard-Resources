@@ -2,6 +2,8 @@
 ;PS4 Star Ocean 5: Integrity And Faithlessness
 ;source:krustytoe+gvargas+E2daX@hackinformer
 
+{FC}0001=Recover 40% HP;0002=Recover 40% MP;0003=Attack +5;0400=ATK+500;0401=ATK+5;0407=INT+10;0408=INT+150;0409=INT+500;040A=INT+5;0411=DEF+5;0412=DEF+10;0413=DEF+50;0414=DEF+200;0415=DEF+2;04B1=Damage to Humanoids +20%;04B2=Damage to Beast +20%;04B3=Damage to Avians +20%;04B4=Damage to Insects +20%;04B5=Damage to Plants +20%;04B6=Damage to Corrupt +20%;04B7=Damage to Machines +20%;04B8=Damage to Divinities +20%;04B9=Deal 99,999 Dmg. to Scumbags;04BB=Damage from Humanoids -10%;04BC=Damage from Beasts -10%;04BD=Damage from Avians -10%;04BE=Damage from Insects -10%;04BF=Damage from Plants -10%;04C0=Damage from Corrupt -10%;04C1=Damage from Machines -10%;04C2=Damage from Divinities -10%;04C3=Damage from Scumbags -10%;04C5=5% chance no damage from Humanoids;04C6=5% chance no damage from Beasts;04C7=5% chance no damage from Avians;04C8=5% chance no damage from Insects;04C9=5% chance no damage from Plants;04CA=5% chance no damage from Corrupt;04CB=5% chance no damage from Machines;04CC=5% chance no damage from Divinities;04CD=5% chance no damage from Scumbags;04CE=Damage to Scumbags +20%;0515=Critical Hit Rate +5%;0516=Critical Hit Rate +10%;0517=Critical Hit Rate +15%;0518=Critical Hit Rate +30%;051F=Foe Critical Hit Rate -10%;0520=Foe Critical Hit Rate -20%;0579=Curative Spell Potency +5%;057A=Curative Spell Potency +10%;057B=Curative Spell Potency +20%;058D=Normal attacks absorb 3% HP;0597=Normal attacks absorb 1% MP;05DD=Normal attacks instakill chance +1%;05DE=Normal attacks poison chance +5%;05DF=Normal attacks paralyze chance +2%;05E0=Normal attacks silence chance +1%;05E1=Normal attacks stun chance +5%;05E2=Normal attacks freeze chance +2%;05E3=Normal attacks fog chance +5%;05E4=Normal attacks curse chance +5%;05E7=25% chance to nullify instant death;05E8=25% chance to nullify poison;05E9=25% chance to nullify paralysis;05EA=25% chance to nullify silence;05EB=25% chance to nullify stun;05EC=25% chance to nullify freezes;05ED=25% chance to nullify fog;05EE=25% chance to nullify curses;05EF=5% chance to nullify instant death;05F0=5% chance to nullify poison;05F1=5% chance to nullify paralysis;05F2=5% chance to nullify silence;05F3=5% chance to nullify stun;05F4=5% chance to nullify freeze;05F5=5% chance to nullify fog;05F6=5% chance to nullify curses;0641=Fire-based damage +10%;0642=Ice-based damage +10%;0643=Wind-based damage +10%;0644=Earth-based damage +10%;0645=Light-based damage +10%;0646=Darkness-based damage +10%;064B=Fire-based damage +30%;064C=Ice-based damage +30%;064D=Wind-based damage +30%;064E=Earth-based damage +30%;064F=Light-based damage +30%;0650=Darkness-based damage +30%;0687=Turn 1% fire damage taken to MP;0688=Turn 1% ice damage taken to MP;0689=Turn 1% wind damage taken to MP;068A=Turn 1% earth damage taken to MP;068B=Turn 1% light damage taken to MP;068C=Turn 1% dark damage taken to MP;06A5=Battle: Periodically recover 3% HP;06A6=Battle: Periodically recover 1% MP;06AF=5% chance to avoid dying;06B9=Fill reserve gauge by +1 unit;06BA=Fill reserve gauge by +7 units;06C3=MP cost -5%;06C4=MP cost -10%;06C5=MP cost -20%;06C6=MP cost -25%;06C7=MP cost +15%;06CD=No flinch @ ATK damage - below 5% MaxHP;06CE=No flinch @ INT damage - below 5% MaxHP;06D7=Send shockwave on success guard;06E1=Success guard: Damage taken -5%;06E2=Success guard: Damage taken -10%;06EB=20% Chance : Dmg, taken -10%;06EC=20% Chance : Dmg, taken -20%;06ED=20% Chance : Dmg, taken -30%;079F=10% Chance : Dmg, taken -20%;07A9=Attack +5%;07AA=Int +5%;07AB=Critical Hit Rate +5%;07B3=EXP +20%;07B4=FOL +20%;07BD=MP cost -10%;07C7=Curative Spell Potency +5%{/FC}
+
 :*
 [INFO:Untested - Make sure to backup your save data first]
 
@@ -414,166 +416,166 @@
 00076758 000000FF
 
 [Factors MOD - Fidel Equipped Weapon]
-1006D97C 0000xxxx
-1006D980 0000xxxx
-1006D984 0000xxxx
-1006D988 0000xxxx
+1006D97C 0000{FC}
+1006D980 0000{FC}
+1006D984 0000{FC}
+1006D988 0000{FC}
 
 [Factors MOD - Fidel Equipped Armor]
-1006D9D8 0000xxxx
-1006D9DC 0000xxxx
-1006D9E0 0000xxxx
-1006D9E4 0000xxxx
+1006D9D8 0000{FC}
+1006D9DC 0000{FC}
+1006D9E0 0000{FC}
+1006D9E4 0000{FC}
 
 [Factors MOD - Fidel Equipped Accessory 1]
-1006DA34 0000xxxx
-1006DA38 0000xxxx
-1006DA3C 0000xxxx
-1006DA40 0000xxxx
+1006DA34 0000{FC}
+1006DA38 0000{FC}
+1006DA3C 0000{FC}
+1006DA40 0000{FC}
 
 [Factors MOD - Fidel Equipped Accessory 2]
-1006DA90 0000xxxx
-1006DA94 0000xxxx
-1006DA98 0000xxxx
-1006DA9C 0000xxxx
+1006DA90 0000{FC}
+1006DA94 0000{FC}
+1006DA98 0000{FC}
+1006DA9C 0000{FC}
 
 [Factors MOD - Miki Equipped Weapon]
-1006DAEC 0000xxxx
-1006DAF0 0000xxxx
-1006DAF4 0000xxxx
-1006DAF8 0000xxxx
+1006DAEC 0000{FC}
+1006DAF0 0000{FC}
+1006DAF4 0000{FC}
+1006DAF8 0000{FC}
 
 [Factors MOD - Miki Equipped Armor]
-1006DB48 0000xxxx
-1006DB4C 0000xxxx
-1006DB50 0000xxxx
-1006DB54 0000xxxx
+1006DB48 0000{FC}
+1006DB4C 0000{FC}
+1006DB50 0000{FC}
+1006DB54 0000{FC}
 
 [Factors MOD - Miki Equipped Accessory 1]
-1006DBA4 0000xxxx
-1006DBA8 0000xxxx
-1006DBAC 0000xxxx
-1006DBB0 0000xxxx
+1006DBA4 0000{FC}
+1006DBA8 0000{FC}
+1006DBAC 0000{FC}
+1006DBB0 0000{FC}
 
 [Factors MOD - Miki Equipped Accessory 2]
-1006DC00 0000xxxx
-1006DC04 0000xxxx
-1006DC08 0000xxxx
-1006DC0C 0000xxxx
+1006DC00 0000{FC}
+1006DC04 0000{FC}
+1006DC08 0000{FC}
+1006DC0C 0000{FC}
 
 [Factors MOD - Victor Equipped Weapon]
-1006DC5C 0000xxxx
-1006DC60 0000xxxx
-1006DC64 0000xxxx
-1006DC68 0000xxxx
+1006DC5C 0000{FC}
+1006DC60 0000{FC}
+1006DC64 0000{FC}
+1006DC68 0000{FC}
 
 [Factors MOD - Victor Equipped Armor]
-1006DCB8 0000xxxx
-1006DCBC 0000xxxx
-1006DCC0 0000xxxx
-1006DCC4 0000xxxx
+1006DCB8 0000{FC}
+1006DCBC 0000{FC}
+1006DCC0 0000{FC}
+1006DCC4 0000{FC}
 
 [Factors MOD - Victor Equipped Accessory 1]
-1006DD14 0000xxxx
-1006DD18 0000xxxx
-1006DD1C 0000xxxx
-1006DD20 0000xxxx
+1006DD14 0000{FC}
+1006DD18 0000{FC}
+1006DD1C 0000{FC}
+1006DD20 0000{FC}
 
 [Factors MOD - Victor Equipped Accessory 2]
-1006DD70 0000xxxx
-1006DD74 0000xxxx
-1006DD78 0000xxxx
-1006DD7C 0000xxxx
+1006DD70 0000{FC}
+1006DD74 0000{FC}
+1006DD78 0000{FC}
+1006DD7C 0000{FC}
 
 [Factors MOD - Fiore Equipped Weapon]
-1006DDCC 0000xxxx
-1006DDD0 0000xxxx
-1006DDD4 0000xxxx
-1006DDD8 0000xxxx
+1006DDCC 0000{FC}
+1006DDD0 0000{FC}
+1006DDD4 0000{FC}
+1006DDD8 0000{FC}
 
 [Factors MOD - Fiore Equipped Armor]
-1006DE28 0000xxxx
-1006DE2C 0000xxxx
-1006DE30 0000xxxx
-1006DE34 0000xxxx
+1006DE28 0000{FC}
+1006DE2C 0000{FC}
+1006DE30 0000{FC}
+1006DE34 0000{FC}
 
 [Factors MOD - Fiore Equipped Accessory 1]
-1006DE84 0000xxxx
-1006DE88 0000xxxx
-1006DE8C 0000xxxx
-1006DE90 0000xxxx
+1006DE84 0000{FC}
+1006DE88 0000{FC}
+1006DE8C 0000{FC}
+1006DE90 0000{FC}
 
 [Factors MOD - Fiore Equipped Accessory 2]
-1006DEE0 0000xxxx
-1006DEE4 0000xxxx
-1006DEE8 0000xxxx
-1006DEEC 0000xxxx
+1006DEE0 0000{FC}
+1006DEE4 0000{FC}
+1006DEE8 0000{FC}
+1006DEEC 0000{FC}
 
 [Factors MOD - Emmerson Equipped Weapon]
-1006DF3C 0000xxxx
-1006DF40 0000xxxx
-1006DF44 0000xxxx
-1006DF48 0000xxxx
+1006DF3C 0000{FC}
+1006DF40 0000{FC}
+1006DF44 0000{FC}
+1006DF48 0000{FC}
 
 [Factors MOD - Emmerson Equipped Armor]
-1006DF98 0000xxxx
-1006DF9C 0000xxxx
-1006DFA0 0000xxxx
-1006DFA4 0000xxxx
+1006DF98 0000{FC}
+1006DF9C 0000{FC}
+1006DFA0 0000{FC}
+1006DFA4 0000{FC}
 
 [Factors MOD - Emmerson Equipped Accessory 1]
-1006DFF4 0000xxxx
-1006DFF8 0000xxxx
-1006DFFC 0000xxxx
-1006E000 0000xxxx
+1006DFF4 0000{FC}
+1006DFF8 0000{FC}
+1006DFFC 0000{FC}
+1006E000 0000{FC}
 
 [Factors MOD - Emmerson Equipped Accessory 2]
-1006E050 0000xxxx
-1006E054 0000xxxx
-1006E058 0000xxxx
-1006E05C 0000xxxx
+1006E050 0000{FC}
+1006E054 0000{FC}
+1006E058 0000{FC}
+1006E05C 0000{FC}
 
 [Factors MOD - Anne Equipped Weapon]
-1006E0AC 0000xxxx
-1006E0B0 0000xxxx
-1006E0B4 0000xxxx
-1006E0B8 0000xxxx
+1006E0AC 0000{FC}
+1006E0B0 0000{FC}
+1006E0B4 0000{FC}
+1006E0B8 0000{FC}
 
 [Factors MOD - Anne Equipped Armor]
-1006E108 0000xxxx
-1006E10C 0000xxxx
-1006E110 0000xxxx
-1006E114 0000xxxx
+1006E108 0000{FC}
+1006E10C 0000{FC}
+1006E110 0000{FC}
+1006E114 0000{FC}
 
 [Factors MOD - Anne Equipped Accessory 1]
-1006E164 0000xxxx
-1006E168 0000xxxx
-1006E16C 0000xxxx
-1006E170 0000xxxx
+1006E164 0000{FC}
+1006E168 0000{FC}
+1006E16C 0000{FC}
+1006E170 0000{FC}
 
 [Factors MOD - Anne Equipped Accessory 2]
-1006E1C0 0000xxxx
-1006E1C4 0000xxxx
-1006E1C8 0000xxxx
-1006E1CC 0000xxxx
+1006E1C0 0000{FC}
+1006E1C4 0000{FC}
+1006E1C8 0000{FC}
+1006E1CC 0000{FC}
 
 [Factors MOD - Relia Equipped Armor]
-1006E278 0000xxxx
-1006E27C 0000xxxx
-1006E280 0000xxxx
-1006E284 0000xxxx
+1006E278 0000{FC}
+1006E27C 0000{FC}
+1006E280 0000{FC}
+1006E284 0000{FC}
 
 [Factors MOD - Relia Equipped Accessory 1]
-1006E2D4 0000xxxx
-1006E2D8 0000xxxx
-1006E2DC 0000xxxx
-1006E2E0 0000xxxx
+1006E2D4 0000{FC}
+1006E2D8 0000{FC}
+1006E2DC 0000{FC}
+1006E2E0 0000{FC}
 
 [Factors MOD - Relia Equipped Accessory 2]
-1006E330 0000xxxx
-1006E334 0000xxxx
-1006E338 0000xxxx
-1006E33C 0000xxxx
+1006E330 0000{FC}
+1006E334 0000{FC}
+1006E338 0000{FC}
+1006E33C 0000{FC}
 
 ;xxxx
 ;0001 = Recover 40% HP

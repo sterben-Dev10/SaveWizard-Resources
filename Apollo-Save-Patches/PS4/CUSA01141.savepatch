@@ -82,42 +82,33 @@ endian_swap(4)
 4100E8D8 000000FF
 40180038 00000000
 
-[Raid Mode - Tag Mod (Slot1-24) (Replace ZZ)]
-4000E8AC 000000ZZ
+[Raid Mode - Tag Mod (Slot1-24)]
+4000E8AC 00000{Z}
 40180038 00000000
 
 ;--Tag Modifier--
-;ZZ
-;01= Short Range
-;02= Long Range
-;03= Speed Shot
-;04= Steady Shot
-;05= Speed Load
-;06= Sonic Assist
-;07= Sonic Assist+
-;08= Short Range+
-;09= Long Range+
-;0A= Unique Named
+
+{Z}001=Short Range;002=Long Range;003=Speed Shot;004=Steady Shot;005=Speed Load;006=Sonic Assist;007=Sonic Assist+;008=Short Range+;009=Long Range+;00A=Unique Named{/Z}
 
 [--Campaign Mode Codes--]
 
-[AutoSave - Claire's Weapon Slot (UP) Mod (Replace xxxx)]
-1002CA44 0000xxxx
+[AutoSave - Claire's Weapon Slot (UP) Mod]
+1002CA44 0000{XX}
 1002CA46 0000FFFF
 0002CA48 00000001
 
-[AutoSave - Claire's Weapon Slot (DOWN) Mod (Replace xxxx)]
-1002CA5C 0000xxxx
+[AutoSave - Claire's Weapon Slot (DOWN) Mod]
+1002CA5C 0000{XX}
 1002CA5E 0000FFFF
 0002CA60 00000001
 
-[AutoSave - Claire's Weapon Slot (LEFT) Mod (Replace xxxx)]
-1002CA74 0000xxxx
+[AutoSave - Claire's Weapon Slot (LEFT) Mod]
+1002CA74 0000{XX}
 1002CA76 0000FFFF
 0002CA78 00000001
 
-[AutoSave - Claire's Weapon Slot (RIGHT) Mod (Replace xxxx)]
-1002CA8C 0000xxxx
+[AutoSave - Claire's Weapon Slot (RIGHT) Mod]
+1002CA8C 0000{XX}
 1002CA8E 0000FFFF
 0002CA90 00000001
 
@@ -153,23 +144,23 @@ endian_swap(4)
 1002CAA0 00000106
 1002CAA2 00000106
 
-[AutoSave - Barry's Weapon Slot (UP) Mod (Replace xxxx)]
-1002CD0C 0000xxxx
+[AutoSave - Barry's Weapon Slot (UP) Mod]
+1002CD0C 0000{XX}
 1002CD0E 0000FFFF
 0002CD10 00000001
 
-[AutoSave - Barry's Weapon Slot (DOWN) Mod (Replace xxxx)]
-1002CD24 0000xxxx
+[AutoSave - Barry's Weapon Slot (DOWN) Mod]
+1002CD24 0000{XX}
 1002CD26 0000FFFF
 0002CD28 00000001
 
-[AutoSave - Barry's Weapon Slot (LEFT) Mod (Replace xxxx)]
-1002CD3C 0000xxxx
+[AutoSave - Barry's Weapon Slot (LEFT) Mod]
+1002CD3C 0000{XX}
 1002CD3E 0000FFFF
 0002CD40 00000001
 
-[AutoSave - Barry's Weapon Slot (RIGHT) Mod (Replace xxxx)]
-1002CD54 0000xxxx
+[AutoSave - Barry's Weapon Slot (RIGHT) Mod]
+1002CD54 0000{XX}
 1002CD56 0000FFFF
 0002CD58 00000001
 
@@ -206,23 +197,23 @@ endian_swap(4)
 1002CD6A 00000106
 
 [--Countdown Mode Code--]
-[AutoSave - Claire's Weapon Slot (UP) Mod (Replace xxxx)]
-10061664 0000xxxx
+[AutoSave - Claire's Weapon Slot (UP) Mod]
+10061664 0000{XX}
 10061666 0000FFFF
 00061668 00000001
 
-[AutoSave - Claire's Weapon Slot (DOWN) Mod (Replace xxxx)]
-1006167C 0000xxxx
+[AutoSave - Claire's Weapon Slot (DOWN) Mod]
+1006167C 0000{XX}
 1006167E 0000FFFF
 00061680 00000001
 
-[AutoSave - Claire's Weapon Slot (LEFT) Mod (Replace xxxx)]
-10061694 0000xxxx
+[AutoSave - Claire's Weapon Slot (LEFT) Mod]
+10061694 0000{XX}
 10061696 0000FFFF
 00061698 00000001
 
-[AutoSave - Claire's Weapon Slot (RIGHT) Mod (Replace xxxx)]
-100616AC 0000xxxx
+[AutoSave - Claire's Weapon Slot (RIGHT) Mod]
+100616AC 0000{XX}
 100616AE 0000FFFF
 000616B0 00000001
 
@@ -258,23 +249,23 @@ endian_swap(4)
 100616C0 00000106
 100616C2 00000106
 
-[AutoSave - Barry's Weapon Slot (UP) Mod (Replace xxxx)]
-1006192C 0000xxxx
+[AutoSave - Barry's Weapon Slot (UP) Mod]
+1006192C 0000{XX}
 1006192E 0000FFFF
 00061930 00000001
 
-[AutoSave - Barry's Weapon Slot (DOWN) Mod (Replace xxxx)]
-10061944 0000xxxx
+[AutoSave - Barry's Weapon Slot (DOWN) Mod]
+10061944 0000{XX}
 10061946 0000FFFF
 00061948 00000001
 
-[AutoSave - Barry's Weapon Slot (LEFT) Mod (Replace xxxx)]
-1006195C 0000xxxx
+[AutoSave - Barry's Weapon Slot (LEFT) Mod]
+1006195C 0000{XX}
 1006195E 0000FFFF
 00061960 00000001
 
-[AutoSave - Barry's Weapon Slot (RIGHT) Mod (Replace xxxx)]
-10061974 0000xxxx
+[AutoSave - Barry's Weapon Slot (RIGHT) Mod]
+10061974 0000{XX}
 10061976 0000FFFF
 00061978 00000001
 
@@ -311,23 +302,23 @@ endian_swap(4)
 1006198A 00000106
 
 [--Invisible Mode Code--]
-[AutoSave - Claire's Weapon Slot (UP) Mod (Replace xxxx)]
-10047054 0000xxxx
+[AutoSave - Claire's Weapon Slot (UP) Mod]
+10047054 0000{XX}
 10047056 0000FFFF
 00047058 00000001
 
-[AutoSave - Claire's Weapon Slot (DOWN) Mod (Replace xxxx)]
-1004706C 0000xxxx
+[AutoSave - Claire's Weapon Slot (DOWN) Mod]
+1004706C 0000{XX}
 1004706E 0000FFFF
 00047070 00000001
 
-[AutoSave - Claire's Weapon Slot (LEFT) Mod (Replace xxxx)]
-10047084 0000xxxx
+[AutoSave - Claire's Weapon Slot (LEFT) Mod]
+10047084 0000{XX}
 10047086 0000FFFF
 00047088 00000001
 
-[AutoSave - Claire's Weapon Slot (RIGHT) Mod (Replace xxxx)]
-1004709C 0000xxxx
+[AutoSave - Claire's Weapon Slot (RIGHT) Mod]
+1004709C 0000{XX}
 1004709E 0000FFFF
 000470A0 00000001
 
@@ -363,23 +354,23 @@ endian_swap(4)
 100470B0 00000106
 100470B2 00000106
 
-[AutoSave - Barry's Weapon Slot (UP) Mod (Replace xxxx)]
-1004731C 0000xxxx
+[AutoSave - Barry's Weapon Slot (UP) Mod]
+1004731C 0000{XX}
 1004731E 0000FFFF
 00047320 00000001
 
-[AutoSave - Barry's Weapon Slot (DOWN) Mod (Replace xxxx)]
-10047334 0000xxxx
+[AutoSave - Barry's Weapon Slot (DOWN) Mod]
+10047334 0000{XX}
 10047336 0000FFFF
 00047338 00000001
 
-[AutoSave - Barry's Weapon Slot (LEFT) Mod (Replace xxxx)]
-1004734C 0000xxxx
+[AutoSave - Barry's Weapon Slot (LEFT) Mod]
+1004734C 0000{XX}
 1004734E 0000FFFF
 00047350 00000001
 
-[AutoSave - Barry's Weapon Slot (RIGHT) Mod (Replace xxxx)]
-10047364 0000xxxx
+[AutoSave - Barry's Weapon Slot (RIGHT) Mod]
+10047364 0000{XX}
 10047366 0000FFFF
 00047368 00000001
 
@@ -416,65 +407,9 @@ endian_swap(4)
 1004737A 00000106
 
 ;Weapon Digits
-;xxxx
 ;0000= Empty
 
-;--Handguns--
-;0102= Bubble Gun (Natalia's Weapon)
-;0105= Handgun MPM
-;0106= Handgun P10
-;0107= Samurai Edge
-;0108= Handgun MPM/S
-;0109= Handgun Triple Shot
-
-;--Shotguns--
-;010C= Shotgun M147s
-;010D= Shotgun TAP194
-;010F= Shotgun Hydra
-;0110= Shotgun Drake
-
-;--Machine Pistol--
-;0115= MP-AB50
-;0116= MP-AF
-;0117= Chicago Typerwriter
-;0118= MP-AB50G
-
-;--Assault Rifle--
-;011C= Assault Rifle AK-7
-;011D= Assault Rifle NSR47
-;011E= AR High Roller
-
-;--Sniper Rifle--
-;0125= Rifle M1891/30
-;0126= Rifle SVD
-;0127= Anti-Material Rifle
-;0128= Rifle Marumasa
-
-;--Magnums--
-;012C= Magnum Model 329
-;012D= Magnum 2005M
-;012E= Magnum Python
-;012F= Magnum Anaconda
-;0130= Magnum Pale Rider
-
-;--Specials--
-;0135= Bow and Arrow(Bugged/Don't Use)
-;0136= Bowgun
-;013A= Rocket Launcher
-;013B= Infinite Rocket Launcher
-;014A= Knife
-;014B= Survival Knife
-;014D= Crowbar
-;014F= Katana
-;0150= Short Sword
-;0157= Brick
-;0158= Meat Grinder
-;0159= Meat Grinder(?)
-;0174= G18 G.E.O
-;0175= G18 Type-T
-;0176= G18 Candiru
-;0177= G18 JC2
-;0178= G18
+{XX}0000=--Handguns--;0102= Bubble Gun (Natalia's Weapon);0105= Handgun MPM;0106= Handgun P10;0107= Samurai Edge;0108= Handgun MPM/S;0109= Handgun Triple Shot;0000=--Shotguns--;010C= Shotgun M147s;010D= Shotgun TAP194;010F= Shotgun Hydra;0110= Shotgun Drake;0000=--Machine Pistol--;0115= MP-AB50;0116= MP-AF;0117= Chicago Typerwriter;0118= MP-AB50G;0000=--Assault Rifle--;011C= Assault Rifle AK-7;011D= Assault Rifle NSR47;011E= AR High Roller;0000=--Sniper Rifle--;0125= Rifle M1891/30;0126= Rifle SVD;0127= Anti-Material Rifle;0128= Rifle Marumasa;0000=--Magnums--;012C= Magnum Model 329;012D= Magnum 2005M;012E= Magnum Python;012F= Magnum Anaconda;0130= Magnum Pale Rider;0000=--Specials--;0135= Bow and Arrow(Bugged/Don't Use);0136= Bowgun;013A= Rocket Launcher;013B= Infinite Rocket Launcher;014A= Knife;014B= Survival Knife;014D= Crowbar;014F= Katana;0150= Short Sword;0157= Brick;0158= Meat Grinder;0159= Meat Grinder(?);0174= G18 G.E.O;0175= G18 Type-T;0176= G18 Candiru;0177= G18 JC2;0178= G18{/XX}
 
 [Claire - All S Rank and 00:00:00]
 42008638 00000000
@@ -535,6 +470,13 @@ endian_swap(4)
 [All Character Max SP]
 4100C848 0000270F
 40170170 00000000
+
+[Update DWADD LE (Required)]
+set [csum]:0
+set [csum]:dwadd_le(0x000020,0x19490)
+set [csum]:dwadd_le(0x0194A0,0x1284C0)
+set [csum]:endian_swap
+write at 0x000018:[csum]
 
 [Update SHA1 Hash (Required)]
 set pointer:eof-0x1F

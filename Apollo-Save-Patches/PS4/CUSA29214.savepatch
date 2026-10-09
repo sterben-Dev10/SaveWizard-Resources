@@ -1,0 +1,10 @@
+; CUSA29214
+; Tales of Symphonia Remastered
+; checksum by bucanero
+
+:TOSSaveData*.dat
+
+[Update DWADD LE Checksum (Required)]
+set [csum]:dwadd_le(0x0004,0x25F8)
+set [csum]:endian_swap
+write at 0x00:[csum]

@@ -18,7 +18,7 @@
 [Black feather 255 (max)]
 write at 0x00060C0F:FF
 
-[Black feather point (for trading)] 
+[Black feather point (for trading)]
 write at 0x00004A88:000003E8
 
 [Jude float 1000]
@@ -559,6 +559,139 @@ write at 0x0001269F:0xFF
 
 
 
+; --- Battle items ---
+;type: none
+
+[All-Divide]
+write at 0x00012484:0xFF
+
+; --- Heal items ---
+;type: none
+
+[apple gel]
+write at 0x00012451:0xFF
+
+[Orange gel]
+write at 0x00012452:0xFF
+
+[Melange gel]
+write at 0x00012453:0xFF
+
+[Lemon gel]
+write at 0x00012454:0xFF
+
+[Pineapple gel]
+write at 0x00012455:0xFF
+
+[Miracle gel]
+write at 0x00012456:0xFF
+
+[Specific]
+write at 0x00012457:0xFF
+
+[Treat]
+write at 0x00012458:0xFF
+
+[Special Gel]
+write at 0x00012459:0xFF
+
+[Lottery Gel]
+write at 0x0001245A:0xFF
+
+[Nectar Bottle]
+write at 0x0001245C:0xFF
+
+[Cure Bottle]
+write at 0x0001245D:0xFF
+
+[Dark Bottle]
+write at 0x0001245E:0xFF
+
+[Dinei Bottle]
+write at 0x0001245F:0xFF
+
+[Holy Bottle]
+write at 0x00012460:0xFF
+
+[Life Bottle]
+write at 0x00012461:0xFF
+
+[Syrup Bottle]
+write at 0x00012462:0xFF
+
+[Panacea Bottle]
+write at 0x00012463:0xFF
+
+[Paralysis Bottle]
+write at 0x00012464:0xFF
+
+[Poison Bottle]
+write at 0x00012465:0xFF
+
+[Seal Bottle]
+write at 0x00012466:0xFF
+
+[Shock Bottle]
+write at 0x00012467:0xFF
+
+[Stone Bottle]
+write at 0x00012468:0xFF
+
+[Virus Bottle]
+write at 0x00012469:0xFF
+
+[Weak Bottle]
+write at 0x0001246A:0xFF
+
+[Wing Bottle]
+write at 0x0001246B:0xFF
+
+; --- PowerUP items ---
+;type: none
+
+[Sage]
+write at 0x0001246C:0xFF
+
+[Savory]
+write at 0x0001246D:0xFF
+
+[Lavender]
+write at 0x0001246E:0xFF
+
+[Verbena]
+write at 0x0001246F:0xFF
+
+[Chamomile]
+write at 0x00012470:0xFF
+
+[Basil]
+write at 0x00012471:0xFF
+
+[Saffron]
+write at 0x00012472:0xFF
+
+[Blue Sage]
+write at 0x00012473:0xFF
+
+[Blue Savory]
+write at 0x00012474:0xFF
+
+[Blue Lavender]
+write at 0x00012475:0xFF
+
+[Blue Verbena]
+write at 0x00012476:0xFF
+
+[Blue Chamomile]
+write at 0x00012477:0xFF
+
+[Blue Basil]
+write at 0x00012478:0xFF
+
+[Blue Saffron]
+write at 0x00012479:0xFF
+
+
 [GROUP:Arts Usage Count]
 [GROUP:Arts Usage Count\Jude Arts]
 [demon fist usage 9999]
@@ -703,7 +836,7 @@ write at 0x00013958:0000270f
 [overdrive usage 9999]
 write at 0x00013ab0:0000270f
 
-[GROUP:Arts Usage Count\Alvin Arts] 
+[GROUP:Arts Usage Count\Alvin Arts]
 [demon fang usage 9999]
 write at 0x0001c8c0:0000270f
  
@@ -758,7 +891,7 @@ write at 0x0001c900:0000270f
 [hell fryer usage 9999]
 write at 0x0001d960:0000270f
 
-[GROUP:Arts Usage Count\Elize Arts] 
+[GROUP:Arts Usage Count\Elize Arts]
 [pixie circle usage 9999]
 write at 0x00026950:0000270f
  
@@ -813,7 +946,7 @@ write at 0x00026a68:0000270f
 [ignite terror usage 9999]
 write at 0x00027968:0000270f
 
-[GROUP:Arts Usage Count\Rowen Arts] 
+[GROUP:Arts Usage Count\Rowen Arts]
 [fireball usage 9999]
 write at 0x000309ac:0000270f
  
@@ -868,7 +1001,7 @@ write at 0x000309a8:0000270f
 [tidal wave usage 9999]
 write at 0x00031970:0000270f
 
-[GROUP:Arts Usage Count\Leia Arts] 
+[GROUP:Arts Usage Count\Leia Arts]
 [first aid usage 9999]
 write at 0x0003aa3c:0000270f
  
@@ -1127,6 +1260,3 @@ write at 0x0003a542:270f
 
 [PSY]
 write at 0x0003a546:270f
-
-
-

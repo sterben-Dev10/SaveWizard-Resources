@@ -103,7 +103,8 @@
 [Reset Playtime to 0]
 20000034 00000000
 
-[Reset Boat Stage Time 0];will not unlock boat time trophy
+[Reset Boat Stage Time 0]
+; will not unlock boat time trophy
 20000040 00000000
 
 [Reset Damaged 0]

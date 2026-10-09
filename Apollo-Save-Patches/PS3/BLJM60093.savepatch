@@ -1,0 +1,9 @@
+; BLJM60093
+; Grand Theft Auto IV
+
+:RAGE.SAV
+
+[Update ADD Checksum for RAGE.SAV (Required)]
+set [csum]:0
+set [csum]:add(0,ADE6C)
+write at 0xADE6D:[csum]

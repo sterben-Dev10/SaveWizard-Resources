@@ -1,7 +1,11 @@
 ; BLJM60480
 ; Two Worlds II
 
-:BLJM60480_SAVE_00*\~extracted\00000000.dat
+:BLJM60480_SAVE_*\SAVE
+[Decompress Save (Required)]
+Decompress(0x00000000, 15)
+
+:~extracted\00000000.dat
 
 ; --- codes by Shaka ---
 
@@ -30,3 +34,7 @@ write next 0x13:0xFF7F
 [Max Aura]
 search "CHero_Store_2"
 write next 0x35:0xFFE0F505
+
+:SAVE
+[Compress Save (Required)]
+Compress(0x00000000)

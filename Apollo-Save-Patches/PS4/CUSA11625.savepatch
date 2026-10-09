@@ -1,0 +1,22 @@
+; CUSA11625
+; Jump Force
+; decryption by Bucanero
+
+:JFSaveData
+
+[python:Decrypt JFSaveData (Required)]
+import jumpforce
+
+jumpforce.jumpforce_crypt(jumpforce.DECRYPT, jumpforce.SEED_JFSAVEDATA, savedata)
+
+
+;
+;[example]
+;cheat codes should go here
+;
+
+
+[python:Encrypt JFSaveData (Required)]
+import jumpforce
+
+jumpforce.jumpforce_crypt(jumpforce.ENCRYPT, jumpforce.SEED_JFSAVEDATA, savedata)

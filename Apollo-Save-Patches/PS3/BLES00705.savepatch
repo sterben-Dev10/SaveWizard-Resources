@@ -6,7 +6,7 @@
 [Decompress DSSAVE (Required)]
 Decompress(0x00000035, 15)
  
-:*\~extracted\00000035.dat
+:~extracted\00000035.dat
 
 [Max Health]
 search "Health"

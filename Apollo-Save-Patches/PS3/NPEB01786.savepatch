@@ -1,0 +1,22 @@
+; NPEB01786
+; Dead Or Alive 5 Ultimate/Last Round
+;decryption by Bucanero
+
+:SAVE_SYS.DAT
+
+[python:Decrypt SAVE_SYS.DAT (Required)]
+import doa5
+
+doa5.doa5_crypt(doa5.DECRYPT, savedata)
+
+
+;
+; [example]
+; codes go here
+;
+
+
+[python:Encrypt SAVE_SYS.DAT (Required)]
+import doa5
+
+doa5.doa5_crypt(doa5.ENCRYPT, savedata)

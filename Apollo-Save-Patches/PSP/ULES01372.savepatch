@@ -1,0 +1,30 @@
+; ULES01372
+; Metal Gear Solid Peace Walker
+; PSP
+; by bucanero
+
+:00000000.000
+
+[Decrypt 00000000.000 (Required)]
+set range:0x0000,eof+1
+DECRYPT mgs_pw(1)
+
+; cheats should go here
+
+[Update Custom Checksums (Required)]
+; checksum 1
+set range:0x00044,0x1AF67
+set [csum]:mgspw_checksum
+write at 0x0038:[csum]
+; checksum 2
+set range:0x1AF68,0x1CB67
+set [csum]:mgspw_checksum
+write at 0x003C:[csum]
+; checksum 3
+set range:0x1CB68,0x359CF
+set [csum]:mgspw_checksum
+write at 0x0030:[csum]
+
+[Encrypt 00000000.000 (Required)]
+set range:0x0000,eof+1
+ENCRYPT mgs_pw(1)

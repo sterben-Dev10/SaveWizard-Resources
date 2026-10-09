@@ -4,9 +4,10 @@
 
 :SAVEGAME.SAV
 [Decompress Save (Required)]
-Decompress(*, 15)
+Decompress(0x00000043, 15)
 
-:NPUB30383-AUTOSAVE\~extracted\*.dat
+;NPUB30383-AUTOSAVE\
+:~extracted\00000043.dat
 
 [Must have 1 or more for cheats to work]
 [Retry x 9999]
@@ -495,7 +496,7 @@ write next (12):0x63
 
 :SAVEGAME.SAV
 [Compress Save (Required)]
-Compress(*)
+Compress(0x00000043)
 
 :SAVEGAME.SAV
 [Update CRC32Big for SAVEGAME.SAV (Required)]

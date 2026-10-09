@@ -6,7 +6,7 @@
 
 [Decrypt 00000000.000 (Required)]
 set range:0x0000,eof+1
-DECRYPT mgs_pw
+DECRYPT mgs_pw(0)
 
 ; cheats should go here
 
@@ -30,4 +30,4 @@ write at 0x35A0C:[csum]
 
 [Encrypt 00000000.000 (Required)]
 set range:0x0000,eof+1
-ENCRYPT mgs_pw
+ENCRYPT mgs_pw(0)

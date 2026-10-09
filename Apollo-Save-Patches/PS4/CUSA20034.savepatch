@@ -1,0 +1,30 @@
+;CUSA20034
+;The Legend of Heroes: Trails of Cold Steel IV
+;unpack + checksum by Bucanero
+
+:user.dat
+
+[Python:Unpack Save data (Required)]
+import loh_trails
+
+unpack = loh_trails.loh_trails_decompress(savedata)
+savedata = unpack
+
+
+[Python:Fix custom CRC32 (Required)]
+import loh_trails
+import ubinascii
+
+trails_crc = loh_trails.loh_trails_crc32(savedata, 0x10)
+print("New CRC:", ubinascii.hexlify(trails_crc))
+
+savedata[12:16] = trails_crc
+
+
+[INFO:Compression takes time, please wait until it's done]
+
+[Python:Compress Save data (Required)]
+import loh_trails
+
+compressed = loh_trails.loh_trails_compress(savedata)
+savedata = compressed

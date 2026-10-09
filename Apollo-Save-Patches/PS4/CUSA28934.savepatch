@@ -1,0 +1,16 @@
+;CUSA28934
+;The Legend of Heroes: Trails from Zero
+;checksum by Bucanero
+
+:SAVEDATA.DAT
+
+[Python:Fix custom Checksum (Required)]
+import loh_trails
+import ustruct as struct
+
+size_csum, data_csum = struct.unpack_from("<II", savedata, len(savedata) - 8)
+print("Old checksum: {:08X} {:08X}".format(size_csum, data_csum))
+
+size_csum, data_csum = loh_trails.loh_trails_checksum(savedata)
+struct.pack_into("<II", savedata, len(savedata) - 8, size_csum, data_csum)
+print("New checksum: {:08X} {:08X}".format(size_csum, data_csum))

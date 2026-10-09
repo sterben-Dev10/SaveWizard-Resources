@@ -93,7 +93,7 @@
 0000002B 00000000
 
 [Change To Round 2]
-0000002B 00000001]
+0000002B 00000001
 
 [Change To Round X* Note: this particular code can only go up to FF (255)]
 0000002B 000000xx
@@ -1228,7 +1228,7 @@
 2800007C 4E484F4A
 28000080 324E4F53
 
-[Replace 5th Item In Safe With Refurbished Plasma Cutter
+[Replace 5th Item In Safe With Refurbished Plasma Cutter]
 80010004 96415F74
 28000074 36C8BC4F
 28000078 07EADE56

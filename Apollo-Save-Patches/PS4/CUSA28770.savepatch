@@ -1,0 +1,34 @@
+; CUSA28770
+; JoJo's Bizarre Adventure: All-Star Battle
+; script by Bucanero
+
+:JOJOASB.S
+
+[python:Decrypt JOJOASB.S (Required)]
+import jojo_asb
+
+jojo_asb.jojo_crypt(jojo_asb.DECRYPT, savedata)
+
+
+[9999999 Gold]
+20207DD4 0098967F
+20207DD8 0098967F
+
+[python:Unlock all gallery and characters]
+import jojo_asb
+
+jojo_asb.jojo_unlock_all(savedata)
+
+
+[Update CRC32Big checksum (Required)]
+set pointer:EOF-3
+set range:0x0000,pointer
+set [crc]:CRC32Big
+set [crc]:endian_swap
+write next 0x00:[crc]
+
+
+[python:Encrypt JOJOASB.S (Required)]
+import jojo_asb
+
+jojo_asb.jojo_crypt(jojo_asb.ENCRYPT, savedata)

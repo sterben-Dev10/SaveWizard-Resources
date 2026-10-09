@@ -1,0 +1,29 @@
+; CUSA08495
+; Dark Souls Remastered
+; BSD script by Bucanero
+
+:userdata*
+
+[Decrypt userdata AES CBC (Required)]
+;read IV for AES CBC
+set [iv_cbc]:read(0x00, 0x10)
+set range:0x0010,EOF-0x10
+decrypt AES_CBC(0x20EC4B7519C2BD15E70C1EE4B204B8CB, [iv_cbc])
+
+
+;
+; cheat codes should go here
+;
+
+
+[Encrypt userdata AES CBC (Required)]
+;read IV for AES CBC
+set [iv_cbc]:read(0x00, 0x10)
+set range:0x0010,EOF-0x10
+encrypt AES_CBC(0x20EC4B7519C2BD15E70C1EE4B204B8CB, [iv_cbc])
+
+[Update MD5 Hash (Required)]
+set pointer:EOF-0x0F
+set range:0x0000,pointer
+set [hash]:MD5
+write next 0x00:[hash]

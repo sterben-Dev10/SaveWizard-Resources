@@ -4,26 +4,52 @@
 
 :BLUS30420-*\MAINSAVE.BSG
 
-[Decompress Save (Required)]
-Decompress(*, 15)
+[Python:Decompress MAINSAVE.BSG (Required)]
+import uzlib
+
+zip_offset = uzlib.offzip(savedata, 15)
+zip_id = 0
+unzip_data = uzlib.decompress(savedata[zip_offset[zip_id][0]:], 15)
+print("Zip offset: 0x{:08X}".format(zip_offset[zip_id][0]))
+print("Compressed size:", zip_offset[zip_id][1])
+print("Decompressed size:", zip_offset[zip_id][2])
+
 
 ; You MUST have at least 1 Dollar to use this cheat.
-[Max Money]
+[Python:Max Money]
+import apollo
+
+sw_code = """
 80010008 03000000
 00220000 00000000
 18000008 000003E7
 80010008 02000000
 00220000 00000000
 18000008 000003E7
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
 
 ; You MUST have at least 1 ADAM use this cheat.
-[Max ADAM]
+[Python:Max ADAM]
+import apollo
+
+sw_code = """
 80010008 03000000
 00220000 00000000
 18000012 0000270F
 80010008 02000000
 00220000 00000000
 18000012 0000270F
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
 
-[Compress Save (Required)]
-Compress(*)
+:MAINSAVE.BSG
+[Python:Compress MAINSAVE.BSG (Required)]
+import uzlib
+
+print("Compressing bytes:", len(unzip_data))
+print("Compress offset: 0x{:08X}".format(zip_offset[zip_id][0]))
+print("Old compressed size:", zip_offset[zip_id][1])
+savedata = uzlib.packzip(savedata, zip_offset[zip_id], unzip_data)
+print("New compressed size:", zip_offset[zip_id][1])

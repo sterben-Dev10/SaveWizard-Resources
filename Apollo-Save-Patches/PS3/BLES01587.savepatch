@@ -2,44 +2,89 @@
 ; Batman: Arkham City (GOTY)
 ;From Game Genie For PS3
 
-[INFO: go to http://bruteforcesavedata.forumms.net/t18-batman-arkham-city-gotyguide-added-to-mod-xp for more info]
-[INFO: Some patches may not be supported by BSD yet]
-
 :BLUS30978-SAVE*\PAYLOAD
 
-[Decompress Save (Required)]
-Decompress(*, 15)
+[Python:Decompress PAYLOAD (Required)]
+import uzlib
 
-[Level Up (Not Working)]
-90000000 0000001C
-93000000 00000028
+zip_offset = uzlib.offzip(savedata, 15)
+unzip_data = uzlib.decompress(savedata[zip_offset[1][0]:], 15)
+print("Zip offset: 0x{:08X}".format(zip_offset[1][0]))
+print("Compressed size:", zip_offset[1][1])
+print("Decompressed size:", zip_offset[1][2])
+
+
+[Python:Max Mod XP]
+;INFO: go to http://bruteforcesavedata.forumms.net/t18-batman-arkham-city-gotyguide-added-to-mod-xp for more info
+
+import apollo
+
+sw_code = """
+94000000 00000028
+28000000 48927C00
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
+
+[Python:Level Up]
+import apollo
+
+sw_code = """
+94000000 00000028
 58000008 00000004
 58000000 00000000
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
 
-[Unlock All Character Bios (Not Working)]
-90000000 0000001C
-93000000 0000116F
+
+[Python:Unlock All Character Bios]
+import apollo
+
+sw_code = """
+94000000 0000116F
 48000000 00000001
 40200001 00000000
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
 
-[Unlock All Arkham City Stories (Not Working)]
-90000000 0000001C
-93000000 00000F89
+
+[Python:Unlock All Arkham City Stories]
+import apollo
+
+sw_code = """
+94000000 00000F89
 4A000000 00000001
 403E0004 00000000
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
 
-[Unlock All Character Trophies (Not Working)]
-90000000 0000001C
-93000000 000010EB
+
+[Python:Unlock All Character Trophies]
+import apollo
+
+sw_code = """
+94000000 000010EB
 48000000 00000001
 40590001 00000000
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
 
-[Unlock All Concept Art (Not Working)]
-90000000 0000001C
-93000000 00001037
+
+[Python:Unlock All Concept Art]
+import apollo
+
+sw_code = """
+94000000 00001037
 48000000 00000001
 40500001 00000000
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
 
-:PAYLOAD
-[Compress Save (Required)]
-Compress(*)
+
+[Python:Compress PAYLOAD (Required)]
+import uzlib
+
+print("Compressing bytes:", len(unzip_data))
+print("Compress offset: 0x{:08X}".format(zip_offset[1][0]))
+savedata = uzlib.packzip(savedata, zip_offset[1], unzip_data)
+print("New compressed size:", zip_offset[1][1])

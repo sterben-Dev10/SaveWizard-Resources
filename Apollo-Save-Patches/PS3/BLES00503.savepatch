@@ -4,8 +4,16 @@
 
 :PAYLOAD
 
-[Decompress Save (Required)]
-Decompress(*, 15)
+[Python:Decompress PAYLOAD (Required)]
+import uzlib
+
+zip_offset = uzlib.offzip(savedata, 15)
+zip_id = (len(zip_offset) - 1)
+unzip_data = uzlib.decompress(savedata[zip_offset[zip_id][0]:], 15)
+print("Zip offset: 0x{:08X}".format(zip_offset[zip_id][0]))
+print("Compressed size:", zip_offset[zip_id][1])
+print("Decompressed size:", zip_offset[zip_id][2])
+
 
 [Level Up (Not Working)]
 80010009 52426174
@@ -42,16 +50,34 @@ Decompress(*, 15)
 58000008 00000004
 58000000 00000000
 
-[Unlock All Character Bios (Not Working)]
-94000000 00000018
+[Python:Unlock All Character Bios]
+import apollo
+
+sw_code = """
+94000000 00000108
 4A000000 00000001
 402A0004 00000000
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
 
-[Unlock All Character Trophies (Not Working)]
+
+[Python:Unlock All Character Trophies]
+import apollo
+
+sw_code = """
 94000000 0000005C
 4A000000 00000001
 40140004 00000000
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
 
 :PAYLOAD
-[Compress Save (Required)]
-Compress(*)
+[Python:Compress PAYLOAD (Required)]
+import uzlib
+
+print("Compressing bytes:", len(unzip_data))
+print("Compress offset: 0x{:08X}".format(zip_offset[zip_id][0]))
+print("Old compressed size:", zip_offset[zip_id][1])
+savedata = uzlib.packzip(savedata, zip_offset[zip_id], unzip_data)
+print("New compressed size:", zip_offset[zip_id][1])

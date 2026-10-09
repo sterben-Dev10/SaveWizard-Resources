@@ -6,7 +6,7 @@
 [Decompress PAYLOAD (required)]
 Decompress(0x00000018, 15)
 
-:BLES01789-PROFILE\~extracted\00000018.dat
+:~extracted\00000018.dat
 [999999 DP Points]
 search 0x00004505 
 write next (4):497423F0

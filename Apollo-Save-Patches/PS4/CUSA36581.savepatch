@@ -1,0 +1,114 @@
+;CUSA36581
+;Prince of Persia The Lost Crown
+;codes by pj1980 / savewizard discord
+;Python decompression by Bucanero
+
+:PopSaveGameSlot*.AlkSave
+
+[python:Decompress PopSaveGame (required)]
+import uzlib
+import ustruct as struct
+
+declen = struct.unpack_from("<I", savedata, 0x0422)[0]
+cmplen = struct.unpack_from("<I", savedata, 0x042A)[0]
+print("Compressed size:", cmplen)
+print("Decompress size:", declen)
+
+decomp = uzlib.decompress(savedata[0x043C:], -15)
+decomp = bytearray(decomp)
+print("Decompressed size:", len(decomp))
+print(decomp)
+
+jsonlen = struct.unpack_from("<I", decomp, 0x11)[0]
+print("JSON size:", jsonlen)
+
+
+; cheats must be applied to the decompressed json data
+
+[Python:health upgrade]
+import apollo
+
+sw_code = """
+80010010 6D5F6865
+616C7468 55706772
+61646573 00000000
+08000012 00000039
+"""
+apollo.apply_savewizard(decomp, sw_code)
+
+[Python:sword upgrade]
+import apollo
+
+sw_code = """
+8001000F 6D5F7377
+6F726455 70677261
+64657300 00000000
+08000011 00000034
+"""
+apollo.apply_savewizard(decomp, sw_code)
+
+[Python:bow upgrade]
+import apollo
+
+sw_code = """
+8001000D 6D5F626F
+77557067 72616465
+73000000 00000000
+0800000F 00000034
+"""
+apollo.apply_savewizard(decomp, sw_code)
+
+[Python:quiver upgrade]
+import apollo
+
+sw_code = """
+80010010 6D5F7175
+69766572 55706772
+61646573 00000000
+08000012 00000034
+"""
+apollo.apply_savewizard(decomp, sw_code)
+
+[Python:potion number upgrade]
+import apollo
+
+sw_code = """
+80010016 6D5F706F
+74696F6E 4E756D62
+65725570 67726164
+65730000 00000000
+08000018 00000033
+"""
+apollo.apply_savewizard(decomp, sw_code)
+
+[Python:potion effect upgrade]
+import apollo
+
+sw_code = """
+80010016 6D5F706F
+74696F6E 45666665
+63745570 67726164
+65730000 00000000
+08000018 00000033
+"""
+apollo.apply_savewizard(decomp, sw_code)
+
+
+[python:Compress PopSaveGame (required)]
+import uzlib
+import ustruct as struct
+
+jsonlen = len(decomp) - 0x15
+print("Update JSON size:", jsonlen)
+struct.pack_into("<I", decomp, 0x11, jsonlen)
+
+declen = len(decomp)
+print("Update decompress size:", declen)
+struct.pack_into("<I", savedata, 0x0422, declen)
+
+cmpdata = uzlib.compress(decomp, -15)
+cmplen = len(cmpdata) + 0x0A
+print("Update compressed size:", cmplen)
+struct.pack_into("<I", savedata, 0x042A, cmplen)
+
+savedata[0x043C:] = cmpdata

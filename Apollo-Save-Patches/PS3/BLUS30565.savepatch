@@ -61,7 +61,8 @@ search "difficulty_puzzle"
 write next 17:"2"
 
 ;checksum by chaoszage
-[Group:UPDATE SHA1 Checksum(Required)]
+[GROUP:\]
+[UPDATE SHA1 Checksum(Required)]
 ;null bytes
 write at 0x4:0000000000000000000000000000000000000000
 set pointer:eof+1

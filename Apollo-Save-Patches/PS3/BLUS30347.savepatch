@@ -6,7 +6,7 @@
 [Decompress COJ2-DAT (Required)]
 Decompress(0x0000000a, -15)
 
-:*\~extracted\0000000a.dat
+:~extracted\0000000a.dat
 
 [Green:goldrush! and on the rigat track 1$ more(Working)]
 search "AchGRush_G"

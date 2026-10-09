@@ -1,0 +1,22 @@
+; PCSE00235
+; Dead or Alive 5 Plus
+; decryption by Bucanero
+
+:SAVE_SYS.DAT
+
+[python:Decrypt SAVE_SYS.DAT (Required)]
+import doa5
+
+doa5.doa5_crypt(doa5.DECRYPT, savedata)
+
+
+;
+;[example]
+;cheat codes should go here
+;
+
+
+[python:Encrypt SAVE_SYS.DAT (Required)]
+import doa5
+
+doa5.doa5_crypt(doa5.ENCRYPT, savedata)

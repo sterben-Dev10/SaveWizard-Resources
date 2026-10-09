@@ -58,7 +58,7 @@ write next 0x28:0x7FFFFFFF
 200326F8 00000001
 
 [Update  md5 hashes (required)]
-set pointer:read(0x20)
+set pointer:read(0x20,4)
 set pointer:pointer -0x8
 set range:0x8, pointer
 set [md5]:md5

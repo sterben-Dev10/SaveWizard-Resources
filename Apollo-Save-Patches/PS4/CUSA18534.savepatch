@@ -66,23 +66,8 @@ A8000016 00000008
 ACD07518 B5010000
 
 ;Wrath of The Druids DLC (Ireland Resources)
-[Luxuries]
-
-3757D714C B010000
-
-[Delicacies]
-
-1541918D C7010000
-
-[Texts]
-
-3C43918D C7010000
-
-[Clothing]
-
-4B43918D C7010000
-
-[Trade Post Supplies Money Irish Cargo]
-
-1C0B8152 D7010000
-
+; Luxuries = 3757D714C B010000
+; Delicacies = 1541918D C7010000
+; Texts = 3C43918D C7010000
+; Clothing = 4B43918D C7010000
+; Trade Post Supplies Money Irish Cargo = 1C0B8152 D7010000

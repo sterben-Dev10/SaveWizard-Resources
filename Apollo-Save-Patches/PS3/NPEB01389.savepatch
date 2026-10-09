@@ -392,19 +392,19 @@ write at 0x00012484:0xFF
 ; --- Heal items ---
 ;type: none
 
-apple gel
+[apple gel]
 write at 0x00012451:0xFF
 
-Orange gel
+[Orange gel]
 write at 0x00012452:0xFF
 
-Melange gel
+[Melange gel]
 write at 0x00012453:0xFF
 
-Lemon gel
+[Lemon gel]
 write at 0x00012454:0xFF
 
-Pineapple gel
+[Pineapple gel]
 write at 0x00012455:0xFF
 
 [Miracle gel]

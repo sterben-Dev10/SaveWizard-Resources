@@ -1,55 +1,113 @@
 ; BLJS50016
 ; Sacred 2: Fallen Angel [PlayStation®3 the Best]
+;chaoszage
 
-;chaoszage 
-
-:SAVE.DAT
-[Decompress Save (Required)]
-Decompress(*, 15)
-
-;Steps to mod(Only for the 1st char):
-;1.Turn on Compression Check(located near bottom right near patch creator)
-;2.double click on save.dat
-;3.a small window pop up with 2 files list
-;4.right click on the xxx.neo file and click apply cheats.
-;5.select your desired cheats and close cheat select mode after cheats applied.
-;6. Highlight only xxx.neo file and close the extracted files windows.
-;7. click yes to recompress and input -w 15 then click ok
-;8. update pfd -> encrypt pfd -> verify pfd as usual
-
-:~extracted\*.neo
-
-[32767 Skill Points(Apply on xxx.neo file)]
-search 0xFFFFAA07
-write next 8:0x7FFF
-
-[32767 Attribute Points(Apply on xxx.neo file)]
-search 0xFFFFAA07
-write next A:0x7FFF
-
-[Lots of Gold(Apply on xxx.neo file)]
-search 0xFFFFAA07
-write next 19A:0x7FFFFFFF
-
-[Lots of Kills Counts(Apply on xxx.neo file)]
-search 0xFFFFAA07
-write next 1CC:0x7FFFFFFF
-
-
-[Kill 1 to max out level(Apply on xxx.neo file)]
-search 0xFFFFAA07
-write next C:0x03B86412
-
-[Max Gold(Apply on xxx.neo file)]
-search 0xFFFFAA07
-write next 19A:0x7FFFFFFF
-
-[Easy Leveling(Apply on xxx.neo file)]
-search 0xFFFFAA07
-write next 5:0x01
-search 0xFFFFAA07
-write next C:0x709e9cb7
+{USERID}01=User Profile #1;02=User Profile #2;03=User Profile #3;04=User Profile #4;05=User Profile #5;06=User Profile #6;07=User Profile #7;08=User Profile #8{/USERID}
 
 :SAVE.DAT
-[Compress Save (Required)]
-Compress(*)
+[Python:Decompress SAVE.DAT (Required)]
+import uzlib
+import apollo
+
+zip_offset = uzlib.offzip(savedata, 15)
+zip_id = {USERID}
+unzip_data = uzlib.decompress(savedata[zip_offset[zip_id][0]:], 15)
+print("Zip offset: 0x{:08X}".format(zip_offset[zip_id][0]))
+print("Compressed size:", zip_offset[zip_id][1])
+print("Decompressed size:", zip_offset[zip_id][2])
+
+pos = apollo.search(unzip_data, b"\xFF\xFF\xAA\x07")
+pos += apollo.search(unzip_data[pos:], b"\x00\x00\x00\x00\x40\x00") + 4
+print("User Profile:", unzip_data[pos:pos+32].decode('utf-16'))
+
+
+[Python:32767 Skill Points]
+;search 0xFFFFAA07
+;write next 8:0x7FFF
+
+import apollo
+
+sw_code = """
+80010004 FFFFAA07
+18000008 00007FFF
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
+
+[Python:32767 Attribute Points]
+;search 0xFFFFAA07
+;write next A:0x7FFF
+
+import apollo
+
+sw_code = """
+80010004 FFFFAA07
+1800000A 00007FFF
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
+
+[Python:Lots of Gold]
+;search 0xFFFFAA07
+;write next 19A:0x7FFFFFFF
+
+import apollo
+
+sw_code = """
+80010004 FFFFAA07
+2800019A 7FFFFFFF
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
+
+[Python:Lots of Kills Counts]
+;search 0xFFFFAA07
+;write next 1CC:0x7FFFFFFF
+
+import apollo
+
+sw_code = """
+80010004 FFFFAA07
+280001CC 7FFFFFFF
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
+
+[Python:Kill 1 to max out level]
+;search 0xFFFFAA07
+;write next C:0x03B86412
+
+import apollo
+
+sw_code = """
+80010004 FFFFAA07
+2800000C 03B86412
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
+
+[Python:Easy Leveling]
+;search 0xFFFFAA07
+;write next 5:0x01
+;search 0xFFFFAA07
+;write next C:0x709e9cb7
+
+import apollo
+
+sw_code = """
+80010004 FFFFAA07
+08000005 00000001
+2800000C 709E9CB7
+"""
+apollo.apply_savewizard(unzip_data, sw_code)
+
+
+:SAVE.DAT
+[Python:Compress SAVE.DAT (Required)]
+import uzlib
+
+print("Compressing bytes:", len(unzip_data))
+print("Compress offset: 0x{:08X}".format(zip_offset[zip_id][0]))
+print("Old compressed size:", zip_offset[zip_id][1])
+savedata = uzlib.packzip(savedata, zip_offset[zip_id], unzip_data)
+print("New compressed size:", zip_offset[zip_id][1])

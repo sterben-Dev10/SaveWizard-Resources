@@ -1,0 +1,68 @@
+; CUSA05088
+; Dragon Ball Z Xenoverse 2
+; BSD script by Bucanero
+
+:SDATA*.DAT
+
+[Decrypt save data AES CTR (Required)]
+;Decrypt header
+set range:0x0020,0x009F
+decrypt AES_CTR("PR]-<Q9*WxHsV8rcW!JuH7k_ug:T5ApX", "_Y7]mD1ziyH#Ar=0")
+;calculate key/iv offset from header
+;key1@ 0x3C iv1@ 0x5C
+;key2@ 0x6C iv2@ 0x8C
+set [offset]:read(0x25, 0x01)
+set [offset]:AND:0x04
+set [offset]:[offset]+[offset]+[offset]
+set [offset]:[offset]+[offset]+[offset]+[offset]
+;read key for AES CTR
+set [offset]:[offset]+0x3C
+set [key_ctr]:read([offset], 0x20)
+;read IV for AES CTR
+set [offset]:[offset]+0x20
+set [iv_ctr]:read([offset], 0x10)
+;Decrypt data
+set range:0x00A0,EOF+1
+decrypt AES_CTR([key_ctr], [iv_ctr])
+
+
+;
+; cheat codes should go here
+;
+
+
+[Update Custom checksum (Required)]
+;init checksum values
+write at 0x0034:0x0000000000000000
+set [checkdbz]:dbzxv2_checksum
+write at 0x0034:[checkdbz]
+
+[Encrypt save data AES CTR (Required)]
+;calculate key/iv offset from header
+;key1@ 0x3C iv1@ 0x5C
+;key2@ 0x6C iv2@ 0x8C
+set [offset]:read(0x25, 0x01)
+set [offset]:AND:0x04
+set [offset]:[offset]+[offset]+[offset]
+set [offset]:[offset]+[offset]+[offset]+[offset]
+;read key for AES CTR
+set [offset]:[offset]+0x3C
+set [key_ctr]:read([offset], 0x20)
+;read IV for AES CTR
+set [offset]:[offset]+0x20
+set [iv_ctr]:read([offset], 0x10)
+;Encrypt data
+set range:0x00A0,EOF+1
+encrypt AES_CTR([key_ctr], [iv_ctr])
+;Update custom checksums
+set [checkdbz]:dbzxv2_checksum
+write at 0x0034:[checkdbz]
+;Encrypt header
+set range:0x0020,0x009F
+encrypt AES_CTR("PR]-<Q9*WxHsV8rcW!JuH7k_ug:T5ApX", "_Y7]mD1ziyH#Ar=0")
+
+[Update MD5 Hash (Required)]
+set pointer:EOF+1
+set range:0x0020,pointer
+set [hash]:MD5
+write at 0x0010:[hash]

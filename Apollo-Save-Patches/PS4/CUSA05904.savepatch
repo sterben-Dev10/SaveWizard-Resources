@@ -1,0 +1,18 @@
+;CUSA05904
+;Far Cry 5
+;checksum by bucanero
+
+:memory.dat
+
+;
+; add codes here
+;
+
+[Update CRC32 checksum (Required)]
+set [size]:read(0x08, 4)
+set [size]:endian_swap
+set [size]:[size]+0x0F
+set range:0x0010,[size]
+set [csum]:CRC32
+set [csum]:endian_swap
+write at 0x0C:[csum]

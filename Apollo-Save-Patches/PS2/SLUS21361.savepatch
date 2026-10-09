@@ -1,0 +1,50 @@
+; SLUS21361
+; Devil May Cry 3 SE
+; codes & checksum fix by bucanero
+
+:BASLUS-21361DMC3SE
+
+; Slot offsets: (block size 0x6C0)
+; save 01@ 0x0340
+; save 02@ 0x0A00
+; save 03@ 0x10C0
+; save 04@ 0x1780
+; save 05@ 0x1E40
+; save 06@ 0x2500
+; save 07@ 0x2BC0
+; save 08@ 0x3280
+; save 09@ 0x3940
+; save 10@ 0x4000
+
+[INFO:DMC3 Save Slots 01-10]
+
+{SF}0340=Save Slot 1;0A00=Save Slot 2;10C0=Save Slot 3;1780=Save Slot 4;1E40=Save Slot 5;2500=Save Slot 6;2BC0=Save Slot 7;3280=Save Slot 8;3940=Save Slot 9;4000=Save Slot 10{/SF}
+
+;------------------------
+
+[999999 Max Red Orbs]
+95000000 0000{SF}
+28000004 000F423F
+
+[99 Max Gold Orbs]
+95000000 0000{SF}
+0800000D 00000063
+
+[99 Max Yellow Orbs]
+95000000 0000{SF}
+0800000E 00000063
+
+[Update WSUB Checksum - Slot 1-10 (Required)]
+;DMC 3 custom Checksum
+set [start]:{SF}
+set [end]:0x6BD
+set [end]:[end]+[start]
+set [csum]:0
+set [csum]:wsub([start],[end])
+write at 0x00:[csum]
+set [csum]:0
+set [csum]:wadd(0x00,0x03)
+set [csum]:right([csum],2)
+set pointer:[end]
+write next (1):[csum]
+write at 0x00:00000000

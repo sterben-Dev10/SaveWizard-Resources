@@ -2,6 +2,8 @@
 ;PS4 Kingdom Hearts 0.2: Birth By Sleep - A Fragmentary Passage
 ;source: whitewarrior@hackinformer
 
+{DIFF}00=Beginner;01=Standard;02=Proud;03=Critical{/DIFF}
+
 :*
 [INFO:Untested - Make sure to backup your save data first]
 
@@ -40,7 +42,7 @@
 40630004 00000000
 
 [Difficulty Modifier]
-000000B4 000000XX
+000000B4 00{DIFF}
 
 ;00 = Beginner
 ;01 = Standard
@@ -145,7 +147,7 @@
 [Work Together with King Mickey - Link Once to Complete]
 20000B68 00040001
 
----
+; ---
 
 [Defeat the Shadows - Complete]
 20000AE0 001E0002
@@ -335,7 +337,7 @@
 40630004 00000000
 
 [Difficulty Modifier]
-00003BF4 000000XX
+00003BF4 00{DIFF}
 
 ;00 = Beginner
 ;01 = Standard
@@ -460,13 +462,13 @@
 [Defeat the Earth Cores - Complete]
 20004634 00140002
 
-Test of Strength I - Complete]
+[Test of Strength I - Complete]
 20004638 00000002
 
-Test of Strength II - Complete]
+[Test of Strength II - Complete]
 2000463C 00000002
 
-Test of Strength III - Complete]
+[Test of Strength III - Complete]
 20004640 00000002
 
 [Master of Counters - Complete]

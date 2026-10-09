@@ -1,6 +1,6 @@
 ;UCUS98751
 ;Patapon 3
-; encryption by bucanero
+; encryption & checksum by bucanero
 
 :SECURE.BIN
 
@@ -9,6 +9,16 @@ set range:0x0000,EOF+1
 DECRYPT camellia_ecb("SVsyE56pniSRS9dIPTiE8ApDaUnN0AEa")
 
 ; // mods should go here
+
+[Update HMAC-SHA1 hash (required)]
+; HMAC-SHA1 over data[0 .. len], len is a u32 at (size-40)
+; hash stored at (size-36)
+set [len]:read(EOF-0x27, 4)
+set [len]:endian_swap
+set range:0x0000,[len]-1
+set [hash]:hmac_sha1("CyZ2o3SPBqMWVVvUVt4WwJOBpq9hCjNq")
+set pointer:EOF-0x23
+write next (0):[hash]
 
 [Encrypt SECURE.BIN (required)]
 set range:0x0000,EOF+1

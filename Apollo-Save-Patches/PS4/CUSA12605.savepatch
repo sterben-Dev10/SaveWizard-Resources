@@ -1,24 +1,24 @@
 ;CUSA12605
 ;PS4 Death Stranding
 ;source: various forums
-
-:*
-[INFO:Untested - Make sure to backup your save data first]
-
+;checksum by bucanero
 ;Automated file by Officialahmed0
 ;Credits: Derwangler, Skiller, Thela & Others...
 
+:*.dat
+[INFO:Untested - Make sure to backup your save data first]
+
 [Max HP-Stamina (9999999)]
-8001000E FFDB0FC9 
-40DB0FC9 40FFFFFF 
+8001000E FFDB0FC9
+40DB0FC9 40FFFFFF
 1F000000 00000000
 93000000 0000007B
 A8000000 00000030
-7F96184B 7F96184B 
-7F96184B 7F96184B 
-00000000 7F96184B 
-7F96184B 7F96184B 
-7F96184B 7F96184B 
+7F96184B 7F96184B
+7F96184B 7F96184B
+00000000 7F96184B
+7F96184B 7F96184B
+7F96184B 7F96184B
 7F96184B 7F96184B
 
 [99999999 of all Resources all locations]
@@ -422,8 +422,8 @@ FFE30B54 02000000
 ;00001398	=	Central Region: Mama's Lab
 ;00001430	=	Central Region: Distribution Center North of Mountain Knot City
 ;000014C8	=	Central Region: Mountain Knot City
-;00001560	=	
-;000015F8	=	
+;00001560	=
+;000015F8	=
 ;00001690	=	Western Region:Distribution Center North Of Edge Knot City
 ;00001728	=	Western Region:Edge Knot City
 
@@ -431,3 +431,11 @@ FFE30B54 02000000
 ;00000BB8	=	3000
 ;0001869F	=	99999
 ;05F5E0FF	=	99999999
+
+[Update MD5 Hash (Required)]
+set [size]:read(0x1FC, 4)
+set [size]:endian_swap
+set [size]:[size]+0x1FF
+set range:0x0200,[size]
+set [hash]:md5
+write at 0x01EC:[hash]

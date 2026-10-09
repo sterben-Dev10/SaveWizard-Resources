@@ -1,0 +1,12 @@
+;CUSA05392
+;Digimon World: Next Order
+;checksum by bucanero
+
+:DIGIMON_WORLD_GAMEDATA
+
+[Update ADD Checksum (Required)]
+write at 0x08:00000000
+set [csum]:0
+set [csum]:add(0x00,EOF)
+set [csum]:endian_swap
+write at 0x08:[csum]

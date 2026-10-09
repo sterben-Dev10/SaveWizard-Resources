@@ -1,8 +1,15 @@
 ; BLES00942
 ; Max Payne 3
 ;From Game Genie For PS3
+; encryption by Bucanero
 
 :BLES00942MP3_PROGRESSION\RAGE.SAV
+
+[Python:Decrypt RAGE.SAV (Required)]
+import maxpayne3
+
+maxpayne3.maxpayne3_crypt(maxpayne3.MODE_DECRYPT, savedata)
+
 
 ; 20000169 00000009 - Only available on checkpoints (not the start of a chapter) in Story Mode > Continue.
 [Max Pills]
@@ -16,3 +23,9 @@
 5F617272 6179FDFF
 4A000060 7FFFFFFF
 40030004 00000000
+
+
+[Python:Encrypt RAGE.SAV (Required)]
+import maxpayne3
+
+maxpayne3.maxpayne3_crypt(maxpayne3.MODE_ENCRYPT, savedata)

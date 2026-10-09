@@ -1,11 +1,11 @@
 ; BLJM61128
-; "DYNASTY WARRIORS 8: Xtreme Legends / Shin Sangoku Musou 7: Xtreme Legends"
+; DYNASTY WARRIORS 8: Xtreme Legends / Shin Sangoku Musou 7: Xtreme Legends
 
 :SAVEDATA\APP.BIN
 
 [Decrypt APP.BIN (Required)] 
-set pointer:eof-1
-set range:0x0000,pointer
+set [end]:eof-1
+set range:0x0000,[end]
 DECRYPT dw8xl
 
 [65535 Gems]
@@ -109,6 +109,6 @@ set [csum]:right([csum],1)
 write next (1):[csum]
 
 [Encrypt APP.BIN (Required)] 
-set pointer:eof-1
-set range:0x0000,pointer
+set [end]:eof-1
+set range:0x0000,[end]
 ENCRYPT dw8xl

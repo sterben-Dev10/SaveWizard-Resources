@@ -22,7 +22,7 @@
 [1st 255 Current Owned Items/Weapons/Armors/Accs Max x99]
 4208EE60 00000063
 40FF00A0 00000000
-*See Note1
+; *See Note1
 
 [All Soul Coins x99]
 42107040 00000063
@@ -34,7 +34,7 @@
 [All Max Affections]
 421086CC 000003E8
 40120004 00000000
-*See Note2
+; *See Note2
 
 ;Note1: Use at your own risk
 ;Note2: This cheat is safe to use as I tested it,works in any Generation.

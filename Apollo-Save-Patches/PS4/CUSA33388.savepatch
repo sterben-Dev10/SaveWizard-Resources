@@ -1,0 +1,45 @@
+; CUSA33388
+; Resident Evil 4 REMAKE
+; decrypt/checksum by Alfizari, Brotherguns5624, and hzh
+; BSD script by Bucanero
+
+:*
+
+[Decrypt Save data (Required)]
+;Decrypt data
+set range:0x0010,EOF-0x04
+endian_swap(4)
+decrypt blowfish_cbc("wa9Ui_tFKa_6E_D5gVChjM69xMKDX8QxEykYKhzb4cRNLknpCZUra", 0x0000000000000000)
+endian_swap(4)
+;Decrypt header
+set range:0x0010,0x001F
+endian_swap(4)
+encrypt blowfish_cbc("wa9Ui_tFKa_6E_D5gVChjM69xMKDX8QxEykYKhzb4cRNLknpCZUra", 0x0000000000000000)
+decrypt blowfish_ecb("wa9Ui_tFKa_6E_D5gVChjM69xMKDX8QxEykYKhzb4cRNLknpCZUra")
+endian_swap(4)
+
+
+;
+; cheat codes should go here
+;
+
+
+[Encrypt Save data (Required)]
+;Encrypt header
+set range:0x0010,0x001F
+endian_swap(4)
+encrypt blowfish_ecb("wa9Ui_tFKa_6E_D5gVChjM69xMKDX8QxEykYKhzb4cRNLknpCZUra")
+decrypt blowfish_cbc("wa9Ui_tFKa_6E_D5gVChjM69xMKDX8QxEykYKhzb4cRNLknpCZUra", 0x0000000000000000)
+endian_swap(4)
+;Encrypt data
+set range:0x0010,EOF-0x04
+endian_swap(4)
+encrypt blowfish_cbc("wa9Ui_tFKa_6E_D5gVChjM69xMKDX8QxEykYKhzb4cRNLknpCZUra", 0x0000000000000000)
+endian_swap(4)
+
+[Update Murmur3-32 Checksum (Required)]
+set pointer:EOF-0x03
+set range:0x0000,pointer
+set [hash]:murmur3_32:0xFFFFFFFF
+set [hash]:endian_swap
+write next 0x00:[hash]

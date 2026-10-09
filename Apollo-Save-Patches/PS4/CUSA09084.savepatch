@@ -1,0 +1,25 @@
+;CUSA09084
+;L.A. Noire
+;encryption by Bucanero
+
+; LA_NOIRE_SAVE_KEY    = "Wr9uFi4yi*?OESwiavv$ayIAp+u23PIe"
+; LA_NOIRE_PROFILE_KEY = "_!pH4ThU-7N?u&eph4$eaC!aTHaQ5U7u"
+
+{LA_NOIRE_AES_CBC256_KEY_OPTION}Wr9uFi4yi*?OESwiavv$ayIAp+u23PIe=Game Savedata;_!pH4ThU-7N?u&eph4$eaC!aTHaQ5U7u=User Profile{/LA_NOIRE_AES_CBC256_KEY_OPTION}
+
+:lansavegame.ps4.sav
+
+[Decrypt Savedata (Required)]
+set range:0x00,EOF+1
+DECRYPT aes_cbc("{LA_NOIRE_AES_CBC256_KEY_OPTION}", 0x00000000000000000000000000000000)
+
+
+;
+; [example]
+; cheats should go here
+;
+
+
+[Encrypt Savedata (Required)]
+set range:0x00,EOF+1
+ENCRYPT aes_cbc("{LA_NOIRE_AES_CBC256_KEY_OPTION}", 0x00000000000000000000000000000000)

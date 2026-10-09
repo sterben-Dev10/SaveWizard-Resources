@@ -1,18 +1,26 @@
 ; BLES01309
 ; Hunted: The Demon's Forge
-from  chaoszage
+;from  chaoszage
 
-:BLES01309-PROFILE\~extracted\*.dat
+:BLES01309-PROFILE\PAYLOAD
 
-[Max Gold(Apply on xxxxxxxx.dat only)]
+[Decompress PAYLOAD (Required)]
+Decompress(0x00000018, 15)
+
+:~extracted\00000018.dat
+
+[Max Gold]
 80010004 00002301
 28000004 000F423F
 
-[189999 Gold(Apply on xxxxxxxx.dat only)]
+[189999 Gold]
 80010004 00002301
 28000004 0002E62F
 
 :BLES01309-PROFILE\PAYLOAD
+[Compress PAYLOAD (Required)]
+Compress(0x00000018)
+
 [Update SHA1(Required)]
 ;set range:0x000014,0x00034C
 set pointer:eof+1

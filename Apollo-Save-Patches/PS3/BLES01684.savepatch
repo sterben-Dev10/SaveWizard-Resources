@@ -5,6 +5,12 @@
 [INFO: Some patches may not be supported by BSD yet]
 
 :BLES01684-SAVE-*\SAVE*
+
+[Decompress SAVE (Required)]
+Decompress(0x00000018, 15)
+
+:~extracted\00000018.dat
+
 [Level 50 (Not Working)]
 60000000 00000001
 62100000 00000003
@@ -70,6 +76,11 @@
 2800000D 003C1C46
 
 Group:\
+
+:SAVE*
+
+[Compress SAVE (Required)]
+Compress(0x00000018)
 
 [Update SHA1 (Required)]
 ;set range:0x000014,0x001539

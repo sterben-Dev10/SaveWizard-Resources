@@ -1,0 +1,14 @@
+;CUSA04402
+;Middle-earth: Shadow of War
+;checksum by bucanero
+
+:SYSTEM.DAT
+
+[Update ADD Checksum (Required)]
+set [size]:read(0x10,4)
+set [size]:endian_swap
+set pointer:[size]+0x13
+set [csum]:0
+set [csum]:add(0x14,pointer)
+set [csum]:endian_swap
+write at 0x08:[csum]

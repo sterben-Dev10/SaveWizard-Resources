@@ -1,10 +1,15 @@
 ; BLUS30971
 ; Dead Or Alive 5
 ;From Game Genie For PS3
-
-[INFO: Currently BSD is not compatible with this title. This title has 2nd layer encryption.]
+;decryption by Bucanero
 
 :BLUS30971SYSTEM_SAVE\SAVE_SYS.DAT
+
+[python:Decrypt SAVE_SYS.DAT (Required)]
+import doa5
+
+doa5.doa5_crypt(doa5.DECRYPT, savedata)
+
 
 [Unlock Everything]
 4000030C 00000001
@@ -60,3 +65,8 @@
 000003F6 00000001
 10000438 00000101
 20000443 01010101
+
+[python:Encrypt SAVE_SYS.DAT (Required)]
+import doa5
+
+doa5.doa5_crypt(doa5.ENCRYPT, savedata)

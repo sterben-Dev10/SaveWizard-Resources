@@ -1,0 +1,138 @@
+; CUSA31348
+; Crisis Core: Final Fantasy VII: Reunion
+; encryption + checksum by Bucanero
+
+; Save slots option values
+{Z}001=Auto Save;002=Save Slot 1;003=Save Slot 2;004=Save Slot 3;005=Save Slot 4;006=Save Slot 5{/Z}
+
+:ue4savegame.ps4.sav
+
+[python:Decrypt Save data (Required)]
+import ff7cc
+
+ff7cc.ff7cc_crypt(ff7cc.MODE_DECRYPT, savedata)
+
+; code info from
+; https://github.com/RyudoSynbios/game-tools-collection/blob/master/src/lib/templates/crisis-core-final-fantasy-vii-reunion-windows/
+; more code info from
+; https://docs.google.com/spreadsheets/d/1hRmQh7W-sEbd7RYszBpLjbY8kpodk9s6UXmX4qZNvNY
+
+[99,999,999 Gil]
+8{Z}0004 53484544
+28008AB1 05F5E0FF
+
+[Max Materia Slots]
+8{Z}0004 53484544
+0800097D 00000006
+
+[Group:Character]
+
+[Level 99]
+8{Z}0004 53484544
+08008A37 00000063
+
+[Max Exp]
+8{Z}0004 53484544
+28008A05 3B9AC9FF
+
+[Max SP]
+8{Z}0004 53484544
+28008A0d 05F5E0FF
+
+[99,999 HP (Current)]
+8{Z}0004 53484544
+28008A11 0001869F
+
+[99,999 HP (Max)]
+8{Z}0004 53484544
+28008A15 0001869F
+
+[99,999 Base Max HP]
+8{Z}0004 53484544
+28008A19 0001869F
+
+[9,999 MP (Current)]
+8{Z}0004 53484544
+28008A1d 0000270F
+
+[9,999 MP (Max)]
+8{Z}0004 53484544
+28008A21 0000270F
+
+[9,999 Base Max MP]
+8{Z}0004 53484544
+28008A25 0000270F
+
+[9,999 AP (Current)]
+8{Z}0004 53484544
+28008A29 0000270F
+
+[9,999 AP (Max)]
+8{Z}0004 53484544
+28008A2d 0000270F
+
+[9,999 Base Max AP]
+8{Z}0004 53484544
+28008A31 0000270F
+
+[Group:Stats]
+
+[Attack 99]
+8{Z}0004 53484544
+08008A38 00000063
+
+[Vitality 99]
+8{Z}0004 53484544
+08008A39 00000063
+
+[Magic 99]
+8{Z}0004 53484544
+08008A3a 00000063
+
+[Spirit 99]
+8{Z}0004 53484544
+08008A3b 00000063
+
+[Luck 99]
+8{Z}0004 53484544
+08008A3c 00000063
+
+[Group:Base Stats]
+
+[Base Attack 99]
+8{Z}0004 53484544
+08008A3e 00000063
+
+[Base Vitality 99]
+8{Z}0004 53484544
+08008A3f 00000063
+
+[Base Magic 99]
+8{Z}0004 53484544
+08008A40 00000063
+
+[Base Spirit 99]
+8{Z}0004 53484544
+08008A41 00000063
+
+[Base Luck 99]
+8{Z}0004 53484544
+08008A42 00000063
+
+[Group:\]
+
+[python:Encrypt Save data (Required)]
+import ff7cc
+
+ff7cc.ff7cc_crypt(ff7cc.MODE_ENCRYPT, savedata)
+
+[python:Update custom Checksum (Required)]
+import ff7cc
+import ustruct as struct
+
+size_csum = struct.unpack_from("<I", savedata, 0x55C)[0]
+size_csum += 0x560
+csum = ff7cc.ff7cc_checksum(savedata[0x568:size_csum])
+
+struct.pack_into("<I", savedata, 0x564, csum)
+print("New Checksum: 0x{:08X}".format(csum))

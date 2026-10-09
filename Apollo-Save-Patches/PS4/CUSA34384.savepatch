@@ -1,6 +1,8 @@
 ; CUSA34384
 ; God Of War Ragnarök
 
+{DF}0100=give me story;0000=grace;0001=balance;0002=no mercy;0003=give me god of war{/DF}
+
 :GOWRSAVE*
 
 ;Worth noting each DEW is 2 points
@@ -54,7 +56,7 @@ F3CBC3D2 85BFB35D
 [Change Difficulty (Re-save to see change)]
 95000000 0002F440
 D8000000 01000002
-18000002 0000XXXX
+18000002 0000{DF}
 
 ;XXXX
 ;0100 - give me story	

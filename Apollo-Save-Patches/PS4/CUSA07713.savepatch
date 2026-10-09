@@ -1,0 +1,21 @@
+; CUSA07713
+; Monster Hunter World
+; by Bucanero
+;
+
+:memory.dat
+
+[Python:Decrypt Savedata (Required)]
+import mhworld
+
+mhworld.mhworld_crypt(mhworld.MODE_DECRYPT, savedata)
+
+;
+; [example]
+; cheats should go here
+;
+
+[Python:Encrypt Savedata (Required)]
+import mhworld
+
+mhworld.mhworld_crypt(mhworld.MODE_ENCRYPT, savedata)

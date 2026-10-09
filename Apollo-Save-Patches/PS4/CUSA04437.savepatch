@@ -1,8 +1,10 @@
 ;CUSA04437
 ;PS4 Resident Evil 5
-;ported by krustytoe@hackinformer 
+;ported by krustytoe@hackinformer
+;checksum by Bucanero
 
-:*
+:savedata.bin
+
 [INFO:Untested - Make sure to backup your save data first]
 
 [Have All Treasures x999]
@@ -28,3 +30,9 @@
 [Increase All Items In Storage Box To 9999]
 4100387E 0000270F
 4036000C 00000000
+
+[Update DWADD LE Checksum (Required)]
+set [csum]:0
+set [csum]:dwadd_le(0x38, 0x52D8)
+set [csum]:endian_swap
+write at 0x30:[csum]

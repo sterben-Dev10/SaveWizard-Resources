@@ -1,9 +1,17 @@
 ;CUSA15532
-;PS4 Nioh 2
+;Nioh 2
 ;source: xdgmods
 ;Automated & simplified file by @officialahmed0
+;encryption by Bucanero
 
-:*
+:APP.BIN
+
+[Python:Decrypt Savedata (Required)]
+import nioh2
+
+nioh2.nioh2_crypt(savedata)
+
+
 [INFO:Untested - Make sure to backup your save data first]
 
 [Max All Weapon/Art Proficiency]
@@ -89,9 +97,19 @@
 42BB0090 00000000
 
 [Splitstaff Skill Points 9950 - The Tengu’s Disciple (DLC)]
-
 201C4878 0000270F
 
 [Fist/Claws Skill Points 9980 - Darkness in the Capital (DLC)]
-
 201C488C 0000270F
+
+
+[Disable Checksum (Required)]
+0007B892 00000000
+0007B894 00000000
+0007B7F4 00000000
+000ECF5A 00000000
+
+[Python:Encrypt Savedata (Required)]
+import nioh2
+
+nioh2.nioh2_crypt(savedata)

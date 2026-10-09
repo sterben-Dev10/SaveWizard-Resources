@@ -552,7 +552,7 @@ DECRYPT FFXIII(3, [key])
 10025EDA 0000003C
 
 [Zarutisu Omega]
-( 30 animals punitive already )
+; ( 30 animals punitive already )
 10025EFB 0000001E
 
 [Zomok Omega]
@@ -570,18 +570,18 @@ DECRYPT FFXIII(3, [key])
 ; room after the events of third test of the first
 
 [Cyclops Omega]
-( 30 animals punitive already )
+; ( 30 animals punitive already )
 10025F48 0000001E
 
 [Desert Sahagin Omega]
 10025FB6 00000050
 
 [Grand Prix emissions Omega]
-( 60 animals punitive already )
+; ( 60 animals punitive already )
 10025FCC 0000003C
 
 [Yuijinshan Omega]
-( 30 animals punitive already )
+; ( 30 animals punitive already )
 10025FD7 0000001E
 
 [Group:\]

@@ -3,20 +3,55 @@
 ; From zeick
 
 :SPBATMAN
-[Decompress SAVE (Required)]
-Decompress(*, 15)
+[Python:Decompress SPBATMAN (Required)]
+import uzlib
 
-:BLUS31147-SAVE*\~extracted\*.dat
-[9000000 XP]
-search "VoiceOfThePeople"
-write next (73):0x00895440
-[99 Upgrade points]
-search "VoiceOfThePeople"
-write next (32):0x63
+zip_offset = uzlib.offzip(savedata, 15)
+unzip_data = uzlib.decompress(savedata[zip_offset[1][0]:], 15)
+print("Zip offset: 0x{:08X}".format(zip_offset[1][0]))
+print("Compressed size:", zip_offset[1][1])
+print("Decompressed size:", zip_offset[1][2])
+
+
+[Python:9000000 XP]
+#search "VoiceOfThePeople"
+#write next (73):0x00895440
+
+import apollo
+
+swcode = """
+80010010 566F6963
+654F6654 68655065
+6F706C65 00000000
+28000049 00895440
+"""
+apollo.apply_savewizard(unzip_data, swcode)
+
+
+[Python:99 Upgrade points]
+#search "VoiceOfThePeople"
+#write next (32):0x63
+
+import apollo
+
+swcode = """
+80010010 566F6963
+654F6654 68655065
+6F706C65 00000000
+08000020 00000063
+"""
+apollo.apply_savewizard(unzip_data, swcode)
+
 
 :SPBATMAN
-[Compress SAVE (Required)]
-Compress(*)
+[Python:Compress SPBATMAN (Required)]
+import uzlib
+
+print("Compressing bytes:", len(unzip_data))
+print("Compress offset: 0x{:08X}".format(zip_offset[1][0]))
+savedata = uzlib.packzip(savedata, zip_offset[1], unzip_data)
+print("New compressed size:", zip_offset[1][1])
+
 
 :SPBATMAN
 [Update CRC32Big for SPBATMAN (Required)]
@@ -36,4 +71,3 @@ set pointer:eof+1
 set range:0x000014,pointer
 set [hash]:SHA1
 write at 0x000000:[hash]
-

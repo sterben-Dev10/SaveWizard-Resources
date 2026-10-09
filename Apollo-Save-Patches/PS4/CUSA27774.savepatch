@@ -1,0 +1,14 @@
+;CUSA27774
+;The Legend of Heroes: Trails through Daybreak (Kuro no Kiseki)
+;checksum by Bucanero
+
+:user.dat
+
+[Python:Fix custom CRC32 (Required)]
+import loh_trails
+import ubinascii
+
+trails_crc = loh_trails.loh_trails_crc32(savedata, 12)
+print("New CRC:", ubinascii.hexlify(trails_crc))
+
+savedata[8:12] = trails_crc

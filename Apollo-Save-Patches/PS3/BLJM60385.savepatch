@@ -1,0 +1,10 @@
+;BLJM60385
+;World Soccer: Winning Eleven 2012
+ 
+:DATA.BIN
+
+[Checksum Update CRC32 (Required)]
+write at 0x8:00000000
+set range:0x0,0x4C51F
+set [hash]:crc32
+write at 0x8:[hash]

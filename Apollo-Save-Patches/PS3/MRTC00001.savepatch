@@ -6,7 +6,7 @@
 
 :SYS-DATA
 [Unlock All Difficulties]
-0x00000028 60
+00000028 00000060
 
 :USR-DATA
 [100% Battle Trophies - Edge]
@@ -21,7 +21,7 @@
 [Group:Collections (System Data)]
 
 [Unlock All Difficulties]
-0x00000028 60
+00000028 00000060
 
 [Collections 100% (Battle Trophies, Spaceships, Weapons) except Monsters]
 4200002C FFFFFFFF
@@ -1888,7 +1888,7 @@
 [Symbols - Vampiric Blade]
 00002513 0000000A
 
-Symbols - Divine Wave]
+[Symbols - Divine Wave]
 00002515 0000000A
 
 [Symbols - Extinction]

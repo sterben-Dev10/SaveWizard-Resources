@@ -83,7 +83,7 @@ write next (-320):000003E8000003E8000003E8000003E8000003E8000003E8000003E8000003
 
 :HED-DATA
 [Init SDBM for HED-DATA (Required)]
-set [usr_size]:read(0x4C, 4)
+set [usr_size]:read(0x0C, 4)
 write at 0x08:0x00000000
 set range:0x0000,eof+1
 set [hash_init]:sdbm

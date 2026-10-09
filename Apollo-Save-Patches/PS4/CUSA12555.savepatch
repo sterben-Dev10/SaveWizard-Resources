@@ -1,9 +1,17 @@
-;CUSA12555 
-;PS4 Dying Light 2 Codes & Resources 
+;CUSA12555
+;Dying Light 2
 ;source: playersquared forums
 ;Automated file by @Officialahmed0
+; checksum by bucanero
 
-:*
+:save_main*.sav
+
+[Decompress Save (Required)]
+decompress(0x00, 31)
+
+:~extracted\00000000.dat
+
+; cheats should go here
 [INFO:Untested - Make sure to backup your save data first]
 
 [Regular Health (300)]
@@ -57,3 +65,40 @@ B801000D 00437261
 CC010008 00000000
 28000099 000003E7
 95000000 00000000
+
+[DoubleJump - Replace Damage done with skills skill]
+80010029 4C505F69
+6E637265 6173655F
+64616D61 67655F64
+6F6E655F 77697468
+5F736B69 6C6C735F
+736B696C 6C000000
+A8000000 0000002B
+446F7562 6C654A75
+6D705F47 616D654F
+7665725F 55706772
+61646532 00000000
+00000000 00000000
+00FF7F00 00000000
+
+[Parachute Nitro - Replace Firearm damage skill]
+;if you want to keep the legend skill that was replaced just reset your legend skills (not level)
+;and  add 1 point  to each skill and you can modify the value for each in AM
+80010011 4C505F78
+626F775F 646D675F
+736B696C 6C000000
+A8000000 00000013
+50617261 63687574
+654E6974 726F0000
+00020000 00000000
+
+[python:Update custom CRC64 (Required)]
+import dyinglight2
+
+dyinglight2.dyinglight2_checksum(savedata)
+
+
+:save_main*.sav
+
+[Compress Save (Required)]
+compress(0x00, 31)

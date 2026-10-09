@@ -2,6 +2,8 @@
 ;PS4 Disgaea 5
 ;source: Pikafiend+krustytoe+E2dax+MakaiKing0@hackinformer/web-save.editor
 
+{IN}01=Dietician Increase HP 50000;02=Master Increase SP 50000;03=Gladiator Increase ATK 50000;04=Sentry Increase DEF 50000;05=Tutor Increase INT 50000;06=Physician Increase RES 50000;07=Marksman Increase HIT 50000;08=Coach Increase SPD 50000;0B=Muscleman Increases ATK + HP 50000;0C=Sprinter Increases ATK + SPD 50000;0D=Nerd Increases INT + SP 50000;0E=Hard Worker Increases ATK + INT 50000;0F=Patient Increases DEF + RES 50000;10=Pugilist Increases ATK + HIT 50000;11=Sniper Increases HIT + SPD 50000;15=Alchemist Add Poison to attack. 100 100;16=Hypnotist Add Sleep to attack. 100 100;17=Witch Doctor Add Paralysis to attack. 100 100;18=Amnesiac Add Amnesia to attack. 100 100;19=Drainer Add Weaken to attack. 100 100;1A=Shrinker Add Shrink to attack. 100 100;1B=Charmer Add Charm to attack. 100 100;1C=Professional Increase Critical chance. 100 100;29=Pharmacist Increases resistance to Poison. 100 100;2A=Coffee Maker Increases resistance to Sleep. 100 100;2B=Medicine Man Increases resistance to Paralysis. 100 100;2C=Psychologist Increases resistance to Amnesia. 100 100;2D=Toxicologist Increases Weaken resistance 100 100;2E=Expander Increases Shrink resistance 100 100;2F=Pastor Increases Charm resistance 100 100;33=Firefighter Increased resistance to Fire. 100 100;34=Aeronaut Increases Wind resistance 100 100;35=Cryophile Increases Water resistance 100 100;3D=Boxing Coach Increases resistance against Fist weapons 20 20;3E=Fencing Coach Increases resistance against Sword weapons 20 20;3F=Spear Teacher Increases resistance against Spear weapons 20 20;40=Archery Coach Increases resistance against Bow weapons 20 20;41=Marksman Coach Increases resistance against Gun weapons 20 20;42=Lumberjack Coach Increases resistance against Axe weapons 20 20;43=Staff Twirler Increases resistance against Staff weapons 20 20;44=Monster Trainer Increases resistance against Monster weapons 20 20;47=Broker Gain more HL upon defeating enemy. 300 300;48=Statistician Gain more EXP upon defeating enemy. 900 900;49=Manager Gain more Mana upon defeating enemy. 300 1900;4A=Instructor Increases Weapon Mastery experience. 1900 1900;4B=Mentor Gain more Skill Exp upon defeating enemy. 1900 1900;CA=Watermelon Smasher When attacking, +50% to damage and -50% to accuracy.;CB=Ambusher Target of attack will not counter attack.;CC=Town Crier Increase counter attacks by 5.;CD=Sun Bather 50% chance to inflict Sleep status with an attack.;CE=Joke Slapper 50% chance to inflict Amnesia status with an attack.;CF=Caregiver Reduce damage from magic attacks by 20%.;D0=Personal Trainer Reverses the damage during a normal attack.;D1=Secret Trainer Boost stat increase when leveling up by 10%.;D2=Combo Maker Boosts number of normal attacks by 1.;D3=Utilitarian Recover 5% of your SP at the end of your turn.;D4=Habitual Licker 25% of damage inflicted by an attack is also inflicted to SP.;D5=Lover Therapist 25% chance to inflict Charm status with an attack.;D6=All Digger Increase damage by 30% when attacking from behind.;D7=Rubber During a normal attack, cure target's status ailments and stat drops.;D8=Howler 50% chance to inflict Paralysis status with an attack.;D9=Mana Robber Increase Mana earned by 10% with a normal attack.;DA=Wuss Decrease physical attack damage by 20%.;DB=Blood Pumper Increase stats by 30% when HP is below 30%.;DC=Spear Fisherman Recover 3% of HP when performing a normal attack.;DD=Sand Thrower Reduces target's HIT by 50% with a normal attack (3 turns).;DE=Gourmet Chef Recover 30% of HP when defeating an enemy with a normal attack.;DF=Kinder Gardener Decrease damage by 10%.;E0=Berry Picker Raises the chance of a Team Attack by 100%.;E1=Balanced Dieter All element and weapon resistances will be 0.;E2=Indoor Fighter Increase all aptitudes by 20%.;E3=Rainbow Warrior Increase all elemental resistances, except star, by 50%.;E4=Mogul Increase Bonus Gauge rate by 5%.;E5=Hostage Negotiator Increase chance defeated enemies will surrender by 30%.;E6=Watersport Athlete Increase water element damage by 20% when attacking.;E7=Secret Spice Chef Randomly increase one stat by 10% when attacking (3 turns).;E8=Tag Champion When attacking, enemy units will have 1 or more HP remaining.;E9=Incubator Increase chance Mr. Egg appears when defeating an enemy by 5%.;EA=Slide Tackler After attacking, decrease target's mobility by 1 (3 turns).;EB=Punisher Reduce target's HP by 1/3 with a normal attack from behind.;EC=Sweet Tempter Recover 5% of your HP at the end of your turn.;ED=Cat Burglar 30% chance to steal from defeated enemy.;EE=Chalkboard Scraper 25% chance to inflict Weaken status with an attack.;EF=Sumo Wrestler Increase the ATK of all ally monster units on the map by 10%.;F0=No.1 Man Increase stats by 1% of adjacent ally units' stats.;F1=Bug King Increase Throw Range by 1.;F2=Juicer Increase chance of being the target of enemy attacks.;F3=Homeopathic Healer After being attacked, reduce attackers ATK by 30% (3 turns).;F4=Flyer Unit's movement type becomes flying.{/IN}
+
 :*
 [INFO:Untested - Make sure to backup your save data first]
 
@@ -136,171 +138,171 @@
 ;Note: You will have 10k extra points to use.
 
 [Innocents Mod - Item Slot 1]
-004857DC 000000xx
+004857DC 0000{IN}
 204857E0 0098967F
 204857E4 0098967F
 004857EF 00000001
-004857F0 000000xx
+004857F0 0000{IN}
 204857F4 0098967F
 204857F8 0098967F
 00485803 00000001
-00485804 000000xx
+00485804 0000{IN}
 20485808 0098967F
 2048580C 0098967F
 00485817 00000001
-00485818 000000xx
+00485818 0000{IN}
 2048581C 0098967F
 20485820 0098967F
 0048582B 00000001
-0048582C 000000xx
+0048582C 0000{IN}
 20485830 0098967F
 20485834 0098967F
 0048583F 00000001
-00485840 000000xx
+00485840 0000{IN}
 20485844 0098967F
 20485848 0098967F
 00485853 00000001
-00485854 000000xx
+00485854 0000{IN}
 20485858 0098967F
 2048585C 0098967F
 00485867 00000001
-00485868 000000xx
+00485868 0000{IN}
 2048586C 0098967F
 20485870 0098967F
 0048587B 00000001
 
 [Innocents Mod - Item Slot 2]
-00485A34 000000xx
+00485A34 0000{IN}
 20485A38 0098967F
 20485A3C 0098967F
 00485A47 00000001
-00485A48 000000xx
+00485A48 0000{IN}
 20485A4C 0098967F
 20485A50 0098967F
 00485A5B 00000001
-00485A5C 000000xx
+00485A5C 0000{IN}
 20485A60 0098967F
 20485A64 0098967F
 00485A6F 00000001
-00485A70 000000xx
+00485A70 0000{IN}
 20485A74 0098967F
 20485A78 0098967F
 00485A83 00000001
-00485A84 000000xx
+00485A84 0000{IN}
 20485A88 0098967F
 20485A8C 0098967F
 00485A97 00000001
-00485A98 000000xx
+00485A98 0000{IN}
 20485A9C 0098967F
 20485AA0 0098967F
 00485AAB 00000001
-00485AAC 000000xx
+00485AAC 0000{IN}
 20485AB0 0098967F
 20485AB4 0098967F
 00485ABF 00000001
-00485AC0 000000xx
+00485AC0 0000{IN}
 20485AC4 0098967F
 20485AC8 0098967F
 00485AD3 00000001
 
 [Innocents Mod - Item Slot 3]
-00485C8C 000000xx
+00485C8C 0000{IN}
 20485C90 0098967F
 20485C94 0098967F
 00485C9F 00000001
-00485CA0 000000xx
+00485CA0 0000{IN}
 20485CA4 0098967F
 20485CA8 0098967F
 00485CB3 00000001
-00485CB4 000000xx
+00485CB4 0000{IN}
 20485CB8 0098967F
 20485CBC 0098967F
 00485CC7 00000001
-00485CC8 000000xx
+00485CC8 0000{IN}
 20485CCC 0098967F
 20485CD0 0098967F
 00485CDB 00000001
-00485CDC 000000xx
+00485CDC 0000{IN}
 20485CE0 0098967F
 20485CE4 0098967F
 00485CEF 00000001
-00485CF0 000000xx
+00485CF0 0000{IN}
 20485CF4 0098967F
 20485CF8 0098967F
 00485D03 00000001
-00485D04 000000xx
+00485D04 0000{IN}
 20485D08 0098967F
 20485D0C 0098967F
 00485D17 00000001
-00485D18 000000xx
+00485D18 0000{IN}
 20485D1C 0098967F
 20485D20 0098967F
 00485D2B 00000001
 
 [Innocents Mod - Item Slot 4]
-00485EE4 000000xx
+00485EE4 0000{IN}
 20485EE8 0098967F
 20485EEC 0098967F
 00485EF7 00000001
-00485EF8 000000xx
+00485EF8 0000{IN}
 20485EFC 0098967F
 20485F00 0098967F
 00485F0B 00000001
-00485F0C 000000xx
+00485F0C 0000{IN}
 20485F10 0098967F
 20485F14 0098967F
 00485F1F 00000001
-00485F20 000000xx
+00485F20 0000{IN}
 20485F24 0098967F
 20485F28 0098967F
 00485F33 00000001
-00485F34 000000xx
+00485F34 0000{IN}
 20485F38 0098967F
 20485F3C 0098967F
 00485F47 00000001
-00485F48 000000xx
+00485F48 0000{IN}
 20485F4C 0098967F
 20485F50 0098967F
 00485F5B 00000001
-00485F5C 000000xx
+00485F5C 0000{IN}
 20485F60 0098967F
 20485F64 0098967F
 00485F6F 00000001
-00485F70 000000xx
+00485F70 0000{IN}
 20485F74 0098967F
 20485F78 0098967F
 00485F83 00000001
 
 [Innocents Mod - Item Slot 5]
-0048613C 000000xx
+0048613C 0000{IN}
 20486140 0098967F
 20486144 0098967F
 0048614F 00000001
-00486150 000000xx
+00486150 0000{IN}
 20486154 0098967F
 20486158 0098967F
 00486163 00000001
-00486164 000000xx
+00486164 0000{IN}
 20486168 0098967F
 2048616C 0098967F
 00486177 00000001
-00486178 000000xx
+00486178 0000{IN}
 2048617C 0098967F
 20486180 0098967F
 0048618B 00000001
-0048618C 000000xx
+0048618C 0000{IN}
 20486190 0098967F
 20486194 0098967F
 0048619F 00000001
-004861A0 000000xx
+004861A0 0000{IN}
 204861A4 0098967F
 204861A8 0098967F
 004861B3 00000001
-004861B4 000000xx
+004861B4 0000{IN}
 204861B8 0098967F
 204861BC 0098967F
 004861C7 00000001
-004861C8 000000xx
+004861C8 0000{IN}
 204861CC 0098967F
 204861D0 0098967F
 004861DB 00000001
@@ -689,7 +691,7 @@
 4223F448 1DCD6500
 400F4778 00000000
 
-100% Fire Res]
+[100% Fire Res]
 4023F4CE 00000064
 400F4778 00000000
 4023F4CA 00000064

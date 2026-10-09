@@ -3,8 +3,9 @@
 ;source: Discord
 ;Credits: stephan
 ;Automated & simplified file by @officialahmed0
+;checksum by bucanero
 
-:*
+:data*.bin
 
 [INFO:Untested - Make sure to backup your save data first]
 
@@ -252,3 +253,10 @@ CBA31882 00000000
 ;8801000C 8B04D4A6	
 ;07000000 04000000	
 ;2800000C 0000XXXX	
+
+[Update Murmur3-32 checksum (Required)]
+set pointer:EOF-3
+set range:0,pointer
+set [hash]:murmur3_32:0xFFFFFFFF
+set [hash]:endian_swap
+write next (0):[hash]

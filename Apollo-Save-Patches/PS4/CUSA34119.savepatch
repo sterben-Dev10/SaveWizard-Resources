@@ -1,0 +1,12 @@
+;CUSA34119
+;Monster Hunter Rise
+;checksum by bucanero
+
+:data*.bin
+
+[Update Murmur32 Checksum (Required)]
+set pointer:EOF-3
+set range:0x00,pointer
+set [hash]:murmur3_32:0xFFFFFFFF
+set [hash]:endian_swap
+write next (0):[hash]

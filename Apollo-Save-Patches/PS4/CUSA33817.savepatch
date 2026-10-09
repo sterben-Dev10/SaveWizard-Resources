@@ -1,0 +1,75 @@
+; CUSA33817
+; Final Fantasy Pixel Remaster
+; decrypt by bucanero
+
+:slot*.sav
+
+[python:Decrypt Save (Required)]
+import uhashlib
+import ubinascii
+import rijndael
+
+password = b'TKX73OHHK1qMonoICbpVT0hIDGe7SkW0'
+salt     = b'71Ba2p0ULBGaE6oJ7TjCqwsls1jBKmRL'
+derived_key = uhashlib.pbkdf2_sha1(password, salt, 10, 64)
+
+key = derived_key[:32]
+iv = derived_key[32:]
+
+print("Rijndael Key:", ubinascii.hexlify(key))
+print("Rijndael IV :", ubinascii.hexlify(iv))
+
+ctx = rijndael.Rijndael(key, block_size = 32)
+savedata = ctx.decrypt_cbc(savedata, iv)
+
+print("Decrypted size:", len(savedata))
+
+
+[python:Decompress Save (Required)]
+import uzlib
+
+print("Compressed size:", len(savedata))
+savedata = uzlib.decompress(savedata, -15)
+
+print("Unpack size:", len(savedata))
+
+
+;
+; [example]
+; cheat codes should go here
+;
+
+
+[python:Compress Save (Required)]
+import uzlib
+
+# raw deflate
+compressed = uzlib.compress(savedata, -15, 1)
+enc_len = (len(compressed) + 31) & ~31;
+
+print("Data size:", len(savedata))
+print("Compressed size:", len(compressed))
+print("Padded size:", enc_len)
+
+savedata = compressed + '\x00'*(enc_len - len(compressed))
+
+
+[python:Encrypt Save (Required)]
+import uhashlib
+import ubinascii
+import rijndael
+
+password = b'TKX73OHHK1qMonoICbpVT0hIDGe7SkW0'
+salt     = b'71Ba2p0ULBGaE6oJ7TjCqwsls1jBKmRL'
+derived_key = uhashlib.pbkdf2_sha1(password, salt, 10, 64)
+
+key = derived_key[:32]
+iv = derived_key[32:]
+
+print("Rijndael Key:", ubinascii.hexlify(key))
+print("Rijndael IV :", ubinascii.hexlify(iv))
+
+ctx = rijndael.Rijndael(key, block_size = 32)
+savedata = ctx.encrypt_cbc(savedata, iv)
+
+print("Encrypted size:", len(savedata))

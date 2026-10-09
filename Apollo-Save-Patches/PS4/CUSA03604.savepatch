@@ -1,0 +1,28 @@
+; CUSA03604
+; Dishonored 2
+; script by Bucanero
+
+:CHECKPT
+
+[python:Decompress CHECKPT (Required)]
+import dishonored2
+
+dishonored2.dishonored2_decompress(savedata)
+
+
+;
+; [example]
+; cheats go here
+;
+
+[python:Compress CHECKPT (Required)]
+import dishonored2
+
+dishonored2.dishonored2_compress(savedata)
+
+
+[Update MD5-XOR checksum (Required)]
+set range:0x0004,EOF+1
+set [hash]:MD5_XOR
+set [hash]:endian_swap
+write at 0x00:[hash]

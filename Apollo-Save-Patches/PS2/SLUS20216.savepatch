@@ -1,0 +1,67 @@
+; SLUS20216
+; Devil May Cry
+; codes & checksum fix by bucanero
+
+:BASLUS-20216
+
+[Unlock all difficulties and costumes]
+00000000 000000D1
+00000001 00000001
+00000007 000000E0
+0000000B 000000FF
+0000000C 00000000
+
+
+:SaveData-0*
+
+; some code offset/values from https://github.com/joaovitorbf/dmcsaveeditor
+; difficulty settings
+{DS}0001=Easy Automatic;0003=Normal;0005=Hard;0007=Dante Must Die{/DS}
+
+[Max Vitality Bar]
+00000624 00000063
+
+[Max Devil Trigger Bar]
+00000625 00000063
+
+[Total Red Orbs 99999 Collected]
+2000083C 0001869F
+
+[All Difficulties-All Stages-Rank S]
+420007BC 00000000
+40110004 00000000
+00000800 00000000
+
+[999,999 Max Red Orbs]
+20000634 000F423F
+
+[99 Max Blue Orbs]
+00000638 00000063
+
+[999 Max Yellow Orbs]
+10000620 000003E7
+
+[Game Beaten 999 Times]
+10000022 000003E7
+
+[Playtime 0:00:01]
+2000002C 00000001
+
+[Total Save Count 1]
+10000020 00000001
+
+[Change Difficulty]
+00000026 0000{DS}
+
+; current mission 0-22
+[Current Mission: last mission 23]
+00000024 00000016
+
+[Update Checksum for SaveData-0X (Required)]
+;DMC1 SaveData Checksum
+;write value as little-endian
+set [csum]:0
+carry(2)
+set [csum]:add(0x00000C,0x96F)
+set [csum]:endian_swap
+write at 0x000008:[csum]

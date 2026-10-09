@@ -1,6 +1,6 @@
 ;CUSA00924
-;PS4 Resident Evil Revelations 2 
-;source: forum hackinformer.com 
+;PS4 Resident Evil Revelations 2
+;source: forum hackinformer.com
 ;file simplified by @officialahmed0
 
 :DATA0.DAT
@@ -222,6 +222,13 @@ endian_swap(4)
 [Raid Mode - Long Range+ (Slot1-24)]
 4000E8AC 00000009
 40180038 00000000
+
+[Update DWADD LE (Required)]
+set [csum]:0
+set [csum]:dwadd_le(0x000020,0x19490)
+set [csum]:dwadd_le(0x0194A0,0x1284C0)
+set [csum]:endian_swap
+write at 0x000018:[csum]
 
 [Update SHA1 Hash (Required)]
 set pointer:eof-0x1F

@@ -1,0 +1,38 @@
+; BLUS30554
+; L.A. Noire
+; by Bucanero
+;
+
+{ST}0001=Game Savedata;0002=User Profile{/ST}
+
+:SAVEDATA
+
+[Python:Decrypt Savedata (Required)]
+import lanoire
+
+type = {ST}
+
+if (type == 1):
+    print("Game Savedata")
+    lanoire.lanoire_save_crypt(lanoire.MODE_DECRYPT, savedata)
+else:
+    print("User Profile")
+    lanoire.lanoire_profile_crypt(lanoire.MODE_DECRYPT, savedata)
+
+;
+; [example]
+; cheats should go here
+;
+
+
+[Python:Encrypt Savedata (Required)]
+import lanoire
+
+type = {ST}
+
+if (type == 1):
+    print("Game Savedata")
+    lanoire.lanoire_save_crypt(lanoire.MODE_ENCRYPT, savedata)
+else:
+    print("User Profile")
+    lanoire.lanoire_profile_crypt(lanoire.MODE_ENCRYPT, savedata)
