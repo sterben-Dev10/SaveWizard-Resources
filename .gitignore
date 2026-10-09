@@ -1,6 +1,10 @@
 
 .DS_Store
 tmp/
+.tmp/
 AGENTS.md
 .venv/
 /Scripts/apollo-lib/
+/Scripts/apollo-patcher/
+/Scripts/apollo-patches/
+/Scripts/apollo-lib-macos.conf

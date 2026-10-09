@@ -9,16 +9,151 @@ emulate -LR zsh
 set -e
 setopt pipefail
 
-# if you want to place the compiled binaries somewhere after building
-STORE_PATH="${STORE_PATH:-$HOME/Desktop/Apollo CLI Tools}"
-GUI_INSTALL_DIR="/Applications"
-GUI_BUILD_APP_NAME="apollo_patcher_gui.app"
-GUI_INSTALL_APP_NAME="Apollo Patcher.app"
-LSREGISTER_SYSTEM_BIN="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister"
+# A renamed copy gets its own adjacent config (for example build-apollo-lib.conf).
+script_dir="$(cd "$(dirname "$0")" && pwd)"
+CONFIG_FILE="$script_dir/${${0:t}:r}.conf"
+STORE_PATH_OVERRIDE="${STORE_PATH:-}"
 
+expand_config_path() {
+    local value="$1"
+
+    case "$value" in
+        '$HOME'|'${HOME}'|'~') value="$HOME" ;;
+        '$HOME/'*) value="$HOME/${value#\$HOME/}" ;;
+        '${HOME}/'*) value="$HOME/${value#\$\{HOME\}/}" ;;
+        '~/'*) value="$HOME/${value#\~/}" ;;
+    esac
+
+    if [[ "$value" != /* || "$value" =~ '[[:cntrl:]]' ]]; then
+        echo "Error: $2 must be an absolute path (leading \$HOME, \${HOME}, or ~/ is allowed)." >&2
+        return 1
+    fi
+    REPLY="$value"
+}
+
+load_configuration() {
+    setopt localoptions extendedglob
+    local config_line key value
+    local line_number=0
+    local -A config_values
+    local -a required_keys=(WORKSPACE_DIR STORE_PATH BUILD_DIR GUI_INSTALL_DIR GUI_BUILD_APP_NAME GUI_INSTALL_APP_NAME)
+
+    if [ ! -e "$CONFIG_FILE" ]; then
+        # noclobber also protects an existing file created by a concurrent run.
+        if (setopt noclobber; umask 077; cat > "$CONFIG_FILE" <<'CONFIG'
+# Literal key=value settings. No shell commands or general variable expansion.
+# Paths may start with $HOME, ${HOME}, or ~/. Surrounding quotes are optional.
+# STORE_PATH can also be overridden in the environment for one invocation.
+WORKSPACE_DIR="$HOME/Desktop/apollo"
+STORE_PATH="$HOME/Desktop/apollo/Apollo CLI Tools"
+BUILD_DIR="$HOME/Desktop/apollo/apollo_build"
+GUI_INSTALL_DIR=/Applications
+GUI_BUILD_APP_NAME=apollo_patcher_gui.app
+GUI_INSTALL_APP_NAME="Apollo Patcher.app"
+CONFIG
+        ); then
+            echo "Created configuration: $CONFIG_FILE"
+        elif [ ! -f "$CONFIG_FILE" ]; then
+            echo "Error: unable to create configuration: $CONFIG_FILE" >&2
+            return 1
+        fi
+    fi
+
+    if [ ! -f "$CONFIG_FILE" ] || [ ! -r "$CONFIG_FILE" ]; then
+        echo "Error: configuration is not a readable file: $CONFIG_FILE" >&2
+        return 1
+    fi
+
+    while IFS= read -r config_line || [[ -n "$config_line" ]]; do
+        (( line_number += 1 ))
+        config_line="${config_line%$'\r'}"
+        config_line="${config_line##[[:space:]]#}"
+        config_line="${config_line%%[[:space:]]#}"
+        [[ -z "$config_line" || "$config_line" == \#* ]] && continue
+
+        if [[ "$config_line" != *=* ]]; then
+            echo "Error: malformed configuration line $line_number in $CONFIG_FILE; expected key=value." >&2
+            return 1
+        fi
+        key="${config_line%%=*}"
+        key="${key%%[[:space:]]#}"
+        value="${config_line#*=}"
+        value="${value##[[:space:]]#}"
+        case "$key" in
+            WORKSPACE_DIR|STORE_PATH|BUILD_DIR|GUI_INSTALL_DIR|GUI_BUILD_APP_NAME|GUI_INSTALL_APP_NAME) ;;
+            *) echo "Error: unknown configuration key '$key' at line $line_number in $CONFIG_FILE." >&2; return 1 ;;
+        esac
+        if [[ -n "${config_values[$key]+present}" ]]; then
+            echo "Error: duplicate configuration key '$key' in $CONFIG_FILE." >&2
+            return 1
+        fi
+
+        # Strip matching surrounding quotes, without interpreting their contents.
+        if [[ "$value" == \"* ]]; then
+            if (( ${#value} < 2 )) || [[ "$value" != *\" ]]; then
+                echo "Error: unmatched quotes at line $line_number in $CONFIG_FILE." >&2
+                return 1
+            fi
+            value="${value#\"}"
+            value="${value%\"}"
+        elif [[ "$value" == \'* ]]; then
+            if (( ${#value} < 2 )) || [[ "$value" != *\' ]]; then
+                echo "Error: unmatched quotes at line $line_number in $CONFIG_FILE." >&2
+                return 1
+            fi
+            value="${value#\'}"
+            value="${value%\'}"
+        elif [[ "$value" == *\" || "$value" == *\' ]]; then
+            echo "Error: unmatched quotes at line $line_number in $CONFIG_FILE." >&2
+            return 1
+        fi
+
+        case "$key" in
+            WORKSPACE_DIR|STORE_PATH|BUILD_DIR|GUI_INSTALL_DIR)
+                expand_config_path "$value" "$key" || return 1
+                value="$REPLY"
+                ;;
+            GUI_BUILD_APP_NAME|GUI_INSTALL_APP_NAME)
+                if [[ ! "$value" =~ '^[[:alnum:]][[:alnum:] ._-]*[.]app$' || "$value" == *'..'* ]]; then
+                    echo "Error: $key must be a simple .app basename with no slash or traversal." >&2
+                    return 1
+                fi
+                ;;
+        esac
+        config_values[$key]="$value"
+    done < "$CONFIG_FILE"
+
+    for key in "${required_keys[@]}"; do
+        if [[ -z "${config_values[$key]+present}" ]]; then
+            echo "Error: missing configuration key '$key' in $CONFIG_FILE." >&2
+            return 1
+        fi
+    done
+
+    WORKSPACE_DIR="${config_values[WORKSPACE_DIR]}"
+    STORE_PATH="${config_values[STORE_PATH]}"
+    BUILD_DIR="${config_values[BUILD_DIR]}"
+    GUI_INSTALL_DIR="${config_values[GUI_INSTALL_DIR]}"
+    GUI_BUILD_APP_NAME="${config_values[GUI_BUILD_APP_NAME]}"
+    GUI_INSTALL_APP_NAME="${config_values[GUI_INSTALL_APP_NAME]}"
+    if [ -n "$STORE_PATH_OVERRIDE" ]; then
+        expand_config_path "$STORE_PATH_OVERRIDE" "STORE_PATH override" || return 1
+        STORE_PATH="$REPLY"
+    fi
+    echo "Using configuration: $CONFIG_FILE"
+}
+
+# Validate all settings before any installation, repository mutation, or cleanup.
+load_configuration || exit 1
+
+# Apple's LaunchServices location is shared by Intel and Apple Silicon macOS.
+LSREGISTER_SYSTEM_BIN="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister"
 GIT_BIN="$(command -v git 2>/dev/null || true)"
 XCODESELECT_BIN="$(command -v xcode-select 2>/dev/null || true)"
 CMAKE_BIN="$(command -v cmake 2>/dev/null || true)"
+PYTHON3_BIN="$(command -v python3 2>/dev/null || true)"
+RSYNC_BIN="$(command -v rsync 2>/dev/null || true)"
+RSYNC_SYSTEM_BIN="/usr/bin/rsync"
 MAKE_BIN="$(command -v make 2>/dev/null || true)"
 CURL_BIN="$(command -v curl 2>/dev/null || true)"
 TAR_BIN="$(command -v tar 2>/dev/null || true)"
@@ -35,6 +170,8 @@ LIPO_BIN="${LIPO_BIN:-}"
 MACOS_SDK_PATH="${MACOS_SDK_PATH:-}"
 UNIVERSAL_CC="${UNIVERSAL_CC:-}"
 APOLLO_REPO_URL="git@github.com:bucanero/apollo-lib.git"
+APOLLO_GUI_REPO_URL="git@github.com:bucanero/apollo-patcher.git"
+APOLLO_PATCHES_REPO_URL="git@github.com:bucanero/apollo-patches.git"
 GUI_TRANSACTION_ACTIVE=false
 GUI_TRANSACTION_COMMITTED=false
 GUI_TRANSACTION_DESTINATION_APP=""
@@ -50,16 +187,15 @@ MBEDTLS_ARCHIVE=""
 MBEDTLS_DIR=""
 MBEDTLS_URL=""
 
-# Resolve the full absolute path of the directory where the script is located
-script_dir="$(cd "$(dirname "$0")" && pwd)"
-apollo_repo_dir="$script_dir/apollo-lib"
+apollo_repo_dir="$WORKSPACE_DIR/apollo-lib"
 repo_root=""
+gui_repo_root=""
+patches_repo_root=""
+lib_build_root=""
+gui_build_root=""
+BUILD_OWNER_MARKER=".apollo-lib-macos-build"
+BUILD_OWNER_CONTENT="apollo-lib-macos managed workspace v1"
 resolve_repo_root() {
-    if [ -f "$script_dir/tools/Makefile" ]; then
-        repo_root="$script_dir"
-        return
-    fi
-
     if [ ! -e "$apollo_repo_dir" ]; then
         if [ ! -x "$GIT_BIN" ]; then
             echo "Error: git is required to clone apollo-lib but was not found." >&2
@@ -77,15 +213,52 @@ resolve_repo_root() {
         return
     fi
 
-    echo "Unable to locate the apollo-lib repository root from: $script_dir" >&2
+    echo "Unable to locate the apollo-lib repository root from: $WORKSPACE_DIR" >&2
+    exit 1
+}
+
+resolve_gui_repo_root() {
+    local gui_repo_dir="$WORKSPACE_DIR/apollo-patcher"
+
+    if [ ! -e "$gui_repo_dir" ]; then
+        echo "apollo-patcher repository not found, cloning fresh copy..."
+        "$GIT_BIN" clone "$APOLLO_GUI_REPO_URL" "$gui_repo_dir"
+    fi
+
+    if [ -d "$gui_repo_dir" ]; then
+        gui_repo_root="$(cd "$gui_repo_dir" && pwd)"
+        return
+    fi
+
+    echo "Unable to locate the apollo-patcher repository from: $WORKSPACE_DIR" >&2
+    exit 1
+}
+
+resolve_patches_repo_root() {
+    local patches_repo_dir="$WORKSPACE_DIR/apollo-patches"
+
+    if [ ! -e "$patches_repo_dir" ]; then
+        echo "apollo-patches repository not found, cloning fresh copy..."
+        "$GIT_BIN" clone "$APOLLO_PATCHES_REPO_URL" "$patches_repo_dir"
+    fi
+
+    if [ -d "$patches_repo_dir" ]; then
+        patches_repo_root="$(cd "$patches_repo_dir" && pwd)"
+        return
+    fi
+
+    echo "Unable to locate the apollo-patches repository from: $WORKSPACE_DIR" >&2
     exit 1
 }
 
 echo "Script directory: $script_dir"
 
 pull_latest_source() {
-    if [ ! -d "$repo_root/.git" ]; then
-        echo "Repository root is not a Git checkout, skipping pull."
+    local source_root="$1"
+    local source_name="$2"
+
+    if [ ! -e "$source_root/.git" ]; then
+        echo "$source_name root is not a Git checkout, skipping pull."
         return
     fi
 
@@ -94,8 +267,22 @@ pull_latest_source() {
         return
     fi
 
-    echo "Pulling latest apollo-lib changes..."
-    "$GIT_BIN" -C "$repo_root" pull --ff-only
+    echo "Pulling latest $source_name changes..."
+    "$GIT_BIN" -C "$source_root" pull --ff-only
+}
+
+validate_repository_layout() {
+    local source_root="$1"
+    local source_name="$2"
+    local marker
+
+    shift 2
+    for marker in "$@"; do
+        if [ ! -f "$source_root/$marker" ]; then
+            echo "Error: $source_name repository is missing required file: $source_root/$marker" >&2
+            exit 1
+        fi
+    done
 }
 
 ensure_artifact_exists() {
@@ -316,8 +503,22 @@ resolve_developer_dir() {
 }
 
 discover_build_tools() {
-    GIT_BIN="$(command -v git 2>/dev/null || true)"
-    CMAKE_BIN="$(command -v cmake 2>/dev/null || true)"
+    # Keep tools already found on PATH even if Homebrew adds another bin directory.
+    if [ ! -x "$GIT_BIN" ]; then
+        GIT_BIN="$(command -v git 2>/dev/null || true)"
+    fi
+    if [ ! -x "$CMAKE_BIN" ]; then
+        CMAKE_BIN="$(command -v cmake 2>/dev/null || true)"
+    fi
+    if [ ! -x "$PYTHON3_BIN" ]; then
+        PYTHON3_BIN="$(command -v python3 2>/dev/null || true)"
+    fi
+    if [ ! -x "$RSYNC_BIN" ]; then
+        RSYNC_BIN="$(command -v rsync 2>/dev/null || true)"
+        if [ ! -x "$RSYNC_BIN" ] && [ -x "$RSYNC_SYSTEM_BIN" ]; then
+            RSYNC_BIN="$RSYNC_SYSTEM_BIN"
+        fi
+    fi
     MAKE_BIN="$(command -v make 2>/dev/null || true)"
     CURL_BIN="$(command -v curl 2>/dev/null || true)"
     TAR_BIN="$(command -v tar 2>/dev/null || true)"
@@ -328,7 +529,7 @@ discover_build_tools() {
 }
 
 resolve_lsregister_bin() {
-    LSREGISTER_BIN="$(command -v lsregister 2>/dev/null || true)"
+    LSREGISTER_BIN="$(whence -p lsregister 2>/dev/null || true)"
     if [ ! -x "$LSREGISTER_BIN" ] && [ -x "$LSREGISTER_SYSTEM_BIN" ]; then
         LSREGISTER_BIN="$LSREGISTER_SYSTEM_BIN"
     fi
@@ -358,23 +559,29 @@ resolve_brew_bin() {
 
 }
 
-ensure_homebrew_and_cmake() {
-    if [ -x "$CMAKE_BIN" ]; then
-        return
-    fi
-
+ensure_homebrew_build_tools() {
+    local -a missing_formulas=()
+    local formula tool_name tool_bin formula_prefix
     local install_script=""
 
     discover_build_tools
+    [ -x "$GIT_BIN" ] || missing_formulas+=(git)
+    [ -x "$CMAKE_BIN" ] || missing_formulas+=(cmake)
+    [ -x "$PYTHON3_BIN" ] || missing_formulas+=(python)
+    [ -x "$RSYNC_BIN" ] || missing_formulas+=(rsync)
+    if (( ${#missing_formulas} == 0 )); then
+        return
+    fi
+
     resolve_brew_bin
 
     if [ ! -x "$BREW_BIN" ]; then
         if [ ! -x "$CURL_BIN" ]; then
-            echo "Error: cmake is not installed and brew is unavailable. Install curl (or install cmake another way) and rerun." >&2
+            echo "Error: missing build tools (${missing_formulas[*]}) and Homebrew is unavailable. Install curl or provide these tools on PATH and rerun." >&2
             exit 1
         fi
 
-        echo "cmake not found, installing Homebrew now..."
+        echo "Missing build tools (${missing_formulas[*]}), installing Homebrew now..."
         if ! install_script="$("$CURL_BIN" -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; then
             echo "Error: failed to download Homebrew installer script." >&2
             exit 1
@@ -394,14 +601,42 @@ ensure_homebrew_and_cmake() {
     fi
 
     if [ ! -x "$BREW_BIN" ]; then
-        echo "Error: Homebrew is unavailable; install cmake from a source available on PATH." >&2
+        echo "Error: Homebrew is unavailable; provide the missing build tools on PATH." >&2
         exit 1
     fi
 
-    if [ ! -x "$CMAKE_BIN" ]; then
-        echo "cmake not found, installing via Homebrew..."
-        "$BREW_BIN" install cmake
-    fi
+    for formula in "${missing_formulas[@]}"; do
+        tool_name="$formula"
+        [ "$formula" != python ] || tool_name=python3
+        tool_bin="$(command -v "$tool_name" 2>/dev/null || true)"
+
+        # An installed formula outside PATH also satisfies the requirement.
+        if [ ! -x "$tool_bin" ]; then
+            formula_prefix="$("$BREW_BIN" --prefix "$formula" 2>/dev/null || true)"
+            tool_bin="${formula_prefix:+$formula_prefix/bin/$tool_name}"
+        fi
+
+        if [ ! -x "$tool_bin" ]; then
+            echo "$tool_name not found, installing via Homebrew..."
+            "$BREW_BIN" install "$formula"
+            tool_bin="$(command -v "$tool_name" 2>/dev/null || true)"
+            if [ ! -x "$tool_bin" ]; then
+                formula_prefix="$("$BREW_BIN" --prefix "$formula" 2>/dev/null || true)"
+                tool_bin="${formula_prefix:+$formula_prefix/bin/$tool_name}"
+            fi
+        fi
+
+        if [ ! -x "$tool_bin" ]; then
+            echo "Error: $tool_name is still unavailable after Homebrew setup. Provide it on PATH and rerun." >&2
+            exit 1
+        fi
+        case "$formula" in
+            git) GIT_BIN="$tool_bin" ;;
+            cmake) CMAKE_BIN="$tool_bin" ;;
+            python) PYTHON3_BIN="$tool_bin" ;;
+            rsync) RSYNC_BIN="$tool_bin" ;;
+        esac
+    done
 
     discover_build_tools
 }
@@ -538,8 +773,8 @@ store_binaries() {
 
     # Copy each CLI binary
     local binaries=(
-        "$repo_root/tools/patcher"
-        "$repo_root/tools/dumper"
+        "$lib_build_root/tools/patcher"
+        "$lib_build_root/tools/dumper"
     )
 
     for binary in "${binaries[@]}"; do
@@ -558,7 +793,7 @@ store_binaries() {
 }
 
 store_gui_bundle() {
-    local gui_app="$repo_root/gui/build/$GUI_BUILD_APP_NAME"
+    local gui_app="$gui_build_root/build/gui/$GUI_BUILD_APP_NAME"
     local gui_exec="$gui_app/Contents/MacOS/apollo_patcher_gui"
     local destination_app="$GUI_INSTALL_DIR/$GUI_INSTALL_APP_NAME"
     local destination_existed="false"
@@ -574,6 +809,13 @@ store_gui_bundle() {
 
     ensure_artifact_exists "$gui_app" "GUI bundle"
     ensure_artifact_exists "$gui_exec" "GUI executable"
+    local resource
+    for resource in apollo-patches.zip NotoSansJP-Medium.otf OFL.txt; do
+        if [ ! -f "$gui_app/Contents/Resources/$resource" ]; then
+            echo "Error: GUI bundle is missing required resource: $gui_app/Contents/Resources/$resource" >&2
+            return 1
+        fi
+    done
 
     chmod 755 "$gui_exec"
     clear_quarantine "$gui_exec" "built GUI executable"
@@ -736,47 +978,127 @@ check_gui_install_dir() {
 trap handle_sigint SIGINT
 trap handle_sigterm SIGTERM
 
-cleanup_previous_builds() {
-    echo "Cleaning previous build artifacts..."
+physical_path() {
+    "$PYTHON3_BIN" -c 'import os, sys; print(os.path.realpath(sys.argv[1]))' "$1"
+}
 
-    cd "$repo_root"
+path_is_within() {
+    local candidate="${1%/}"
+    local ancestor="$2"
 
-    if [ -d "$MBEDTLS_DIR" ]; then
-        echo "Removing existing $MBEDTLS_DIR directory..."
-        rm -rf "$MBEDTLS_DIR"
-    fi
-
-    rm -f -- source/*.o(N) source/*.d(N)
-
-    if [ -d "tools" ]; then
-        cd tools
-
-        if [ -f "Makefile" ]; then
-            "$MAKE_BIN" clean || true
+    [ -n "$candidate" ] || candidate=/
+    while true; do
+        # File identity also catches case aliases on case-insensitive macOS disks.
+        if [[ "$candidate" == "$ancestor" || "$candidate" -ef "$ancestor" ]]; then
+            return 0
         fi
+        [ "$candidate" != / ] || return 1
+        candidate="${candidate:h}"
+    done
+}
 
-        rm -f -- ./*.o(N) ./*.d(N)
-        rm -f patcher patcher-bigendian dumper
-        rm -f patcher.exe patcher-bigendian.exe dumper.exe
+validate_build_workspace() {
+    local build_root source_root managed_root managed_name marker_contents expected_marker
+    local -a source_roots=()
 
-        cd "$repo_root"
-    fi
+    build_root="$(physical_path "$BUILD_DIR")" || return 1
+    for source_root in "$repo_root" "$gui_repo_root" "$patches_repo_root"; do
+        source_root="$(physical_path "$source_root")" || return 1
+        source_roots+=("$source_root")
+    done
 
-    if [ -d "gui/build" ]; then
-        echo "Removing existing gui/build directory..."
-        rm -rf "gui/build"
-    fi
+    for source_root in "${source_roots[@]}"; do
+        if path_is_within "$build_root" "$source_root"; then
+            echo "Error: BUILD_DIR must be outside source checkouts: $build_root" >&2
+            return 1
+        fi
+    done
 
-    if [ -d "gui/dist" ]; then
-        echo "Removing existing gui/dist directory..."
-        rm -rf "gui/dist"
-    fi
+    # Check BOTH disposable children before removing either of them.
+    for managed_name in apollo-lib apollo-patcher; do
+        managed_root="${build_root%/}/$managed_name"
+        if [ -L "$managed_root" ]; then
+            echo "Error: refusing symlink build workspace: $managed_root" >&2
+            return 1
+        fi
+        for source_root in "${source_roots[@]}"; do
+            if path_is_within "$source_root" "$managed_root"; then
+                echo "Error: build workspace overlaps a source checkout: $managed_root" >&2
+                return 1
+            fi
+        done
+
+        if [ -e "$managed_root" ]; then
+            if [ ! -d "$managed_root" ] || [ ! -f "$managed_root/$BUILD_OWNER_MARKER" ] || [ -L "$managed_root/$BUILD_OWNER_MARKER" ]; then
+                echo "Error: refusing existing workspace without a regular ownership marker: $managed_root" >&2
+                return 1
+            fi
+            # Preserve trailing newlines so only the exact marker contents match.
+            if ! marker_contents="$(cat "$managed_root/$BUILD_OWNER_MARKER" && print -n x)"; then
+                echo "Error: unable to read workspace ownership marker: $managed_root" >&2
+                return 1
+            fi
+            expected_marker="${BUILD_OWNER_CONTENT}:${managed_name}"$'\n'x
+            if [[ "$marker_contents" != "$expected_marker" ]]; then
+                echo "Error: refusing workspace with an unrecognized ownership marker: $managed_root" >&2
+                return 1
+            fi
+        fi
+    done
+
+    BUILD_DIR="$build_root"
+    lib_build_root="${BUILD_DIR%/}/apollo-lib"
+    gui_build_root="${BUILD_DIR%/}/apollo-patcher"
+}
+
+prepare_build_workspace() {
+    local managed_name managed_root copied_dir copied_root
+    local -a copy_excludes=(
+        --exclude=.git --exclude=.tmp/ --exclude=tmp/
+        --exclude=build/ --exclude=dist/ '--exclude=mbedtls-*/'
+        '--exclude=*.o' '--exclude=*.d' --exclude="$BUILD_OWNER_MARKER"
+        --exclude=/tools/patcher --exclude=/tools/dumper --exclude=/tools/patcher-bigendian
+        --exclude=/tools/patcher.exe --exclude=/tools/dumper.exe --exclude=/tools/patcher-bigendian.exe
+        --exclude=/gui/src/type_icons.h
+    )
+
+    validate_build_workspace || return 1
+    mkdir -p "$BUILD_DIR" || return 1
+    validate_build_workspace || return 1
+    for managed_name in apollo-lib apollo-patcher; do
+        managed_root="${BUILD_DIR%/}/$managed_name"
+        if [ -e "$managed_root" ]; then
+            echo "Removing previous managed build workspace: $managed_root"
+            rm -rf -- "$managed_root" || return 1
+        fi
+        mkdir "$managed_root" || return 1
+        # Mark before copying, so a partial/interrupted copy can be replaced.
+        (setopt noclobber; print -r -- "${BUILD_OWNER_CONTENT}:${managed_name}" > "$managed_root/$BUILD_OWNER_MARKER") || return 1
+    done
+
+    echo "Copying current Apollo sources into $BUILD_DIR"
+    "$RSYNC_BIN" -a "${copy_excludes[@]}" "$repo_root/" "$lib_build_root/" || return 1
+    "$RSYNC_BIN" -a "${copy_excludes[@]}" "$gui_repo_root/" "$gui_build_root/" || return 1
+
+    # rsync preserves symlinks; build-output directories must remain in the copies.
+    for copied_dir in "$lib_build_root/tools" "$lib_build_root/source" "$gui_build_root/gui/src"; do
+        copied_root="$(physical_path "$copied_dir")" || return 1
+        if [[ "$copied_dir" == "$lib_build_root/"* ]]; then
+            managed_root="$lib_build_root"
+        else
+            managed_root="$gui_build_root"
+        fi
+        if ! path_is_within "$copied_root" "$managed_root" || [[ "$copied_root" -ef "$managed_root" ]]; then
+            echo "Error: copied build-output directory escapes its workspace: $copied_dir" >&2
+            return 1
+        fi
+    done
 }
 
 # Resolve Apple toolchain and required build tools.
 resolve_developer_dir
 discover_build_tools
-ensure_homebrew_and_cmake
+ensure_homebrew_build_tools
 discover_build_tools
 
 if [ ! -x "$GIT_BIN" ]; then
@@ -804,6 +1126,16 @@ if [ ! -x "$CMAKE_BIN" ]; then
     exit 1
 fi
 
+if [ ! -x "$PYTHON3_BIN" ]; then
+    echo "Error: python3 is required to generate GUI patch data and icons but was not found." >&2
+    exit 1
+fi
+
+if [ ! -x "$RSYNC_BIN" ]; then
+    echo "Error: rsync is required to copy sources into BUILD_DIR but was not found." >&2
+    exit 1
+fi
+
 if [ ! -x "$XATTR_BIN" ]; then
     echo "Error: xattr is required to clear quarantine but was not found on PATH." >&2
     exit 1
@@ -822,6 +1154,7 @@ fi
 resolve_lsregister_bin
 if [ ! -x "$LSREGISTER_BIN" ]; then
     echo "Error: lsregister is required to register the installed Apollo GUI bundle but was not found on PATH or at: $LSREGISTER_SYSTEM_BIN" >&2
+    echo "Provide an executable lsregister on PATH or restore Apple's LaunchServices tool, then rerun." >&2
     exit 1
 fi
 
@@ -856,9 +1189,17 @@ if ! check_gui_install_dir; then
     exit 1
 fi
 
+mkdir -p "$WORKSPACE_DIR"
+WORKSPACE_DIR="$(cd "$WORKSPACE_DIR" && pwd -P)"
+apollo_repo_dir="$WORKSPACE_DIR/apollo-lib"
+echo "Source workspace: $WORKSPACE_DIR"
 resolve_repo_root
 echo "Script directory: $script_dir"
 echo "Repository root: $repo_root"
+resolve_gui_repo_root
+echo "GUI repository root: $gui_repo_root"
+resolve_patches_repo_root
+echo "Patch data repository root: $patches_repo_root"
 
 cd "$repo_root"
 
@@ -866,13 +1207,28 @@ cd "$repo_root"
 echo "Current directory: $(pwd)"
 sleep 1
 
-pull_latest_source
+pull_latest_source "$repo_root" "apollo-lib"
+pull_latest_source "$gui_repo_root" "apollo-patcher"
+pull_latest_source "$patches_repo_root" "apollo-patches"
+validate_repository_layout "$repo_root" "apollo-lib" tools/Makefile include/apollo.h
+validate_repository_layout "$gui_repo_root" "apollo-patcher" \
+    CMakeLists.txt gui/CMakeLists.txt core/apollo_ctrl.c \
+    tools/make-bundle.py tools/make-type-icons.py \
+    gui/assets/fonts/NotoSansJP-Medium.otf gui/assets/fonts/OFL.txt gui/assets/icon.icns
+validate_repository_layout "$patches_repo_root" "apollo-patches" PSP/gamekeys.txt
+if [ ! -d "$patches_repo_root/python" ]; then
+    echo "Error: apollo-patches repository is missing required directory: $patches_repo_root/python" >&2
+    exit 1
+fi
 load_mbedtls_settings_from_workflow
-cleanup_previous_builds
+prepare_build_workspace
+echo "Library build workspace: $lib_build_root"
+echo "GUI build workspace: $gui_build_root"
+cd "$lib_build_root"
 
 echo "Preparing mbedTLS ${MBEDTLS_VERSION}..."
 echo "Downloading $MBEDTLS_ARCHIVE..."
-"$CURL_BIN" -fsSL "$MBEDTLS_URL" | "$TAR_BIN" xvz -C "$repo_root"
+"$CURL_BIN" -fsSL "$MBEDTLS_URL" | "$TAR_BIN" xvz -C "$lib_build_root"
 
 cd "$MBEDTLS_DIR"
 
@@ -908,11 +1264,11 @@ echo "Running cmake..."
 
 echo "Building mbedcrypto..."
 "$CMAKE_BIN" --build . --parallel --target mbedcrypto
-ensure_artifact_exists "$repo_root/$MBEDTLS_DIR/build/library/libmbedcrypto.a" "mbedTLS static library"
-verify_universal_binary "$repo_root/$MBEDTLS_DIR/build/library/libmbedcrypto.a" "mbedTLS static library"
+ensure_artifact_exists "$lib_build_root/$MBEDTLS_DIR/build/library/libmbedcrypto.a" "mbedTLS static library"
+verify_universal_binary "$lib_build_root/$MBEDTLS_DIR/build/library/libmbedcrypto.a" "mbedTLS static library"
 
 echo "Navigating back to repository root"
-cd "$repo_root"
+cd "$lib_build_root"
 
 # Confirm the current directory
 echo "Current directory: $(pwd)"
@@ -929,34 +1285,33 @@ sleep 1
 echo "Building default Apollo CLI tools"
 "$MAKE_BIN" clean
 "$MAKE_BIN" CC="$UNIVERSAL_CC"
-ensure_artifact_exists "$repo_root/tools/patcher" "CLI artifact patcher"
-ensure_artifact_exists "$repo_root/tools/dumper" "CLI artifact dumper"
-chmod 755 "$repo_root/tools/patcher" "$repo_root/tools/dumper"
-clear_quarantine "$repo_root/tools/patcher" "built CLI artifact patcher"
-clear_quarantine "$repo_root/tools/dumper" "built CLI artifact dumper"
-verify_universal_binary "$repo_root/tools/patcher" "built CLI artifact patcher"
-verify_universal_binary "$repo_root/tools/dumper" "built CLI artifact dumper"
-sign_cli_artifact "$repo_root/tools/patcher"
-sign_cli_artifact "$repo_root/tools/dumper"
-verify_cli_artifact "$repo_root/tools/patcher"
-verify_cli_artifact "$repo_root/tools/dumper"
-cd "$repo_root"
-
-if [ ! -d "$repo_root/gui" ]; then
-    echo "Error: Unable to locate gui directory from repo root: $repo_root/gui" >&2
-    exit 1
-fi
+ensure_artifact_exists "$lib_build_root/tools/patcher" "CLI artifact patcher"
+ensure_artifact_exists "$lib_build_root/tools/dumper" "CLI artifact dumper"
+chmod 755 "$lib_build_root/tools/patcher" "$lib_build_root/tools/dumper"
+clear_quarantine "$lib_build_root/tools/patcher" "built CLI artifact patcher"
+clear_quarantine "$lib_build_root/tools/dumper" "built CLI artifact dumper"
+verify_universal_binary "$lib_build_root/tools/patcher" "built CLI artifact patcher"
+verify_universal_binary "$lib_build_root/tools/dumper" "built CLI artifact dumper"
+sign_cli_artifact "$lib_build_root/tools/patcher"
+sign_cli_artifact "$lib_build_root/tools/dumper"
+verify_cli_artifact "$lib_build_root/tools/patcher"
+verify_cli_artifact "$lib_build_root/tools/dumper"
+cd "$lib_build_root"
 
 echo "Building Apollo GUI"
-cd "$repo_root/gui"
-"$CMAKE_BIN" -S . -B build \
+"$CMAKE_BIN" -S "$gui_build_root" -B "$gui_build_root/build" \
+    -DAPOLLO_ROOT="$lib_build_root" \
+    -DAPOLLO_PATCHES="$patches_repo_root" \
+    -DGIT_EXECUTABLE="$GIT_BIN" \
+    -DPython3_EXECUTABLE="$PYTHON3_BIN" \
+    -DAPOLLO_BUILD_GUI=ON \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_C_COMPILER="$APPLE_CLANG_BIN" \
     -DCMAKE_CXX_COMPILER="$APPLE_CLANGPP_BIN" \
     -DCMAKE_OSX_ARCHITECTURES="$UNIVERSAL_CMAKE_ARCHITECTURES" \
     -DCMAKE_OSX_DEPLOYMENT_TARGET="$MACOS_DEPLOYMENT_TARGET" \
     -DCMAKE_OSX_SYSROOT="$MACOS_SDK_PATH"
-"$CMAKE_BIN" --build build --parallel
+"$CMAKE_BIN" --build "$gui_build_root/build" --parallel
 
 store_gui_bundle
 

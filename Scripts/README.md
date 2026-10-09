@@ -42,7 +42,7 @@ Apply `--little` if you want it in Little Endian.
 
 [Apollo-lib Compiler macOS](apollo-lib-macos.md)
 
-> Builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools (`patcher`, `dumper`) and the macOS GUI app for macOS 11.0 or later. Upstream CMake still produces `apollo_patcher_gui.app`; the wrapper installs it as `Apollo Patcher.app` at `/Applications/Apollo Patcher.app` and registers that final app with LaunchServices. Full Xcode is optional—Command Line Tools are enough; see the [dedicated build guide](apollo-lib-macos.md) for setup, outputs, signing, and usage.
+> Builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools from `apollo-lib` and the desktop GUI from `apollo-patcher`, including the `apollo-patches` database, font, and code-type icons, with a macOS 11.0 deployment target. By default, checkouts, disposable build copies, and CLI tools stay under `$HOME/Desktop/apollo`; an ignored adjacent `.conf` configures these paths and GUI installation. The wrapper automatically installs missing build tools, builds from source copies, and installs/registers `Apollo Patcher.app` in `/Applications` by default. Full Xcode is optional—Command Line Tools are enough; see the [dedicated build guide](apollo-lib-macos.md) for configuration, GitHub SSH setup, signing, and usage.
 
 **Usage**  
 See the [Apollo-lib macOS build guide](apollo-lib-macos.md#usage).
