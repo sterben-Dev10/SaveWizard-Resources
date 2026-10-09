@@ -1,8 +1,8 @@
-<a id="apollo-lib-compiler-for-macos"></a>
+<a id="apollo-build-macos"></a>
 
-# 🧱 Apollo-lib Compiler for macOS
+# 🧱 Apollo Build for macOS
 
-The [`apollo-lib-macos.zsh`](apollo-lib-macos.zsh) wrapper builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools (`patcher`, `dumper`) from [apollo-lib](https://github.com/bucanero/apollo-lib) and the desktop GUI from [apollo-patcher](https://github.com/bucanero/apollo-patcher), with a minimum deployment target of macOS 11.0. The GUI includes the [apollo-patches](https://github.com/bucanero/apollo-patches) database, font, and generated code-type icons. Upstream CMake produces `apollo_patcher_gui.app`; the wrapper installs it as `Apollo Patcher.app` by default. Run with `--cli` to build, sign, verify, and install only `patcher` and `dumper`, skipping the GUI and patch database. With no options, the wrapper builds both CLI and GUI. Full Xcode is not required: [Command Line Tools (CLT)](https://developer.apple.com/documentation/xcode/installing-the-command-line-tools/) supply Apple's build tools and SDK.
+The [`build-apollo.zsh`](build-apollo.zsh) wrapper builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools (`patcher`, `dumper`) from [apollo-lib](https://github.com/bucanero/apollo-lib) and the desktop GUI from [apollo-patcher](https://github.com/bucanero/apollo-patcher), with a minimum deployment target of macOS 11.0. The GUI includes the [apollo-patches](https://github.com/bucanero/apollo-patches) database, font, and generated code-type icons. Upstream CMake produces `apollo_patcher_gui.app`; the wrapper installs it as `Apollo Patcher.app` by default. Run with `--cli` to build, sign, verify, and install only `patcher` and `dumper`, skipping the GUI and patch database. With no options, the wrapper builds both CLI and GUI. Full Xcode is not required: [Command Line Tools (CLT)](https://developer.apple.com/documentation/xcode/installing-the-command-line-tools/) supply Apple's build tools and SDK.
 
 **Browse:** [⚙️ Configuration](#local-configuration) · [🧰 Toolchain](#toolchain-and-dependencies) · [🔄 Build flow](#build-flow) · [🔏 Signing](#signing-and-verification) · [📋 Output & log](#terminal-output-and-build-log) · [▶️ Usage](#usage)
 
@@ -169,15 +169,15 @@ Illustrative abbreviated successful output (not a captured build):
 Make the wrapper executable, then run it from any working directory using its path. Replace `/path/to/Scripts` with the directory containing your copy:
 
 ```zsh
-chmod 755 "/path/to/Scripts/apollo-lib-macos.zsh"
-"/path/to/Scripts/apollo-lib-macos.zsh"
+chmod 755 "/path/to/Scripts/build-apollo.zsh"
+"/path/to/Scripts/build-apollo.zsh"
 ```
 
 To inspect usage and initialize the full adjacent config without building, or to build only the CLI tools:
 
 ```zsh
-"/path/to/Scripts/apollo-lib-macos.zsh" --help
-"/path/to/Scripts/apollo-lib-macos.zsh" --cli
+"/path/to/Scripts/build-apollo.zsh" --help
+"/path/to/Scripts/build-apollo.zsh" --cli
 ```
 
 `-h` is an alias for `--help`, and help may be combined with `--cli`. Unknown options and positional arguments stop with a usage hint before config or build changes.
@@ -185,7 +185,7 @@ To inspect usage and initialize the full adjacent config without building, or to
 To choose another CLI destination for one invocation:
 
 ```zsh
-STORE_PATH="/path/to/Apollo CLI Tools" "/path/to/Scripts/apollo-lib-macos.zsh"
+STORE_PATH="/path/to/Apollo CLI Tools" "/path/to/Scripts/build-apollo.zsh"
 ```
 
 `patcher` selects endianness at runtime with `-b`/`--big-endian`; the build does not produce a separate `patcher-bigendian` executable.

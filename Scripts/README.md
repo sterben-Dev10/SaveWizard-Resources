@@ -4,7 +4,7 @@
 
 A collection of scripts for save editing and small utilities.
 
-**Browse:** [📋 Script catalogue](#script-catalogue) · [🐍 Python setup](#python-setup) · [🎮 Death Stranding](#death-stranding) · [🔢 pyconvert](#pyconvert) · [🧱 Apollo build](#apollo-lib-compiler-for-macos) · [📥 MediaFire](#mediafire)
+**Browse:** [📋 Script catalogue](#script-catalogue) · [🐍 Python setup](#python-setup) · [🎮 Death Stranding](#death-stranding) · [🔢 pyconvert](#pyconvert) · [🧱 Apollo build](#apollo-build-for-macos) · [📥 MediaFire](#mediafire)
 
 ## Script catalogue
 
@@ -12,7 +12,7 @@ A collection of scripts for save editing and small utilities.
 | --- | --- | --- |
 | [Death Stranding](Death%20Stranding) | Repairs and upgrades structures across the map, excluding safehouses; can also max the resources in owned safehouses. | [Usage guide](Death%20Stranding/README.md) |
 | [pyconvert](pyconvert.py) | Converts decimal and hexadecimal values, including floats; run with `--help` to see all options. | Examples below |
-| [Apollo-lib Compiler macOS](apollo-lib-macos.md) | Builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools and the desktop GUI, including patch data, font, and code-type icons. | [Build guide](apollo-lib-macos.md) |
+| [Apollo Build macOS](apollo-build-macos.md) | Builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools and the desktop GUI, including patch data, font, and code-type icons. | [Build guide](apollo-build-macos.md) |
 | [MediaFire](MediaFire.py) | Combines blocked/dangerous MediaFire links so the file can be copied to your own drive. | Instructions below |
 
 ## Python setup
@@ -63,11 +63,11 @@ python Scripts/pyconvert.py C39E943977124BE8 -swp
 
 This swaps the endianness of the hexadecimal input.
 
-## Apollo-lib Compiler for macOS
+## Apollo Build for macOS
 
 By default, the wrapper keeps source checkouts, disposable build copies, and CLI tools in an `apollo/` folder beside the script. The ignored adjacent `build-apollo.conf` file configures those paths and GUI installation. The wrapper automatically installs missing build tools, builds from source copies, and installs and registers `Apollo Patcher.app` in `/Applications` by default. Full Xcode is optional; Command Line Tools are enough.
 
-See the [Apollo-lib macOS build guide](apollo-lib-macos.md) for configuration, GitHub SSH setup, signing, build lifecycle, and usage.
+See the [Apollo macOS build guide](apollo-build-macos.md) for configuration, GitHub SSH setup, signing, build lifecycle, and usage.
 
 ## MediaFire
 
