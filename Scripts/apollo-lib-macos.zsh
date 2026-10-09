@@ -34,17 +34,17 @@ start_work_indicator() {
         trap - EXIT
         trap 'exit 0' INT TERM
         local frame=1
-        local -a dots=(. .. ... .... ..)
+        local -a frames=(⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏)
         local use_zselect=0
         zmodload zsh/zselect 2>/dev/null && use_zselect=1
         while kill -0 "$owner_pid" 2>/dev/null; do
-            printf '\r\033[2K  Working%s' "${dots[$frame]}"
+            printf '\r\033[2K  %s Working' "${frames[$frame]}"
             if (( use_zselect )); then
-                zselect -t 25 || true
+                zselect -t 10 || true
             else
-                sleep 0.25
+                sleep 0.1
             fi
-            frame=$((frame % ${#dots} + 1))
+            frame=$((frame % ${#frames} + 1))
         done
     ) &
     UI_HELPER_PID=$!
