@@ -322,7 +322,7 @@ load_configuration() {
     local config_line key value config_default_dir
     local line_number=0
     local -A config_values
-    local -a required_keys=(WORKSPACE_DIR STORE_PATH BUILD_DIR GUI_INSTALL_DIR GUI_BUILD_APP_NAME GUI_INSTALL_APP_NAME)
+    local -a required_keys=(WORKSPACE_DIR STORE_PATH BUILD_DIR GUI_INSTALL_DIR GUI_INSTALL_APP_NAME)
     CONFIG_ERROR_SOURCE=config
 
     if [ ! -e "$CONFIG_FILE" ]; then
@@ -340,7 +340,6 @@ CONFIG
                 "BUILD_DIR=\"$config_default_dir/apollo/apollo_build\""
             cat <<'CONFIG'
 GUI_INSTALL_DIR=/Applications
-GUI_BUILD_APP_NAME=apollo_patcher_gui.app
 GUI_INSTALL_APP_NAME="Apollo Patcher.app"
 CONFIG
         } > "$CONFIG_FILE"); then
@@ -372,7 +371,7 @@ CONFIG
         value="${config_line#*=}"
         value="${value##[[:space:]]#}"
         case "$key" in
-            WORKSPACE_DIR|STORE_PATH|BUILD_DIR|GUI_INSTALL_DIR|GUI_BUILD_APP_NAME|GUI_INSTALL_APP_NAME) ;;
+            WORKSPACE_DIR|STORE_PATH|BUILD_DIR|GUI_INSTALL_DIR|GUI_INSTALL_APP_NAME) ;;
             *) ui_emit "$UI_ERROR" "Error: unknown configuration key '$key' at line $line_number in $CONFIG_FILE." >&2; return 1 ;;
         esac
         if [[ -n "${config_values[$key]+present}" ]]; then
@@ -405,7 +404,7 @@ CONFIG
                 expand_config_path "$value" "$key" || return 1
                 value="$REPLY"
                 ;;
-            GUI_BUILD_APP_NAME|GUI_INSTALL_APP_NAME)
+            GUI_INSTALL_APP_NAME)
                 if [[ ! "$value" =~ '^[[:alnum:]][[:alnum:] ._-]*[.]app$' || "$value" == *'..'* ]]; then
                     ui_emit "$UI_ERROR" "Error: $key must be a simple .app basename with no slash or traversal." >&2
                     return 1
@@ -426,7 +425,6 @@ CONFIG
     STORE_PATH="${config_values[STORE_PATH]}"
     BUILD_DIR="${config_values[BUILD_DIR]}"
     GUI_INSTALL_DIR="${config_values[GUI_INSTALL_DIR]}"
-    GUI_BUILD_APP_NAME="${config_values[GUI_BUILD_APP_NAME]}"
     GUI_INSTALL_APP_NAME="${config_values[GUI_INSTALL_APP_NAME]}"
     if [ -n "$STORE_PATH_OVERRIDE" ]; then
         CONFIG_ERROR_SOURCE=environment
@@ -483,6 +481,7 @@ APOLLO_GUI_REPO_URL="git@github.com:bucanero/apollo-patcher.git"
 APOLLO_PATCHES_REPO_URL="git@github.com:bucanero/apollo-patches.git"
 GUI_INSTALL_RESULT="pending"
 GUI_BUILD_APP_PATH=""
+GUI_BUILD_EXECUTABLE_NAME=""
 GUI_INSTALL_NOTE=""
 
 MBEDTLS_VERSION=""
@@ -1105,7 +1104,7 @@ cleanup_gui_staging() {
 
 # This helper is intentionally nonfatal; every fallible operation is guarded.
 install_gui_bundle() {
-    local gui_app="$1"
+    local gui_app="$1" executable_name="$2"
     local destination_app="$GUI_INSTALL_DIR/$GUI_INSTALL_APP_NAME"
     local staging_dir="" staged_app="" staged_exec=""
 
@@ -1131,7 +1130,7 @@ install_gui_bundle() {
         return 1
     fi
     staged_app="$staging_dir/$GUI_INSTALL_APP_NAME"
-    staged_exec="$staged_app/Contents/MacOS/apollo_patcher_gui"
+    staged_exec="$staged_app/Contents/MacOS/$executable_name"
 
     if ! run_logged "Stage verified GUI bundle" cp -R -- "$gui_app" "$staged_app"; then
         GUI_INSTALL_NOTE="Unable to copy the GUI into its staging directory"
@@ -1176,17 +1175,17 @@ install_gui_bundle() {
         cleanup_gui_staging "$staging_dir" || true
         return 1
     fi
-    if ! run_logged "Set installed GUI executable permissions" chmod 755 "$destination_app/Contents/MacOS/apollo_patcher_gui"; then
+    if ! run_logged "Set installed GUI executable permissions" chmod 755 "$destination_app/Contents/MacOS/$executable_name"; then
         GUI_INSTALL_NOTE="Unable to set installed GUI executable permissions"
         cleanup_gui_staging "$staging_dir" || true
         return 1
     fi
-    if ! clear_quarantine "$destination_app" "installed GUI app" || ! clear_quarantine "$destination_app/Contents/MacOS/apollo_patcher_gui" "installed GUI executable"; then
+    if ! clear_quarantine "$destination_app" "installed GUI app" || ! clear_quarantine "$destination_app/Contents/MacOS/$executable_name" "installed GUI executable"; then
         GUI_INSTALL_NOTE="Installed GUI quarantine checks failed"
         cleanup_gui_staging "$staging_dir" || true
         return 1
     fi
-    if ! verify_universal_binary "$destination_app/Contents/MacOS/apollo_patcher_gui" "installed GUI executable"; then
+    if ! verify_universal_binary "$destination_app/Contents/MacOS/$executable_name" "installed GUI executable"; then
         GUI_INSTALL_NOTE="Installed GUI Universal2 verification failed"
         cleanup_gui_staging "$staging_dir" || true
         return 1
@@ -1210,9 +1209,105 @@ install_gui_bundle() {
     return 0
 }
 
+discover_gui_bundle() {
+    local discovery_output
+    local -a discovery_fields
+    if ! discovery_output="$("$PYTHON3_BIN" - "$gui_build_root/build" 2>&1 <<'PYTHON'
+import os
+import plistlib
+import subprocess
+import sys
+import unicodedata
+from pathlib import Path
+
+
+def safe_text(value):
+    return not any(unicodedata.category(char) in ("Cc", "Zl", "Zp") for char in value)
+
+
+def require_real(path, directory=False):
+    if path.is_symlink() or not (path.is_dir() if directory else path.is_file()):
+        raise ValueError(f"expected a real {'directory' if directory else 'file'}: {str(path)!r}")
+
+
+def require_contained(path, ancestor):
+    try:
+        path.resolve(strict=True).relative_to(ancestor.resolve(strict=True))
+    except ValueError:
+        raise ValueError(f"path escapes GUI build output or bundle: {str(path)!r}")
+
+
+def walk_error(error):
+    raise error
+
+
+try:
+    build_root = Path(sys.argv[1])
+    require_real(build_root, directory=True)
+    candidates = []
+    for current, directories, files in os.walk(build_root, followlinks=False, onerror=walk_error):
+        for name in directories[:]:
+            child = Path(current) / name
+            if child.suffix.lower() == ".app":
+                candidates.append(child)
+                directories.remove(name)  # Never search inside a bundle.
+            elif child.is_symlink():
+                directories.remove(name)
+        candidates.extend(Path(current) / name for name in files if Path(name).suffix.lower() == ".app")
+    if len(candidates) != 1:
+        raise ValueError(f"expected exactly one GUI .app bundle under {str(build_root)!r}; found {len(candidates)}")
+    app = candidates[0]
+    if not safe_text(str(app)):
+        raise ValueError("GUI bundle path contains control characters or line breaks")
+    require_real(app, directory=True)
+    require_contained(app, build_root)
+    contents = app / "Contents"
+    macos = contents / "MacOS"
+    plist_path = contents / "Info.plist"
+    require_real(contents, directory=True)
+    require_real(macos, directory=True)
+    require_real(plist_path)
+    # macOS accepts upstream plist comments that strict XML readers reject.
+    # Convert to stdout only; keep the completed bundle byte-for-byte intact.
+    parsed_plist = subprocess.run(
+        ["/usr/bin/plutil", "-convert", "binary1", "-o", "-", "--", str(plist_path)],
+        capture_output=True,
+    )
+    if parsed_plist.returncode:
+        diagnostic = (parsed_plist.stderr or parsed_plist.stdout).decode("utf-8", errors="replace").strip()
+        raise ValueError(f"macOS plutil could not read {str(plist_path)!r}: {diagnostic or 'conversion failed'}")
+    metadata = plistlib.loads(parsed_plist.stdout)
+    name = metadata.get("CFBundleExecutable")
+    if not isinstance(name, str) or not name or name in (".", "..") or "/" in name or "\\" in name or not safe_text(name):
+        raise ValueError(f"invalid CFBundleExecutable in {str(plist_path)!r}; expected a safe nonempty basename")
+    if metadata.get("CFBundlePackageType", "APPL") != "APPL":
+        raise ValueError(f"GUI bundle package type is not APPL: {str(plist_path)!r}")
+    executable = macos / name
+    require_real(executable)
+    require_contained(executable, app)
+    print(app)
+    print(name)
+except Exception as error:
+    print(f"Error: GUI bundle discovery failed: {error}", file=sys.stderr)
+    sys.exit(1)
+PYTHON
+)"; then
+        ui_emit "$UI_ERROR" "$discovery_output" >&2
+        return 1
+    fi
+    discovery_fields=("${(@f)discovery_output}")
+    if (( ${#discovery_fields} != 2 )); then
+        ui_emit "$UI_ERROR" "Error: GUI bundle discovery returned invalid metadata." >&2
+        return 1
+    fi
+    GUI_BUILD_APP_PATH="${discovery_fields[1]}"
+    GUI_BUILD_EXECUTABLE_NAME="${discovery_fields[2]}"
+    ui_done "Discovered GUI bundle: ${GUI_BUILD_APP_PATH:t}"
+}
+
 store_gui_bundle() {
-    local gui_app="$gui_build_root/build/gui/$GUI_BUILD_APP_NAME"
-    local gui_exec="$gui_app/Contents/MacOS/apollo_patcher_gui"
+    local gui_app="$GUI_BUILD_APP_PATH"
+    local gui_exec="$gui_app/Contents/MacOS/$GUI_BUILD_EXECUTABLE_NAME"
     local resource
 
     ensure_artifact_exists "$gui_app" "GUI bundle"
@@ -1233,7 +1328,7 @@ store_gui_bundle() {
     if (( CLI_BUILD_READY )); then BUILD_OUTPUTS_READY=1; fi
     GUI_INSTALL_RESULT="manual"
 
-    if install_gui_bundle "$gui_app"; then
+    if install_gui_bundle "$gui_app" "$GUI_BUILD_EXECUTABLE_NAME"; then
         return 0
     fi
     ui_emit "$UI_WARN" "  ⚠ GUI installation failed: $GUI_INSTALL_NOTE
@@ -1570,6 +1665,7 @@ if (( ! CLI_ONLY )); then
         -DCMAKE_OSX_DEPLOYMENT_TARGET="$MACOS_DEPLOYMENT_TARGET" \
         -DCMAKE_OSX_SYSROOT="$MACOS_SDK_PATH"
     run_logged --animate "Build GUI, database, font and icons" "$CMAKE_BIN" --build "$gui_build_root/build" --parallel
+    discover_gui_bundle
 
     ui_section 7 "🔏" "GUI signing, installation & registration"
     store_gui_bundle

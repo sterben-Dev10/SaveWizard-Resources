@@ -2,7 +2,7 @@
 
 # 🧱 Apollo Build for macOS
 
-The [`build-apollo.zsh`](build-apollo.zsh) wrapper builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools (`patcher`, `dumper`) from [apollo-lib](https://github.com/bucanero/apollo-lib) and the desktop GUI from [apollo-patcher](https://github.com/bucanero/apollo-patcher), with a minimum deployment target of macOS 11.0. The GUI includes the [apollo-patches](https://github.com/bucanero/apollo-patches) database, font, and generated code-type icons. Upstream CMake produces `apollo_patcher_gui.app`; the wrapper installs it as `Apollo Patcher.app` by default. Run with `--cli` to build, sign, verify, and install only `patcher` and `dumper`, skipping the GUI and patch database. With no options, the wrapper builds both CLI and GUI. Full Xcode is not required: [Command Line Tools (CLT)](https://developer.apple.com/documentation/xcode/installing-the-command-line-tools/) supply Apple's build tools and SDK.
+The [`build-apollo.zsh`](build-apollo.zsh) wrapper builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools (`patcher`, `dumper`) from [apollo-lib](https://github.com/bucanero/apollo-lib) and the desktop GUI from [apollo-patcher](https://github.com/bucanero/apollo-patcher), with a minimum deployment target of macOS 11.0. The GUI includes the [apollo-patches](https://github.com/bucanero/apollo-patches) database, font, and generated code-type icons. The wrapper discovers the completed app bundle and its executable from build output, then installs it as `Apollo Patcher.app` by default. Run with `--cli` to build, sign, verify, and install only `patcher` and `dumper`, skipping the GUI and patch database. With no options, the wrapper builds both CLI and GUI. Full Xcode is not required: [Command Line Tools (CLT)](https://developer.apple.com/documentation/xcode/installing-the-command-line-tools/) supply Apple's build tools and SDK.
 
 **Browse:** [⚙️ Configuration](#local-configuration) · [🧰 Toolchain](#toolchain-and-dependencies) · [🔄 Build flow](#build-flow) · [🔏 Signing](#signing-and-verification) · [📋 Output & log](#terminal-output-and-build-log) · [▶️ Usage](#usage)
 
@@ -21,7 +21,6 @@ WORKSPACE_DIR="/path/to/Scripts/apollo"
 BUILD_DIR="/path/to/Scripts/apollo/apollo_build"
 STORE_PATH="/path/to/Scripts/apollo/Apollo CLI Tools"
 GUI_INSTALL_DIR=/Applications
-GUI_BUILD_APP_NAME=apollo_patcher_gui.app
 GUI_INSTALL_APP_NAME="Apollo Patcher.app"
 ```
 
@@ -31,12 +30,13 @@ GUI_INSTALL_APP_NAME="Apollo Patcher.app"
 | `BUILD_DIR` | Shared build root for disposable `apollo-lib` and `apollo-patcher` copies. It must be outside the source checkouts. |
 | `STORE_PATH` | Persistent destination for the CLI tools. Set this to another location to store the tools elsewhere without editing the script. |
 | `GUI_INSTALL_DIR` | Existing writable directory where the GUI app is installed, such as `$HOME/Applications`. |
-| `GUI_BUILD_APP_NAME` | Name of the bundle produced by CMake. Changing this setting does not rename CMake's output. |
 | `GUI_INSTALL_APP_NAME` | Name for the installed GUI bundle. |
 
 Edit the config to retain your choices between runs. For example, use `WORKSPACE_DIR="$HOME/Apps/Dev/apollo"` and `BUILD_DIR="$HOME/Apps/Dev/apollo/apollo_build"` to keep source checkouts and build output together under your development directory, and set `STORE_PATH="$HOME/Apps/SWTools/Apollo CLI Tools"` to choose a separate persistent CLI destination.
 
-The config is literal `key=value` data and is never sourced or evaluated. Blank lines, whole-line `#` comments, spaces around assignments, surrounding single or double quotes, and CRLF line endings are supported. Only a leading `$HOME`, `${HOME}`, or `~/` is expanded in path settings; all paths must then be absolute. App names must be simple `.app` basenames using letters, digits, spaces, dots, underscores, or hyphens, starting with a letter or digit and without `..` or a slash. Unknown, duplicate, missing, or malformed settings fail before tool installation or repository/build changes. The error identifies the issue and configuration file: fix that file, or delete it so the next invocation regenerates all six defaults. GUI settings remain part of the complete config in CLI mode and are validated, even though GUI operations are skipped. An unwritable GUI installation destination uses the manual-copy fallback described below.
+The config is literal `key=value` data and is never sourced or evaluated. Blank lines, whole-line `#` comments, spaces around assignments, surrounding single or double quotes, and CRLF line endings are supported. Only a leading `$HOME`, `${HOME}`, or `~/` is expanded in path settings; all paths must then be absolute. App names must be simple `.app` basenames using letters, digits, spaces, dots, underscores, or hyphens, starting with a letter or digit and without `..` or a slash. Unknown, duplicate, missing, or malformed settings fail before tool installation or repository/build changes. The error identifies the issue and configuration file: fix that file, or delete it so the next invocation regenerates all five defaults. GUI settings remain part of the complete config in CLI mode and are validated, even though GUI operations are skipped. An unwritable GUI installation destination uses the manual-copy fallback described below.
+
+For an existing config from an older wrapper, remove the `GUI_BUILD_APP_NAME` line. The strict parser rejects this obsolete setting; `GUI_INSTALL_APP_NAME` still controls the installed app name.
 
 A nonempty caller-provided `STORE_PATH` overrides the config for that invocation only. An invalid override must be fixed or unset in the environment; deleting the config will not correct it.
 
@@ -99,7 +99,9 @@ Before deleting any managed directory, cleanup validates all directories active 
 
 These steps run only in full mode. GUI configuration uses `BUILD_DIR/apollo-patcher` as its source root and `BUILD_DIR/apollo-patcher/build` as its CMake build directory, with `-DAPOLLO_ROOT` pointing to `BUILD_DIR/apollo-lib` and `-DAPOLLO_PATCHES` pointing to the original patch-data checkout. The full default `cmake --build` builds the app and resource targets, including `apollo-patches.zip`, the desktop font, and generated code-type icons.
 
-The resulting bundle is `BUILD_DIR/apollo-patcher/build/gui/apollo_patcher_gui.app`. Before signing or installing it, the wrapper requires the GUI executable and `Contents/Resources/apollo-patches.zip`, `NotoSansJP-Medium.otf`, and `OFL.txt`.
+After the GUI build succeeds, the wrapper searches beneath `BUILD_DIR/apollo-patcher/build` for exactly one app bundle, without searching inside bundles or following directory symlinks. Missing or multiple bundles, invalid `Info.plist` metadata, unsafe executable names, and symlink or escaping bundle/executable paths stop the build. The executable name comes from `CFBundleExecutable`; macOS’s built-in `plutil` reads `Info.plist` without altering the bundle. The build bundle name is not a config setting.
+
+Before signing or installing the discovered bundle, the wrapper requires its executable and `Contents/Resources/apollo-patches.zip`, `NotoSansJP-Medium.otf`, and `OFL.txt`.
 
 Upstream code may emit legacy mbedTLS CMake compatibility/policy warnings and Apple OpenGL deprecation warnings. The wrapper keeps the full warnings in `WORKSPACE_DIR/build.log` while showing concise progress in the terminal. Source and syntax checks of the wrapper do not establish a successful build or GUI runtime on your host.
 
@@ -108,7 +110,7 @@ Upstream code may emit legacy mbedTLS CMake compatibility/policy warnings and Ap
 | Artifact | Default destination | Notes |
 | --- | --- | --- |
 | `BUILD_DIR/apollo-lib/tools/patcher` and `dumper` | `/path/to/Scripts/apollo/Apollo CLI Tools` | Configure `STORE_PATH` persistently, or override it for one invocation. |
-| `BUILD_DIR/apollo-patcher/build/gui/apollo_patcher_gui.app` | `/Applications/Apollo Patcher.app` | Configure `GUI_INSTALL_DIR` and `GUI_INSTALL_APP_NAME`; `STORE_PATH` controls only the CLI. |
+| Discovered `.app` under `BUILD_DIR/apollo-patcher/build` | `/Applications/Apollo Patcher.app` | Configure `GUI_INSTALL_DIR` and `GUI_INSTALL_APP_NAME`; `STORE_PATH` controls only the CLI. |
 
 ## Signing and verification
 
