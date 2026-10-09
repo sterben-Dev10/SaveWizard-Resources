@@ -1,12 +1,17 @@
-## Death Stranding Scripts
+<a id="death-stranding-scripts"></a>
 
-###### PS4 Saves Only
+# 🎮 Death Stranding Scripts
+
+**Scope: PS4 saves only.** These scripts edit save files; keep an untouched backup of the original save.
+
+[Setup](#python-setup) · [Structure editor](#ds_structurespy) · [Safehouse resources](#ds_sh-resourcespy)
 
 ## Python setup
 
 From the repository root, create and activate a virtual environment, then install the shared dependencies before running either script.
 
 macOS/Linux:
+
 ```sh
 python3 -m venv .venv
 source .venv/bin/activate
@@ -14,121 +19,116 @@ python -m pip install -r requirements.txt
 ```
 
 Windows PowerShell:
+
 ```powershell
 py -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 ```
 
-Then change into the script directory:
+Change into the script directory:
+
 ```sh
 cd "Scripts/Death Stranding"
 ```
 
-Reactivate `.venv` in each new shell. The examples below assume that the virtual environment is active and that the working directory is `Scripts/Death Stranding`.
+Reactivate `.venv` in each new shell. The examples below assume the virtual environment is active and the working directory is `Scripts/Death Stranding`.
 
-##### DS_Structures.py
+## `DS_Structures.py`
 
-> Upgrades & Repairs all structures to max level.  
-> Usage: `python DS_Structures.py checkpoint.dat`
->Note: Does not work on safehouses.
+Repairs and upgrades structures to the configured values. Safehouses are excluded.
 
-##### Additional Options
-
-`--help` brings up the help menu
-
-`--bak` creates a backup of the file
-
-> `python DS_Structures.py checkpoint.dat --bak`
-
-`--times` the amount of times you want to run through each sequence
-
-> `python DS_Structures.py checkpoint.dat --times 30`
->
-> will make the 1st 30 edits then stop.
-
-`--debug` shows debug info as well as skipped edits
-
-> `python DS_Structures.py checkpoint.dat --debug`
-
-`--skipchecks` skips certain checks within the script that validate if it should write where it needs to.
-
-> `python DS_Structures.py checkpoint.dat --skipchecks all`
-> **WARNING:** only use this if you know what you are doing & are not afraid of possible save corruption.
-> this is only meant for debug cases.
-
-`--debug2` restores the file from backup after writes.
-
-> `python DS_Structures.py checkpoint.dat --debug2`
-> this is intended to see what edits would have been made without making them.
-
-`--logs` Specify a file to write logs to.
-
-> `python DS_Structures.py checkpoint.dat --logs log1.txt`
-
-`--roads` Attempt to include roads & misc structures missed by the main script.
-
-> `python DS_Structures.py checkpoint.dat --roads`
-> this is extremely experimental, expect game crashes or save corruption, softlocks. (missing interaction buttons from delivery terminals)  
-> this runs separately from the main script & does not include the same changes from the main script.  
-> expect your safehosues to be nuked (deleted) when running `--roads`
-
-**Note:** if the game softlocks on you & unable to contribute to the bridge construction In order No. 10
-
-Edit the following variables to following in the script:
+```sh
+python DS_Structures.py checkpoint.dat
 ```
-struct_lvl = int(os.environ.get('struct_lvl', 1) 
-float_health = float(os.environ.get('float_health', 10.0)) 
+
+### Options
+
+| Option | Behavior | Example |
+| --- | --- | --- |
+| `--help` | Show the help menu. | `python DS_Structures.py --help` |
+| `--bak` | Create a backup of the file (`checkpoint.dat.bak`). | `python DS_Structures.py checkpoint.dat --bak` |
+| `--times` | Set how many edits to make. For example, `30` makes the first 30 edits, then stops. | `python DS_Structures.py checkpoint.dat --times 30` |
+| `--debug` | Show debug information and skipped edits. | `python DS_Structures.py checkpoint.dat --debug` |
+| `--skipchecks` | Skip selected validation checks. Accepts `1`, `2`, `3`, `4`, `all`, or a range such as `1-2`. | `python DS_Structures.py checkpoint.dat --skipchecks all` |
+| `--debug2` | Make the edits, then restore the file from the backup created for this run. | `python DS_Structures.py checkpoint.dat --debug2` |
+| `--logs` | Write logs to the specified file. | `python DS_Structures.py checkpoint.dat --logs log1.txt` |
+| `--roads` | Attempt to include roads and miscellaneous structures missed by the main pass. | `python DS_Structures.py checkpoint.dat --roads` |
+
+`--skipchecks` is intended for debugging. Skipping checks can corrupt the save; use it only if you understand the risk.
+
+`--debug2` is not a no-write dry run. It creates a backup, writes the edited file, and then restores the file from that backup. The script needs to complete the restore for the original contents to be back in place.
+
+> **Warning — experimental roads mode:** `--roads` runs separately and does not include the same changes as the main script. It can cause game crashes, save corruption, or softlocks, including missing interaction buttons at delivery terminals. It may delete safehouses. Keep a separate save backup before trying it.
+
+### Order No. 10 recovery values
+
+If the game softlocks and you cannot contribute to bridge construction in Order No. 10, the original guidance was to use these values to set structure level 1, health 10, and upgrades 10. Set them near the top of the script:
+
+```python
+struct_lvl = int(os.environ.get('struct_lvl', 1))
+float_health = float(os.environ.get('float_health', 10.0))
 struct_upgrade = int(os.environ.get('struct_upgrade', 10))
 ```
 
-which should erase any upgrades, set health to 10 & set the bridge back to Lvl 1
+### Custom values
 
-##### Custom Values
+Edit the variables near the top of the script or set them in the shell. `struct_lvl` must be between `0` and `5` inclusive.
 
-if you wish to set custom values, either edit the "Variables" near the top of the script or export them in the shell & the script will pull the values from env.
-```
+macOS/Linux:
+
+```sh
 export struct_upgrade=3
 export float_health=9999999.0
-export struct_lvl=999999
+export struct_lvl=5
 ```
 
-##### DS_SH-Resources.py
+Windows PowerShell:
 
-> Additional non-Python prerequisite: @bucanero [Apollo CLI Tools](https://github.com/bucanero/apollo-lib/releases); place the `patcher` binary in the same folder as the script.
-
-> Maxes out "your" owned safehosues resources.  
-> Usage: `python DS_SH-Resources.py checkpoint.dat`
-
-##### Additional Options
-
-`--help` brings up the help menu  
-
-`--bak` creates a backup of the file
-
-> `python DS_SH-Resources.py checkpoint.dat --bak`
-
-`--debug` shows debug info  
-
-> `python DS_SH-Resources.py checkpoint.dat --debug`
-
-`--logs` Specify a file to write logs to.
-
-> `python DS_SH-Resources.py checkpoint.dat --logs log1.txt`
-
-##### Custom Values
-
-if you wish to set custom values, either edit the "Variables" near the top of the script or export them in the shell & the script will pull the values from env.
-
-###### Variables
-
-```
-APOLLO_PATCHER = os.environ.get('APOLLO_PATCHER', '')
-safehouse_resources = int(os.environ.get('safehouse_resources', 999999999))
+```powershell
+$env:struct_upgrade = "3"
+$env:float_health = "9999999.0"
+$env:struct_lvl = "5"
 ```
 
-Or export values in shell.
+## `DS_SH-Resources.py`
+
+Maxes out resources in **your owned safehouses**. This script requires [Apollo CLI Tools](https://github.com/bucanero/apollo-lib/releases). Place the executable `patcher` (or `patcher.exe` on Windows) in the same folder as this script, or set `APOLLO_PATCHER` to its executable path.
+
+```sh
+python DS_SH-Resources.py checkpoint.dat
 ```
-export APOLLO_PATCHER=%USERPROFILE%/Downloads/tools/patcher.exe
+
+### Options
+
+| Option | Behavior | Example |
+| --- | --- | --- |
+| `--help` | Show the help menu. | `python DS_SH-Resources.py --help` |
+| `--bak` | Create a backup of the file. | `python DS_SH-Resources.py checkpoint.dat --bak` |
+| `--debug` | Show debug information. | `python DS_SH-Resources.py checkpoint.dat --debug` |
+| `--logs` | Write logs to the specified file. | `python DS_SH-Resources.py checkpoint.dat --logs log1.txt` |
+
+### Custom values and Apollo path
+
+The script reads these environment variables:
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `APOLLO_PATCHER` | Empty | Optional path to the Apollo `patcher` executable. When unset, the script looks beside itself for `patcher` or `patcher.exe`. |
+| `safehouse_resources` | `999999999` | Resource value to write; values are clamped to the unsigned 32-bit range. |
+
+macOS/Linux example using the macOS wrapper's default CLI destination (adjust it if you configured a different location):
+
+```sh
+export APOLLO_PATCHER="$HOME/Desktop/apollo/Apollo CLI Tools/patcher"
 export safehouse_resources=1000
 ```
+
+Windows PowerShell example:
+
+```powershell
+$env:APOLLO_PATCHER = "$env:USERPROFILE\Downloads\tools\patcher.exe"
+$env:safehouse_resources = "1000"
+```
+
+The configured path must point to an executable file. Environment variables in the path are expanded; a literal `~` is not expanded by the script.

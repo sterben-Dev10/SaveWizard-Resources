@@ -1,6 +1,19 @@
-## Scripts
+<a id="scripts"></a>
 
-A collection of scripts that edit save files rather than using quickcode.
+# 🛠️ Scripts
+
+A collection of scripts for save editing and small utilities.
+
+**Browse:** [📋 Script catalogue](#script-catalogue) · [🐍 Python setup](#python-setup) · [🎮 Death Stranding](#death-stranding) · [🔢 pyconvert](#pyconvert) · [🧱 Apollo build](#apollo-lib-compiler-for-macos) · [📥 MediaFire](#mediafire)
+
+## Script catalogue
+
+| Script | What it does | Guide |
+| --- | --- | --- |
+| [Death Stranding](Death%20Stranding) | Repairs and upgrades structures across the map, excluding safehouses; can also max the resources in owned safehouses. | [Usage guide](Death%20Stranding/README.md) |
+| [pyconvert](pyconvert.py) | Converts decimal and hexadecimal values, including floats; run with `--help` to see all options. | Examples below |
+| [Apollo-lib Compiler macOS](apollo-lib-macos.md) | Builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools and the desktop GUI, including patch data, font, and code-type icons. | [Build guide](apollo-lib-macos.md) |
+| [MediaFire](MediaFire.py) | Combines blocked/dangerous MediaFire links so the file can be copied to your own drive. | Instructions below |
 
 ## Python setup
 
@@ -24,44 +37,57 @@ python -m pip install -r requirements.txt
 
 Reactivate `.venv` in each new shell. All later Python examples assume that it is active and are run from the repository root.
 
-[Death Stranding](Death%20Stranding)  
+## Death Stranding
 
-> Repairs & Upgrades all Structures on the map, excluding safehouses  
-> Maxes out your owned safehouses resources
+See the [Death Stranding guide](Death%20Stranding/README.md) for setup, options, examples, and warnings for both scripts.
 
-[pyconvert](pyconvert.py)  
+## pyconvert
 
-> A simple script to convert Dec to Hex & vice versa.  
-> Supports Floats as well, bring up the help menu to view all options `--help`
+Run from the repository root:
 
-**Usage:**  
-`python Scripts/pyconvert.py 999 -ui32` will output the hexadecimal value of 999 in 32bit integer (4 bytes) Big Endian by default,
-Apply `--little` if you want it in Little Endian.  
-`python Scripts/pyconvert.py 0x000003E7 -ui32` will output the decimal value. All hexadecimal values must start with `0x` when converting back to decimal.
-`python Scripts/pyconvert.py C39E943977124BE8 -swp` will swap endianness of the inputed hexadecimal input.
+```sh
+python Scripts/pyconvert.py 999 -ui32
+```
 
-[Apollo-lib Compiler macOS](apollo-lib-macos.md)
+This outputs the hexadecimal value of 999 as a 32-bit integer (4 bytes), using Big Endian by default. Add `--little` to use Little Endian.
 
-> Builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools from `apollo-lib` and the desktop GUI from `apollo-patcher`, including the `apollo-patches` database, font, and code-type icons, with a macOS 11.0 deployment target. By default, checkouts, disposable build copies, and CLI tools stay under `$HOME/Desktop/apollo`; an ignored adjacent `.conf` configures these paths and GUI installation. The wrapper automatically installs missing build tools, builds from source copies, and installs/registers `Apollo Patcher.app` in `/Applications` by default. Full Xcode is optional—Command Line Tools are enough; see the [dedicated build guide](apollo-lib-macos.md) for configuration, GitHub SSH setup, signing, and usage.
+```sh
+python Scripts/pyconvert.py 0x000003E7 -ui32
+```
 
-**Usage**  
-See the [Apollo-lib macOS build guide](apollo-lib-macos.md#usage).
+This outputs the decimal value. Hexadecimal values must start with `0x` when converting back to decimal.
 
-[MediaFire](MediaFire.py)  
+```sh
+python Scripts/pyconvert.py C39E943977124BE8 -swp
+```
 
-> A Script that bypasse's the blocked/dangerous links that you cannot download on mediafire.  
-> you must be logged in with mediafire 1st & have a dummy file uploaded to your own mediafire drive,  
-> use that dummy file to set the varrible for `Link1`.
+This swaps the endianness of the hexadecimal input.
 
-**Usage:**  
-`python Scripts/MediaFire.py` it will then ask you to enter the link you are trying to access,
-enter the link & hit enter, it should give you an example link like this `mediafire.com/?i0w4rh8twcwfirv,znig9z0dsbg6x7k`  
-as the output.
+## Apollo-lib Compiler for macOS
 
-<a href=".images/Step1.png" target="_blank">
-    <img src=".images/Step1.png"" alt="Alt Text" width="300" style="display: inline-block; margin-right: 10px;"/>
-</a> <br><a href=".images/Step2.png" target="_blank">
-    <img src=".images/Step2.png"" alt="Alt Text" width="300" style="display: inline-block; margin-right: 10px;"/>
-</a>
+By default, the wrapper keeps source checkouts, disposable build copies, and CLI tools under `$HOME/Desktop/apollo`. An ignored adjacent `.conf` file configures those paths and GUI installation. The wrapper automatically installs missing build tools, builds from source copies, and installs and registers `Apollo Patcher.app` in `/Applications` by default. Full Xcode is optional; Command Line Tools are enough.
 
-you should be able to see one of your files & the block file, then you just right click on the file that is blocked (red tint), click on "Copy File To" & place it in your own drive, from there you can download the blocked file as you own it now.
+See the [Apollo-lib macOS build guide](apollo-lib-macos.md) for configuration, GitHub SSH setup, signing, build lifecycle, and usage.
+
+## MediaFire
+
+You must first be logged in to MediaFire and have a dummy file uploaded to your own MediaFire drive. Use that file to set `Link1`.
+
+Run the script from the repository root:
+
+```sh
+python Scripts/MediaFire.py
+```
+
+Enter the link you are trying to access. The script returns a combined link, for example `mediafire.com/?i0w4rh8twcwfirv,znig9z0dsbg6x7k`.
+
+<details>
+<summary>View the MediaFire steps</summary>
+
+<a href=".images/Step1.png" target="_blank"><img src=".images/Step1.png" alt="MediaFire file context menu showing Copy Link and Copy to actions" width="300"></a>
+
+<a href=".images/Step2.png" target="_blank"><img src=".images/Step2.png" alt="MediaFire.py Link1 setting for the download link of a file you own" width="300"></a>
+
+You should see one of your files and the blocked file. Right-click the blocked file (shown with a red tint), choose **Copy File To**, and select your own drive. You can then download the blocked file from your drive.
+
+</details>
