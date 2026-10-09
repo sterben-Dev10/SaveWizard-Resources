@@ -37,31 +37,23 @@ if (( CLI_ONLY )); then
 fi
 
 show_help() {
+    ui_emit "$UI_ACCENT" "
++----------------------------------------------------------------+
+  👾  Apollo macOS · Help
++----------------------------------------------------------------+"
     cat <<HELP
-Usage: $SCRIPT_NAME [--cli] [-h|--help]
 
-Build, ad-hoc sign, verify and install Universal2 Apollo tools for macOS 11.0+.
-With no options, build patcher, dumper and the Apollo Patcher GUI.
+  Usage: $SCRIPT_NAME [--cli] [-h|--help]
 
-Options:
-  --cli       Build and install patcher and dumper only; skip GUI and patch data.
-  -h, --help  Create/validate the config, show this help and exit without building.
+  Options
+    --cli       Build and install CLI tools only.
+    -h, --help  Show this help without building.
 
-Configuration: $CONFIG_FILE
-Every mode creates all six default settings if this file is missing, and keeps
-an existing file. Edit its literal key=value settings to choose paths/app names.
-If settings are invalid, fix the file or delete it; the next run restores defaults.
-STORE_PATH overrides the CLI destination for one run, for example:
-  STORE_PATH="/path/to/Apollo CLI Tools" ./$SCRIPT_NAME --cli
+  No options: build and install CLI tools + GUI.
 
-Missing repositories try SSH first, then HTTPS if SSH fails; --cli manages only
-apollo-lib. Existing checkouts keep their configured remotes.
-Build runs write WORKSPACE_DIR/build.log, replacing the previous log.
-Tools: Apple CLT/Xcode, git, cmake, python3, rsync, curl, tar, make, xattr and
-codesign. Python validates workspace paths in both modes; GUI also uses clang++
-and lsregister. Missing build tools use the existing automatic setup flow.
-Only owned build copies for the selected mode are replaced or cleaned on cancel.
-Signed, verified build outputs are retained; installed files are not rolled back.
+  Config: $CONFIG_FILE
+  Created with defaults if missing; validated on every run.
+
 HELP
 }
 
@@ -337,7 +329,7 @@ GUI_BUILD_APP_NAME=apollo_patcher_gui.app
 GUI_INSTALL_APP_NAME="Apollo Patcher.app"
 CONFIG
         ); then
-            ui_done "Created local configuration"
+            if (( ! SHOW_HELP )); then ui_done "Created local configuration"; fi
         elif [ ! -f "$CONFIG_FILE" ]; then
             ui_emit "$UI_ERROR" "Error: unable to create configuration: $CONFIG_FILE" >&2
             return 1
@@ -426,7 +418,7 @@ CONFIG
         expand_config_path "$STORE_PATH_OVERRIDE" "STORE_PATH override" || return 1
         STORE_PATH="$REPLY"
     fi
-    ui_done "Configuration validated"
+    if (( ! SHOW_HELP )); then ui_done "Configuration validated"; fi
 }
 
 # Validate all settings before any installation, repository mutation, or cleanup.
