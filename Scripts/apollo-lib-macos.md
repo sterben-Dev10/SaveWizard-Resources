@@ -4,7 +4,7 @@
 
 The [`apollo-lib-macos.zsh`](apollo-lib-macos.zsh) wrapper builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools (`patcher`, `dumper`) from [apollo-lib](https://github.com/bucanero/apollo-lib) and the desktop GUI from [apollo-patcher](https://github.com/bucanero/apollo-patcher), with a minimum deployment target of macOS 11.0. The GUI includes the [apollo-patches](https://github.com/bucanero/apollo-patches) database, font, and generated code-type icons. Upstream CMake produces `apollo_patcher_gui.app`; the wrapper installs it as `Apollo Patcher.app` by default. Full Xcode is not required: [Command Line Tools (CLT)](https://developer.apple.com/documentation/xcode/installing-the-command-line-tools/) supply Apple's build tools and SDK.
 
-**Browse:** [⚙️ Configuration](#local-configuration) · [🧰 Toolchain](#toolchain-and-dependencies) · [🔄 Build flow](#build-flow) · [✍️ Signing](#signing-and-verification) · [▶️ Usage](#usage)
+**Browse:** [⚙️ Configuration](#local-configuration) · [🧰 Toolchain](#toolchain-and-dependencies) · [🔄 Build flow](#build-flow) · [✍️ Signing](#signing-and-verification) · [📋 Output & log](#terminal-output-and-build-log) · [▶️ Usage](#usage)
 
 ## Local configuration
 
@@ -66,6 +66,7 @@ $HOME/Desktop/apollo/
 ├── apollo-lib/                   # Library and CLI source checkout
 ├── apollo-patcher/               # GUI source checkout
 ├── apollo-patches/               # Patch database checkout
+├── build.log                     # Full output, overwritten every run
 ├── apollo_build/
 │   ├── apollo-lib/               # Disposable CLI and mbedTLS build copy
 │   └── apollo-patcher/            # Disposable GUI build copy
@@ -88,7 +89,7 @@ GUI configuration uses `BUILD_DIR/apollo-patcher` as its source root and `BUILD_
 
 The resulting bundle is `BUILD_DIR/apollo-patcher/build/gui/apollo_patcher_gui.app`. Before signing or installing it, the wrapper requires the GUI executable and `Contents/Resources/apollo-patches.zip`, `NotoSansJP-Medium.otf`, and `OFL.txt`.
 
-Upstream code may emit legacy mbedTLS CMake compatibility/policy warnings and Apple OpenGL deprecation warnings. The wrapper leaves them visible. Source and syntax checks of the wrapper do not establish a successful build or GUI runtime on your host.
+Upstream code may emit legacy mbedTLS CMake compatibility/policy warnings and Apple OpenGL deprecation warnings. The wrapper keeps the full warnings in `WORKSPACE_DIR/build.log` while showing concise progress in the terminal. Source and syntax checks of the wrapper do not establish a successful build or GUI runtime on your host.
 
 ### Artifacts
 
@@ -101,9 +102,49 @@ Upstream code may emit legacy mbedTLS CMake compatibility/policy warnings and Ap
 
 The wrapper ad-hoc signs artifacts with `codesign --force --sign -` without `--deep`, signing the completed GUI bundle with its resources. CLI signatures are verified strictly, and built and stored CLI artifacts are checked for both Universal2 slices with `lipo`.
 
-The GUI bundle is staged on the destination filesystem and verified before promotion. If the configured destination already exists, it is backed up during replacement and restored if promotion or final verification fails. After promotion and final checks, the wrapper commits the transaction, removes staging/backup files, and force-registers the installed bundle with LaunchServices using `lsregister -f`. Registration targets the final app. If registration fails, the wrapper returns failure but leaves the verified installed app in place. `pluginkit` is not involved because this is a normal app with no embedded extension or plugin. CLI binaries are stored after GUI installation and registration.
+The built GUI bundle is signed and verified before installation, so its build copy is ready for manual installation. The wrapper stages a copy on the destination filesystem and verifies it before replacing the installed app. A successful run replaces the whole destination bundle; files from the old bundle are not merged into the new one. It overwrites both stored CLI files, `patcher` and `dumper`, and retains the source app bundle in the build folder. There are no GUI backups or rollback.
+
+If the GUI destination is not writable, or another GUI copy/install check fails, the wrapper warns, prints the exact signed and verified source `.app` path for manual Finder copying, and continues with CLI installation. It does not request `sudo`. Build failures or failure to sign/verify the built app remain fatal. After installing and verifying the GUI, the wrapper removes its staging directory and force-registers the installed bundle with LaunchServices using `lsregister -f`. Registration failure produces a separate warning and retains the verified installed app while CLI installation continues. `pluginkit` is not involved because this is a normal app with no embedded extension or plugin.
 
 After GUI promotion to the configured destination, the wrapper applies `chmod 755` to the executable, recursively removes `com.apple.quarantine`, verifies both Universal2 slices with `lipo`, and verifies the bundle signature with `codesign --verify --deep --strict` before LaunchServices registration.
+
+Both built and installed CLI files, and the built, staged, and installed GUI executable under `Contents/MacOS`, receive mode `755`. App directory access permissions are preserved when copying; ordinary resource files are not made executable. Interrupting with SIGINT or SIGTERM stops further installation with exit status 130 or 143. No rollback is performed, and the validated built app remains available for manual copying.
+
+## Terminal output and build log
+
+The terminal shows a banner and eight numbered sections, with `→` for starting a step, `✓` for success, and `✗` for failure. Colors appear only on a real terminal and are disabled by `NO_COLOR` or `TERM=dumb`. Redirected output has no ANSI colors or animated redraws. Long commands show their action before running and elapsed time when at least one second passes.
+
+After config validation, each invocation creates or truncates the single `WORKSPACE_DIR/build.log`. Existing logs are overwritten; new logs are private to the current user. Symlink and non-regular log targets are refused. Full raw build/configure/extract/Git/signing output, including warnings, is appended directly to this file while commands run, so it can be followed with `tail -f`. Interactive Apple CLT and Homebrew bootstrap installer output remains live on the terminal to keep prompts visible. A separately saved log, such as `log.txt`, is not touched.
+
+On a failed command, the terminal shows the named step, its exit status, and a bounded excerpt from that command's log segment. Recognized compiler, CMake, or linker errors include useful context; unknown errors show a short tail. The complete output remains in `build.log`. GUI installation and registration warnings follow the nonfatal behavior described above. The final summary reports the actual GUI result, the CLI destination, and the raw log path.
+
+Illustrative abbreviated successful output (not a captured build):
+
+```text
++----------------------------------------------------------------+
+|  👾 Apollo macOS · Universal2 CLI + GUI                          |
++----------------------------------------------------------------+
+
+  [1/8] 🧰 Configuration & tools
+  ✓ Configuration validated
+  ✓ Apple developer tools ready
+  [2/8] 🔄 Source repositories
+  → Update apollo-lib (fast-forward only)
+  ✓ Update apollo-lib (fast-forward only)
+  [3/8] 📁 Disposable build workspace
+  [4/8] 🧱 mbedTLS
+  → Build Universal2 mbedcrypto
+  ✓ Build Universal2 mbedcrypto (12s)
+  [5/8] 🔧 CLI build, signing & verification
+  [6/8] 🖥️ GUI build & bundled database
+  [7/8] ✍️ GUI signing, installation & registration
+  ✓ GUI installed, verified and registered
+  [8/8] 📦 CLI installation
+  ✓ Apollo build and installation complete
+  GUI: /Applications/Apollo Patcher.app
+  CLI: $HOME/Desktop/apollo/Apollo CLI Tools
+  Log: $HOME/Desktop/apollo/build.log
+```
 
 ## Usage
 
