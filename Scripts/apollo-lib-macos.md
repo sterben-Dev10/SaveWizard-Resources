@@ -2,13 +2,13 @@
 
 # 🧱 Apollo-lib Compiler for macOS
 
-The [`apollo-lib-macos.zsh`](apollo-lib-macos.zsh) wrapper builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools (`patcher`, `dumper`) from [apollo-lib](https://github.com/bucanero/apollo-lib) and the desktop GUI from [apollo-patcher](https://github.com/bucanero/apollo-patcher), with a minimum deployment target of macOS 11.0. The GUI includes the [apollo-patches](https://github.com/bucanero/apollo-patches) database, font, and generated code-type icons. Upstream CMake produces `apollo_patcher_gui.app`; the wrapper installs it as `Apollo Patcher.app` by default. Full Xcode is not required: [Command Line Tools (CLT)](https://developer.apple.com/documentation/xcode/installing-the-command-line-tools/) supply Apple's build tools and SDK.
+The [`apollo-lib-macos.zsh`](apollo-lib-macos.zsh) wrapper builds Universal2 (`x86_64` + `arm64`) Apollo CLI tools (`patcher`, `dumper`) from [apollo-lib](https://github.com/bucanero/apollo-lib) and the desktop GUI from [apollo-patcher](https://github.com/bucanero/apollo-patcher), with a minimum deployment target of macOS 11.0. The GUI includes the [apollo-patches](https://github.com/bucanero/apollo-patches) database, font, and generated code-type icons. Upstream CMake produces `apollo_patcher_gui.app`; the wrapper installs it as `Apollo Patcher.app` by default. Run with `--cli` to build, sign, verify, and install only `patcher` and `dumper`, skipping the GUI and patch database. With no options, the wrapper builds both CLI and GUI. Full Xcode is not required: [Command Line Tools (CLT)](https://developer.apple.com/documentation/xcode/installing-the-command-line-tools/) supply Apple's build tools and SDK.
 
 **Browse:** [⚙️ Configuration](#local-configuration) · [🧰 Toolchain](#toolchain-and-dependencies) · [🔄 Build flow](#build-flow) · [🔏 Signing](#signing-and-verification) · [📋 Output & log](#terminal-output-and-build-log) · [▶️ Usage](#usage)
 
 ## Local configuration
 
-On its first run, the wrapper creates `apollo-lib-macos.conf` beside the script and reads it before installing tools, updating repositories, or cleaning build output. The file is ignored by Git and existing files are never overwritten. A renamed copy uses its own basename: `build-apollo-lib.zsh` reads `build-apollo-lib.conf` beside that copy.
+On its first run, including `--help` or `--cli`, the wrapper creates `apollo-lib-macos.conf` beside the script and reads it before installing tools, updating repositories, or cleaning build output. The file is ignored by Git and existing files are never overwritten. A renamed copy uses its own basename: `build-apollo-lib.zsh` reads `build-apollo-lib.conf` beside that copy.
 
 The generated defaults are:
 
@@ -32,13 +32,15 @@ GUI_INSTALL_APP_NAME="Apollo Patcher.app"
 
 Edit the config to retain your choices between runs. For example, use `WORKSPACE_DIR="$HOME/Apps/Dev/apollo"` and `BUILD_DIR="$HOME/Apps/Dev/apollo/apollo_build"` to keep source checkouts and build output together under your development directory, and set `STORE_PATH="$HOME/Apps/SWTools/Apollo CLI Tools"` to choose a separate persistent CLI destination.
 
-The config is literal `key=value` data and is never sourced or evaluated. Blank lines, whole-line `#` comments, spaces around assignments, surrounding single or double quotes, and CRLF line endings are supported. Only a leading `$HOME`, `${HOME}`, or `~/` is expanded in path settings; all paths must then be absolute. App names must be simple `.app` basenames using letters, digits, spaces, dots, underscores, or hyphens, starting with a letter or digit and without `..` or a slash. Unknown, duplicate, missing, or malformed settings fail before tool installation or repository/build changes. A nonempty caller-provided `STORE_PATH` overrides the config for that invocation only.
+The config is literal `key=value` data and is never sourced or evaluated. Blank lines, whole-line `#` comments, spaces around assignments, surrounding single or double quotes, and CRLF line endings are supported. Only a leading `$HOME`, `${HOME}`, or `~/` is expanded in path settings; all paths must then be absolute. App names must be simple `.app` basenames using letters, digits, spaces, dots, underscores, or hyphens, starting with a letter or digit and without `..` or a slash. Unknown, duplicate, missing, or malformed settings fail before tool installation or repository/build changes. The error identifies the issue and configuration file: fix that file, or delete it so the next invocation regenerates all six defaults. GUI settings remain part of the complete config in CLI mode and are validated, even though GUI operations are skipped. An unwritable GUI installation destination uses the manual-copy fallback described below.
+
+A nonempty caller-provided `STORE_PATH` overrides the config for that invocation only. An invalid override must be fixed or unset in the environment; deleting the config will not correct it.
 
 ## Toolchain and dependencies
 
-The wrapper accepts a caller-provided `DEVELOPER_DIR`, then checks the active `xcode-select` path, installed full Xcode, and the standard CLT directory. Apple `clang`, `clang++`, the macOS SDK, and `lipo` are resolved through the active `xcrun`.
+The wrapper accepts a caller-provided `DEVELOPER_DIR`, then checks the active `xcode-select` path, installed full Xcode, and the standard CLT directory. Apple `clang`, the macOS SDK, and `lipo` are resolved through the active `xcrun`. Full mode also resolves `clang++`; CLI mode does not require it.
 
-LaunchServices registration discovers an executable `lsregister` on `PATH`, then falls back to Apple's standard system-framework location, which is the same on Intel and Apple Silicon. No Homebrew-specific path or user setting is required.
+LaunchServices registration discovers an executable `lsregister` on `PATH`, then falls back to Apple's standard system-framework location, which is the same on Intel and Apple Silicon. No Homebrew-specific path or user setting is required. CLI mode skips discovery and registration entirely.
 
 If none of those developer directories is usable, the wrapper runs `xcode-select --install` and polls until the tools become available. macOS presents Apple's installer and license flow; the user must approve it manually. The wrapper cannot silently accept that GUI/license step, but resumes automatically after installation completes.
 
@@ -55,7 +57,9 @@ Homebrew is bootstrapped only when a required tool and Homebrew are both missing
 
 CLT/Xcode provides Apple Clang, `make`, the SDK, zlib, and Cocoa/OpenGL frameworks. The workflow-selected mbedTLS archive is built locally as Universal2. GUI CMake `FetchContent` downloads GLFW and Dear ImGui, so there are no separate Homebrew installs for those libraries, mbedTLS, zlib, or LLVM. GLFW and Dear ImGui are linked statically.
 
-Git and Python are passed explicitly to GUI CMake as `GIT_EXECUTABLE` and `Python3_EXECUTABLE`, including when discovered outside `PATH`. Upstream's database and icon generators use the Python standard library and require no pip packages. This is separate from the Python save-editing scripts and their `requirements.txt`.
+Python is required in both modes for physical-path workspace validation, including symlink and source-overlap safety checks. CMake is also required in CLI mode to build mbedTLS.
+
+In full mode, Git and Python are passed explicitly to GUI CMake as `GIT_EXECUTABLE` and `Python3_EXECUTABLE`, including when discovered outside `PATH`. Upstream's database and icon generators use the Python standard library and require no pip packages. This is separate from the Python save-editing scripts and their `requirements.txt`.
 
 ## Build flow
 
@@ -73,19 +77,23 @@ $HOME/Desktop/apollo/
 └── Apollo CLI Tools/             # Installed patcher and dumper
 ```
 
-Missing checkouts are cloned and existing Git checkouts are updated with `git pull --ff-only`. Fresh clones use GitHub SSH URLs (`git@github.com:bucanero/...`), so GitHub SSH authentication must be configured. Other network access is needed for the mbedTLS archive and GUI dependencies.
+Missing checkouts are cloned and existing Git checkouts are updated with `git pull --ff-only`. In `--cli` mode, only `apollo-lib` is cloned or updated; GUI and patch-data checkouts are not resolved or checked.
 
-After updating the checkouts, the wrapper validates required library and GUI sources, the patch database's `PSP/gamekeys.txt` and `python` directory, and the GUI's font/license. It reads the mbedTLS version from the original library workflow before preparing `BUILD_DIR`. Original checkouts remain source-only: the wrapper never cleans or compiles in them.
+Fresh clones try GitHub SSH URLs (`git@github.com:bucanero/...`) first, using your existing SSH authentication. If SSH cloning fails, the wrapper retries with HTTPS, so SSH keys are optional. Each attempt uses a private temporary directory under `WORKSPACE_DIR`; failed or cancelled attempts clean only that directory. A successful clone is promoted only if the source destination is still absent. Existing checkouts keep their configured remotes.
+
+Clone and update steps label their effective transport (SSH or HTTPS), honoring Git URL rewrites. Clone labels resolve rewrites without contacting the remote; updates use the current branch’s configured remote. Local or other transports are labeled accordingly, and unresolved detection shows `configured remote`. The label does not print remote URLs or embedded credentials. Other network access is needed for the mbedTLS archive and GUI dependencies.
+
+After updating the checkouts, the wrapper validates required library sources. Full mode also validates GUI sources, the patch database's `PSP/gamekeys.txt` and `python` directory, and the GUI's font/license. It reads the mbedTLS version from the original library workflow before preparing `BUILD_DIR`. Original checkouts remain source-only: the wrapper never cleans or compiles in them.
 
 ### Disposable build copies
 
-The wrapper replaces only its two managed directories, `BUILD_DIR/apollo-lib` and `BUILD_DIR/apollo-patcher`, then copies current source files with `rsync`, including local edits. Git metadata, scratch directories, old build/dist output, downloaded mbedTLS directories, object/dependency files, generated CLI binaries, and the generated GUI icon header are excluded. mbedTLS is downloaded and built in the copied library; CLI objects and executables also stay in that copy. The GUI source is copied because upstream generates `gui/src/type_icons.h` during the build. Patch source data stays in its original checkout and is read when generating the database zip.
+Full mode replaces only its two managed directories, `BUILD_DIR/apollo-lib` and `BUILD_DIR/apollo-patcher`; CLI mode replaces only `BUILD_DIR/apollo-lib` and leaves any GUI build directory untouched, including an unrecognized one. It then copies current source files with `rsync`, including local edits. Git metadata, scratch directories, old build/dist output, downloaded mbedTLS directories, object/dependency files, generated CLI binaries, and the generated GUI icon header are excluded. mbedTLS is downloaded and built in the copied library; CLI objects and executables also stay in that copy. The GUI source is copied because upstream generates `gui/src/type_icons.h` during the build. Patch source data stays in its original checkout and is read when generating the database zip.
 
-Before deleting either managed directory, cleanup validates both. The wrapper rejects build paths inside source checkouts or whose managed children contain a source checkout, refuses symlink children, and requires its exact ownership marker before replacing an existing child directory. Fresh copies are marked before copying starts, so an interrupted copy can be replaced on the next run. Other `BUILD_DIR` contents are retained, and `BUILD_DIR` itself is never removed. Use a new empty build location if existing child directories are unrecognized; the wrapper refuses to delete them.
+Before deleting any managed directory, cleanup validates all directories active in the selected mode. Both modes protect all three potential source checkout locations against build-path overlap, including inactive GUI and patch-data locations. The wrapper rejects build paths inside source checkouts or whose managed children contain a source checkout, refuses symlink children, and requires its exact ownership marker before replacing an existing child directory. Fresh copies are marked before copying starts, so an interrupted copy can be replaced on the next run. Other `BUILD_DIR` contents are retained, and `BUILD_DIR` itself is never removed. Use a new empty build location if existing child directories are unrecognized; the wrapper refuses to delete them.
 
 ### GUI build and required resources
 
-GUI configuration uses `BUILD_DIR/apollo-patcher` as its source root and `BUILD_DIR/apollo-patcher/build` as its CMake build directory, with `-DAPOLLO_ROOT` pointing to `BUILD_DIR/apollo-lib` and `-DAPOLLO_PATCHES` pointing to the original patch-data checkout. The full default `cmake --build` builds the app and resource targets, including `apollo-patches.zip`, the desktop font, and generated code-type icons.
+These steps run only in full mode. GUI configuration uses `BUILD_DIR/apollo-patcher` as its source root and `BUILD_DIR/apollo-patcher/build` as its CMake build directory, with `-DAPOLLO_ROOT` pointing to `BUILD_DIR/apollo-lib` and `-DAPOLLO_PATCHES` pointing to the original patch-data checkout. The full default `cmake --build` builds the app and resource targets, including `apollo-patches.zip`, the desktop font, and generated code-type icons.
 
 The resulting bundle is `BUILD_DIR/apollo-patcher/build/gui/apollo_patcher_gui.app`. Before signing or installing it, the wrapper requires the GUI executable and `Contents/Resources/apollo-patches.zip`, `NotoSansJP-Medium.otf`, and `OFL.txt`.
 
@@ -110,19 +118,19 @@ After GUI promotion to the configured destination, the wrapper applies `chmod 75
 
 Both built and installed CLI files, and the built, staged, and installed GUI executable under `Contents/MacOS`, receive mode `755`. App directory access permissions are preserved when copying; ordinary resource files are not made executable.
 
-Interrupting with Ctrl-C (SIGINT) or SIGTERM stops further installation with exit status 130 or 143. Once the foreground command has stopped, the wrapper rechecks ownership and path safety before removing its two partial build copies. Source checkouts, unrelated build-root contents, the log, and installed files are preserved. If the CLI tools and built GUI have already completed signing and verification, those ready outputs are retained for manual copying instead. Any active temporary GUI staging directory is removed; no rollback is performed.
+Interrupting with Ctrl-C (SIGINT) or SIGTERM stops further installation with exit status 130 or 143. Once the foreground command has stopped, the wrapper rechecks ownership and path safety before removing its active partial build copies: library and GUI in full mode, only the library in CLI mode. Source checkouts, unrelated build-root contents, the log, and installed files are preserved. If the CLI tools and built GUI have already completed signing and verification in full mode, those ready outputs are retained for manual copying. CLI mode retains its build copy as soon as both CLI tools have completed signing and verification, including when interrupted during deployment. Any active temporary source-clone or GUI staging directory is removed; no rollback is performed.
 
 Cleanup refusal or failure produces a warning and preserves the cancellation exit status. Ordinary build failures retain their diagnostics and partial build files for inspection.
 
 ## Terminal output and build log
 
-The terminal shows a banner and eight numbered sections, with `→` for starting a step, `✓` for success, and `✗` for failure. Colors appear only on a real terminal and are disabled by `NO_COLOR` or `TERM=dumb`. Redirected output has no ANSI colors or animated redraws. Long commands show their action before running and elapsed time when at least one second passes.
+The terminal shows a mode-specific banner and eight numbered sections in full mode or six in CLI mode, with `→` for starting a step, `✓` for success, and `✗` for failure. Colors appear only on a real terminal and are disabled by `NO_COLOR` or `TERM=dumb`. Redirected output has no ANSI colors or animated redraws. Long commands show their action before running and elapsed time when at least one second passes.
 
-Selected noninteractive long steps (CMake, make, and mbedTLS extraction) show a rotating Braille spinner beside `Working`, cycling through `⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏` with one frame every 0.1 seconds. This uses the existing shell helper and needs no extra dependency. The animated line is cleared before the result. Animation is disabled for redirected output and `TERM=dumb`; `NO_COLOR` disables colors while retaining animation. Git and interactive installers do not animate. Build commands and their input stay in the foreground, and the display helper is stopped and reaped on completion or cancellation.
+Selected noninteractive long steps (CMake, make, and mbedTLS extraction) show a rotating Braille spinner beside `Building`, cycling through `⠋ ⠙ ⠹ ⠸ ⠼ ⠴ ⠦ ⠧ ⠇ ⠏` with one frame every 0.1 seconds. This uses the existing shell helper and needs no extra dependency. The animated line is cleared before the result. Animation is disabled for redirected output and `TERM=dumb`; `NO_COLOR` disables colors while retaining animation. Git and interactive installers do not animate. Build commands and their input stay in the foreground, and the display helper is stopped and reaped on completion or cancellation.
 
-After config validation, each invocation creates or truncates the single `WORKSPACE_DIR/build.log`. Existing logs are overwritten; new logs are private to the current user. Symlink and non-regular log targets are refused. Full raw build/configure/extract/Git/signing output, including warnings, is appended directly to this file while commands run, so it can be followed with `tail -f`. Interactive Apple CLT and Homebrew bootstrap installer output remains live on the terminal to keep prompts visible. A separately saved log, such as `log.txt`, is not touched.
+After config validation, each build invocation creates or truncates the single `WORKSPACE_DIR/build.log`. Existing logs are overwritten; new logs are private to the current user. Symlink and non-regular log targets are refused. Full raw build/configure/extract/Git/signing output, including warnings, is appended directly to this file while commands run, so it can be followed with `tail -f`. Interactive Apple CLT and Homebrew bootstrap installer output remains live on the terminal to keep prompts visible. A separately saved log, such as `log.txt`, is not touched. `--help` initializes or validates the config, then exits without creating/truncating the log, probing/installing tools, or performing repository, build, or installation work.
 
-On a failed command, the terminal shows the named step, its exit status, and a bounded excerpt from that command's log segment. Recognized compiler, CMake, or linker errors include useful context; unknown errors show a short tail. The complete output remains in `build.log`. GUI installation and registration warnings follow the nonfatal behavior described above. The final summary reports the actual GUI result, the CLI destination, and the raw log path.
+On a failed command, the terminal shows the named step, its exit status, and a bounded excerpt from that command's log segment. Recognized compiler, CMake, or linker errors include useful context; unknown errors show a short tail. The complete output remains in `build.log`. GUI installation and registration warnings follow the nonfatal behavior described above. The full-mode final summary reports the actual GUI result, the CLI destination, and the raw log path. CLI mode reports success with the CLI destination and log path.
 
 Illustrative abbreviated successful output (not a captured build):
 
@@ -135,8 +143,8 @@ Illustrative abbreviated successful output (not a captured build):
   ✓ Configuration validated
   ✓ Apple developer tools ready
   [2/8] 🔄  Source repositories
-  → Update apollo-lib (fast-forward only)
-  ✓ Update apollo-lib (fast-forward only)
+  → Update apollo-lib via SSH (fast-forward only)
+  ✓ Update apollo-lib via SSH (fast-forward only)
   [3/8] 📁  Disposable build workspace
   [4/8] 🧱  mbedTLS
   → Build Universal2 mbedcrypto
@@ -160,6 +168,15 @@ From the `Scripts` directory, make the wrapper executable and run it:
 chmod 755 apollo-lib-macos.zsh
 ./apollo-lib-macos.zsh
 ```
+
+To inspect usage and initialize the full adjacent config without building, or to build only the CLI tools:
+
+```zsh
+./apollo-lib-macos.zsh --help
+./apollo-lib-macos.zsh --cli
+```
+
+`-h` is an alias for `--help`, and help may be combined with `--cli`. Unknown options and positional arguments stop with a usage hint before config or build changes.
 
 To choose another CLI destination for one invocation:
 

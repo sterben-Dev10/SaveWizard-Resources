@@ -12,6 +12,59 @@ setopt pipefail
 # A renamed copy gets its own adjacent config (for example build-apollo-lib.conf).
 script_dir="$(cd "$(dirname "$0")" && pwd)"
 CONFIG_FILE="$script_dir/${${0:t}:r}.conf"
+SCRIPT_NAME="${0:t}"
+CLI_ONLY=0
+SHOW_HELP=0
+for argument in "$@"; do
+    case "$argument" in
+        -h|--help) SHOW_HELP=1 ;;
+        --cli) CLI_ONLY=1 ;;
+        *)
+            print -r -- "Error: unknown argument '$argument'." >&2
+            print -r -- "Usage: $SCRIPT_NAME [--cli] [-h|--help]" >&2
+            print -r -- "Run $SCRIPT_NAME --help for usage." >&2
+            exit 2
+            ;;
+    esac
+done
+TOTAL_STAGES=8
+BUILD_LABEL="Universal2 CLI + GUI"
+typeset -a MANAGED_BUILD_CHILDREN=(apollo-lib apollo-patcher)
+if (( CLI_ONLY )); then
+    TOTAL_STAGES=6
+    BUILD_LABEL="Universal2 CLI only"
+    MANAGED_BUILD_CHILDREN=(apollo-lib)
+fi
+
+show_help() {
+    cat <<HELP
+Usage: $SCRIPT_NAME [--cli] [-h|--help]
+
+Build, ad-hoc sign, verify and install Universal2 Apollo tools for macOS 11.0+.
+With no options, build patcher, dumper and the Apollo Patcher GUI.
+
+Options:
+  --cli       Build and install patcher and dumper only; skip GUI and patch data.
+  -h, --help  Create/validate the config, show this help and exit without building.
+
+Configuration: $CONFIG_FILE
+Every mode creates all six default settings if this file is missing, and keeps
+an existing file. Edit its literal key=value settings to choose paths/app names.
+If settings are invalid, fix the file or delete it; the next run restores defaults.
+STORE_PATH overrides the CLI destination for one run, for example:
+  STORE_PATH="/path/to/Apollo CLI Tools" ./$SCRIPT_NAME --cli
+
+Missing repositories try SSH first, then HTTPS if SSH fails; --cli manages only
+apollo-lib. Existing checkouts keep their configured remotes.
+Build runs write WORKSPACE_DIR/build.log, replacing the previous log.
+Tools: Apple CLT/Xcode, git, cmake, python3, rsync, curl, tar, make, xattr and
+codesign. Python validates workspace paths in both modes; GUI also uses clang++
+and lsregister. Missing build tools use the existing automatic setup flow.
+Only owned build copies for the selected mode are replaced or cleaned on cancel.
+Signed, verified build outputs are retained; installed files are not rolled back.
+HELP
+}
+
 STORE_PATH_OVERRIDE="${STORE_PATH:-}"
 LOG_FILE=""
 UI_ACCENT="" UI_OK="" UI_WARN="" UI_ERROR="" UI_RESET=""
@@ -25,6 +78,8 @@ CLI_BUILD_READY=0
 BUILD_OUTPUTS_READY=0
 GUI_STAGING_DIR=""
 GUI_STAGING_PARENT=""
+CLONE_STAGING_DIR=""
+CLONE_STAGING_PARENT=""
 
 # Only the display loop is backgrounded; build commands remain foreground jobs.
 start_work_indicator() {
@@ -38,7 +93,7 @@ start_work_indicator() {
         local use_zselect=0
         zmodload zsh/zselect 2>/dev/null && use_zselect=1
         while kill -0 "$owner_pid" 2>/dev/null; do
-            printf '\r\033[2K  %s Working' "${frames[$frame]}"
+            printf '\r\033[2K  %s Building' "${frames[$frame]}"
             if (( use_zselect )); then
                 zselect -t 10 || true
             else
@@ -68,13 +123,17 @@ ui_emit() {
 }
 
 ui_banner() {
-    ui_emit "$UI_ACCENT" $'\n+----------------------------------------------------------------+\n|  👾 Apollo macOS · Universal2 CLI + GUI                          |\n+----------------------------------------------------------------+'
+    local banner_line="|  👾 Apollo macOS · ${(r:44:)BUILD_LABEL}|"
+    ui_emit "$UI_ACCENT" "
++----------------------------------------------------------------+
+$banner_line
++----------------------------------------------------------------+"
 }
 
 ui_section() {
     ui_emit "$UI_ACCENT" "
 +----------------------------------------------------------------+
-  [$1/8] $2  $3
+  [$1/$TOTAL_STAGES] $2  $3
 +----------------------------------------------------------------+"
 }
 
@@ -103,7 +162,7 @@ initialize_build_log() {
         (setopt noclobber; umask 077; : > "$log_target") || return 1
     fi
     LOG_FILE="$log_target"
-    log_detail "Apollo macOS · Universal2 CLI + GUI" "[1/8] Configuration & tools"
+    log_detail "Apollo macOS · $BUILD_LABEL" "[1/$TOTAL_STAGES] Configuration & tools"
     log_detail "Configuration: $CONFIG_FILE"
 }
 
@@ -154,12 +213,14 @@ finish_logged_step() {
 }
 
 cleanup_cancelled_work() {
-    local managed_root staging_root cleanup_ok=1
-    # The same two-child, ownership, physical-path and source-overlap checks
-    # used before normal workspace preparation must pass before either deletion.
+    local managed_name managed_root staging_root cleanup_ok=1
+    cleanup_clone_staging || true
+    # Reuse the selected mode's ownership, physical-path and source-overlap
+    # checks before deleting any active partial build copy.
     if (( BUILD_WORKSPACE_ACTIVE && ! BUILD_OUTPUTS_READY )); then
         if validate_build_workspace; then
-            for managed_root in "$lib_build_root" "$gui_build_root"; do
+            for managed_name in "${MANAGED_BUILD_CHILDREN[@]}"; do
+                managed_root="${BUILD_DIR%/}/$managed_name"
                 if [ -d "$managed_root" ]; then
                     if ! rm -rf -- "$managed_root" >> "$LOG_FILE" 2>&1; then
                         cleanup_ok=0
@@ -260,6 +321,7 @@ load_configuration() {
     local line_number=0
     local -A config_values
     local -a required_keys=(WORKSPACE_DIR STORE_PATH BUILD_DIR GUI_INSTALL_DIR GUI_BUILD_APP_NAME GUI_INSTALL_APP_NAME)
+    CONFIG_ERROR_SOURCE=config
 
     if [ ! -e "$CONFIG_FILE" ]; then
         # noclobber also protects an existing file created by a concurrent run.
@@ -360,6 +422,7 @@ CONFIG
     GUI_BUILD_APP_NAME="${config_values[GUI_BUILD_APP_NAME]}"
     GUI_INSTALL_APP_NAME="${config_values[GUI_INSTALL_APP_NAME]}"
     if [ -n "$STORE_PATH_OVERRIDE" ]; then
+        CONFIG_ERROR_SOURCE=environment
         expand_config_path "$STORE_PATH_OVERRIDE" "STORE_PATH override" || return 1
         STORE_PATH="$REPLY"
     fi
@@ -367,9 +430,22 @@ CONFIG
 }
 
 # Validate all settings before any installation, repository mutation, or cleanup.
-ui_banner
-ui_section 1 "🧰" "Configuration & tools"
-load_configuration || exit 1
+if (( ! SHOW_HELP )); then
+    ui_banner
+    ui_section 1 "🧰" "Configuration & tools"
+fi
+if ! load_configuration; then
+    if [[ "$CONFIG_ERROR_SOURCE" == environment ]]; then
+        ui_emit "$UI_ERROR" "Fix or unset the STORE_PATH environment override, then rerun. Configuration file: $CONFIG_FILE" >&2
+    else
+        ui_emit "$UI_ERROR" "Fix the settings in $CONFIG_FILE, or delete that file so the next run regenerates all defaults." >&2
+    fi
+    exit 1
+fi
+if (( SHOW_HELP )); then
+    show_help
+    exit 0
+fi
 initialize_build_log || exit 1
 
 # Apple's LaunchServices location is shared by Intel and Apple Silicon macOS.
@@ -409,20 +485,87 @@ MBEDTLS_URL=""
 
 apollo_repo_dir="$WORKSPACE_DIR/apollo-lib"
 repo_root=""
-gui_repo_root=""
-patches_repo_root=""
+# Path-only roots protect inactive source locations without accessing repositories.
+gui_repo_root="$WORKSPACE_DIR/apollo-patcher"
+patches_repo_root="$WORKSPACE_DIR/apollo-patches"
 lib_build_root=""
 gui_build_root=""
 BUILD_OWNER_MARKER=".apollo-lib-macos-build"
 BUILD_OWNER_CONTENT="apollo-lib-macos managed workspace v1"
+cleanup_clone_staging() {
+    local staging_root
+    [ -n "$CLONE_STAGING_DIR" ] || return 0
+    if [ ! -L "$CLONE_STAGING_DIR" ] && [ -d "$CLONE_STAGING_DIR" ] &&
+       [[ "${CLONE_STAGING_DIR:h}" == "$CLONE_STAGING_PARENT" && "${CLONE_STAGING_DIR:t}" == .apollo-source.* ]] &&
+       staging_root="$(physical_path "$CLONE_STAGING_DIR")" && [[ "$staging_root" == "$CLONE_STAGING_DIR" ]]; then
+        if rm -rf -- "$CLONE_STAGING_DIR" >> "$LOG_FILE" 2>&1; then
+            CLONE_STAGING_DIR=""
+            return 0
+        fi
+    fi
+    ui_emit "$UI_WARN" "  ⚠ Source clone staging cleanup refused or failed: $CLONE_STAGING_DIR" >&2 || true
+    return 1
+}
+
+clone_source_repository() {
+    local source_name="$1" ssh_url="$2" destination="$3" clone_status ssh_transport https_transport
+    local https_url="https://github.com/${ssh_url#git@github.com:}"
+    if [ -e "$destination" ] || [ -L "$destination" ]; then
+        ui_emit "$UI_ERROR" "Error: refusing to clone over an existing source destination: $destination" >&2
+        return 1
+    fi
+    clone_transport_label "$ssh_url"
+    ssh_transport="$REPLY"
+    CLONE_STAGING_PARENT="$WORKSPACE_DIR"
+    CLONE_STAGING_DIR="$(mktemp -d "$CLONE_STAGING_PARENT/.apollo-source.XXXXXX")" || return 1
+    if run_logged "Clone $source_name via $ssh_transport" "$GIT_BIN" clone "$ssh_url" "$CLONE_STAGING_DIR/repository"; then
+        clone_status=0
+    else
+        clone_status=$?
+        cleanup_clone_staging || return "$clone_status"
+        # A cancelled command must not trigger another network operation.
+        if (( clone_status == 130 || clone_status == 143 )); then return "$clone_status"; fi
+        clone_transport_label "$https_url"
+        https_transport="$REPLY"
+        ui_emit "$UI_WARN" "  ⚠ Clone failed for $source_name; retrying via $https_transport."
+        CLONE_STAGING_DIR="$(mktemp -d "$CLONE_STAGING_PARENT/.apollo-source.XXXXXX")" || return 1
+        if run_logged "Clone $source_name via $https_transport" "$GIT_BIN" clone "$https_url" "$CLONE_STAGING_DIR/repository"; then
+            clone_status=0
+        else
+            clone_status=$?
+            cleanup_clone_staging || true
+            return "$clone_status"
+        fi
+    fi
+
+    # Promotion is exclusive: a destination created meanwhile is preserved.
+    if run_logged "Promote $source_name source checkout" "$PYTHON3_BIN" -c '
+import ctypes, os, sys
+library = ctypes.CDLL(None, use_errno=True)
+rename_exclusive = library.renamex_np
+rename_exclusive.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_uint]
+rename_exclusive.restype = ctypes.c_int
+RENAME_EXCL = 0x4  # macOS: atomically refuse an existing destination.
+if rename_exclusive(os.fsencode(sys.argv[1]), os.fsencode(sys.argv[2]), RENAME_EXCL):
+    error = ctypes.get_errno()
+    raise OSError(error, os.strerror(error), sys.argv[2])
+' "$CLONE_STAGING_DIR/repository" "$destination"; then
+        cleanup_clone_staging
+    else
+        clone_status=$?
+        cleanup_clone_staging || true
+        return "$clone_status"
+    fi
+}
+
 resolve_repo_root() {
-    if [ ! -e "$apollo_repo_dir" ]; then
+    if [ ! -e "$apollo_repo_dir" ] && [ ! -L "$apollo_repo_dir" ]; then
         if [ ! -x "$GIT_BIN" ]; then
             ui_emit "$UI_ERROR" "Error: git is required to clone apollo-lib but was not found." >&2
             exit 1
         fi
 
-        run_logged "Clone apollo-lib" "$GIT_BIN" clone "$APOLLO_REPO_URL" "$apollo_repo_dir"
+        clone_source_repository "apollo-lib" "$APOLLO_REPO_URL" "$apollo_repo_dir"
         repo_root="$(cd "$apollo_repo_dir" && pwd)"
         return
     fi
@@ -439,8 +582,8 @@ resolve_repo_root() {
 resolve_gui_repo_root() {
     local gui_repo_dir="$WORKSPACE_DIR/apollo-patcher"
 
-    if [ ! -e "$gui_repo_dir" ]; then
-        run_logged "Clone apollo-patcher" "$GIT_BIN" clone "$APOLLO_GUI_REPO_URL" "$gui_repo_dir"
+    if [ ! -e "$gui_repo_dir" ] && [ ! -L "$gui_repo_dir" ]; then
+        clone_source_repository "apollo-patcher" "$APOLLO_GUI_REPO_URL" "$gui_repo_dir"
     fi
 
     if [ -d "$gui_repo_dir" ]; then
@@ -455,8 +598,8 @@ resolve_gui_repo_root() {
 resolve_patches_repo_root() {
     local patches_repo_dir="$WORKSPACE_DIR/apollo-patches"
 
-    if [ ! -e "$patches_repo_dir" ]; then
-        run_logged "Clone apollo-patches" "$GIT_BIN" clone "$APOLLO_PATCHES_REPO_URL" "$patches_repo_dir"
+    if [ ! -e "$patches_repo_dir" ] && [ ! -L "$patches_repo_dir" ]; then
+        clone_source_repository "apollo-patches" "$APOLLO_PATCHES_REPO_URL" "$patches_repo_dir"
     fi
 
     if [ -d "$patches_repo_dir" ]; then
@@ -466,6 +609,56 @@ resolve_patches_repo_root() {
 
     ui_emit "$UI_ERROR" "Unable to locate the apollo-patches repository from: $WORKSPACE_DIR" >&2
     exit 1
+}
+
+url_transport_label() {
+    local remote_url="$1"
+    REPLY="configured remote"
+    case "$remote_url" in
+        '') ;;
+        ssh://*|git+ssh://*) REPLY=SSH ;;
+        https://*) REPLY=HTTPS ;;
+        http://*) REPLY=HTTP ;;
+        file://*) REPLY=local ;;
+        *://*) REPLY=other ;;
+        *)
+            if [[ "$remote_url" =~ '^[^/:[:space:]]+:' ]]; then REPLY=SSH
+            else REPLY=local
+            fi
+            ;;
+    esac
+}
+
+clone_transport_label() {
+    local requested_url="$1" effective_url
+    # --get-url only expands Git URL rewrites, without contacting the remote.
+    effective_url="$("$GIT_BIN" ls-remote --get-url "$requested_url" 2>/dev/null || true)"
+    url_transport_label "${effective_url:-$requested_url}"
+}
+
+source_transport_label() {
+    local source_root="$1" branch_name tracking_remote remote_url
+    local -a remotes
+    REPLY="configured remote"
+    branch_name="$("$GIT_BIN" -C "$source_root" symbolic-ref --quiet --short HEAD 2>/dev/null || true)"
+    if [ -n "$branch_name" ]; then
+        tracking_remote="$("$GIT_BIN" -C "$source_root" config --get "branch.$branch_name.remote" 2>/dev/null || true)"
+    fi
+    if [ -z "$tracking_remote" ]; then
+        remotes=("${(@f)$("$GIT_BIN" -C "$source_root" remote 2>/dev/null || true)}")
+        if (( ${#remotes} == 1 )) && [ -n "$remotes[1]" ]; then
+            tracking_remote="$remotes[1]"
+        elif (( ${remotes[(Ie)origin]} )); then
+            tracking_remote=origin
+        else
+            return 0
+        fi
+    fi
+    if [[ "$tracking_remote" == . ]]; then REPLY=local; return 0; fi
+    # get-url applies Git's insteadOf rewrites; URLs may contain credentials.
+    # Keep them internal and show only the transport label.
+    remote_url="$("$GIT_BIN" -C "$source_root" remote get-url "$tracking_remote" 2>/dev/null || true)"
+    url_transport_label "$remote_url"
 }
 
 pull_latest_source() {
@@ -482,7 +675,8 @@ pull_latest_source() {
         return
     fi
 
-    run_logged "Update $source_name (fast-forward only)" "$GIT_BIN" -C "$source_root" pull --ff-only
+    source_transport_label "$source_root"
+    run_logged "Update $source_name via $REPLY (fast-forward only)" "$GIT_BIN" -C "$source_root" pull --ff-only
 }
 
 validate_repository_layout() {
@@ -1067,7 +1261,11 @@ validate_build_workspace() {
     local -a source_roots=()
 
     build_root="$(physical_path "$BUILD_DIR")" || return 1
-    for source_root in "$repo_root" "$gui_repo_root" "$patches_repo_root"; do
+    for source_root in "$repo_root" "$gui_repo_root" "$patches_repo_root" \
+        "${WORKSPACE_DIR:+$WORKSPACE_DIR/apollo-lib}" \
+        "${WORKSPACE_DIR:+$WORKSPACE_DIR/apollo-patcher}" \
+        "${WORKSPACE_DIR:+$WORKSPACE_DIR/apollo-patches}"; do
+        [ -n "$source_root" ] || continue
         source_root="$(physical_path "$source_root")" || return 1
         source_roots+=("$source_root")
     done
@@ -1079,8 +1277,8 @@ validate_build_workspace() {
         fi
     done
 
-    # Check BOTH disposable children before removing either of them.
-    for managed_name in apollo-lib apollo-patcher; do
+    # Check all active disposable children before removing any of them.
+    for managed_name in "${MANAGED_BUILD_CHILDREN[@]}"; do
         managed_root="${build_root%/}/$managed_name"
         if [ -L "$managed_root" ]; then
             ui_emit "$UI_ERROR" "Error: refusing symlink build workspace: $managed_root" >&2
@@ -1118,6 +1316,7 @@ validate_build_workspace() {
 
 prepare_build_workspace() {
     local managed_name managed_root copied_dir copied_root
+    local -a copied_dirs
     local -a copy_excludes=(
         --exclude=.git --exclude=.tmp/ --exclude=tmp/
         --exclude=build/ --exclude=dist/ '--exclude=mbedtls-*/'
@@ -1130,7 +1329,7 @@ prepare_build_workspace() {
     validate_build_workspace || return 1
     mkdir -p "$BUILD_DIR" || return 1
     validate_build_workspace || return 1
-    for managed_name in apollo-lib apollo-patcher; do
+    for managed_name in "${MANAGED_BUILD_CHILDREN[@]}"; do
         managed_root="${BUILD_DIR%/}/$managed_name"
         if [ -e "$managed_root" ]; then
             run_logged "Remove previous $managed_name build copy" rm -rf -- "$managed_root" || return 1
@@ -1141,10 +1340,14 @@ prepare_build_workspace() {
     done
 
     run_logged "Copy current library sources" "$RSYNC_BIN" -a "${copy_excludes[@]}" "$repo_root/" "$lib_build_root/" || return 1
-    run_logged "Copy current GUI sources" "$RSYNC_BIN" -a "${copy_excludes[@]}" "$gui_repo_root/" "$gui_build_root/" || return 1
+    copied_dirs=("$lib_build_root/tools" "$lib_build_root/source")
+    if (( ! CLI_ONLY )); then
+        run_logged "Copy current GUI sources" "$RSYNC_BIN" -a "${copy_excludes[@]}" "$gui_repo_root/" "$gui_build_root/" || return 1
+        copied_dirs+=("$gui_build_root/gui/src")
+    fi
 
     # rsync preserves symlinks; build-output directories must remain in the copies.
-    for copied_dir in "$lib_build_root/tools" "$lib_build_root/source" "$gui_build_root/gui/src"; do
+    for copied_dir in "${copied_dirs[@]}"; do
         copied_root="$(physical_path "$copied_dir")" || return 1
         if [[ "$copied_dir" == "$lib_build_root/"* ]]; then
             managed_root="$lib_build_root"
@@ -1193,7 +1396,7 @@ if [ ! -x "$CMAKE_BIN" ]; then
 fi
 
 if [ ! -x "$PYTHON3_BIN" ]; then
-    ui_emit "$UI_ERROR" "Error: python3 is required to generate GUI patch data and icons but was not found." >&2
+    ui_emit "$UI_ERROR" "Error: python3 is required for workspace path validation (and GUI data/icons in full mode) but was not found." >&2
     exit 1
 fi
 
@@ -1217,11 +1420,13 @@ if [ ! -x "$XCRUN_BIN" ]; then
     exit 1
 fi
 
-resolve_lsregister_bin
-if [ ! -x "$LSREGISTER_BIN" ]; then
-    ui_emit "$UI_ERROR" "Error: lsregister is required to register the installed Apollo GUI bundle but was not found on PATH or at: $LSREGISTER_SYSTEM_BIN" >&2
-    ui_emit "$UI_ERROR" "Provide an executable lsregister on PATH or restore Apple's LaunchServices tool, then rerun." >&2
-    exit 1
+if (( ! CLI_ONLY )); then
+    resolve_lsregister_bin
+    if [ ! -x "$LSREGISTER_BIN" ]; then
+        ui_emit "$UI_ERROR" "Error: lsregister is required to register the installed Apollo GUI bundle but was not found on PATH or at: $LSREGISTER_SYSTEM_BIN" >&2
+        ui_emit "$UI_ERROR" "Provide an executable lsregister on PATH or restore Apple's LaunchServices tool, then rerun." >&2
+        exit 1
+    fi
 fi
 
 APPLE_CLANG_BIN="$("$XCRUN_BIN" --sdk macosx --find clang 2>/dev/null || true)"
@@ -1230,10 +1435,12 @@ if [ ! -x "$APPLE_CLANG_BIN" ]; then
     exit 1
 fi
 
-APPLE_CLANGPP_BIN="$("$XCRUN_BIN" --sdk macosx --find clang++ 2>/dev/null || true)"
-if [ ! -x "$APPLE_CLANGPP_BIN" ]; then
-    ui_emit "$UI_ERROR" "Error: Apple clang++ was not found via xcrun --sdk macosx --find clang++: $APPLE_CLANGPP_BIN" >&2
-    exit 1
+if (( ! CLI_ONLY )); then
+    APPLE_CLANGPP_BIN="$("$XCRUN_BIN" --sdk macosx --find clang++ 2>/dev/null || true)"
+    if [ ! -x "$APPLE_CLANGPP_BIN" ]; then
+        ui_emit "$UI_ERROR" "Error: Apple clang++ was not found via xcrun --sdk macosx --find clang++: $APPLE_CLANGPP_BIN" >&2
+        exit 1
+    fi
 fi
 
 LIPO_BIN="$("$XCRUN_BIN" --find lipo 2>/dev/null || true)"
@@ -1254,30 +1461,39 @@ ui_done "Build tools ready"
 apollo_repo_dir="$WORKSPACE_DIR/apollo-lib"
 ui_section 2 "🔄" "Source repositories"
 resolve_repo_root
-resolve_gui_repo_root
-resolve_patches_repo_root
+if (( ! CLI_ONLY )); then
+    resolve_gui_repo_root
+    resolve_patches_repo_root
+fi
 
 cd "$repo_root"
 
 pull_latest_source "$repo_root" "apollo-lib"
-pull_latest_source "$gui_repo_root" "apollo-patcher"
-pull_latest_source "$patches_repo_root" "apollo-patches"
 validate_repository_layout "$repo_root" "apollo-lib" tools/Makefile include/apollo.h
-validate_repository_layout "$gui_repo_root" "apollo-patcher" \
-    CMakeLists.txt gui/CMakeLists.txt core/apollo_ctrl.c \
-    tools/make-bundle.py tools/make-type-icons.py \
-    gui/assets/fonts/NotoSansJP-Medium.otf gui/assets/fonts/OFL.txt gui/assets/icon.icns
-validate_repository_layout "$patches_repo_root" "apollo-patches" PSP/gamekeys.txt
-if [ ! -d "$patches_repo_root/python" ]; then
-    ui_emit "$UI_ERROR" "Error: apollo-patches repository is missing required directory: $patches_repo_root/python" >&2
-    exit 1
+if (( ! CLI_ONLY )); then
+    pull_latest_source "$gui_repo_root" "apollo-patcher"
+    pull_latest_source "$patches_repo_root" "apollo-patches"
+    validate_repository_layout "$gui_repo_root" "apollo-patcher" \
+        CMakeLists.txt gui/CMakeLists.txt core/apollo_ctrl.c \
+        tools/make-bundle.py tools/make-type-icons.py \
+        gui/assets/fonts/NotoSansJP-Medium.otf gui/assets/fonts/OFL.txt gui/assets/icon.icns
+    validate_repository_layout "$patches_repo_root" "apollo-patches" PSP/gamekeys.txt
+    if [ ! -d "$patches_repo_root/python" ]; then
+        ui_emit "$UI_ERROR" "Error: apollo-patches repository is missing required directory: $patches_repo_root/python" >&2
+        exit 1
+    fi
 fi
 load_mbedtls_settings_from_workflow
-ui_done "Source layouts and desktop resources validated"
+if (( CLI_ONLY )); then
+    ui_done "Library source layout validated"
+else
+    ui_done "Source layouts and desktop resources validated"
+fi
 ui_section 3 "📁" "Disposable build workspace"
 BUILD_WORKSPACE_ACTIVE=1
 prepare_build_workspace
-log_detail "Library build workspace: $lib_build_root" "GUI build workspace: $gui_build_root"
+log_detail "Library build workspace: $lib_build_root"
+if (( ! CLI_ONLY )); then log_detail "GUI build workspace: $gui_build_root"; fi
 cd "$lib_build_root"
 
 ui_section 4 "🧱" "mbedTLS $MBEDTLS_VERSION"
@@ -1329,44 +1545,58 @@ sign_cli_artifact "$lib_build_root/tools/dumper"
 verify_cli_artifact "$lib_build_root/tools/patcher"
 verify_cli_artifact "$lib_build_root/tools/dumper"
 CLI_BUILD_READY=1
+if (( CLI_ONLY )); then BUILD_OUTPUTS_READY=1; fi
 cd "$lib_build_root"
 
-ui_section 6 "💻" "GUI build & bundled database"
-run_logged --animate "Configure Universal2 GUI and resources" "$CMAKE_BIN" -S "$gui_build_root" -B "$gui_build_root/build" \
-    -DAPOLLO_ROOT="$lib_build_root" \
-    -DAPOLLO_PATCHES="$patches_repo_root" \
-    -DGIT_EXECUTABLE="$GIT_BIN" \
-    -DPython3_EXECUTABLE="$PYTHON3_BIN" \
-    -DAPOLLO_BUILD_GUI=ON \
-    -DCMAKE_BUILD_TYPE=Release \
-    -DCMAKE_C_COMPILER="$APPLE_CLANG_BIN" \
-    -DCMAKE_CXX_COMPILER="$APPLE_CLANGPP_BIN" \
-    -DCMAKE_OSX_ARCHITECTURES="$UNIVERSAL_CMAKE_ARCHITECTURES" \
-    -DCMAKE_OSX_DEPLOYMENT_TARGET="$MACOS_DEPLOYMENT_TARGET" \
-    -DCMAKE_OSX_SYSROOT="$MACOS_SDK_PATH"
-run_logged --animate "Build GUI, database, font and icons" "$CMAKE_BIN" --build "$gui_build_root/build" --parallel
+if (( ! CLI_ONLY )); then
+    ui_section 6 "💻" "GUI build & bundled database"
+    run_logged --animate "Configure Universal2 GUI and resources" "$CMAKE_BIN" -S "$gui_build_root" -B "$gui_build_root/build" \
+        -DAPOLLO_ROOT="$lib_build_root" \
+        -DAPOLLO_PATCHES="$patches_repo_root" \
+        -DGIT_EXECUTABLE="$GIT_BIN" \
+        -DPython3_EXECUTABLE="$PYTHON3_BIN" \
+        -DAPOLLO_BUILD_GUI=ON \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_C_COMPILER="$APPLE_CLANG_BIN" \
+        -DCMAKE_CXX_COMPILER="$APPLE_CLANGPP_BIN" \
+        -DCMAKE_OSX_ARCHITECTURES="$UNIVERSAL_CMAKE_ARCHITECTURES" \
+        -DCMAKE_OSX_DEPLOYMENT_TARGET="$MACOS_DEPLOYMENT_TARGET" \
+        -DCMAKE_OSX_SYSROOT="$MACOS_SDK_PATH"
+    run_logged --animate "Build GUI, database, font and icons" "$CMAKE_BIN" --build "$gui_build_root/build" --parallel
 
-ui_section 7 "🔏" "GUI signing, installation & registration"
-store_gui_bundle
+    ui_section 7 "🔏" "GUI signing, installation & registration"
+    store_gui_bundle
+fi
 
-# Call the function to store binaries
-ui_section 8 "📦" "CLI installation"
+# Install CLI in the last stage of either mode.
+ui_section "$TOTAL_STAGES" "📦" "CLI installation"
 store_binaries
-case "$GUI_INSTALL_RESULT" in
-    installed)
-        completion_message="Apollo build and installation complete"
-        gui_summary="$GUI_INSTALL_DIR/$GUI_INSTALL_APP_NAME"
-        ;;
-    registration-warning)
-        completion_message="Apollo build complete · GUI registration warning"
-        gui_summary="$GUI_INSTALL_DIR/$GUI_INSTALL_APP_NAME (installed; registration failed)"
-        ;;
-    *)
-        completion_message="Apollo build complete · GUI needs manual installation"
-        gui_summary="$GUI_BUILD_APP_PATH (copy manually)"
-        ;;
-esac
-ui_emit "$UI_OK" "
+
+# Summarize the selected mode and actual installation result.
+if (( CLI_ONLY )); then
+    ui_emit "$UI_OK" "
++----------------------------------------------------------------+
+  ✓ Apollo CLI build and installation complete
++----------------------------------------------------------------+
+  CLI: $STORE_PATH
+  Log: $LOG_FILE
+"
+else
+    case "$GUI_INSTALL_RESULT" in
+        installed)
+            completion_message="Apollo build and installation complete"
+            gui_summary="$GUI_INSTALL_DIR/$GUI_INSTALL_APP_NAME"
+            ;;
+        registration-warning)
+            completion_message="Apollo build complete · GUI registration warning"
+            gui_summary="$GUI_INSTALL_DIR/$GUI_INSTALL_APP_NAME (installed; registration failed)"
+            ;;
+        *)
+            completion_message="Apollo build complete · GUI needs manual installation"
+            gui_summary="$GUI_BUILD_APP_PATH (copy manually)"
+            ;;
+    esac
+    ui_emit "$UI_OK" "
 +----------------------------------------------------------------+
   ✓ $completion_message
 +----------------------------------------------------------------+
@@ -1374,3 +1604,4 @@ ui_emit "$UI_OK" "
   CLI: $STORE_PATH
   Log: $LOG_FILE
 "
+fi
