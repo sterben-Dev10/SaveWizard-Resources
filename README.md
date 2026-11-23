@@ -25,7 +25,8 @@ https://qcgenerators.com
 ## Discord Servers
 
 - [Slayer's Ice Realm](https://discord.gg/Yqfz7EBjEG)
-- [Save Wizard Discord](https://discord.gg/3N8gWYk)
+- [PlayStation Mods and Saves](https://discord.gg/3N8gWYk)
+- [Save Wizard Discord](https://discord.gg/save-wizard)
 - [Boosting/Teaming Up](https://discord.gg/GPpWCgw6uy)
 - [XDG Nation](https://discord.gg/P7WWvf6xPP)
 - [Xcier](https://discord.gg/protobuffers) — SW alternative utilities
