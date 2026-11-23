@@ -38,6 +38,7 @@ https://qcgenerators.com
 | --- | --- |
 | Slayer's Ice Realm Code Vault | [Slayer's Code Vault](https://docs.google.com/spreadsheets/d/16pNesZUCFnSW2UQq2DvmfdUQw-ZADhv_t9QkfzbE6sY) |
 | Save Decryption/Encryption (Free) [PS4/PS5] | [Garlicsaves](https://garlicsaves.com/) · [Support Server](https://discord.gg/WAjsqN5FUb) |
+| Save Transfer [PS5] | [GarlicTransfer](https://github.com/earthonion/GarlicTransfer) — Transfer saves between a PC and a stock PS5. |
 | SW Discord Code Vault | [SW Code Vault](https://docs.google.com/spreadsheets/d/1pln64WRA8QhhrW1QBDEn97HEbp4gdvBNd3GnrC4Bg5c) |
 | [Skiller's](https://github.com/SkillerCMP) Codes Archive | [Skillers World](https://drive.google.com/drive/folders/12PiWyP3uaSvMxTxc0FmA0utoOmWtzbER) |
 | [Skiller's](https://github.com/SkillerCMP) CMPCodeDatabase | [Code Database](https://github.com/SkillerCMP/CMPCodeDatabase) · [Database Files](https://drive.google.com/drive/folders/1MoOYhItCwsTypEkn8a98TY3O32t8WnIe) · [CMPCodeDB-Docs](https://docs.google.com/spreadsheets/d/1bXIFMXSV1v4YUuZjew7ax5i_VY4FXqS0rMQw2vQuVO4/edit?gid=1893676942#gid=1893676942) |
